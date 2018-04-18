@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.fragments.CheckCaseCalcuFragment"
+    tools:ignore="PxUsage">
+
+
+
+    <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawRing
+        android:id="@+id/check_case_calcu_ring"
+        android:layout_width="350px"
+        android:layout_height="350px"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

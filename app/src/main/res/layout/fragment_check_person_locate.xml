@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.fragments.CheckPersonLocateFragment">
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/check_person_locate_mapview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="300px"
+        android:layout_height="400px"
+        android:layout_alignParentEnd="true"
+        android:background="#9f000000"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:ignore="PxUsage">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:background="@android:color/holo_red_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:gravity="center"
+                android:text="巡察一组"
+                android:textColor="#fff"
+                android:textSize="30px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:background="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:gravity="center"
+                android:text="巡察二组"
+                android:textColor="#fff"
+                android:textSize="30px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:background="#FFFF00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:gravity="center"
+                android:text="巡察三组"
+                android:textColor="#fff"
+                android:textSize="30px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:background="@android:color/holo_orange_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:gravity="center"
+                android:text="巡察四组"
+                android:textColor="#fff"
+                android:textSize="30px" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
