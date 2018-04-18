@@ -95,6 +95,7 @@
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:background="#FFFFF0"
         android:weightSum="4">
 
         <LinearLayout

@@ -54,7 +54,7 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
 
     private fun startRingAnimation() {
         val progressAnimator = ValueAnimator.ofFloat(0f, 120f)
-        progressAnimator.duration = 2000
+        progressAnimator.duration = 1000
         progressAnimator.interpolator = AnticipateOvershootInterpolator()
         progressAnimator.setTarget(mCurrentAngleLength)
         progressAnimator.addUpdateListener { animation ->

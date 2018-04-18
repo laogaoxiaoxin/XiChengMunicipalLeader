@@ -6,12 +6,48 @@
     tools:context=".views.fragments.CheckCaseCalcuFragment"
     tools:ignore="PxUsage">
 
+    <LinearLayout
+        android:id="@+id/ll_check_case_calcu_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="3">
 
+        <Spinner
+            android:id="@+id/check_case_calcu_type"
+            android:layout_width="0dp"
+            android:layout_height="50px"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:id="@+id/check_case_calcu_address"
+            android:layout_width="0dp"
+            android:layout_height="50px"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:id="@+id/check_case_calcu_duration"
+            android:layout_width="0dp"
+            android:layout_height="50px"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/ll_check_case_calcu_select"
+        android:layout_marginTop="70px"
+        android:background="#a6a6a6" />
 
     <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawRing
         android:id="@+id/check_case_calcu_ring"
         android:layout_width="350px"
         android:layout_height="350px"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@id/ll_check_case_calcu_select"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150px" />
 
 </RelativeLayout>
