@@ -1,4 +1,4 @@
-package com.lovelyjiaming.municipalleader.views.fragments
+package com.lovelyjiaming.municipalleader.views.fragments.danger
 
 
 import android.os.Bundle

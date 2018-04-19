@@ -4,13 +4,12 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.widget.ImageView
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
-import com.lovelyjiaming.municipalleader.views.fragments.CheckFragment
-import com.lovelyjiaming.municipalleader.views.fragments.DangerFragment
-import com.lovelyjiaming.municipalleader.views.fragments.EngineerFragment
-import com.lovelyjiaming.municipalleader.views.fragments.SaveFragment
+import com.lovelyjiaming.municipalleader.views.fragments.check.CheckFragment
+import com.lovelyjiaming.municipalleader.views.fragments.danger.DangerFragment
+import com.lovelyjiaming.municipalleader.views.fragments.Engineer.EngineerFragment
+import com.lovelyjiaming.municipalleader.views.fragments.save.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
