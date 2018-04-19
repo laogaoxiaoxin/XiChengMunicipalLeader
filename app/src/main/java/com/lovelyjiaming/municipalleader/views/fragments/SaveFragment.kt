@@ -43,6 +43,7 @@ class SaveFragment : Fragment() {
         }
         tbl_save_top.setupWithViewPager(viewpager_save)
         viewpager_save.currentItem = 0
+        viewpager_save.offscreenPageLimit = 1
     }
 
     companion object {

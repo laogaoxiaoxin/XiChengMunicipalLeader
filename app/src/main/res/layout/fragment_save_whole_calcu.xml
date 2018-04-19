@@ -7,6 +7,7 @@
     tools:ignore="PxUsage">
 
     <LinearLayout
+        android:id="@+id/ll_save_whole_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -68,6 +69,140 @@
             android:text="年度"
             android:textColor="#a4a4a4"
             android:textSize="30px" />
+    </LinearLayout>
+
+    <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawCirclePie
+        android:id="@+id/save_whole_pie"
+        android:layout_width="480px"
+        android:layout_height="480px"
+        android:layout_below="@id/ll_save_whole_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/ll_save_whole_title"
+        android:layout_marginEnd="40px"
+        android:layout_marginTop="250px"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="40px"
+                android:layout_height="30px"
+                android:background="#DB394A" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:text="状态一"
+                android:textColor="#DB394A"
+                android:textSize="25px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="40px"
+                android:layout_height="30px"
+                android:background="#9400D3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:text="状态二"
+                android:textColor="#9400D3"
+                android:textSize="25px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="40px"
+                android:layout_height="30px"
+                android:background="#97FFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:text="状态三"
+                android:textColor="#97FFFF"
+                android:textSize="25px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="40px"
+                android:layout_height="30px"
+                android:background="#90EE90" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:text="状态四"
+                android:textColor="#90EE90"
+                android:textSize="25px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="40px"
+                android:layout_height="30px"
+                android:background="#CDCD00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30px"
+                android:text="状态五"
+                android:textColor="#CDCD00"
+                android:textSize="25px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>
