@@ -14,38 +14,53 @@ class CustomDrawCirclePie(private val ctx: Context, val attr: AttributeSet) : Vi
     private var mThirdStatusPaint: Paint
     private var mFourthStatusPaint: Paint
     private var mFifthStatusPaint: Paint
+    //外圈
+    private var mOuterCirclePaint: Paint
 
     init {
         mFirstStatusPaint = Paint()
         mFirstStatusPaint.isAntiAlias = true
-        mFirstStatusPaint.style = Paint.Style.FILL
+        mFirstStatusPaint.style = Paint.Style.STROKE
         mFirstStatusPaint.strokeCap = Paint.Cap.SQUARE
-        mFirstStatusPaint.color = Color.parseColor("#DB394A")
+        mFirstStatusPaint.strokeWidth = 25f
+        mFirstStatusPaint.color = Color.parseColor("#9fDB394A")
 
         //
         mSecondStatusPaint = Paint()
+        mSecondStatusPaint.strokeWidth = 25f
         mSecondStatusPaint.isAntiAlias = true
-        mSecondStatusPaint.style = Paint.Style.FILL
+        mSecondStatusPaint.style = Paint.Style.STROKE
         mSecondStatusPaint.strokeCap = Paint.Cap.SQUARE
-        mSecondStatusPaint.color = Color.parseColor("#9400D3")
+        mSecondStatusPaint.color = Color.parseColor("#9f9400D3")
         //
         mThirdStatusPaint = Paint()
         mThirdStatusPaint.isAntiAlias = true
-        mThirdStatusPaint.style = Paint.Style.FILL
+        mThirdStatusPaint.style = Paint.Style.STROKE
+        mThirdStatusPaint.strokeWidth = 25f
         mThirdStatusPaint.strokeCap = Paint.Cap.SQUARE
-        mThirdStatusPaint.color = Color.parseColor("#97FFFF")
+        mThirdStatusPaint.color = Color.parseColor("#9f97FFFF")
         //
         mFourthStatusPaint = Paint()
         mFourthStatusPaint.isAntiAlias = true
-        mFourthStatusPaint.style = Paint.Style.FILL
+        mFourthStatusPaint.strokeWidth = 25f
+        mFourthStatusPaint.style = Paint.Style.STROKE
         mFourthStatusPaint.strokeCap = Paint.Cap.SQUARE
-        mFourthStatusPaint.color = Color.parseColor("#90EE90")
+        mFourthStatusPaint.color = Color.parseColor("#9f90EE90")
         //
         mFifthStatusPaint = Paint()
+        mFifthStatusPaint.strokeWidth = 25f
         mFifthStatusPaint.isAntiAlias = true
-        mFifthStatusPaint.style = Paint.Style.FILL
+        mFifthStatusPaint.style = Paint.Style.STROKE
         mFifthStatusPaint.strokeCap = Paint.Cap.SQUARE
-        mFifthStatusPaint.color = Color.parseColor("#CDCD00")
+        mFifthStatusPaint.color = Color.parseColor("#9fCDCD00")
+
+        //
+        mOuterCirclePaint = Paint()
+        mOuterCirclePaint.strokeWidth = 1f
+        mOuterCirclePaint.isAntiAlias = true
+        mOuterCirclePaint.color = Color.parseColor("#a2a2a2")
+        mOuterCirclePaint.style = Paint.Style.STROKE
+        mOuterCirclePaint.strokeCap = Paint.Cap.SQUARE
     }
 
     fun startAnimateDraw() {
@@ -71,10 +86,15 @@ class CustomDrawCirclePie(private val ctx: Context, val attr: AttributeSet) : Vi
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         val oval = RectF(40f, 40f, measuredWidth - 40f, measuredWidth - 40f)
-        canvas?.drawArc(oval, 0f, mUpdateValue, true, mFirstStatusPaint)
-        canvas?.drawArc(oval, 72f, mUpdateValue, true, mSecondStatusPaint)
-        canvas?.drawArc(oval, 144f, mUpdateValue, true, mThirdStatusPaint)
-        canvas?.drawArc(oval, 216f, mUpdateValue, true, mFourthStatusPaint)
-        canvas?.drawArc(oval, 288f, mUpdateValue, true, mFifthStatusPaint)
+
+        canvas?.apply {
+            drawArc(oval, 0f, mUpdateValue, false, mFirstStatusPaint)
+            drawArc(oval, 72f, mUpdateValue, false, mSecondStatusPaint)
+            drawArc(oval, 144f, mUpdateValue, false, mThirdStatusPaint)
+            drawArc(oval, 216f, mUpdateValue, false, mFourthStatusPaint)
+            drawArc(oval, 288f, mUpdateValue, false, mFifthStatusPaint)
+            drawCircle(measuredWidth / 2f, measuredWidth / 2f, measuredWidth / 2f - 5f, mOuterCirclePaint)
+        }
+
     }
 }

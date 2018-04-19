@@ -98,14 +98,14 @@
             <View
                 android:layout_width="40px"
                 android:layout_height="30px"
-                android:background="#DB394A" />
+                android:background="#9fDB394A" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
                 android:text="状态一"
-                android:textColor="#DB394A"
+                android:textColor="#9fDB394A"
                 android:textSize="25px"
                 android:textStyle="bold" />
 
@@ -121,14 +121,14 @@
             <View
                 android:layout_width="40px"
                 android:layout_height="30px"
-                android:background="#9400D3" />
+                android:background="#9f9400D3" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
                 android:text="状态二"
-                android:textColor="#9400D3"
+                android:textColor="#9f9400D3"
                 android:textSize="25px"
                 android:textStyle="bold" />
 
@@ -144,14 +144,14 @@
             <View
                 android:layout_width="40px"
                 android:layout_height="30px"
-                android:background="#97FFFF" />
+                android:background="#9f97FFFF" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
                 android:text="状态三"
-                android:textColor="#97FFFF"
+                android:textColor="#9f97FFFF"
                 android:textSize="25px"
                 android:textStyle="bold" />
 
@@ -167,14 +167,14 @@
             <View
                 android:layout_width="40px"
                 android:layout_height="30px"
-                android:background="#90EE90" />
+                android:background="#9f90EE90" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
                 android:text="状态四"
-                android:textColor="#90EE90"
+                android:textColor="#9f90EE90"
                 android:textSize="25px"
                 android:textStyle="bold" />
 
@@ -190,14 +190,14 @@
             <View
                 android:layout_width="40px"
                 android:layout_height="30px"
-                android:background="#CDCD00" />
+                android:background="#9fCDCD00" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
                 android:text="状态五"
-                android:textColor="#CDCD00"
+                android:textColor="#9fCDCD00"
                 android:textSize="25px"
                 android:textStyle="bold" />
 
