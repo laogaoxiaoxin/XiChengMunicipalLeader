@@ -9,7 +9,7 @@ import android.view.ViewGroup
 
 import com.lovelyjiaming.municipalleader.R
 
-class SaveFragment : Fragment() {
+class SaveWholeCalcuFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,11 +18,11 @@ class SaveFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_save, container, false)
+        return inflater.inflate(R.layout.fragment_save_whole_calcu, container, false)
     }
 
 
     companion object {
-        fun newInstance() = SaveFragment()
+        fun newInstance() = SaveWholeCalcuFragment()
     }
 }

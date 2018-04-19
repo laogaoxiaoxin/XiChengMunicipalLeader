@@ -13,12 +13,7 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.views.adapter.CheckCalcuCaseAdapter
 import kotlinx.android.synthetic.main.fragment_check_case_calcu.*
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CheckCaseCalcuFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
+
 class CheckCaseCalcuFragment : Fragment() {
 
     //for spinner

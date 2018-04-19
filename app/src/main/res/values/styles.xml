@@ -9,7 +9,7 @@
     </style>
 
     <style name="TabLayoutTextStyle">
-        <item name="android:textSize" tools:ignore="PxUsage">40px</item>
+        <item name="android:textSize" tools:ignore="PxUsage">45px</item>
     </style>
 
 </resources>

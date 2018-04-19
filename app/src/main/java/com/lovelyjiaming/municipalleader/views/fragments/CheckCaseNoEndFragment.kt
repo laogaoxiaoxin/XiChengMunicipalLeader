@@ -13,17 +13,6 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
 import kotlinx.android.synthetic.main.fragment_check_case_no_end.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CheckCaseNoEndFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class CheckCaseNoEndFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
