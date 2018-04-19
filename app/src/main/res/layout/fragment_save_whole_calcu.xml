@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.SaveWholeCalcuFragment">
+    tools:context=".views.fragments.SaveWholeCalcuFragment"
+    tools:ignore="PxUsage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/save_whole_top_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="12px"
+            android:paddingLeft="90px"
+            android:paddingRight="90px"
+            android:paddingTop="12px"
+            android:text="周"
+            android:textColor="#a4a4a4"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/save_whole_top_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="12px"
+            android:paddingLeft="90px"
+            android:paddingRight="90px"
+            android:paddingTop="12px"
+            android:text="月"
+            android:textColor="#a4a4a4"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/save_whole_top_3month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="12px"
+            android:paddingLeft="80px"
+            android:paddingRight="80px"
+            android:paddingTop="12px"
+            android:text="季度"
+            android:textColor="#a4a4a4"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/save_whole_top_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="12px"
+            android:paddingLeft="80px"
+            android:paddingRight="80px"
+            android:paddingTop="12px"
+            android:text="年度"
+            android:textColor="#a4a4a4"
+            android:textSize="30px" />
+    </LinearLayout>
+
+</RelativeLayout>
