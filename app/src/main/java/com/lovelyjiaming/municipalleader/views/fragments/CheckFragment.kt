@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_check.*
 class CheckFragment : Fragment() {
 
     private val m_listCheckFragments: List<Fragment> by lazy {
-        listOf(CheckPersonLocateFragment.newInstance("", ""), CheckCaseNoEndFragment.newInstance("", ""), CheckCaseCalcuFragment.newInstance("", ""))
+        listOf(CheckPersonLocateFragment.newInstance(), CheckCaseNoEndFragment.newInstance(), CheckCaseCalcuFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
 

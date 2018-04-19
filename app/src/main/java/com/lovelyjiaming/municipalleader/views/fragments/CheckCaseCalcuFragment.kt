@@ -1,17 +1,16 @@
 package com.lovelyjiaming.municipalleader.views.fragments
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import com.lovelyjiaming.municipalleader.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.lovelyjiaming.municipalleader.R.id.check_case_calcu_type
+import kotlinx.android.synthetic.main.fragment_check_case_calcu.*
 
 /**
  * A simple [Fragment] subclass.
@@ -20,16 +19,14 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class CheckCaseCalcuFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    //for spinner
+    val mArrForSel: ArrayList<String> =
+            arrayListOf("案件类型选择1", "案件类型选择2", "案件类型选择3", "案件类型选择4", "案件类型选择5")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -40,25 +37,22 @@ class CheckCaseCalcuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //
+        val arrayAdapterSel = ArrayAdapter<String>(activity, R.layout.custom_spinner_text_item, mArrForSel)
+        arrayAdapterSel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        //
+        check_case_calcu_type.adapter = arrayAdapterSel
+        check_case_calcu_type.prompt = "请在这里选择案件类型"
+        //
+        check_case_calcu_address.adapter = arrayAdapterSel
+        check_case_calcu_address.prompt = "请在这里选择案件地址"
+        //
+        check_case_calcu_duration.adapter = arrayAdapterSel
+        check_case_calcu_duration.prompt = "请在这里选择案件周期"
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CheckCaseCalcuFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                CheckCaseCalcuFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+        fun newInstance() =
+                CheckCaseCalcuFragment()
     }
 }
