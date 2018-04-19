@@ -14,7 +14,7 @@
         android:layout_marginTop="30px"
         android:text="育德胡同布道破损（任务名称）"
         android:textColor="#000"
-        android:textSize="30px"
+        android:textSize="35px"
         android:textStyle="bold" />
 
     <TextView
@@ -48,7 +48,7 @@
             android:gravity="center"
             android:text="编号：201839039192"
             android:textColor="#000"
-            android:textSize="23px" />
+            android:textSize="26px" />
 
         <TextView
             android:id="@+id/check_noend_case_time"

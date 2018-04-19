@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.views.adapter.Check_NoEndCase_Adapter
+import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
 import kotlinx.android.synthetic.main.fragment_check_case_no_end.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,7 +39,7 @@ class CheckCaseNoEndFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         check_noend_case_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        check_noend_case_recyclerview.adapter = Check_NoEndCase_Adapter(activity as Context)
+        check_noend_case_recyclerview.adapter = CheckNoEndCaseAdapter(activity as Context)
     }
 
     companion object {

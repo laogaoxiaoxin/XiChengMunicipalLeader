@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.view.View
 import android.widget.LinearLayout
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.ll_check_noend_notime
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 
-class Check_NoEndCase_Adapter(val ctx: Context) : RecyclerView.Adapter<Check_NoEndCase_Adapter.ViewHolder>() {
+class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndCaseAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
     }
