@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.danger.DangerFragment">
+    tools:context=".views.fragments.danger.DangerFragment"
+    tools:ignore="PxUsage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tbl_danger_top"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_centerHorizontal="true"
+        app:tabBackground="@android:color/transparent"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorHeight="1dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabTextColor="#a4a4a4" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tbl_danger_top"
+        android:background="#a8a8a8" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_danger"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="danger" />
+        android:layout_below="@id/tbl_danger_top"
+        android:layout_marginTop="2px" />
 
-</FrameLayout>
+</RelativeLayout>
