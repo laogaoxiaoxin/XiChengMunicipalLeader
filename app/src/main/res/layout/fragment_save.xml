@@ -21,9 +21,16 @@
         app:tabTextAppearance="@style/TabLayoutTextStyle"
         app:tabTextColor="#a4a4a4" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tbl_save_top"
+        android:background="#a9a9a9" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager_save"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tbl_save_top" />
+        android:layout_below="@id/tbl_save_top"
+        android:layout_marginTop="2px" />
 </RelativeLayout>
