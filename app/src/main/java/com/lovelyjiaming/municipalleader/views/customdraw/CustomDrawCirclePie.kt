@@ -50,7 +50,7 @@ class CustomDrawCirclePie(private val ctx: Context, val attr: AttributeSet) : Vi
 
     fun startAnimateDraw() {
         val animate = ValueAnimator.ofFloat(0f, 72f)
-        animate.duration = 1500
+        animate.duration = 1000
         animate.interpolator = AnticipateOvershootInterpolator()
         animate.addUpdateListener {
             mUpdateValue = it.animatedValue as Float

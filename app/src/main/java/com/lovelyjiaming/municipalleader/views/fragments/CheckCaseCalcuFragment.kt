@@ -50,7 +50,6 @@ class CheckCaseCalcuFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() =
-                CheckCaseCalcuFragment()
+        fun newInstance() = CheckCaseCalcuFragment()
     }
 }

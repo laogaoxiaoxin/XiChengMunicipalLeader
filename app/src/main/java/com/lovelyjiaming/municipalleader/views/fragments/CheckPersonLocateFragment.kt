@@ -39,7 +39,6 @@ class CheckPersonLocateFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() =
-                CheckPersonLocateFragment()
+        fun newInstance() = CheckPersonLocateFragment()
     }
 }

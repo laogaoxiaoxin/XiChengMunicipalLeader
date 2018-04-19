@@ -32,7 +32,6 @@ class CheckCaseNoEndFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() =
-                CheckCaseNoEndFragment()
+        fun newInstance() = CheckCaseNoEndFragment()
     }
 }
