@@ -11,12 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请选择年份"
+            android:text="请选择年份 "
             android:textColor="#000"
             android:textSize="32px"
             android:textStyle="bold|italic" />
@@ -25,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40px"
-            android:text="请选择月份"
+            android:text="请选择月份 "
             android:textColor="#000"
             android:textSize="32px"
             android:textStyle="bold|italic" />

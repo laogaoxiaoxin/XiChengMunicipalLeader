@@ -89,7 +89,6 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/ll_main_bottom_check"
         android:layout_width="match_parent"
         android:layout_height="180px"
         android:layout_alignParentBottom="true"
@@ -99,6 +98,7 @@
         android:weightSum="4">
 
         <LinearLayout
+            android:id="@+id/ll_main_bottom_check"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

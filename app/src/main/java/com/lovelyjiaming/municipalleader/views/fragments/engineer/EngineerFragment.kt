@@ -15,7 +15,7 @@ class EngineerFragment : Fragment() {
         listOf(EngineerUsualFragment.newInstance(), EngineerVipFragment.newInstance(), EngineerEndFragment.newInstance())
     }
     val m_listEngineerTitles: List<String> by lazy {
-        listOf("常规工程", "重点工程", "竣工工程")
+        listOf("常规工程 ", "重点工程 ", "竣工工程 ")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

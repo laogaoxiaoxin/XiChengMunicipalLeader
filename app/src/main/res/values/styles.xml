@@ -9,7 +9,8 @@
     </style>
 
     <style name="TabLayoutTextStyle">
-        <item name="android:textSize" tools:ignore="PxUsage">42px</item>
+        <item name="android:textSize" tools:ignore="PxUsage">43px</item>
+        <item name="android:textStyle">italic|bold</item>>
     </style>
 
 </resources>
