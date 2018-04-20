@@ -1,4 +1,4 @@
-package com.lovelyjiaming.municipalleader.views.fragments.Engineer
+package com.lovelyjiaming.municipalleader.views.fragments.engineer
 
 
 import android.content.Context
@@ -11,7 +11,6 @@ import android.view.ViewGroup
 
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.views.adapter.EngineerSameAllAdapter
-import kotlinx.android.synthetic.main.fragment_engineer_end.*
 import kotlinx.android.synthetic.main.fragment_engineer_usual.*
 
 class EngineerUsualFragment : Fragment() {

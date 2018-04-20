@@ -8,7 +8,7 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.views.fragments.check.CheckFragment
 import com.lovelyjiaming.municipalleader.views.fragments.danger.DangerFragment
-import com.lovelyjiaming.municipalleader.views.fragments.Engineer.EngineerFragment
+import com.lovelyjiaming.municipalleader.views.fragments.engineer.EngineerFragment
 import com.lovelyjiaming.municipalleader.views.fragments.save.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
