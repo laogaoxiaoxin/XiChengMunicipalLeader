@@ -32,18 +32,6 @@ class CheckCaseCalcuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //
-        val arrayAdapterSel = ArrayAdapter<String>(activity, R.layout.custom_spinner_text_item, mArrForSel)
-        arrayAdapterSel.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        //
-        check_case_calcu_type.adapter = arrayAdapterSel
-        check_case_calcu_type.prompt = "请在这里选择案件类型"
-        //
-        check_case_calcu_address.adapter = arrayAdapterSel
-        check_case_calcu_address.prompt = "请在这里选择案件地址"
-        //
-        check_case_calcu_duration.adapter = arrayAdapterSel
-        check_case_calcu_duration.prompt = "请在这里选择案件周期"
-        //
         check_case_calcu_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         check_case_calcu_recyclerview.adapter = CheckCalcuCaseAdapter(activity as Context)
     }

@@ -18,57 +18,32 @@
             android:id="@+id/save_whole_top_week"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_corner"
+            android:background="@color/colorPrimary"
             android:gravity="center"
-            android:paddingBottom="12px"
+            android:paddingBottom="15px"
             android:paddingLeft="90px"
             android:paddingRight="90px"
-            android:paddingTop="12px"
-            android:text="周"
-            android:textColor="#a4a4a4"
-            android:textSize="30px" />
+            android:paddingTop="15px"
+            android:text="选择起始时间 "
+            android:textColor="#fff4"
+            android:textSize="30px"
+            android:textStyle="italic|bold" />
 
         <TextView
             android:id="@+id/save_whole_top_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_corner"
+            android:layout_marginStart="20px"
+            android:background="@color/colorPrimary"
             android:gravity="center"
-            android:paddingBottom="12px"
+            android:paddingBottom="15px"
             android:paddingLeft="90px"
             android:paddingRight="90px"
-            android:paddingTop="12px"
-            android:text="月"
-            android:textColor="#a4a4a4"
-            android:textSize="30px" />
-
-        <TextView
-            android:id="@+id/save_whole_top_3month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_corner"
-            android:gravity="center"
-            android:paddingBottom="12px"
-            android:paddingLeft="80px"
-            android:paddingRight="80px"
-            android:paddingTop="12px"
-            android:text="季度"
-            android:textColor="#a4a4a4"
-            android:textSize="30px" />
-
-        <TextView
-            android:id="@+id/save_whole_top_year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_corner"
-            android:gravity="center"
-            android:paddingBottom="12px"
-            android:paddingLeft="80px"
-            android:paddingRight="80px"
-            android:paddingTop="12px"
-            android:text="年度"
-            android:textColor="#a4a4a4"
-            android:textSize="30px" />
+            android:paddingTop="15px"
+            android:text="选择终止时间 "
+            android:textColor="#fff4"
+            android:textSize="30px"
+            android:textStyle="italic|bold" />
     </LinearLayout>
 
     <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawCirclePie

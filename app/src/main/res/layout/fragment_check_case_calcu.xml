@@ -8,29 +8,71 @@
 
     <LinearLayout
         android:id="@+id/ll_check_case_calcu_select"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
-        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50px"
         android:orientation="horizontal">
 
-        <Spinner
+        <TextView
             android:id="@+id/check_case_calcu_type"
-            android:layout_width="300px"
-            android:layout_height="90px"
-            android:spinnerMode="dialog" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="20px"
+            android:text="案件类型选择 "
+            android:textColor="#fff"
+            android:textSize="29px"
+            android:textStyle="bold|italic" />
 
-        <Spinner
+        <TextView
             android:id="@+id/check_case_calcu_address"
-            android:layout_width="300px"
-            android:layout_height="90px"
-            android:spinnerMode="dialog" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25px"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingBottom="20px"
+            android:paddingLeft="25px"
+            android:paddingRight="25px"
+            android:paddingTop="20px"
+            android:text="办事处选择 "
+            android:textColor="#fff"
+            android:textSize="29px"
+            android:textStyle="italic|bold" />
 
-        <Spinner
-            android:id="@+id/check_case_calcu_duration"
-            android:layout_width="300px"
-            android:layout_height="90px"
-            android:spinnerMode="dialog" />
+        <TextView
+            android:id="@+id/check_case_calcu_startdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25px"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingBottom="20px"
+            android:paddingLeft="30px"
+            android:paddingRight="30px"
+            android:paddingTop="20px"
+            android:text="起始日期 "
+            android:textColor="#fff"
+            android:textSize="29px"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:id="@+id/check_case_calcu_enddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25px"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingBottom="20px"
+            android:paddingLeft="30px"
+            android:paddingRight="30px"
+            android:paddingTop="20px"
+            android:text="终止日期 "
+            android:textColor="#fff"
+            android:textSize="29px"
+            android:textStyle="italic|bold" />
 
     </LinearLayout>
 
