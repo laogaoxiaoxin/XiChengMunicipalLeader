@@ -14,8 +14,8 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
     private val mFirstPaint: Paint
     private val mSecondPaint: Paint
     private val mThirdPaint: Paint
-    var mCurrentAngleLength: Float = 0f
-    val mOuterCirclePaint: Paint
+    private var mCurrentAngleLength: Float = 0f
+    private val mOuterCirclePaint: Paint
 
     init {
         mOuterCirclePaint = Paint()
@@ -76,9 +76,12 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
         super.onDraw(canvas)
         //
         val oval = RectF(40f, 40f, measuredWidth.toFloat() - 40, measuredHeight.toFloat() - 40)
-        canvas?.drawArc(oval, 0f, mCurrentAngleLength, false, mFirstPaint)
-        canvas?.drawArc(oval, 120f, mCurrentAngleLength, false, mSecondPaint)
-        canvas?.drawArc(oval, 240f, mCurrentAngleLength, false, mThirdPaint)
-        canvas?.drawCircle(measuredWidth / 2f, measuredWidth / 2f, measuredWidth / 2 - 10f, mOuterCirclePaint)
+        canvas?.apply {
+            drawArc(oval, 0f, mCurrentAngleLength, false, mFirstPaint)
+            drawArc(oval, 120f, mCurrentAngleLength, false, mSecondPaint)
+            drawArc(oval, 240f, mCurrentAngleLength, false, mThirdPaint)
+            drawCircle(measuredWidth / 2f, measuredWidth / 2f, measuredWidth / 2 - 10f, mOuterCirclePaint)
+        }
+
     }
 }

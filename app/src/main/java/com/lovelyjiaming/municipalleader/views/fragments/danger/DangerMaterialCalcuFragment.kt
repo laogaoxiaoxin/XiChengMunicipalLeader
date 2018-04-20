@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.lovelyjiaming.municipalleader.R
+import kotlinx.android.synthetic.main.fragment_danger_material_calcu.*
 
 class DangerMaterialCalcuFragment : Fragment() {
 
@@ -21,10 +22,15 @@ class DangerMaterialCalcuFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_danger_material_calcu, container, false)
     }
 
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if (danger_type_calc_pie != null && isVisibleToUser) {
+            danger_type_calc_pie.startAnimateDraw()
+            danger_type_calc_pie.visibility = View.VISIBLE
+        } else if (danger_type_calc_pie != null) danger_type_calc_pie.visibility = View.INVISIBLE
+    }
 
     companion object {
-
-        fun newInstance() =
-                DangerMaterialCalcuFragment()
+        fun newInstance() = DangerMaterialCalcuFragment()
     }
 }

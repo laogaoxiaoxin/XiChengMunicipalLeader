@@ -2,7 +2,10 @@ package com.lovelyjiaming.municipalleader.views.customdraw
 
 import android.animation.ValueAnimator
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
