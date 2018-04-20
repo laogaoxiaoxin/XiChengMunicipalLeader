@@ -17,10 +17,11 @@
         android:background="#9f000000"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:paddingStart="10px"
         tools:ignore="PxUsage">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="280px"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
@@ -35,15 +36,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
-                android:gravity="center"
-                android:text="巡察一组"
+                android:gravity="left"
+                android:text="道路巡查"
                 android:textColor="#fff"
                 android:textSize="30px" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="280px"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
@@ -58,15 +59,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
-                android:gravity="center"
-                android:text="巡察二组"
+                android:gravity="left"
+                android:text="审批掘路"
                 android:textColor="#fff"
                 android:textSize="30px" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="280px"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
@@ -81,31 +82,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
-                android:gravity="center"
-                android:text="巡察三组"
-                android:textColor="#fff"
-                android:textSize="30px" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="30px"
-                android:layout_height="30px"
-                android:background="@android:color/holo_orange_dark" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30px"
-                android:gravity="center"
-                android:text="巡察四组"
+                android:gravity="left"
+                android:text="架空线"
                 android:textColor="#fff"
                 android:textSize="30px" />
 
