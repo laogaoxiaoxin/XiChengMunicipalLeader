@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     //publish ,me,check,save,danger,engineer
     private val m_listFragments: MutableList<Fragment> by lazy {
-        mutableListOf(CheckFragment.newInstance(), SaveFragment.newInstance(), DangerFragment.newInstance(), EngineerFragment.newInstance("", ""))
+        mutableListOf(CheckFragment.newInstance(), SaveFragment.newInstance(), DangerFragment.newInstance(), EngineerFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
 

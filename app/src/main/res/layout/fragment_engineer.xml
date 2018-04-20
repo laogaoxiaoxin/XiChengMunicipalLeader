@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.Engineer.EngineerFragment">
+    tools:context=".views.fragments.Engineer.EngineerFragment"
+    tools:ignore="PxUsage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tbl_engineer_top"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        app:tabBackground="@android:color/transparent"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorHeight="1dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabTextColor="#a4a4a4" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/tbl_engineer_top"
+        android:background="#a5a5a5" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_engineer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="engli" />
+        android:layout_below="@id/tbl_engineer_top"
+        android:layout_marginTop="2px" />
 
-</FrameLayout>
+</RelativeLayout>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100px"
     android:orientation="horizontal"
-    android:weightSum="4">
+    android:weightSum="4"
+    tools:ignore="PxUsage">
 
     <TextView
         android:layout_width="0dp"
@@ -20,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="女"
+        android:text="男"
         android:textColor="#000"
         android:textSize="30px"
         android:textStyle="bold" />
@@ -30,7 +32,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="二货"
+        android:text="混子"
         android:textColor="#000"
         android:textSize="30px"
         android:textStyle="bold" />
