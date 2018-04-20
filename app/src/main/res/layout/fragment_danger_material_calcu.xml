@@ -7,7 +7,7 @@
     tools:ignore="PxUsage">
 
     <LinearLayout
-        android:id="@+id/ll_danger_material_type_title"
+        android:id="@+id/ll_danger_material_type_title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -76,7 +76,7 @@
         android:id="@+id/danger_type_calc_pie"
         android:layout_width="450px"
         android:layout_height="450px"
-        android:layout_below="@id/ll_danger_material_type_title"
+        android:layout_below="@id/ll_danger_material_type_title1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30px" />
 
@@ -88,8 +88,8 @@
         android:layout_alignTop="@id/danger_type_calc_pie"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingLeft="30px"
-        android:paddingRight="100px"
+        android:paddingEnd="100px"
+        android:paddingStart="30px"
         android:weightSum="5">
 
         <LinearLayout
@@ -202,5 +202,53 @@
 
         </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_danger_material_type_title2"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_below="@id/danger_type_calc_pie"
+        android:layout_marginTop="50px"
+        android:background="#000"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="车号"
+            android:textColor="#fff"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="车型"
+            android:textColor="#fff"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="类型"
+            android:textColor="#fff"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/danger_material_calc_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_danger_material_type_title2" />
 
 </RelativeLayout>

@@ -17,19 +17,19 @@
         <Spinner
             android:id="@+id/check_case_calcu_type"
             android:layout_width="300px"
-            android:layout_height="50px"
+            android:layout_height="90px"
             android:spinnerMode="dialog" />
 
         <Spinner
             android:id="@+id/check_case_calcu_address"
             android:layout_width="300px"
-            android:layout_height="50px"
+            android:layout_height="90px"
             android:spinnerMode="dialog" />
 
         <Spinner
             android:id="@+id/check_case_calcu_duration"
             android:layout_width="300px"
-            android:layout_height="50px"
+            android:layout_height="90px"
             android:spinnerMode="dialog" />
 
     </LinearLayout>

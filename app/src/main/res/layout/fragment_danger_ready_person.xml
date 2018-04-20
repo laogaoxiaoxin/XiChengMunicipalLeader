@@ -1,14 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.fragments.danger.DangerReadyPersonFragment">
+    tools:context=".views.fragments.danger.DangerReadyPersonFragment"
+    tools:ignore="PxUsage">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="50px"
+        android:text="选择时间："
+        android:textColor="#000"
+        android:textSize="35px" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220px"
+        android:layout_marginTop="50px"
+        android:text="点击选择时间"
+        android:textColor="#000"
+        android:textSize="32px"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50px"
+        android:layout_marginTop="50px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="16px"
+            android:paddingLeft="70px"
+            android:paddingRight="70px"
+            android:paddingTop="16px"
+            android:text="北区"
+            android:textColor="#a4a4a4"
+            android:textSize="30px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="16px"
+            android:paddingLeft="70px"
+            android:paddingRight="70px"
+            android:paddingTop="16px"
+            android:text="南区"
+            android:textColor="#a4a4a4"
+            android:textSize="30px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/danger_ready_person_titile2"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:layout_marginTop="200px"
+        android:background="#000"
+        android:weightSum="4">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="姓名"
+            android:textColor="#fff"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="性别"
+            android:textColor="#fff"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="职务"
+            android:textColor="#fff"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="电话"
+            android:textColor="#fff"
+            android:textSize="32px"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/danger_ready_person_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/danger_ready_person_titile2" />
 
-</FrameLayout>
+</RelativeLayout>

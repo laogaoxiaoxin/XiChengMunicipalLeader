@@ -1,13 +1,16 @@
 package com.lovelyjiaming.municipalleader.views.fragments.danger
 
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.views.adapter.SaveWholeCalcuAdapter
 import kotlinx.android.synthetic.main.fragment_danger_material_calcu.*
 
 class DangerMaterialCalcuFragment : Fragment() {
@@ -20,6 +23,12 @@ class DangerMaterialCalcuFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_danger_material_calcu, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        danger_material_calc_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        danger_material_calc_recyclerview.adapter = SaveWholeCalcuAdapter(activity as Context)//暂时
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
