@@ -48,11 +48,11 @@
 
     <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawCirclePie
         android:id="@+id/save_whole_pie"
-        android:layout_width="480px"
-        android:layout_height="480px"
+        android:layout_width="370px"
+        android:layout_height="370px"
         android:layout_below="@id/ll_save_whole_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20px" />
+        android:layout_marginTop="50px" />
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -15,7 +15,7 @@
         app:tabBackground="@android:color/transparent"
         app:tabGravity="center"
         app:tabIndicatorColor="@color/colorPrimary"
-        app:tabIndicatorHeight="1dp"
+        app:tabIndicatorHeight="2dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabTextAppearance="@style/TabLayoutTextStyle"

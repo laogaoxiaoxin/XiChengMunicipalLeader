@@ -74,11 +74,11 @@
 
     <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawCirclePie
         android:id="@+id/danger_type_calc_pie"
-        android:layout_width="450px"
-        android:layout_height="450px"
+        android:layout_width="370px"
+        android:layout_height="370px"
         android:layout_below="@id/ll_danger_material_type_title1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30px" />
+        android:layout_marginTop="50px" />
 
     <LinearLayout
         android:layout_width="wrap_content"
