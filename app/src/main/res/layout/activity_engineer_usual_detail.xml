@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.activitys.EngineerUsualDetailActivity">
+    tools:context=".views.activitys.EngineerUsualDetailActivity"
+    tools:ignore="PxUsage">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,4 +29,327 @@
             android:textSize="35px" />
 
     </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20px"
+            android:paddingRight="20px">
+
+            <!--名称-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工程名称："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:text="和平里东街16号院陆地大修"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <!--工程简介-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工程简介："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_project_intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="10"
+                    android:text="今天是来公司写的第一次日报告，写日报告不仅是对自己每天工作情况总结汇报，更重要的是对自己工作心得的总结与反思，只有在不断的去做和做后的反思中才能不断的进步，通过这两天对产品书面知识的学习以及不懂的问题与老业务之间的交流，基本上在心里已经对闪购业务有了一个较清晰的概念，当然在实际的与客户之间的交流中肯定会碰到更多的各种各样想不到的疑问，切记在以后的独立工作中要有疑问就要点对点的吃透每一个客户所提过的产品的知识点，如果连自己的产品都能被问住，又怎么能让客户信任你这个人。这个星期主要还是以学习为主，当然要以实战学习为主产品学习为辅了，计划跟着组长或老业务出去拜访客户，因为还没有真正的出去陌拜过，中午组长也过来与我讲解了一下他们之前跑市场所遇到的一些情况，客户在认可闪购商业模式的趋势前提下所产生的一些实际疑虑状况等，通过与组长的交流也更知道哪些方面是更需要做好足够的准备呈现给客户的信心的，（比如平台的规模能给他们带来投资汇报期要多久等），下午申请的电脑装好，做了一些客户信息的收集"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <!--计划开工-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="计划开工："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:text="2018年12月12号"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <!--计划完工-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="计划完工："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_endtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:text="2018年12月12号"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <!--施工进度-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="施工进度："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_workprogress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:text="已经完成百分之二十"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <!--负责人-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="负责人："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_responser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:text="高原鑫"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <!--工程变更-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工程变更："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_projectmodify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:text="变了变了不在这干了，再见吧，哈哈哈"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <!--工作日报-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="工作日报："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/engineer_usual_detail_daily_report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="12"
+                    android:text="今天是来公司写的第一次日报告，写日报告不仅是对自己每天工作情况总结汇报，更重要的是对自己工作心得的总结与反思，只有在不断的去做和做后的反思中才能不断的进步，通过这两天对产品书面知识的学习以及不懂的问题与老业务之间的交流，基本上在心里已经对闪购业务有了一个较清晰的概念，当然在实际的与客户之间的交流中肯定会碰到更多的各种各样想不到的疑问，切记在以后的独立工作中要有疑问就要点对点的吃透每一个客户所提过的产品的知识点，如果连自己的产品都能被问住，又怎么能让客户信任你这个人。这个星期主要还是以学习为主，当然要以实战学习为主产品学习为辅了，计划跟着组长或老业务出去拜访客户，因为还没有真正的出去陌拜过，中午组长也过来与我讲解了一下他们之前跑市场所遇到的一些情况，客户在认可闪购商业模式的趋势前提下所产生的一些实际疑虑状况等，通过与组长的交流也更知道哪些方面是更需要做好足够的准备呈现给客户的信心的，（比如平台的规模能给他们带来投资汇报期要多久等），下午申请的电脑装好，做了一些客户信息的收集"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="施工许可："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="132px"
+                    android:layout_height="200px"
+                    android:layout_marginStart="10px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+
+                <ImageView
+                    android:layout_width="132px"
+                    android:layout_height="200px"
+                    android:layout_marginStart="10px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+
+                <ImageView
+                    android:layout_width="132px"
+                    android:layout_height="200px"
+                    android:layout_marginStart="10px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+
+                <ImageView
+                    android:layout_width="132px"
+                    android:layout_height="200px"
+                    android:layout_marginStart="10px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+
+                <ImageView
+                    android:layout_width="132px"
+                    android:layout_height="200px"
+                    android:layout_marginStart="10px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+
+                <ImageView
+                    android:layout_width="132px"
+                    android:layout_height="200px"
+                    android:layout_marginStart="10px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+            </LinearLayout>
+
+            <!--施工情况-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="施工情况："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="200px"
+                    android:layout_height="240px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+
+                <ImageView
+                    android:layout_width="200px"
+                    android:layout_height="240px"
+                    android:layout_marginStart="30px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+
+                <ImageView
+                    android:layout_width="200px"
+                    android:layout_height="240px"
+                    android:layout_marginStart="30px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/exam" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
