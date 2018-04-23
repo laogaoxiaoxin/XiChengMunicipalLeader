@@ -1,6 +1,5 @@
 package com.lovelyjiaming.municipalleader.views.fragments.save
 
-
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
 import com.lovelyjiaming.municipalleader.views.adapter.SaveWholeCalcuAdapter
 import kotlinx.android.synthetic.main.fragment_save_whole_calcu.*
 
@@ -29,6 +29,13 @@ class SaveWholeCalcuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         save_whole_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         save_whole_recyclerview.adapter = SaveWholeCalcuAdapter(activity as Context)
+        //
+        save_whole_top_startdate.setOnClickListener {
+            DatePickerUtils.displayDatePickerDialog(activity as Context, { save_whole_top_startdate.text = it })
+        }
+        save_whole_top_enddate.setOnClickListener {
+            DatePickerUtils.displayDatePickerDialog(activity as Context, { save_whole_top_enddate.text = it })
+        }
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {

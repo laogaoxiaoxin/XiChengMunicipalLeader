@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/save_whole_top_week"
+            android:id="@+id/save_whole_top_startdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
@@ -30,7 +30,7 @@
             android:textStyle="italic|bold" />
 
         <TextView
-            android:id="@+id/save_whole_top_month"
+            android:id="@+id/save_whole_top_enddate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20px"

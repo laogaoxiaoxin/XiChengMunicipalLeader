@@ -26,7 +26,7 @@
             android:layout_centerInParent="true"
             android:text="案件任务详情"
             android:textColor="#fff"
-            android:textSize="35px" />
+            android:textSize="42px" />
 
     </RelativeLayout>
 
