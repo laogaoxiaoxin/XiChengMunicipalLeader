@@ -36,6 +36,11 @@ class CheckCaseCalcuFragment : Fragment() {
         check_case_calcu_recyclerview.adapter = CheckCalcuCaseAdapter(activity as Context)
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (!hidden) check_case_calcu_ring.startRingAnimation()
+    }
+
     companion object {
         fun newInstance() = CheckCaseCalcuFragment()
     }
