@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/check_noend_case_name"
-        android:layout_width="wrap_content"
+        android:layout_width="700px"
         android:layout_height="wrap_content"
         android:layout_marginStart="50px"
         android:layout_marginTop="30px"

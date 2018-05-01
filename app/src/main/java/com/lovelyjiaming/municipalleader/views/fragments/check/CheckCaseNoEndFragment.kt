@@ -36,11 +36,20 @@ class CheckCaseNoEndFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         check_noend_case_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         check_noend_case_recyclerview.adapter = adapter
+        check_noend_swiperefresh.isRefreshing = true
+        requestData()
+        check_noend_swiperefresh.setOnRefreshListener {
+            requestData()
+        }
+    }
+
+    fun requestData() {
         //network
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getUndone", {
             var result = Gson().fromJson(it, InspectUndoneClass::class.java)
             val listResult = result.InspectUndone
             adapter.setData(listResult.toMutableList())
+            check_noend_swiperefresh.isRefreshing = false
         })
     }
 
