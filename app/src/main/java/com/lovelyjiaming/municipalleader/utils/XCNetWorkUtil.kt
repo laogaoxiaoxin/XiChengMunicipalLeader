@@ -4,14 +4,26 @@ import android.support.v4.app.FragmentActivity
 import okhttp3.*
 import java.io.IOException
 
-//巡查部分 undone
-data class InspectUndoneClass(val name: String?, val number: String?, val date: String?, val place: String?, val rank: String?, val office: String?, val state: String?, val longitude: String?, val latitude: String?,
-                              val picfirst: String, val picsecond: String?, val picthird: String?, val type: String?, val assigngroup: String?, val assigndate: String?)
+//巡查部分-locate
+data class InspectLocationItemClass(val username: String, val department: String?, val authority: String?, val phonenumber: String?, val WorkType: String, val longitude: String, val latitude: String)
 
-data class CheckUndoneClass(val InspectUndone: List<InspectUndoneClass>)
+data class InspectLocationClass(val InspectLocation: List<InspectLocationItemClass>)
+
+//1.巡查部分-undone 2.养护部分-onlinetask
+data class InspectUndoneItemClass(val taskName: String?, val taskNumber: String?, val taskDate: String?, val taskPlace: String?, val taskRank: String?, val taskOffice: String?, val taskState: String?,
+                                  val taskLongitude: String?, val taskLatitude: String?, val taskFirst: String, val taskSecond: String?, val taskThird: String?, val taskType: String?, val taskAssign: String?, val taskAssignDate: String?,
+                                  val taskAsphalt_9cm_10: String?, val taskAsphalt_5cm_10: String?, val taskAsphalt_9cm_400: String?, val taskAsphalt_5cm_400: String?)
+
+data class InspectUndoneClass(val InspectUndone: List<InspectUndoneItemClass>)
+
 
 object XCNetWorkUtil {
-    const val NETWORK_BASIC_ADDRESS = "http://39.104.80.111:8888/RoadLeader/InspectServlet?method="
+    //巡查基地址
+    const val NETWORK_BASIC_CHECK_ADDRESS = "http://39.104.80.111:8888/RoadLeader/InspectServlet?method="
+    //养护基地址
+    const val NETWORK_BASIC_SAVE_ADDRESS = "http://39.104.80.111:8888/RoadLeader/CureServlet?method="
+    //图片前缀
+    const val NETWORK_IMG_BASIC_ADDRESS = "http://39.104.80.111:8888/lalio/"
 
     fun invokeGetRequest(activity: FragmentActivity, url: String, listener: (String) -> Unit, mapParams: HashMap<String, String>? = null) {
         val finalUrlSb = StringBuilder(url)
