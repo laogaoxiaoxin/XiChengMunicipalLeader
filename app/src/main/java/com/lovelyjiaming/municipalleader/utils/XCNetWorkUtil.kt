@@ -9,6 +9,11 @@ data class InspectLocationItemClass(val username: String, val department: String
 
 data class InspectLocationClass(val InspectLocation: List<InspectLocationItemClass>)
 
+//巡查部分-calc
+data class InspectCaseCountItemClass(val taskName: String?, val taskDate: String?)
+
+data class InspectCaseCountClass(val unfinished: Int, val finished: Int, val InspectCaseCount: List<InspectCaseCountItemClass>)
+
 //1.巡查部分-undone 2.养护部分-onlinetask
 data class InspectUndoneItemClass(val taskName: String?, val taskNumber: String?, val taskDate: String?, val taskPlace: String?, val taskRank: String?, val taskOffice: String?, val taskState: String?,
                                   val taskLongitude: String?, val taskLatitude: String?, val taskFirst: String, val taskSecond: String?, val taskThird: String?, val taskType: String?, val taskAssign: String?, val taskAssignDate: String?,
@@ -28,8 +33,8 @@ object XCNetWorkUtil {
     fun invokeGetRequest(activity: FragmentActivity, url: String, listener: (String) -> Unit, mapParams: HashMap<String, String>? = null) {
         val finalUrlSb = StringBuilder(url)
         mapParams?.forEach {
-            finalUrlSb.append("${it.key}=${it.value}")
             finalUrlSb.append("&")
+            finalUrlSb.append("${it.key}=${it.value}")
         }
 
         val request = Request.Builder().get().url(finalUrlSb.toString()).build()

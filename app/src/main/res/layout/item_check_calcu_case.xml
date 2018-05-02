@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100px"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:weightSum="2"
     tools:ignore="PxUsage">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/check_calc_case_title"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="180px"
-        android:text="育德胡同布道破损"
+        android:layout_weight="1"
+        android:gravity="center"
         android:textColor="#000"
         android:textSize="27px" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/check_calc_case_time"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="180px"
-        android:text="2018-09-01   09:10:01"
+        android:layout_weight="1"
+        android:gravity="center"
         android:textColor="#000"
         android:textSize="27px" />
-</RelativeLayout>
+</LinearLayout>

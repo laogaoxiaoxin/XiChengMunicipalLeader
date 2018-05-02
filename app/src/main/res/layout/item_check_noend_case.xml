@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50px"
         android:layout_marginTop="30px"
+        android:maxLines="2"
         android:textColor="#000"
         android:textSize="35px"
         android:textStyle="bold" />
@@ -63,7 +64,7 @@
 
     <ImageView
         android:id="@+id/check_noend_case_img"
-        android:layout_width="110px"
+        android:layout_width="130px"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/ll_check_noend_notime"
         android:layout_alignParentEnd="true"
