@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,10 +31,14 @@ class DangerRushCaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        danger_case_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        danger_case_recyclerview.adapter = adapter
+        danger_rush_case_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        danger_rush_case_recyclerview.adapter = adapter
         //
+        danger_rush_case_swiperefresh.isRefreshing = true
         requestData()
+        danger_rush_case_swiperefresh.setOnRefreshListener {
+            requestData()
+        }
     }
 
     fun requestData() {
@@ -43,6 +46,7 @@ class DangerRushCaseFragment : Fragment() {
             val result = Gson().fromJson(it, EmergencyTask::class.java)
             adapter.listData = result.EmergencyTask
             adapter.notifyDataSetChanged()
+            danger_rush_case_swiperefresh.isRefreshing = false
         })
     }
 

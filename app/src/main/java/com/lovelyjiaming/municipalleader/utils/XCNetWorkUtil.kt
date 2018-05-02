@@ -32,6 +32,9 @@ data class EmergencyTaskItemClass(val IsFinish: String?, val taskName: String?, 
 
 data class EmergencyTask(val EmergencyTask: List<EmergencyTaskItemClass>)
 
+//应急 备勤
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 object XCNetWorkUtil {
     //巡查基地址
