@@ -53,9 +53,6 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
     override fun getItemCount(): Int = this.listResult?.size ?: 0
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ll_check_noend_notime by lazy {
-            itemView.findViewById<LinearLayout>(R.id.ll_check_noend_notime)
-        }
         val check_noend_case_name by lazy {
             itemView.findViewById<TextView>(R.id.check_noend_case_name)
         }

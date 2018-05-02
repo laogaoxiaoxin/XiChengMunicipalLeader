@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_danger.*
 class DangerFragment : Fragment() {
 
     val m_listDangerFragments: List<Fragment> by lazy {
-        listOf(DangerCaseFragment.newInstance(), DangerMaterialCalcuFragment.newInstance(), DangerReadyPersonFragment.newInstance())
+        listOf(DangerRushCaseFragment.newInstance(), DangerMaterialCalcuFragment.newInstance(), DangerReadyPersonFragment.newInstance())
     }
     val m_listDangerTitles: List<String> by lazy {
         listOf("抢险案件 ", "物资统计 ", "备勤人员 ")

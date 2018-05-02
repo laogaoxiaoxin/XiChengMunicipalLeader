@@ -15,6 +15,7 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_save_online_task)
         AutoUtils.auto(this)
+        save_online_taskdetail_back.setOnClickListener { finish() }
         //
         val taskInfo = intent.getSerializableExtra("taskinfo") as InspectUndoneItemClass
         save_online_taskdetail_num.text = taskInfo.taskNumber

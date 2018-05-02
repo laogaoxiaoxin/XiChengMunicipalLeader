@@ -41,6 +41,7 @@
         <activity
             android:name=".views.activitys.SaveOnlineTaskActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".views.activitys.DangerRushCaseDetailActivity"></activity>
     </application>
 
 </manifest>
