@@ -5,9 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".views.fragments.save.SaveCurrentTaskFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/save_current_recyclerview"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/save_current_swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/save_current_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

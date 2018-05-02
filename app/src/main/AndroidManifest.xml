@@ -38,6 +38,9 @@
         <activity
             android:name=".views.activitys.EngineerUsualDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activitys.SaveOnlineTaskActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

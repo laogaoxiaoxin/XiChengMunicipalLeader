@@ -1,6 +1,7 @@
 package com.lovelyjiaming.municipalleader.views.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +14,13 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS
+import com.lovelyjiaming.municipalleader.views.activitys.SaveOnlineTaskActivity
 
 //巡查-未结案件ViewHolder
-
+//养护-在施任务ViewHolder
 class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndCaseAdapter.ViewHolder>() {
-
     var listResult: MutableList<InspectUndoneItemClass>? = null
+    var holderType: String = ""
 
     fun setData(listResult: MutableList<InspectUndoneItemClass>) {
         this.listResult = listResult
@@ -34,6 +36,14 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
                 check_noend_case_no.text = "编号：" + listTmp[position].taskNumber
                 check_noend_case_time.text = "时间：" + listTmp[position].taskDate
                 Glide.with(ctx).load(NETWORK_IMG_BASIC_ADDRESS + "${listTmp[position].taskFirst}").into(check_noend_case_img)
+                //
+                itemView.setOnClickListener {
+                    if (holderType == "saveonlinetask") {
+                        val intent = Intent(ctx, SaveOnlineTaskActivity::class.java)
+                        intent.putExtra("taskinfo", listTmp[position])
+                        ctx.startActivity(intent)
+                    }
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ package com.lovelyjiaming.municipalleader.utils
 import android.support.v4.app.FragmentActivity
 import okhttp3.*
 import java.io.IOException
+import java.io.Serializable
 
 //巡查部分-locate
 data class InspectLocationItemClass(val username: String, val department: String?, val authority: String?, val phonenumber: String?, val WorkType: String, val longitude: String, val latitude: String)
@@ -17,11 +18,16 @@ data class InspectCaseCountClass(val unfinished: Int, val finished: Int, val Ins
 //1.巡查部分-undone 2.养护部分-onlinetask
 data class InspectUndoneItemClass(val taskName: String?, val taskNumber: String?, val taskDate: String?, val taskPlace: String?, val taskRank: String?, val taskOffice: String?, val taskState: String?,
                                   val taskLongitude: String?, val taskLatitude: String?, val taskFirst: String, val taskSecond: String?, val taskThird: String?, val taskType: String?, val taskAssign: String?, val taskAssignDate: String?,
-                                  val taskAsphalt_9cm_10: String?, val taskAsphalt_5cm_10: String?, val taskAsphalt_9cm_400: String?, val taskAsphalt_5cm_400: String?)
+                                  val taskAsphalt_9cm_10: String?, val taskAsphalt_5cm_10: String?, val taskAsphalt_9cm_400: String?, val taskAsphalt_5cm_400: String?, val asphalt_9cm_10_400: String?, val asphalt_5cm_10_400: String?,
+                                  val taskSidewalk: String?, val taskPlaster: String?, val taskRainwater_outlet: String?, val caiselumian:String?) : Serializable
 
 data class InspectUndoneClass(val InspectUndone: List<InspectUndoneItemClass>)
 
+//养护部分 onlinetask
+data class CureOnLineTaskClass(val CureOnLineTask: List<InspectUndoneItemClass>)
 
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 object XCNetWorkUtil {
     //巡查基地址
     const val NETWORK_BASIC_CHECK_ADDRESS = "http://39.104.80.111:8888/RoadLeader/InspectServlet?method="

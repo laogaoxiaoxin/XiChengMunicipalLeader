@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".views.activitys.SaveOnlineTaskActivity"
+    tools:ignore="PxUsage">
+
+    <RelativeLayout
+        android:id="@+id/rl_save_online_taskdetail_title"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/save_online_taskdetail_back"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30px"
+            android:scaleType="fitXY"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="养护在施任务详情"
+            android:textColor="#fff"
+            android:textSize="42px" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_save_online_taskdetail_title"
+        android:layout_marginTop="50px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务编号："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务名称："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务类型："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="优先等级："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="办事处："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_office"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="巡查派发："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="养护分配："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_saveassign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="养护小组："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_assigngroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务状态："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_assignstate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务地点："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:text="巡查历史照片："
+                android:textColor="#000"
+                android:textSize="35px"
+                android:textStyle="bold|italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/save_online_taskdetail_firstpic"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_taskdetail_secondpic"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_taskdetail_thirdpic"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="70px"
+                android:background="#a9a9a9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="沥青9cm（㎡）（0,10）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_liqing9_010"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="沥青5cm（㎡）（0,10）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_liqing5_010"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="沥青9cm（㎡）（10,400）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_liqing9_10400"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="沥青5cm（㎡）（10,400）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_liqing5_10400"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="沥青9cm（㎡）（400,∞）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_liqing9_above400"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="沥青5cm（㎡）（400,∞）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_liqing5_above400"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="便道（㎡）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_sidewalk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="抹灰（㎡）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_plaster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="彩色路面（㎡）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_caiselumain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="升降检查井（座）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_shengjiangjianchajing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="加固检查井（座）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_jiagujianchajing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="雨水口（座）："
+                    android:textColor="#000"
+                    android:textSize="35px"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_yushuikou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="32px" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
