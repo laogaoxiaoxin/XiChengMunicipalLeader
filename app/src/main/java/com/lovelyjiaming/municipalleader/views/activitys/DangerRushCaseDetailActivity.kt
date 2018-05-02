@@ -15,6 +15,7 @@ class DangerRushCaseDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_danger_rush_case_detail)
         AutoUtils.auto(this)
+        danger_rush_casedetail_back.setOnClickListener { finish() }
         //
         val info = intent.getSerializableExtra("caseinfo") as EmergencyTaskItemClass?
         danger_rush_casedetail_type.text = info?.taskType

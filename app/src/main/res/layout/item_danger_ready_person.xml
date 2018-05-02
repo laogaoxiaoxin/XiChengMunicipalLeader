@@ -8,6 +8,7 @@
     tools:ignore="PxUsage">
 
     <TextView
+        android:id="@+id/item_danger_ready_personname"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -17,6 +18,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/item_danger_ready_personsex"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -26,6 +28,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/item_danger_ready_personjob"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -35,6 +38,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/item_danger_ready_personphone"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

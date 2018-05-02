@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="20px"
-        android:text="平安大道道路破损（任务名称）"
         android:textColor="#000"
         android:textSize="30px" />
 
@@ -22,7 +21,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="20px"
         android:layout_marginEnd="20px"
-        android:text="更新时间：2019-09-01   12:10:10"
         android:textColor="#a9a9a9"
         android:textSize="25px" />
 

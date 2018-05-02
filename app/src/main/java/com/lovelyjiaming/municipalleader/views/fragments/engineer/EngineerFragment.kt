@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.fragment_engineer.*
 
 class EngineerFragment : Fragment() {
     val m_listEngineerFragments: List<Fragment> by lazy {
-        listOf(EngineerUsualFragment.newInstance(), EngineerVipFragment.newInstance(), EngineerEndFragment.newInstance())
+        listOf(EngineerCurrentFragment.newInstance(), EngineerEndFragment.newInstance())
     }
     val m_listEngineerTitles: List<String> by lazy {
-        listOf("常规工程 ", "重点工程 ", "竣工工程 ")
+        listOf("在施工程 ", "竣工工程 ")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class EngineerFragment : Fragment() {
         viewpager_engineer.adapter = object : FragmentStatePagerAdapter(childFragmentManager) {
             override fun getItem(position: Int): Fragment = m_listEngineerFragments[position]
 
-            override fun getCount(): Int = 3
+            override fun getCount(): Int = 2
             override fun getPageTitle(position: Int): CharSequence? {
                 return m_listEngineerTitles[position]
             }

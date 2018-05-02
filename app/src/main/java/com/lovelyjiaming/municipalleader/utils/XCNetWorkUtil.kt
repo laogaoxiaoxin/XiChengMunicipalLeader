@@ -33,7 +33,16 @@ data class EmergencyTaskItemClass(val IsFinish: String?, val taskName: String?, 
 data class EmergencyTask(val EmergencyTask: List<EmergencyTaskItemClass>)
 
 //应急 备勤
+data class EmergencyOndutyMemberItem(val Name: String?, val Job: String?, val Type: String?, val Male: String?, val Department: String?, val Telephone: String?)
 
+data class EmergencyOndutyMemberClass(val EmergencyOndutyMember: List<EmergencyOndutyMemberItem>)
+
+//工程
+data class EngineerItem(val name: String?, val number: String?, val condition: String?, val type: String?, val person: String?, val telephone: String?, val start: String?,
+                        val introduction: String?, val pace: String?, val proportion: String, val remarks: String?)
+
+data class EngineerGeneralClass(val EngineerGeneral: List<EngineerItem>)
+data class EngineerMajorClass(val EngineerMajor: List<EngineerItem>)
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 object XCNetWorkUtil {
