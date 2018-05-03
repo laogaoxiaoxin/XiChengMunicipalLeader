@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS
@@ -33,6 +34,9 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
             holder.apply {
                 check_noend_case_name.text = "任务名称：" + listTmp[position].taskName
                 check_noend_case_status.text = listTmp[position].taskState
+                if (!holderType.equals("saveonlinetask")) {
+                    check_noend_case_status.visibility = View.INVISIBLE
+                }
                 check_noend_case_no.text = "编号：" + listTmp[position].taskNumber
                 check_noend_case_time.text = "时间：" + listTmp[position].taskDate
                 Glide.with(ctx).load(NETWORK_IMG_BASIC_ADDRESS + "${listTmp[position].taskFirst}").into(check_noend_case_img)

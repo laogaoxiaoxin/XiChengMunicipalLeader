@@ -1,5 +1,6 @@
 package com.lovelyjiaming.municipalleader.views.activitys
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
@@ -30,6 +31,23 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst).into(save_online_taskdetail_firstpic)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond).into(save_online_taskdetail_secondpic)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird).into(save_online_taskdetail_thirdpic)
+        save_online_taskdetail_firstpic.setOnClickListener {
+            val intent = Intent(this, LargePicActivity::class.java)
+            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst)
+            startActivity(intent)
+        }
+        save_online_taskdetail_secondpic.setOnClickListener {
+            val intent = Intent(this, LargePicActivity::class.java)
+            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond)
+            startActivity(intent)
+        }
+        save_online_taskdetail_thirdpic.setOnClickListener {
+            val intent = Intent(this, LargePicActivity::class.java)
+            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird)
+            startActivity(intent)
+        }
+
+
         //
         save_online_taskdetail_liqing9_010.text = taskInfo.taskAsphalt_9cm_10
         save_online_taskdetail_liqing5_010.text = taskInfo.taskAsphalt_5cm_10

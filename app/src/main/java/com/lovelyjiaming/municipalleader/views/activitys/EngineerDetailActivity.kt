@@ -1,5 +1,6 @@
 package com.lovelyjiaming.municipalleader.views.activitys
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
@@ -28,6 +29,22 @@ class EngineerDetailActivity : AppCompatActivity() {
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picfirst).into(engineer_usual_detail_first)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picsecond).into(engineer_usual_detail_second)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picthird).into(engineer_usual_detail_third)
+
+        engineer_usual_detail_first.setOnClickListener {
+            val intent = Intent(this, LargePicActivity::class.java)
+            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picfirst)
+            startActivity(intent)
+        }
+        engineer_usual_detail_second.setOnClickListener {
+            val intent = Intent(this, LargePicActivity::class.java)
+            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picsecond)
+            startActivity(intent)
+        }
+        engineer_usual_detail_third.setOnClickListener {
+            val intent = Intent(this, LargePicActivity::class.java)
+            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picthird)
+            startActivity(intent)
+        }
 
     }
 }

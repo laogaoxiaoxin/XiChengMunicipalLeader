@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.gson.Gson
 
 import com.lovelyjiaming.municipalleader.R
@@ -25,8 +26,8 @@ class EngineerEndFragment : Fragment() {
     val adapter: EngineerSameAllAdapter by lazy {
         EngineerSameAllAdapter(activity as Context)
     }
-    private lateinit var strEndTime: String
-    private lateinit var strStartTime: String
+    private var strEndTime: String = ""
+    private var strStartTime: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,11 +56,19 @@ class EngineerEndFragment : Fragment() {
             })
         }
         engineer_end_title_general.setOnClickListener {
+            if (strStartTime.isEmpty() || strEndTime.isEmpty()) {
+                Toast.makeText(activity, "请先选择开始和结束时间", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
             engineer_end_title_major.setTextColor(Color.parseColor("#a9a9a9"))
             engineer_end_title_general.setTextColor(Color.parseColor("#DB394A"))
             requestData("General")
         }
         engineer_end_title_major.setOnClickListener {
+            if (strStartTime.isEmpty() || strEndTime.isEmpty()) {
+                Toast.makeText(activity, "请先选择开始和结束时间", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
             engineer_end_title_major.setTextColor(Color.parseColor("#DB394A"))
             engineer_end_title_general.setTextColor(Color.parseColor("#a9a9a9"))
             requestData("Major")
