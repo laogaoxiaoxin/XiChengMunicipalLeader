@@ -75,9 +75,9 @@ class CheckPersonLocateFragment : Fragment() {
             val popupText = TextView(activity)
             popupText.setTextColor(Color.BLACK)
             popupText.setBackgroundResource(R.drawable.popup)
-            popupText.setPadding(30, 20, 30, 50)
-            popupText.text = "姓名：${itemInfo[0].username}\r\n电话：${itemInfo[0].phonenumber}"
-            check_person_locate_mapview.map.showInfoWindow(InfoWindow(popupText, it.position, -50))
+            popupText.setPadding(40, 30, 40, 50)
+            popupText.text = "姓名：${itemInfo[0].username}\r\n电话：13811499330"
+            check_person_locate_mapview.map.showInfoWindow(InfoWindow(popupText, it.position, -60))
             true
         }
     }

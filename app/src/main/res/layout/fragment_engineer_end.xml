@@ -10,34 +10,75 @@
         android:id="@+id/ll_engineer_end_seltime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30px"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30px"
+        android:layout_marginTop="20px"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/engineer_end_starttime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="请选择年份 "
+            android:text="选择开始时间 "
             android:textColor="#000"
-            android:textSize="32px"
-            android:textStyle="bold|italic" />
+            android:textSize="29px"
+            android:textStyle="italic" />
 
         <TextView
+            android:id="@+id/engineer_end_endtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40px"
-            android:text="请选择月份 "
+            android:layout_marginStart="20px"
+            android:text="选择结束时间 "
             android:textColor="#000"
-            android:textSize="32px"
-            android:textStyle="bold|italic" />
+            android:textSize="29px"
+            android:textStyle="italic" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_engineer_end_title_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/engineer_end_title_general"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="16px"
+            android:paddingLeft="30px"
+            android:paddingRight="30px"
+            android:paddingTop="16px"
+            android:text="常规工程"
+            android:textColor="#a9a9a9"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/engineer_end_title_major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10px"
+            android:background="@drawable/bg_corner"
+            android:gravity="center"
+            android:paddingBottom="16px"
+            android:paddingLeft="30px"
+            android:paddingRight="30px"
+            android:paddingTop="16px"
+            android:text="重点工程"
+            android:textColor="#a9a9a9"
+            android:textSize="30px" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/engineer_end_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/ll_engineer_end_seltime"
+        android:layout_below="@id/ll_engineer_end_title_choose"
         android:layout_marginTop="30px" />
 
 </RelativeLayout>

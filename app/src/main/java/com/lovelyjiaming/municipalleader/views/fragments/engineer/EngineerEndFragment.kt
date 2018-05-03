@@ -2,18 +2,31 @@ package com.lovelyjiaming.municipalleader.views.fragments.engineer
 
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.gson.Gson
 
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
+import com.lovelyjiaming.municipalleader.utils.EngineerGeneralClass
+import com.lovelyjiaming.municipalleader.utils.EngineerMajorClass
+import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.EngineerSameAllAdapter
+import kotlinx.android.synthetic.main.fragment_engineer_current.*
 import kotlinx.android.synthetic.main.fragment_engineer_end.*
 
 class EngineerEndFragment : Fragment() {
+    val adapter: EngineerSameAllAdapter by lazy {
+        EngineerSameAllAdapter(activity as Context)
+    }
+    private lateinit var strEndTime: String
+    private lateinit var strStartTime: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +34,50 @@ class EngineerEndFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_engineer_end, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         engineer_end_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        engineer_end_recyclerview.adapter = EngineerSameAllAdapter(activity as Context)
+        engineer_end_recyclerview.adapter = adapter
+        //
+        engineer_end_starttime.setOnClickListener {
+            DatePickerUtils.displayDatePickerDialog(activity as Context, {
+                strStartTime = it
+                engineer_end_starttime.text = it
+            })
+        }
+        engineer_end_endtime.setOnClickListener {
+            DatePickerUtils.displayDatePickerDialog(activity as Context, {
+                strEndTime = it
+                engineer_end_endtime.text = it
+            })
+        }
+        engineer_end_title_general.setOnClickListener {
+            engineer_end_title_major.setTextColor(Color.parseColor("#a9a9a9"))
+            engineer_end_title_general.setTextColor(Color.parseColor("#DB394A"))
+            requestData("General")
+        }
+        engineer_end_title_major.setOnClickListener {
+            engineer_end_title_major.setTextColor(Color.parseColor("#DB394A"))
+            engineer_end_title_general.setTextColor(Color.parseColor("#a9a9a9"))
+            requestData("Major")
+        }
+    }
+
+    private fun requestData(type: String) {
+        XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_ENGINEER_ADDRESS + "getDoneEngineer&projectType=${type}", {
+            if (type.equals("General")) {
+                val result = Gson().fromJson(it, EngineerGeneralClass::class.java)
+                adapter.listData = result.EngineerGeneral
+                adapter.notifyDataSetChanged()
+            } else {
+                val result = Gson().fromJson(it, EngineerMajorClass::class.java)
+                adapter.listData = result.EngineerMajor
+                adapter.notifyDataSetChanged()
+            }
+        }, hashMapOf("startDate" to strStartTime, "endDate" to strEndTime))
     }
 
     companion object {

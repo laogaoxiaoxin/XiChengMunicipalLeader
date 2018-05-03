@@ -1,5 +1,7 @@
 package com.lovelyjiaming.municipalleader.views.customdraw
 
+import android.animation.Animator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -7,6 +9,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AnticipateOvershootInterpolator
 
 class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSet) : View(ctx, attr) {
     private val mFirstPaint: Paint
@@ -24,7 +27,7 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
         //未完成
         mFirstPaint = Paint()
         mFirstPaint.isAntiAlias = true
-        mFirstPaint.color = Color.parseColor("#87CEFA")
+        mFirstPaint.color = Color.parseColor("#7f87CEFA")
         mFirstPaint.style = Paint.Style.STROKE
         mFirstPaint.strokeCap = Paint.Cap.SQUARE
         mFirstPaint.strokeWidth = 20F
@@ -32,7 +35,7 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
         //已完成
         mThirdPaint = Paint()
         mThirdPaint.isAntiAlias = true
-        mThirdPaint.color = Color.parseColor("#9F79EE")
+        mThirdPaint.color = Color.parseColor("#7f9F79EE")
         mThirdPaint.style = Paint.Style.STROKE
         mThirdPaint.strokeCap = Paint.Cap.SQUARE
         mThirdPaint.strokeWidth = 30F
@@ -42,10 +45,48 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
     private var mUnFinished: Float = 0f
     //根据塞入的值，计算比例
     fun setData(finished: Int, unfinished: Int) {
-        mFinished = finished.toFloat()
-        mUnFinished = unfinished.toFloat()
-        invalidate()
+        mFinished = 3f//finished.toFloat()
+        mUnFinished = 1f//unfinished.toFloat()
+        //
+        mGoalVal = (mFinished / (mFinished + mUnFinished)) * 360f
+        val animate1= ValueAnimator.ofFloat(0f, mGoalVal)
+        animate1.duration = 1500
+        animate1.interpolator = AnticipateOvershootInterpolator()
+        animate1.addUpdateListener {
+            mUpdateValueF = it.animatedValue as Float
+            invalidate()
+        }
+        animate1.addListener(object:Animator.AnimatorListener{
+            override fun onAnimationRepeat(p0: Animator?) {
+            }
+
+            override fun onAnimationEnd(p0: Animator?) {
+                //
+                mGoalVal = (mUnFinished / (mFinished + mUnFinished)) * 360f
+                val animate2 = ValueAnimator.ofFloat(0f, mGoalVal)
+                animate2.duration = 1500
+                animate2.interpolator = AnticipateOvershootInterpolator()
+                animate2.addUpdateListener {
+                    mUpdateValueUF = it.animatedValue as Float
+                    invalidate()
+                }
+                animate2.start()
+            }
+
+            override fun onAnimationCancel(p0: Animator?) {
+            }
+
+            override fun onAnimationStart(p0: Animator?) {
+            }
+
+        })
+        animate1.start()
+
     }
+
+    var mUpdateValueF:Float = 0f
+    var mUpdateValueUF:Float = 0f
+    var mGoalVal = 0f
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -62,10 +103,8 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
         if (mFinished + mUnFinished == 0f) return
         val oval = RectF(40f, 40f, measuredWidth.toFloat() - 40, measuredHeight.toFloat() - 40)
         canvas?.apply {
-            val fAngle = (mFinished / (mFinished + mUnFinished)) * 360f
-            val fUnAngle = (mUnFinished / (mFinished + mUnFinished)) * 360f
-            drawArc(oval, 0f, fAngle, false, mThirdPaint)
-            drawArc(oval, fAngle, fUnAngle, false, mFirstPaint)
+            drawArc(oval, 0f, mUpdateValueF, false, mThirdPaint)
+            drawArc(oval, mUpdateValueF, mUpdateValueUF, false, mFirstPaint)
             drawCircle(measuredWidth / 2f, measuredWidth / 2f, measuredWidth / 2 - 10f, mOuterCirclePaint)
         }
     }

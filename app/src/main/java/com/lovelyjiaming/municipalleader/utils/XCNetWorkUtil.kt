@@ -38,8 +38,8 @@ data class EmergencyOndutyMemberItem(val Name: String?, val Job: String?, val Ty
 data class EmergencyOndutyMemberClass(val EmergencyOndutyMember: List<EmergencyOndutyMemberItem>)
 
 //工程
-data class EngineerItem(val name: String?, val number: String?, val condition: String?, val type: String?, val person: String?, val telephone: String?, val start: String?,
-                        val introduction: String?, val pace: String?, val proportion: String, val remarks: String?)
+data class EngineerItem(val name: String?, val number: String?, val condition: String?, val type: String?, val person: String?, val telephone: String?, val start: String?, val done: String?,
+                        val introduction: String?, val pace: String?, val proportion: String, val remarks: String?, val picfirst: String?, val picsecond: String?, val picthird: String?) : Serializable
 
 data class EngineerGeneralClass(val EngineerGeneral: List<EngineerItem>)
 data class EngineerMajorClass(val EngineerMajor: List<EngineerItem>)
@@ -52,6 +52,8 @@ object XCNetWorkUtil {
     const val NETWORK_BASIC_SAVE_ADDRESS = "http://39.104.80.111:8888/RoadLeader/CureServlet?method="
     //应急基地址
     const val NETWORK_BASIC_DANGER_ADDRESS = "http://39.104.80.111:8888/RoadLeader/EmergencyServlet?method="
+    //工程基地址
+    const val NETWORK_BASIC_ENGINEER_ADDRESS = "http://39.104.80.111:8888/RoadLeader/EngineeringServlet?method="
     //图片前缀
     const val NETWORK_IMG_BASIC_ADDRESS = "http://39.104.80.111:8888/lalio/"
 
