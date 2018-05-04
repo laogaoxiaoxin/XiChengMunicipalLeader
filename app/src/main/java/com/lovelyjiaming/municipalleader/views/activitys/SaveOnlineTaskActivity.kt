@@ -31,19 +31,25 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst).into(save_online_taskdetail_firstpic)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond).into(save_online_taskdetail_secondpic)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird).into(save_online_taskdetail_thirdpic)
+
+        val listPics = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond,
+                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird)
         save_online_taskdetail_firstpic.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst)
+            intent.putExtra("picsurl", listPics)
+            intent.putExtra("index", 0)
             startActivity(intent)
         }
         save_online_taskdetail_secondpic.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond)
+            intent.putExtra("picsurl", listPics)
+            intent.putExtra("index", 1)
             startActivity(intent)
         }
         save_online_taskdetail_thirdpic.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird)
+            intent.putExtra("picsurl", listPics)
+            intent.putExtra("index", 2)
             startActivity(intent)
         }
 

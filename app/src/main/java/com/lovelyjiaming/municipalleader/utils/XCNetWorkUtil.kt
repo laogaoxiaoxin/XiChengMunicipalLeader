@@ -13,7 +13,7 @@ data class InspectLocationClass(val InspectLocation: List<InspectLocationItemCla
 //巡查部分-calc
 data class InspectCaseCountItemClass(val taskName: String?, val taskDate: String?)
 
-data class InspectCaseCountClass(val unfinished: Int, val finished: Int, val InspectCaseCount: List<InspectCaseCountItemClass>)
+data class InspectCaseCountClass(val unfinished: Int, val finished: Int, val InspectCaseCount: List<InspectCaseCountItemClass>?)
 
 //1.巡查部分-undone 2.养护部分-onlinetask
 data class InspectUndoneItemClass(val taskName: String?, val taskNumber: String?, val taskDate: String?, val taskPlace: String?, val taskRank: String?, val taskOffice: String?, val taskState: String?,
@@ -36,6 +36,23 @@ data class EmergencyTask(val EmergencyTask: List<EmergencyTaskItemClass>)
 data class EmergencyOndutyMemberItem(val Name: String?, val Job: String?, val Type: String?, val Male: String?, val Department: String?, val Telephone: String?)
 
 data class EmergencyOndutyMemberClass(val EmergencyOndutyMember: List<EmergencyOndutyMemberItem>)
+
+//应急 统计
+data class EmergencyCarItem(val Id: String?, val carId: String?, val carType: String?, val Type: String?)
+
+data class EmergencyCarClass(val EmergencyCar: List<EmergencyCarItem>)
+//
+data class EmergencyMechItem(val Id: String?, val carName: String?, val carType: String?)
+
+data class EmergencyMechClass(val EmergencyMech: List<EmergencyMechItem>)
+//
+data class EmergencysmallMechItem(val Id: String?, val DeviceName: String?, val Number: String?)
+
+data class EmergencysmallMechClass(val EmergencysmallMech: List<EmergencysmallMechItem>)
+//
+data class EmergencySuppiliesItem(val Id: String?, val SupplyName: String?, val Number: String?)
+
+data class EmergencySuppiliesClass(val EmergencySuppilies: List<EmergencySuppiliesItem>)
 
 //工程
 data class EngineerItem(val name: String?, val number: String?, val condition: String?, val type: String?, val person: String?, val telephone: String?, val start: String?, val done: String?,

@@ -26,7 +26,7 @@ class CheckCaseCalcuFragment : Fragment() {
     //案件类型
     val listCaseType: List<String> = listOf("道路破损", "步道破损", "附属设施破损")
     //街道办事处
-    val listRoadAddress: List<String> = listOf("德盛街道", "展览路街道", "新街口街道", "什刹海街道", "月坛街道", "金融街街道", "西长安街街道", "广安门外街道", "广安门内街道", "椿树街道",
+    val listRoadAddress: List<String> = listOf("德胜街道", "展览路街道", "新街口街道", "什刹海街道", "月坛街道", "金融街街道", "西长安街街道", "广安门外街道", "广安门内街道", "椿树街道",
             "大栅栏街道", "牛街街道", "白纸坊街道", "陶然亭街道", "天桥街道")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,7 +87,7 @@ class CheckCaseCalcuFragment : Fragment() {
         XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "getCaseCount", {
             val result = Gson().fromJson(it, InspectCaseCountClass::class.java)
             check_case_calcu_ring.setData(result.finished, result.unfinished)
-            adapter.listResult = result.InspectCaseCount.toMutableList()
+            adapter.listResult = result.InspectCaseCount?.toMutableList()
             adapter.notifyDataSetChanged()
         }, hashMapOf("taskType" to check_case_calcu_type.text.toString(), "taskOffice" to check_case_calcu_address.text.toString(), "startDate" to check_case_calcu_startdate.text.toString(),
                 "endDate" to check_case_calcu_enddate.text.toString()))

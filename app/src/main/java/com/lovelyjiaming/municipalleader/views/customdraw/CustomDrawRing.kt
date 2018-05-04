@@ -15,6 +15,11 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
     private val mFirstPaint: Paint
     private val mThirdPaint: Paint
     private val mOuterCirclePaint: Paint
+    //
+    private var mFinished: Float = 0f
+    private var mUnFinished: Float = 0f
+    var mUpdateValueF: Float = 0f
+    var mUpdateValueUF: Float = 0f
 
     init {
         mOuterCirclePaint = Paint()
@@ -41,29 +46,27 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
         mThirdPaint.strokeWidth = 30F
     }
 
-    private var mFinished: Float = 0f
-    private var mUnFinished: Float = 0f
     //根据塞入的值，计算比例
     fun setData(finished: Int, unfinished: Int) {
-        mFinished = 3f//finished.toFloat()
-        mUnFinished = 1f//unfinished.toFloat()
+        mFinished = finished.toFloat()
+        mUnFinished = unfinished.toFloat()
         //
-        mGoalVal = (mFinished / (mFinished + mUnFinished)) * 360f
-        val animate1= ValueAnimator.ofFloat(0f, mGoalVal)
+        val tmp1 = (mFinished / (mFinished + mUnFinished)) * 360f
+        val animate1 = ValueAnimator.ofFloat(0f, tmp1)
         animate1.duration = 1500
         animate1.interpolator = AnticipateOvershootInterpolator()
         animate1.addUpdateListener {
             mUpdateValueF = it.animatedValue as Float
             invalidate()
         }
-        animate1.addListener(object:Animator.AnimatorListener{
+        animate1.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(p0: Animator?) {
             }
 
             override fun onAnimationEnd(p0: Animator?) {
                 //
-                mGoalVal = (mUnFinished / (mFinished + mUnFinished)) * 360f
-                val animate2 = ValueAnimator.ofFloat(0f, mGoalVal)
+                val tmp2 = (mUnFinished / (mFinished + mUnFinished)) * 360f
+                val animate2 = ValueAnimator.ofFloat(0f, tmp2)
                 animate2.duration = 1500
                 animate2.interpolator = AnticipateOvershootInterpolator()
                 animate2.addUpdateListener {
@@ -81,12 +84,7 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
 
         })
         animate1.start()
-
     }
-
-    var mUpdateValueF:Float = 0f
-    var mUpdateValueUF:Float = 0f
-    var mGoalVal = 0f
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)

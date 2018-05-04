@@ -28,19 +28,24 @@ class DangerRushCaseDetailActivity : AppCompatActivity() {
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskFirst).into(danger_rush_casedetai_firstpic)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskSecond).into(danger_rush_casedetai_secondpic)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskThird).into(danger_rush_casedetai_thirdpic)
+        val listPics = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskFirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskSecond,
+                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskThird)
         danger_rush_casedetai_firstpic.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskFirst)
+            intent.putExtra("picsurl", listPics)
+            intent.putExtra("index", 0)
             startActivity(intent)
         }
         danger_rush_casedetai_secondpic.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskSecond)
+            intent.putExtra("picsurl", listPics)
+            intent.putExtra("index", 1)
             startActivity(intent)
         }
         danger_rush_casedetai_thirdpic.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.taskThird)
+            intent.putExtra("picsurl", listPics)
+            intent.putExtra("index", 2)
             startActivity(intent)
         }
     }

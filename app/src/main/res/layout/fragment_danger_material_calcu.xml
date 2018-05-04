@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30px"
+        android:layout_marginTop="15px"
         android:orientation="horizontal">
 
         <TextView
@@ -20,13 +20,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_corner"
             android:gravity="center"
-            android:paddingBottom="15px"
+            android:paddingBottom="10px"
             android:paddingLeft="80px"
             android:paddingRight="80px"
-            android:paddingTop="15px"
+            android:paddingTop="10px"
             android:text="车辆"
-            android:textColor="#a4a4a4"
-            android:textSize="30px" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="30px"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/danger_title_material_mach"
@@ -35,183 +36,188 @@
             android:layout_marginStart="10px"
             android:background="@drawable/bg_corner"
             android:gravity="center"
-            android:paddingBottom="15px"
+            android:paddingBottom="10px"
             android:paddingLeft="80px"
             android:paddingRight="80px"
-            android:paddingTop="15px"
+            android:paddingTop="10px"
             android:text="机械"
             android:textColor="#a4a4a4"
-            android:textSize="30px" />
+            android:textSize="30px"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/danger_title_material_smallmach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10px"
             android:background="@drawable/bg_corner"
             android:gravity="center"
-            android:paddingBottom="15px"
+            android:paddingBottom="10px"
             android:paddingLeft="60px"
-            android:layout_marginStart="10px"
             android:paddingRight="60px"
-            android:paddingTop="15px"
+            android:paddingTop="10px"
             android:text="小型机械"
             android:textColor="#a4a4a4"
-            android:textSize="30px" />
+            android:textSize="30px"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/danger_title_material_all"
+            android:id="@+id/danger_title_material_supply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10px"
             android:background="@drawable/bg_corner"
             android:gravity="center"
-            android:paddingBottom="15px"
+            android:paddingBottom="10px"
             android:paddingLeft="60px"
-            android:layout_marginStart="10px"
             android:paddingRight="60px"
-            android:paddingTop="15px"
+            android:paddingTop="10px"
             android:text="抢险物资"
             android:textColor="#a4a4a4"
-            android:textSize="30px" />
+            android:textSize="30px"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-    <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawCirclePie
-        android:id="@+id/danger_type_calc_pie"
-        android:layout_width="370px"
-        android:layout_height="370px"
+    <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawHorizontalColumn
+        android:id="@+id/danger_type_calc_column"
+        android:layout_width="match_parent"
+        android:layout_height="580px"
         android:layout_below="@id/ll_danger_material_type_title1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50px" />
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="20px" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/danger_type_calc_pie"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@id/danger_type_calc_pie"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingEnd="100px"
-        android:paddingStart="30px"
-        android:weightSum="5">
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignBottom="@id/danger_type_calc_pie"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_alignTop="@id/danger_type_calc_pie"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--android:orientation="vertical"-->
+    <!--android:paddingEnd="100px"-->
+    <!--android:paddingStart="30px"-->
+    <!--android:weightSum="5">-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:orientation="horizontal">-->
 
-            <View
-                android:layout_width="35px"
-                android:layout_height="20px"
-                android:background="#9fDB394A" />
+    <!--<View-->
+    <!--android:layout_width="35px"-->
+    <!--android:layout_height="20px"-->
+    <!--android:background="#9fDB394A" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15px"
-                android:text="状态1"
-                android:textColor="#9fDB394A"
-                android:textSize="20px" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="15px"-->
+    <!--android:text="状态1"-->
+    <!--android:textColor="#9fDB394A"-->
+    <!--android:textSize="20px" />-->
 
-        </LinearLayout>
+    <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:orientation="horizontal">-->
 
-            <View
-                android:layout_width="35px"
-                android:layout_height="20px"
-                android:background="#9f9400D3" />
+    <!--<View-->
+    <!--android:layout_width="35px"-->
+    <!--android:layout_height="20px"-->
+    <!--android:background="#9f9400D3" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15px"
-                android:text="状态2"
-                android:textColor="#9f9400D3"
-                android:textSize="20px" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="15px"-->
+    <!--android:text="状态2"-->
+    <!--android:textColor="#9f9400D3"-->
+    <!--android:textSize="20px" />-->
 
-        </LinearLayout>
+    <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:orientation="horizontal">-->
 
-            <View
-                android:layout_width="35px"
-                android:layout_height="20px"
-                android:background="#9f97FFFF" />
+    <!--<View-->
+    <!--android:layout_width="35px"-->
+    <!--android:layout_height="20px"-->
+    <!--android:background="#9f97FFFF" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15px"
-                android:text="状态3"
-                android:textColor="#9f97FFFF"
-                android:textSize="20px" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="15px"-->
+    <!--android:text="状态3"-->
+    <!--android:textColor="#9f97FFFF"-->
+    <!--android:textSize="20px" />-->
 
-        </LinearLayout>
+    <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:orientation="horizontal">-->
 
-            <View
-                android:layout_width="35px"
-                android:layout_height="20px"
-                android:background="#9f90EE90" />
+    <!--<View-->
+    <!--android:layout_width="35px"-->
+    <!--android:layout_height="20px"-->
+    <!--android:background="#9f90EE90" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15px"
-                android:text="状态4"
-                android:textColor="#9f90EE90"
-                android:textSize="20px" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="15px"-->
+    <!--android:text="状态4"-->
+    <!--android:textColor="#9f90EE90"-->
+    <!--android:textSize="20px" />-->
 
-        </LinearLayout>
+    <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:orientation="horizontal">-->
 
-            <View
-                android:layout_width="35px"
-                android:layout_height="20px"
-                android:background="#9fCDCD00" />
+    <!--<View-->
+    <!--android:layout_width="35px"-->
+    <!--android:layout_height="20px"-->
+    <!--android:background="#9fCDCD00" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15px"
-                android:text="状态5"
-                android:textColor="#9fCDCD00"
-                android:textSize="20px" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="15px"-->
+    <!--android:text="状态5"-->
+    <!--android:textColor="#9fCDCD00"-->
+    <!--android:textSize="20px" />-->
 
-        </LinearLayout>
-    </LinearLayout>
+    <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
 
     <LinearLayout
         android:id="@+id/ll_danger_material_type_title2"
         android:layout_width="match_parent"
         android:layout_height="70px"
-        android:layout_below="@id/danger_type_calc_pie"
-        android:layout_marginTop="50px"
+        android:layout_below="@id/danger_type_calc_column"
+        android:layout_marginTop="10px"
         android:background="#000"
         android:orientation="horizontal"
         android:weightSum="3">

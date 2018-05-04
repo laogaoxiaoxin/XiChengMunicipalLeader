@@ -267,25 +267,25 @@
 
                 <ImageView
                     android:id="@+id/engineer_usual_detail_first"
-                    android:layout_width="200px"
+                    android:layout_width="290px"
                     android:layout_height="240px"
-                    android:layout_marginStart="20px"
+                    android:layout_marginStart="10px"
                     android:scaleType="fitXY"
                     android:src="@drawable/exam" />
 
                 <ImageView
                     android:id="@+id/engineer_usual_detail_second"
-                    android:layout_width="200px"
+                    android:layout_width="290px"
                     android:layout_height="240px"
-                    android:layout_marginStart="30px"
+                    android:layout_marginStart="10px"
                     android:scaleType="fitXY"
                     android:src="@drawable/exam" />
 
                 <ImageView
                     android:id="@+id/engineer_usual_detail_third"
-                    android:layout_width="200px"
+                    android:layout_width="290px"
                     android:layout_height="240px"
-                    android:layout_marginStart="30px"
+                    android:layout_marginStart="10px"
                     android:scaleType="fitXY"
                     android:src="@drawable/exam" />
             </LinearLayout>

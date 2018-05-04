@@ -30,19 +30,24 @@ class EngineerDetailActivity : AppCompatActivity() {
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picsecond).into(engineer_usual_detail_second)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picthird).into(engineer_usual_detail_third)
 
+        val listImgs = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picfirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picsecond,
+                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picthird)
         engineer_usual_detail_first.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picfirst)
+            intent.putExtra("picsurl", listImgs)
+            intent.putExtra("index", 0)
             startActivity(intent)
         }
         engineer_usual_detail_second.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picsecond)
+            intent.putExtra("index", 1)
+            intent.putExtra("picsurl", listImgs)
             startActivity(intent)
         }
         engineer_usual_detail_third.setOnClickListener {
             val intent = Intent(this, LargePicActivity::class.java)
-            intent.putExtra("picurl", XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info.picthird)
+            intent.putExtra("index", 2)
+            intent.putExtra("picsurl", listImgs)
             startActivity(intent)
         }
 
