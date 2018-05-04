@@ -17,6 +17,10 @@ import kotlinx.android.synthetic.main.fragment_danger_material_calcu.*
 
 class DangerMaterialCalcuFragment : Fragment() {
 
+    val adapter: SaveWholeCalcuAdapter by lazy {
+        SaveWholeCalcuAdapter(activity as Context)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -27,7 +31,7 @@ class DangerMaterialCalcuFragment : Fragment() {
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        if (isVisibleToUser) requestData("Car")
+        if (isVisibleToUser) danger_title_material_car.performClick()
     }
 
     private fun setClickListener() {
@@ -66,6 +70,7 @@ class DangerMaterialCalcuFragment : Fragment() {
     fun requestData(type: String) {
         val mapDatas = hashMapOf<String, Int>()
         invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_DANGER_ADDRESS + "getSupplyCount&supplyType=$type", {
+            adapter.listData?.clear()
             when (type) {
                 "Car" -> {
                     val result = Gson().fromJson(it, EmergencyCarClass::class.java)
@@ -94,6 +99,13 @@ class DangerMaterialCalcuFragment : Fragment() {
                     val type12 = result.EmergencyCar.filter { it.carType == "福田自卸" }
                     mapDatas.put("福田自卸", type12.size)
                     danger_type_calc_column.setAllDatas(mapDatas)
+                    //
+                    danger_material_type_title21.text = "车牌号"
+                    danger_material_type_title22.text = "车型"
+                    result.EmergencyCar.forEach {
+                        adapter.listData?.add("${it.carId}@${it.carType}")
+                    }
+                    adapter.notifyDataSetChanged()
                 }
             //-----
                 "Mech" -> {
@@ -123,22 +135,41 @@ class DangerMaterialCalcuFragment : Fragment() {
                     val type12 = result.EmergencyMech.filter { it.carType == "W50H" }
                     mapDatas.put("W50H", type12.size)
                     danger_type_calc_column.setAllDatas(mapDatas)
+                    //
+                    danger_material_type_title21.text = "车名称"
+                    danger_material_type_title22.text = "车型"
+                    result.EmergencyMech.forEach {
+                        adapter.listData?.add("${it.carName}@${it.carType}")
+                    }
+                    adapter.notifyDataSetChanged()
                 }
             //-----
                 "smallMech" -> {
                     val result = Gson().fromJson(it, EmergencysmallMechClass::class.java)
                     result.EmergencysmallMech.forEachIndexed { index, emergencysmallMechItem ->
                         mapDatas.put(emergencysmallMechItem.DeviceName!!, emergencysmallMechItem.Number?.replace("台", "")?.toInt()!!)
+                        //
+                        adapter.listData?.add("${emergencysmallMechItem.DeviceName}@${emergencysmallMechItem.Number}")
                     }
                     danger_type_calc_column.setAllDatas(mapDatas)
+                    //
+                    danger_material_type_title21.text = "设备名称"
+                    danger_material_type_title22.text = "数量"
+                    adapter.notifyDataSetChanged()
                 }
             //-----
                 "Suppilies" -> {
                     val result = Gson().fromJson(it, EmergencySuppiliesClass::class.java)
                     result.EmergencySuppilies.forEachIndexed { index, emergencySuppiliesItem ->
                         mapDatas.put(emergencySuppiliesItem.SupplyName!!, emergencySuppiliesItem.Number?.replace("袋", "")?.replace("个", "")?.replace("块", "")?.replace("吨", "")?.replace("包", "")?.toInt()!!)
+                        //
+                        adapter.listData?.add("${emergencySuppiliesItem.SupplyName}@${emergencySuppiliesItem.Number}")
                     }
                     danger_type_calc_column.setAllDatas(mapDatas)
+                    //
+                    danger_material_type_title21.text = "物资名称"
+                    danger_material_type_title22.text = "数量"
+                    adapter.notifyDataSetChanged()
                 }
             }
 
@@ -148,7 +179,7 @@ class DangerMaterialCalcuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         danger_material_calc_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        danger_material_calc_recyclerview.adapter = SaveWholeCalcuAdapter(activity as Context)
+        danger_material_calc_recyclerview.adapter = adapter
         setClickListener()
     }
 

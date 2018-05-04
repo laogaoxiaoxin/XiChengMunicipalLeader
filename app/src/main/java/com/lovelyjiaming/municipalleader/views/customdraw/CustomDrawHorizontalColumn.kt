@@ -73,7 +73,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         var aBuilder: AnimatorSet.Builder? = null
         allLineWidthInc.forEachIndexed { index, fl ->
             val animate = ValueAnimator.ofFloat(150f, fl + 150)
-            animate.interpolator = AccelerateDecelerateInterpolator()
+            animate.interpolator = AnticipateOvershootInterpolator()
             animate.addUpdateListener {
                 allLineWidthInc[index] = it.animatedValue as Float
                 invalidate()

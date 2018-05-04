@@ -40,10 +40,10 @@ class SaveWholeCalcuFragment : Fragment() {
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        if (save_whole_pie != null && isVisibleToUser) {
-            save_whole_pie.visibility = View.VISIBLE
-            save_whole_pie.startAnimateDraw()
-        } else if (save_whole_pie != null) save_whole_pie.visibility = View.INVISIBLE
+//        if (save_whole_pie != null && isVisibleToUser) {
+//            save_whole_pie.visibility = View.VISIBLE
+//            save_whole_pie.startAnimateDraw()
+//        } else if (save_whole_pie != null) save_whole_pie.visibility = View.INVISIBLE
     }
 
     companion object {

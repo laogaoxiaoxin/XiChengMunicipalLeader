@@ -89,129 +89,6 @@
         android:layout_marginRight="50px"
         android:layout_marginTop="20px" />
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_alignBottom="@id/danger_type_calc_pie"-->
-    <!--android:layout_alignParentEnd="true"-->
-    <!--android:layout_alignTop="@id/danger_type_calc_pie"-->
-    <!--android:gravity="center_horizontal"-->
-    <!--android:orientation="vertical"-->
-    <!--android:paddingEnd="100px"-->
-    <!--android:paddingStart="30px"-->
-    <!--android:weightSum="5">-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<View-->
-    <!--android:layout_width="35px"-->
-    <!--android:layout_height="20px"-->
-    <!--android:background="#9fDB394A" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginStart="15px"-->
-    <!--android:text="状态1"-->
-    <!--android:textColor="#9fDB394A"-->
-    <!--android:textSize="20px" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<View-->
-    <!--android:layout_width="35px"-->
-    <!--android:layout_height="20px"-->
-    <!--android:background="#9f9400D3" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginStart="15px"-->
-    <!--android:text="状态2"-->
-    <!--android:textColor="#9f9400D3"-->
-    <!--android:textSize="20px" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<View-->
-    <!--android:layout_width="35px"-->
-    <!--android:layout_height="20px"-->
-    <!--android:background="#9f97FFFF" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginStart="15px"-->
-    <!--android:text="状态3"-->
-    <!--android:textColor="#9f97FFFF"-->
-    <!--android:textSize="20px" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<View-->
-    <!--android:layout_width="35px"-->
-    <!--android:layout_height="20px"-->
-    <!--android:background="#9f90EE90" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginStart="15px"-->
-    <!--android:text="状态4"-->
-    <!--android:textColor="#9f90EE90"-->
-    <!--android:textSize="20px" />-->
-
-    <!--</LinearLayout>-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<View-->
-    <!--android:layout_width="35px"-->
-    <!--android:layout_height="20px"-->
-    <!--android:background="#9fCDCD00" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginStart="15px"-->
-    <!--android:text="状态5"-->
-    <!--android:textColor="#9fCDCD00"-->
-    <!--android:textSize="20px" />-->
-
-    <!--</LinearLayout>-->
-    <!--</LinearLayout>-->
-
     <LinearLayout
         android:id="@+id/ll_danger_material_type_title2"
         android:layout_width="match_parent"
@@ -220,9 +97,10 @@
         android:layout_marginTop="10px"
         android:background="#000"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="2">
 
         <TextView
+            android:id="@+id/danger_material_type_title21"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -233,21 +111,12 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/danger_material_type_title22"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:text="车型"
-            android:textColor="#fff"
-            android:textSize="32px"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="类型"
             android:textColor="#fff"
             android:textSize="32px"
             android:textStyle="bold" />

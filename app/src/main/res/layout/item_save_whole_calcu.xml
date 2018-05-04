@@ -6,21 +6,21 @@
     tools:ignore="PxUsage">
 
     <TextView
+        android:id="@+id/save_whole_calc_title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="180px"
-        android:text="沥青（90㎡）"
         android:textColor="#000"
         android:textSize="32px" />
 
     <TextView
+        android:id="@+id/save_whole_calc_title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="250px"
-        android:text="10"
         android:textColor="#000"
         android:textSize="32px" />
 </RelativeLayout>
