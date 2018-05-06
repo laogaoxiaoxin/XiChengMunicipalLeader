@@ -48,7 +48,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
     }
 
     private fun createPaints() {
-        mAllLineHeightInterval.forEachIndexed { index, _ ->
+        allLineWidthInc.forEachIndexed { index, _ ->
             val linePaint = Paint()
             linePaint.isAntiAlias = true
             linePaint.color = Color.parseColor(mPaintColors[index])

@@ -10,7 +10,7 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 
 class SaveWholeCalcuAdapter(private val ctx: Context) : RecyclerView.Adapter<SaveWholeCalcuAdapter.ViewHolder>() {
-    val listData: MutableList<String> = mutableListOf()
+    val listData: MutableList<String>? = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(ctx).inflate(R.layout.item_save_whole_calcu, parent, false))
 

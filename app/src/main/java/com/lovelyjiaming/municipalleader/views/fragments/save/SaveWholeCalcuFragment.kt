@@ -27,7 +27,7 @@ class SaveWholeCalcuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        save_whole_recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        save_whole_recyclerview.layoutManager = LinearLayoutManager(activity!!, LinearLayoutManager.VERTICAL, false)
         save_whole_recyclerview.adapter = SaveWholeCalcuAdapter(activity as Context)
         //
         save_whole_top_startdate.setOnClickListener {
@@ -40,10 +40,32 @@ class SaveWholeCalcuFragment : Fragment() {
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-//        if (save_whole_pie != null && isVisibleToUser) {
-//            save_whole_pie.visibility = View.VISIBLE
-//            save_whole_pie.startAnimateDraw()
-//        } else if (save_whole_pie != null) save_whole_pie.visibility = View.INVISIBLE
+        val hashTest = LinkedHashMap<String, Int>()
+        hashTest.put("1", 1000)
+        hashTest.put("2", 12)
+        hashTest.put("3", 13)
+        hashTest.put("4", 444)
+        hashTest.put("5", 555)
+        hashTest.put("6", 666)
+        hashTest.put("7", 777)
+        hashTest.put("8", 888)
+        hashTest.put("9", 999)
+        hashTest.put("10", 123)
+        hashTest.put("11", 421)
+        hashTest.put("12", 321)
+        hashTest.put("13", 666)
+        hashTest.put("14", 78)
+        hashTest.put("15", 344)
+        hashTest.put("16", 217)
+        hashTest.put("17", 678)
+        hashTest.put("18", 789)
+        hashTest.put("19", 33)
+        hashTest.put("20", 1000)
+
+        if (save_whole_vertical_chart != null && isVisibleToUser) {
+            save_whole_vertical_chart.visibility = View.VISIBLE
+            save_whole_vertical_chart.startAllData(hashTest)
+        } else if (save_whole_vertical_chart != null) save_whole_vertical_chart.visibility = View.INVISIBLE
     }
 
     companion object {
