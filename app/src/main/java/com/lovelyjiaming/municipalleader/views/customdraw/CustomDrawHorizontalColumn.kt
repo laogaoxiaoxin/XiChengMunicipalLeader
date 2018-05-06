@@ -12,7 +12,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnticipateOvershootInterpolator
 
 class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSet) : View(ctx, attr) {
-    lateinit var mAllMapData: HashMap<String, Int>
+    lateinit var mAllMapData: HashMap<String, Float>
     var allLineWidthInc: ArrayList<Float> = arrayListOf()
     var mAnimatorSet: AnimatorSet? = null
     var mPaintLine: ArrayList<Paint> = arrayListOf()
@@ -21,7 +21,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
             "#A1378B", "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121")
     var mAllLineHeightInterval: ArrayList<Float> = ArrayList(50)
 
-    fun setAllDatas(mapData: HashMap<String, Int>) {
+    fun setAllDatas(mapData: HashMap<String, Float>) {
         //
         mAnimatorSet = null
         mAllLineHeightInterval.clear()
@@ -37,13 +37,14 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         var eachIntervalTmp = 5f
         mAllMapData.forEach { _, i ->
             //w
-            val eachWidth = (i.toFloat() / maxBase.toFloat()) * (measuredWidth - 150)
+            val eachWidth = (i / maxBase) * (measuredWidth - 200)
             allLineWidthInc.add(eachWidth)
             //h
             mAllLineHeightInterval.add(eachIntervalTmp)
             eachIntervalTmp += eachLineInterval
         }
         createPaints()
+//        invalidate()
         createAnimators()
     }
 
@@ -72,8 +73,8 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         mAnimatorSet = AnimatorSet()
         var aBuilder: AnimatorSet.Builder? = null
         allLineWidthInc.forEachIndexed { index, fl ->
-            val animate = ValueAnimator.ofFloat(150f, fl + 150)
-            animate.interpolator = AnticipateOvershootInterpolator()
+            val animate = ValueAnimator.ofFloat(0f, fl)
+            animate.interpolator = AccelerateDecelerateInterpolator()
             animate.addUpdateListener {
                 allLineWidthInc[index] = it.animatedValue as Float
                 invalidate()
@@ -92,7 +93,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         super.onDraw(canvas)
         //
         mAllLineHeightInterval.forEachIndexed { index, interval ->
-            canvas?.drawLine(150f, interval, allLineWidthInc[index], interval, mPaintLine[index])
+            canvas?.drawLine(200f, interval, 200 + allLineWidthInc[index], interval, mPaintLine[index])
             canvas?.drawText(mAllMapData.keys.toMutableList()[index], 0f, interval + 15, mPaintText[index])
         }
     }

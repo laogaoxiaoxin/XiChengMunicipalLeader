@@ -65,5 +65,18 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
         save_online_taskdetail_plaster.text = taskInfo.taskPlaster
         save_online_taskdetail_caiselumain.text = taskInfo.caiselumian
         save_online_taskdetail_yushuikou.text = taskInfo.taskRainwater_outlet
+        //
+        save_online_taskdetail_tiezhidangchezhuang.text = taskInfo.tiezhidangchezhuang
+        save_online_taskdetail_shicaidangchezhuang.text = taskInfo.shicaidangchezhuang
+        save_online_taskdetail_shicailuyuanshi.text = taskInfo.shicailuyuanshi
+        save_online_taskdetail_shicaimangdao.text = taskInfo.shicaimangdao
+        save_online_taskdetail_shicaibudao.text = taskInfo.shicaibudao
+        save_online_taskdetail_mangdao.text = taskInfo.mangdao
+        save_online_taskdetail_taskTree_pool.text = taskInfo.taskTree_pool
+        save_online_taskdetail_wujiliao25.text = taskInfo.wujiliao25
+        save_online_taskdetail_taskInorganic_material_20cm.text = taskInfo.taskInorganic_material_20cm
+        save_online_taskdetail_taskInorganic_material_15cm.text = taskInfo.taskInorganic_material_15cm
+        save_online_taskdetail_taskMachine_stone.text = taskInfo.taskMachine_stone
+        save_online_taskdetail_curb.text = taskInfo.taskCurb
     }
 }

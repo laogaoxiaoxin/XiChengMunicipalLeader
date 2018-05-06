@@ -660,6 +660,318 @@
                     android:textSize="35px" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="路缘石："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_curb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="机刨石："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_taskMachine_stone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无机料15："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_taskInorganic_material_15cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无机料20："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_taskInorganic_material_20cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无机料25："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_wujiliao25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="树池（套）："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_taskTree_pool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="盲道："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_mangdao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="石材步道："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_shicaibudao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="石材盲道："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_shicaimangdao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="石材路缘石："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_shicailuyuanshi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="石材挡车桩："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_shicaidangchezhuang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="铁质挡车桩："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/save_online_taskdetail_tiezhidangchezhuang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>

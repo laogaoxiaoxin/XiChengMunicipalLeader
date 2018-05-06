@@ -28,6 +28,7 @@ class EngineerEndFragment : Fragment() {
     }
     private var strEndTime: String = ""
     private var strStartTime: String = ""
+    private var strTitleType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +54,7 @@ class EngineerEndFragment : Fragment() {
             DatePickerUtils.displayDatePickerDialog(activity as Context, {
                 strEndTime = it
                 engineer_end_endtime.text = it
+                requestData()
             })
         }
         engineer_end_title_general.setOnClickListener {
@@ -62,7 +64,8 @@ class EngineerEndFragment : Fragment() {
             }
             engineer_end_title_major.setTextColor(Color.parseColor("#a9a9a9"))
             engineer_end_title_general.setTextColor(Color.parseColor("#DB394A"))
-            requestData("General")
+            strTitleType = "General"
+            requestData()
         }
         engineer_end_title_major.setOnClickListener {
             if (strStartTime.isEmpty() || strEndTime.isEmpty()) {
@@ -71,13 +74,15 @@ class EngineerEndFragment : Fragment() {
             }
             engineer_end_title_major.setTextColor(Color.parseColor("#DB394A"))
             engineer_end_title_general.setTextColor(Color.parseColor("#a9a9a9"))
-            requestData("Major")
+            strTitleType = "Major"
+            requestData()
         }
     }
 
-    private fun requestData(type: String) {
-        XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_ENGINEER_ADDRESS + "getDoneEngineer&projectType=${type}", {
-            if (type.equals("General")) {
+    private fun requestData() {
+        if (strTitleType.isEmpty()) return
+        XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_ENGINEER_ADDRESS + "getDoneEngineer&projectType=${strTitleType}", {
+            if (strTitleType.equals("General")) {
                 val result = Gson().fromJson(it, EngineerGeneralClass::class.java)
                 adapter.listData = result.EngineerGeneral
                 adapter.notifyDataSetChanged()

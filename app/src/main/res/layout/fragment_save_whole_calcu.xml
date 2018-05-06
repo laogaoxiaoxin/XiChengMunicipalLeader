@@ -46,22 +46,21 @@
             android:textStyle="italic|bold" />
     </LinearLayout>
 
-    <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawVerticalColumn
+    <com.lovelyjiaming.municipalleader.views.customdraw.CustomDrawHorizontalColumn
         android:id="@+id/save_whole_vertical_chart"
         android:layout_width="match_parent"
-        android:layout_height="500px"
+        android:layout_height="550px"
         android:layout_below="@id/ll_save_whole_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10px"
-        android:layout_marginRight="10px"
-        android:layout_marginTop="20px" />
+        android:layout_marginRight="20px"
+        android:layout_marginTop="30px" />
 
     <RelativeLayout
         android:id="@+id/save_whole_listtitle"
         android:layout_width="match_parent"
         android:layout_height="70px"
         android:layout_below="@id/save_whole_vertical_chart"
-        android:layout_marginTop="20px"
+        android:layout_marginTop="10px"
         android:background="#000">
 
         <TextView

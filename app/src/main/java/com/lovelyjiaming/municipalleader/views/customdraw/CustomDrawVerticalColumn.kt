@@ -8,7 +8,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import android.view.animation.AnticipateOvershootInterpolator
+import android.view.animation.AccelerateDecelerateInterpolator
 
 class CustomDrawVerticalColumn(private val ctx: Context, val attr: AttributeSet) : View(ctx, attr) {
     //
@@ -19,9 +19,9 @@ class CustomDrawVerticalColumn(private val ctx: Context, val attr: AttributeSet)
             "#A1371B", "#72CDCD", "#A9CD5A", "#A0577D", "#00CD11", "#CD2200", "#CD950C", "#B22222", "#8A2BE2", "#212121")
     var mPaintLine: ArrayList<Paint> = arrayListOf()
     var mPaintText: ArrayList<Paint> = arrayListOf()
-    lateinit var mAllMapData: LinkedHashMap<String, Int>
+    lateinit var mAllMapData: LinkedHashMap<String, Float>
 
-    fun startAllData(mapParam: LinkedHashMap<String, Int>) {
+    fun startAllData(mapParam: LinkedHashMap<String, Float>) {
         //
         animatorSet?.cancel()
         listHeightInc.clear()
@@ -29,13 +29,13 @@ class CustomDrawVerticalColumn(private val ctx: Context, val attr: AttributeSet)
         //
         mAllMapData = mapParam
         //首先找出最大值，便于计算比例
-        val maxVal = mapParam.maxBy { it.value }?.value?.toFloat()
+        val maxVal = mapParam.maxBy { it.value }?.value
         //x轴间隔
-        val intervalX = measuredWidth / mapParam.size
-        var startX = 6f
+        val intervalX = measuredWidth / mapParam.size + 10
+        var startX = 10f
         mapParam.forEach {
             //height
-            val fHei = (it.value.toFloat() / maxVal!!) * (measuredHeight - 30)
+            val fHei = (it.value / maxVal!!) * (measuredHeight - 30)
             listHeightInc.add(fHei)
             //width
             listWidthInterval.add(startX)
@@ -51,7 +51,7 @@ class CustomDrawVerticalColumn(private val ctx: Context, val attr: AttributeSet)
         var aniBuilder: AnimatorSet.Builder? = null
         listHeightInc.forEachIndexed { index, fl ->
             val anim = ValueAnimator.ofFloat(0f, fl)
-            anim.interpolator = AnticipateOvershootInterpolator()
+            anim.interpolator = AccelerateDecelerateInterpolator()
             anim.addUpdateListener {
                 listHeightInc[index] = it.animatedValue as Float
                 invalidate()
@@ -61,7 +61,7 @@ class CustomDrawVerticalColumn(private val ctx: Context, val attr: AttributeSet)
             else
                 aniBuilder?.with(anim)
         }
-        animatorSet?.duration = 1500
+        animatorSet?.duration = 900
         animatorSet?.start()
     }
 
@@ -72,13 +72,13 @@ class CustomDrawVerticalColumn(private val ctx: Context, val attr: AttributeSet)
             linePaint.color = Color.parseColor(mPaintColors[index])
             linePaint.style = Paint.Style.STROKE
             linePaint.strokeCap = Paint.Cap.SQUARE
-            linePaint.strokeWidth = 6F
+            linePaint.strokeWidth = 4F
             mPaintLine.add(linePaint)
             //
             val textPaint = Paint()
             textPaint.isAntiAlias = true
             textPaint.color = Color.parseColor(mPaintColors[index])
-            textPaint.textSize = 23f
+            textPaint.textSize = 24f
             textPaint.textAlign = Paint.Align.LEFT
             mPaintText.add(textPaint)
         }

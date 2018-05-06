@@ -32,7 +32,7 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
         //未完成
         mFirstPaint = Paint()
         mFirstPaint.isAntiAlias = true
-        mFirstPaint.color = Color.parseColor("#7f87CEFA")
+        mFirstPaint.color = Color.parseColor("#af87CEFA")
         mFirstPaint.style = Paint.Style.STROKE
         mFirstPaint.strokeCap = Paint.Cap.SQUARE
         mFirstPaint.strokeWidth = 20F
@@ -40,7 +40,7 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
         //已完成
         mThirdPaint = Paint()
         mThirdPaint.isAntiAlias = true
-        mThirdPaint.color = Color.parseColor("#7f9F79EE")
+        mThirdPaint.color = Color.parseColor("#af9F79EE")
         mThirdPaint.style = Paint.Style.STROKE
         mThirdPaint.strokeCap = Paint.Cap.SQUARE
         mThirdPaint.strokeWidth = 30F
@@ -48,12 +48,15 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
 
     //根据塞入的值，计算比例
     fun setData(finished: Int, unfinished: Int) {
+        mUpdateValueF = 0f
+        mUpdateValueUF = 0f
+        invalidate()
         mFinished = finished.toFloat()
         mUnFinished = unfinished.toFloat()
         //
         val tmp1 = (mFinished / (mFinished + mUnFinished)) * 360f
         val animate1 = ValueAnimator.ofFloat(0f, tmp1)
-        animate1.duration = 1500
+        animate1.duration = 900
         animate1.interpolator = AnticipateOvershootInterpolator()
         animate1.addUpdateListener {
             mUpdateValueF = it.animatedValue as Float
@@ -67,7 +70,7 @@ class CustomDrawRing constructor(private val ctx: Context, val attr: AttributeSe
                 //
                 val tmp2 = (mUnFinished / (mFinished + mUnFinished)) * 360f
                 val animate2 = ValueAnimator.ofFloat(0f, tmp2)
-                animate2.duration = 1500
+                animate2.duration = 900
                 animate2.interpolator = AnticipateOvershootInterpolator()
                 animate2.addUpdateListener {
                     mUpdateValueUF = it.animatedValue as Float

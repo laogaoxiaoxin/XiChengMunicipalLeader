@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
 import com.lovelyjiaming.municipalleader.utils.InspectCaseCountClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
@@ -28,6 +29,12 @@ class CheckCaseCalcuFragment : Fragment() {
     //街道办事处
     val listRoadAddress: List<String> = listOf("德胜街道", "展览路街道", "新街口街道", "什刹海街道", "月坛街道", "金融街街道", "西长安街街道", "广安门外街道", "广安门内街道", "椿树街道",
             "大栅栏街道", "牛街街道", "白纸坊街道", "陶然亭街道", "天桥街道")
+    //
+    private var popType = 1
+    private var strStartTm: String? = null
+    private var strEndTm: String? = null
+    private var strCaseType: String? = null
+    private var strAddress: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +42,6 @@ class CheckCaseCalcuFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_check_case_calcu, container, false)
     }
 
@@ -48,16 +54,20 @@ class CheckCaseCalcuFragment : Fragment() {
         setClickListener()
     }
 
-    private var popType = 1
     private fun setClickListener() {
         //
         check_case_calcu_startdate.setOnClickListener {
-            DatePickerUtils.displayDatePickerDialog(activity as Context) { check_case_calcu_startdate.text = it }
+            DatePickerUtils.displayDatePickerDialog(activity as Context) {
+                check_case_calcu_startdate.text = it
+                strStartTm = it
+                requestData()
+            }
         }
         //
         check_case_calcu_enddate.setOnClickListener {
             DatePickerUtils.displayDatePickerDialog(activity as Context) {
                 check_case_calcu_enddate.text = it
+                strEndTm = it
                 requestData()
             }
         }
@@ -77,13 +87,20 @@ class CheckCaseCalcuFragment : Fragment() {
         rl_check_case_calcu_choose.setOnClickListener { rl_check_case_calcu_choose.visibility = View.GONE }
         //
         listview_check_case_calcu_choose.setOnItemClickListener { _, _, i, _ ->
-            if (popType == 1) check_case_calcu_type.text = listCaseType[i]
-            else check_case_calcu_address.text = listRoadAddress[i]
+            if (popType == 1) {
+                check_case_calcu_type.text = listCaseType[i]
+                strCaseType = listCaseType[i]
+            } else {
+                check_case_calcu_address.text = listRoadAddress[i]
+                strAddress = listRoadAddress[i]
+            }
+            requestData()
             rl_check_case_calcu_choose.visibility = View.GONE
         }
     }
 
     private fun requestData() {
+        if (strAddress.isNullOrEmpty() || strStartTm.isNullOrEmpty() || strEndTm.isNullOrEmpty() || strCaseType.isNullOrEmpty()) return
         XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "getCaseCount", {
             val result = Gson().fromJson(it, InspectCaseCountClass::class.java)
             check_case_calcu_ring.setData(result.finished, result.unfinished)

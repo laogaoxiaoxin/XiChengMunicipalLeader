@@ -23,6 +23,7 @@ class DangerReadyPersonFragment : Fragment() {
     val adapter: DangerReadyPersonAdapter by lazy {
         DangerReadyPersonAdapter(activity as Context)
     }
+    var strChangAnStreet: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,26 +40,33 @@ class DangerReadyPersonFragment : Fragment() {
         danger_ready_person_recyclerview.adapter = adapter
         //
         danger_ready_person_date.setOnClickListener {
-            DatePickerUtils.displayDatePickerDialog(activity as Context, { danger_ready_person_date.text = "查询时间：" + it })
+            DatePickerUtils.displayDatePickerDialog(activity as Context, {
+                danger_ready_person_date.text = "查询时间：" + it
+                requestData()
+            })
+
         }
         danger_ready_person_north.setOnClickListener {
             danger_ready_person_north.setTextColor(Color.parseColor("#DB394A"))
             danger_ready_person_south.setTextColor(Color.parseColor("#a9a9a9"))
-            requestData("长安街以北")
+            strChangAnStreet = "长安街以北"
+            requestData()
         }
         danger_ready_person_south.setOnClickListener {
             danger_ready_person_south.setTextColor(Color.parseColor("#DB394A"))
             danger_ready_person_north.setTextColor(Color.parseColor("#a9a9a9"))
-            requestData("长安街以南")
+            strChangAnStreet = "长安街以南"
+            requestData()
         }
     }
 
-    private fun requestData(area: String) {
+    private fun requestData() {
+        if (strChangAnStreet.isNullOrEmpty()) return
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_DANGER_ADDRESS + "getOndutyMember", {
             val result = Gson().fromJson(it, EmergencyOndutyMemberClass::class.java)
             adapter.listData = result.EmergencyOndutyMember
             adapter.notifyDataSetChanged()
-        }, hashMapOf("dutyDate" to danger_ready_person_date.text.toString().replace("查询时间：", ""), "dutyArea" to area))
+        }, hashMapOf("dutyDate" to danger_ready_person_date.text.toString().replace("查询时间：", ""), "dutyArea" to strChangAnStreet!!))
     }
 
     companion object {
