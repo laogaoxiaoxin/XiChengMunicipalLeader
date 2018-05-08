@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,19 +13,32 @@ import com.baidu.mapapi.map.InfoWindow
 import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.model.LatLng
 import com.google.gson.Gson
-
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
 import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
+import android.os.Handler
 
 class CheckPersonLocateFragment : Fragment() {
 
     lateinit var locateList: List<InspectLocationItemClass>
+    //
+    val handler: Handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getLocation", {
+                    locateList = Gson().fromJson(it, InspectLocationClass::class.java).InspectLocation.filter {
+                        it.department?.equals("patrol") ?: false
+                    }
+                    setMapInfo()
+                })
+                handler.postDelayed(this, 10000L)
+            }
+        }, 10000L)
     }
 
     override fun onResume() {
@@ -52,13 +64,15 @@ class CheckPersonLocateFragment : Fragment() {
         initMapView(savedInstanceState)
         //网络请求
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getLocation", {
-            locateList = Gson().fromJson(it, InspectLocationClass::class.java).InspectLocation
+            locateList = Gson().fromJson(it, InspectLocationClass::class.java).InspectLocation.filter {
+                it.department?.equals("patrol") ?: false
+            }
             setMapInfo()
         })
     }
 
-    @SuppressLint("SetTextI18n")
     private fun setMapInfo() {
+        check_person_locate_mapview.map.clear()
         locateList.forEach {
             when (it.WorkType) {
                 "架空线" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_yellow)).position(LatLng(it.latitude.toDouble(), it.longitude.toDouble())))

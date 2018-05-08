@@ -63,6 +63,7 @@ class SaveWholeCalcuFragment : Fragment() {
     fun getMetrailCalc(result: String) {
         //
         val result = Gson().fromJson(result, MaterailListClass::class.java)
+        if (result.MaterailCountList == null || result.MaterailTitleList == null) return
         //沥青加一起
         var allAsphalt = result.MaterailCountList[0].taskAsphalt_9cm_10.toFloat().plus(result.MaterailCountList[0].taskAsphalt_5cm_10.toFloat()).plus(result.MaterailCountList[0].asphalt_9cm_10_400.toFloat())
                 .plus(result.MaterailCountList[0].asphalt_5cm_10_400.toFloat()).plus(result.MaterailCountList[0].taskAsphalt_9cm_400.toFloat()).plus(result.MaterailCountList[0].taskAsphalt_5cm_400.toFloat())
