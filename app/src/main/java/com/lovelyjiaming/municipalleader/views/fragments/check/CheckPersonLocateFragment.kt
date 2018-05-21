@@ -1,8 +1,8 @@
 package com.lovelyjiaming.municipalleader.views.fragments.check
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +18,6 @@ import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
 import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
-import android.os.Handler
 
 class CheckPersonLocateFragment : Fragment() {
 
