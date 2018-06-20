@@ -43,7 +43,12 @@ class CheckCaseNoEndFragment : Fragment() {
         }
     }
 
-    fun requestData() {
+    override fun onDestroyView() {
+        super.onDestroyView()
+        XCNetWorkUtil.cancelRequest()
+    }
+
+    private fun requestData() {
         //network
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getUndone", {
             var result = Gson().fromJson(it, InspectUndoneClass::class.java)

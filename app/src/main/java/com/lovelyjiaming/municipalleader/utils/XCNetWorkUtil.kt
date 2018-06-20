@@ -84,6 +84,8 @@ object XCNetWorkUtil {
     //图片前缀
     const val NETWORK_IMG_BASIC_ADDRESS = "http://39.104.80.111:8888/lalio/"
 
+    private lateinit var mNewCall: Call
+
     fun invokeGetRequest(activity: FragmentActivity, url: String, listener: (String) -> Unit, mapParams: HashMap<String, String>? = null) {
         val finalUrlSb = StringBuilder(url)
         mapParams?.forEach {
@@ -92,9 +94,9 @@ object XCNetWorkUtil {
         }
 
         val request = Request.Builder().get().url(finalUrlSb.toString()).build()
-        val call = OkHttpClient().newCall(request)
+        mNewCall = OkHttpClient().newCall(request)
         //
-        call.enqueue(object : Callback {
+        mNewCall.enqueue(object : Callback {
             override fun onFailure(call: Call?, e: IOException?) {
             }
 
@@ -106,5 +108,9 @@ object XCNetWorkUtil {
             }
 
         })
+    }
+
+    fun cancelRequest() {
+        mNewCall.cancel()
     }
 }

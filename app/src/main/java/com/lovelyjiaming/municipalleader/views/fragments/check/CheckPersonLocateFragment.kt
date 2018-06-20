@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,6 +59,7 @@ class CheckPersonLocateFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        handler.removeCallbacksAndMessages(null)
         check_person_locate_mapview.onDestroy()
     }
 
@@ -94,13 +96,15 @@ class CheckPersonLocateFragment : Fragment() {
             //
             val linearLayout = LinearLayout(activity)
             linearLayout.orientation = LinearLayout.HORIZONTAL
-            linearLayout.setPadding(30, 30, 30, 30)
+            linearLayout.setPadding(30, 10, 30, 50)
             linearLayout.setBackgroundResource(R.drawable.popup)
-            linearLayout.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            linearLayout.gravity = Gravity.CENTER_VERTICAL
+            linearLayout.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200)
             //
             val headImg = ImageView(activity)
-            headImg.layoutParams = LinearLayout.LayoutParams(100, 120)
+            headImg.layoutParams = LinearLayout.LayoutParams(150, 150)
             Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + itemInfo[0].headaculpture).into(headImg)
+            headImg.scaleType = ImageView.ScaleType.FIT_XY
             linearLayout.addView(headImg)
             //
             val popupText = TextView(activity)

@@ -110,8 +110,9 @@ class CheckCaseCalcuFragment : Fragment() {
                 "endDate" to check_case_calcu_enddate.text.toString()))
     }
 
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        XCNetWorkUtil.cancelRequest()
     }
 
     companion object {

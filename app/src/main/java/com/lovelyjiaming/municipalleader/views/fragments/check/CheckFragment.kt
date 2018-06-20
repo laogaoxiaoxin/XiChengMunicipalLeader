@@ -17,8 +17,8 @@ import kotlinx.android.synthetic.main.fragment_check.*
  */
 class CheckFragment : Fragment() {
 
-    private val m_listCheckFragments: List<Fragment> by lazy {
-        listOf(CheckPersonLocateFragment.newInstance(), CheckCaseNoEndFragment.newInstance(), CheckCaseCalcuFragment.newInstance())
+    private val mListCheckFragments: List<Fragment> by lazy {
+        listOf(CheckPersonLocateFragment.newInstance(), CheckPersonTrackFragment.newInstance(), CheckCaseNoEndFragment.newInstance(), CheckCaseCalcuFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
 
@@ -31,6 +31,7 @@ class CheckFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tbl_check_top.addTab(tbl_check_top.newTab().setText("人员位置 "))
+        tbl_check_top.addTab(tbl_check_top.newTab().setText("人员轨迹 "))
         tbl_check_top.addTab(tbl_check_top.newTab().setText("未结案件 "))
         tbl_check_top.addTab(tbl_check_top.newTab().setText("案件统计 "))
         switchDisplayFragment(0)
@@ -44,31 +45,21 @@ class CheckFragment : Fragment() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                when (tab?.position) {
-                    0 -> switchDisplayFragment(0)
-                    1 -> switchDisplayFragment(1)
-                    2 -> switchDisplayFragment(2)
-                }
+                switchDisplayFragment(tab?.position!!)
             }
 
         })
     }
 
     private fun switchDisplayFragment(nDisplayIndex: Int) {
-        val mgr = childFragmentManager.beginTransaction()
+        val transaction = childFragmentManager.beginTransaction()
         //
         if (mCurrentFraIndex == nDisplayIndex) {
-            if (!m_listCheckFragments[nDisplayIndex].isAdded)
-            //就是当前，但是还没添加进栈
-                mgr.add(R.id.check_fragment_container, m_listCheckFragments[nDisplayIndex]).show(m_listCheckFragments[nDisplayIndex])
         } else {
-            if (m_listCheckFragments[nDisplayIndex].isAdded) {
-                mgr.hide(m_listCheckFragments[mCurrentFraIndex]).show(m_listCheckFragments[nDisplayIndex])
-            } else {
-                mgr.hide(m_listCheckFragments[mCurrentFraIndex]).add(R.id.check_fragment_container, m_listCheckFragments[nDisplayIndex]).show(m_listCheckFragments[nDisplayIndex])
-            }
+            transaction.remove(mListCheckFragments[mCurrentFraIndex])
         }
-        mgr.commit()
+        transaction.add(R.id.check_fragment_container, mListCheckFragments[nDisplayIndex])
+        transaction.commit()
         mCurrentFraIndex = nDisplayIndex
     }
 
