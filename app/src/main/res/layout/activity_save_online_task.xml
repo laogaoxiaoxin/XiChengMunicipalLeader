@@ -349,6 +349,7 @@
                 android:background="#a9a9a9" />
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_liqing9_010"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -375,6 +376,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_liqing5_010"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -401,6 +403,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_liqing9_10400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -427,6 +430,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_liqing5_10400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -453,6 +457,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_liqing9_above400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -479,6 +484,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_liqing5_above400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -505,6 +511,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_sidewalk"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -531,6 +538,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_plaster"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -557,6 +565,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_caiselumain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -583,6 +592,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_shengjiangjianchajing"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -609,6 +619,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_jiagujianchajing"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -635,6 +646,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_yushuikou"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -661,6 +673,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_curb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -687,6 +700,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_taskMachine_stone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -713,6 +727,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_taskInorganic_material_15cm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -739,6 +754,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_taskInorganic_material_20cm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -765,6 +781,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_wujiliao25"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -791,6 +808,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_taskTree_pool"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -817,6 +835,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_mangdao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -843,6 +862,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_shicaibudao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -869,6 +889,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_shicaimangdao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -895,6 +916,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_shicailuyuanshi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -921,6 +943,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_shicaidangchezhuang"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -947,6 +970,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_save_online_taskdetail_tiezhidangchezhuang"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"

@@ -3,6 +3,9 @@ package com.lovelyjiaming.municipalleader.views.activitys
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
@@ -55,28 +58,37 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
 
 
         //
-        save_online_taskdetail_liqing9_010.text = taskInfo.taskAsphalt_9cm_10
-        save_online_taskdetail_liqing5_010.text = taskInfo.taskAsphalt_5cm_10
-        save_online_taskdetail_liqing9_10400.text = taskInfo.asphalt_9cm_10_400
-        save_online_taskdetail_liqing5_10400.text = taskInfo.asphalt_5cm_10_400
-        save_online_taskdetail_liqing9_above400.text = taskInfo.taskAsphalt_9cm_400
-        save_online_taskdetail_liqing5_above400.text = taskInfo.taskAsphalt_5cm_400
-        save_online_taskdetail_sidewalk.text = taskInfo.taskSidewalk
-        save_online_taskdetail_plaster.text = taskInfo.taskPlaster
-        save_online_taskdetail_caiselumain.text = taskInfo.caiselumian
-        save_online_taskdetail_yushuikou.text = taskInfo.taskRainwater_outlet
-        //
-        save_online_taskdetail_tiezhidangchezhuang.text = taskInfo.tiezhidangchezhuang
-        save_online_taskdetail_shicaidangchezhuang.text = taskInfo.shicaidangchezhuang
-        save_online_taskdetail_shicailuyuanshi.text = taskInfo.shicailuyuanshi
-        save_online_taskdetail_shicaimangdao.text = taskInfo.shicaimangdao
-        save_online_taskdetail_shicaibudao.text = taskInfo.shicaibudao
-        save_online_taskdetail_mangdao.text = taskInfo.mangdao
-        save_online_taskdetail_taskTree_pool.text = taskInfo.taskTree_pool
-        save_online_taskdetail_wujiliao25.text = taskInfo.wujiliao25
-        save_online_taskdetail_taskInorganic_material_20cm.text = taskInfo.taskInorganic_material_20cm
-        save_online_taskdetail_taskInorganic_material_15cm.text = taskInfo.taskInorganic_material_15cm
-        save_online_taskdetail_taskMachine_stone.text = taskInfo.taskMachine_stone
-        save_online_taskdetail_curb.text = taskInfo.taskCurb
+        displayItemsHasValue(taskInfo.taskAsphalt_9cm_10, save_online_taskdetail_liqing9_010, ll_save_online_taskdetail_liqing9_010)
+        displayItemsHasValue(taskInfo.taskAsphalt_5cm_10, save_online_taskdetail_liqing5_010, ll_save_online_taskdetail_liqing5_010)
+        displayItemsHasValue(taskInfo.asphalt_9cm_10_400, save_online_taskdetail_liqing9_10400, ll_save_online_taskdetail_liqing9_10400)
+        displayItemsHasValue(taskInfo.asphalt_5cm_10_400, save_online_taskdetail_liqing5_10400, ll_save_online_taskdetail_liqing5_10400)
+        displayItemsHasValue(taskInfo.taskAsphalt_9cm_400, save_online_taskdetail_liqing9_above400, ll_save_online_taskdetail_liqing9_above400)
+        displayItemsHasValue(taskInfo.taskAsphalt_5cm_400, save_online_taskdetail_liqing5_above400, ll_save_online_taskdetail_liqing5_above400)
+        displayItemsHasValue(taskInfo.taskSidewalk, save_online_taskdetail_sidewalk, ll_save_online_taskdetail_sidewalk)
+        displayItemsHasValue(taskInfo.taskPlaster, save_online_taskdetail_plaster, ll_save_online_taskdetail_plaster)
+        displayItemsHasValue(taskInfo.caiselumian, save_online_taskdetail_caiselumain, ll_save_online_taskdetail_caiselumain)
+        displayItemsHasValue(taskInfo.taskRainwater_outlet, save_online_taskdetail_yushuikou, ll_save_online_taskdetail_yushuikou)
+        displayItemsHasValue(taskInfo.tiezhidangchezhuang, save_online_taskdetail_tiezhidangchezhuang, ll_save_online_taskdetail_tiezhidangchezhuang)
+        displayItemsHasValue(taskInfo.shicaidangchezhuang, save_online_taskdetail_shicaidangchezhuang, ll_save_online_taskdetail_shicaidangchezhuang)
+        displayItemsHasValue(taskInfo.shicailuyuanshi, save_online_taskdetail_shicailuyuanshi, ll_save_online_taskdetail_shicailuyuanshi)
+        displayItemsHasValue(taskInfo.shicaimangdao, save_online_taskdetail_shicaimangdao, ll_save_online_taskdetail_shicaimangdao)
+        displayItemsHasValue(taskInfo.shicaibudao, save_online_taskdetail_shicaibudao, ll_save_online_taskdetail_shicaibudao)
+        displayItemsHasValue(taskInfo.mangdao, save_online_taskdetail_mangdao, ll_save_online_taskdetail_mangdao)
+        displayItemsHasValue(taskInfo.taskTree_pool, save_online_taskdetail_taskTree_pool, ll_save_online_taskdetail_taskTree_pool)
+        displayItemsHasValue(taskInfo.wujiliao25, save_online_taskdetail_wujiliao25, ll_save_online_taskdetail_wujiliao25)
+        displayItemsHasValue(taskInfo.taskInorganic_material_20cm, save_online_taskdetail_taskInorganic_material_20cm, ll_save_online_taskdetail_taskInorganic_material_20cm)
+        displayItemsHasValue(taskInfo.taskInorganic_material_15cm, save_online_taskdetail_taskInorganic_material_15cm, ll_save_online_taskdetail_taskInorganic_material_15cm)
+        displayItemsHasValue(taskInfo.taskMachine_stone, save_online_taskdetail_taskMachine_stone, ll_save_online_taskdetail_taskMachine_stone)
+        displayItemsHasValue(taskInfo.taskCurb, save_online_taskdetail_curb, ll_save_online_taskdetail_curb)
+        displayItemsHasValue(taskInfo.jiagujianchajing, save_online_taskdetail_jiagujianchajing, ll_save_online_taskdetail_jiagujianchajing)
+        displayItemsHasValue(taskInfo.shengjiangjianchajing, save_online_taskdetail_shengjiangjianchajing, ll_save_online_taskdetail_shengjiangjianchajing)
+
+    }
+
+    private fun displayItemsHasValue(value: String?, textView: TextView, layout: LinearLayout) {
+        if (value?.isNullOrEmpty() as Boolean) {
+            layout.visibility = View.GONE
+        } else
+            textView.text = value
     }
 }
