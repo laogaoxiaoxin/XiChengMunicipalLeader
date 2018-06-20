@@ -86,7 +86,7 @@ object XCNetWorkUtil {
 
     private lateinit var mNewCall: Call
 
-    fun invokeGetRequest(activity: FragmentActivity, url: String, listener: (String) -> Unit, mapParams: HashMap<String, String>? = null) {
+    fun invokeGetRequest(activity: FragmentActivity?, url: String, listener: (String) -> Unit, mapParams: HashMap<String, String>? = null) {
         val finalUrlSb = StringBuilder(url)
         mapParams?.forEach {
             finalUrlSb.append("&")
@@ -102,7 +102,7 @@ object XCNetWorkUtil {
 
             override fun onResponse(call: Call?, response: Response?) {
                 val response = response?.body()?.string()!!
-                activity.runOnUiThread {
+                activity!!.runOnUiThread {
                     listener(response)
                 }
             }

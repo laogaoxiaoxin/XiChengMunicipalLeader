@@ -90,7 +90,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180px"
+        android:layout_height="120px"
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -107,8 +107,8 @@
 
             <ImageView
                 android:id="@+id/iv_main_bottom_tools_check"
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="55px"
+                android:layout_height="55px"
                 android:scaleType="fitXY"
                 android:src="@drawable/main_bottom_tools_check_selected" />
 
@@ -134,8 +134,8 @@
 
             <ImageView
                 android:id="@+id/iv_main_bottom_tools_save"
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="55px"
+                android:layout_height="55px"
                 android:scaleType="fitXY"
                 android:src="@drawable/main_bottom_tools_save" />
 
@@ -161,8 +161,8 @@
 
             <ImageView
                 android:id="@+id/iv_main_bottom_tools_danger"
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="55px"
+                android:layout_height="55px"
                 android:scaleType="fitXY"
                 android:src="@drawable/main_bottom_tools_danger" />
 
@@ -188,8 +188,8 @@
 
             <ImageView
                 android:id="@+id/iv_main_bottom_tools_engineer"
-                android:layout_width="70px"
-                android:layout_height="70px"
+                android:layout_width="55px"
+                android:layout_height="55px"
                 android:scaleType="fitXY"
                 android:src="@drawable/main_bottom_tools_engineer" />
 
@@ -211,7 +211,7 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="180px"
+        android:layout_marginBottom="121px"
         android:background="#ddd" />
 
     <FrameLayout
@@ -220,6 +220,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_below="@id/main_top_tools"
-        android:layout_marginBottom="181px" />
+        android:layout_marginBottom="121px" />
 
 </RelativeLayout>

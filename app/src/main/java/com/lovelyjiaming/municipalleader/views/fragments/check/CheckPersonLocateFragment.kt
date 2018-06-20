@@ -19,7 +19,6 @@ import com.baidu.mapapi.model.LatLng
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
 import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass

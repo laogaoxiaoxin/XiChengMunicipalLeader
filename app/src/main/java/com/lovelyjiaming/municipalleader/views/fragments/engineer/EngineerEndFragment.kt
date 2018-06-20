@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,6 @@ import com.lovelyjiaming.municipalleader.utils.EngineerGeneralClass
 import com.lovelyjiaming.municipalleader.utils.EngineerMajorClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.EngineerSameAllAdapter
-import kotlinx.android.synthetic.main.fragment_engineer_current.*
 import kotlinx.android.synthetic.main.fragment_engineer_end.*
 
 class EngineerEndFragment : Fragment() {
