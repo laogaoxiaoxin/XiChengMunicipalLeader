@@ -1,5 +1,6 @@
 package com.lovelyjiaming.municipalleader.views.fragments.check
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -7,13 +8,18 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.map.InfoWindow
 import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.model.LatLng
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
+import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
 import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
@@ -70,6 +76,7 @@ class CheckPersonLocateFragment : Fragment() {
         })
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setMapInfo() {
         check_person_locate_mapview.map.clear()
         locateList.forEach {
@@ -85,12 +92,26 @@ class CheckPersonLocateFragment : Fragment() {
             val longitude = it.position.longitude
             val itemInfo = locateList.filter { it.latitude.toDouble() == latitude && it.longitude.toDouble() == longitude }
             //
+            val linearLayout = LinearLayout(activity)
+            linearLayout.orientation = LinearLayout.HORIZONTAL
+            linearLayout.setPadding(30, 30, 30, 30)
+            linearLayout.setBackgroundResource(R.drawable.popup)
+            linearLayout.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            //
+            val headImg = ImageView(activity)
+            headImg.layoutParams = LinearLayout.LayoutParams(100, 120)
+            Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + itemInfo[0].headaculpture).into(headImg)
+            linearLayout.addView(headImg)
+            //
             val popupText = TextView(activity)
             popupText.setTextColor(Color.BLACK)
-            popupText.setBackgroundResource(R.drawable.popup)
-            popupText.setPadding(40, 30, 40, 50)
-            popupText.text = "姓名：${itemInfo[0].username}\r\n电话：13811499330"
-            check_person_locate_mapview.map.showInfoWindow(InfoWindow(popupText, it.position, -60))
+            popupText.setPadding(20, 20, 20, 20)
+            popupText.textSize = 12f
+            popupText.text = "姓名：${itemInfo[0].username}\r\n电话：${itemInfo[0].phonenumber}"
+            linearLayout.addView(popupText)
+            AutoUtils.auto(linearLayout)
+            //
+            check_person_locate_mapview.map.showInfoWindow(InfoWindow(linearLayout, it.position, -60))
             true
         }
     }
