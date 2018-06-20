@@ -25,7 +25,8 @@ data class InspectTrack(val InspectTrack: MutableList<InspectTrackItem>)
 class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
 
     private lateinit var mWorkTypeMap: Map<String, List<InspectLocationItemClass>>
-    private val search = RoutePlanSearch.newInstance()
+    //
+    private lateinit var mSearch: RoutePlanSearch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +44,7 @@ class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
         check_person_track_mapview.map.uiSettings.isRotateGesturesEnabled = false
         check_person_track_mapview.map.uiSettings.isOverlookingGesturesEnabled = false
         check_person_track_mapview.map.uiSettings.isCompassEnabled = false
+        mSearch = RoutePlanSearch.newInstance()
         //
         listview_person_track_filter.adapter = ArrayAdapter(this.activity, android.R.layout.simple_list_item_1, arrayOf("架空线", "道路巡查", "审批掘路"))
         listview_person_track_filter.onItemClickListener = this
@@ -96,7 +98,7 @@ class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
                 }
             }
 
-            search.setOnGetRoutePlanResultListener(object : OnGetRoutePlanResultListener {
+            mSearch.setOnGetRoutePlanResultListener(object : OnGetRoutePlanResultListener {
                 override fun onGetIndoorRouteResult(p0: IndoorRouteResult?) {
                 }
 
@@ -134,8 +136,8 @@ class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
                     val nodeEnd = listReadyDraw?.get(i + stepSize)
                     option.from(PlanNode.withLocation(nodeStart))
                     option.to(PlanNode.withLocation(nodeEnd))
-                    search.walkingSearch(option)
-                    Thread.sleep(50)
+                    mSearch.walkingSearch(option)
+                    Thread.sleep(300)
                 }
             }.start()
 
@@ -155,6 +157,7 @@ class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         check_person_track_mapview.onDestroy()
+        mSearch.destroy()
     }
 
 
