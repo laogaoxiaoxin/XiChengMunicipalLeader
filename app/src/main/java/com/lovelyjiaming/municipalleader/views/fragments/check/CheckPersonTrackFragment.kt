@@ -109,10 +109,13 @@ class CheckPersonTrackFragment : Fragment() {
                 override fun onGetTransitRouteResult(p0: TransitRouteResult?) {}
                 override fun onGetDrivingRouteResult(p0: DrivingRouteResult?) {}
                 override fun onGetWalkingRouteResult(p0: WalkingRouteResult?) {
-                    val overlay = WalkingRouteOverlay(check_person_track_mapview.map)
-                    overlay.setData(p0?.routeLines?.get(0))
-                    overlay.addToMap()
+                    check_person_track_mapview?.let {
+                        val overlay = WalkingRouteOverlay(check_person_track_mapview.map)
+                        overlay.setData(p0?.routeLines?.get(0))
+                        overlay.addToMap()
+                    }
                 }
+
                 override fun onGetMassTransitRouteResult(p0: MassTransitRouteResult?) {}
                 override fun onGetBikingRouteResult(p0: BikingRouteResult?) {}
 
@@ -127,7 +130,7 @@ class CheckPersonTrackFragment : Fragment() {
                 .newLatLngZoom(listReadyDraw!![0], 16.5f))
         //开始正式规划路线
         Thread {
-            val stepSize = if (listReadyDraw?.size!! >= 300) 48 else 10
+            val stepSize = if (listReadyDraw?.size!! >= 300) 40 else 10
             //
             for (i in 0 until listReadyDraw?.size!! step stepSize) {
                 if (i >= listReadyDraw?.size!! - 1 || (i + stepSize) >= listReadyDraw?.size!! - 1) break

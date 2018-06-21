@@ -16,6 +16,7 @@ import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.map.InfoWindow
 import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.model.LatLng
+import com.baidu.mapapi.utils.CoordinateConverter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
@@ -89,25 +90,35 @@ class CheckPersonLocateFragment : Fragment() {
         return info!![0]
     }
 
+    data class CtmpData(val latLng: LatLng, val userName: String)
+
     @SuppressLint("SetTextI18n")
     private fun setMapInfo() {
         if (personInfoList == null) return
-        //
+        //坐标转换,构造新的结构
+        val newLocateList = locateList?.map {
+            val converter = CoordinateConverter()
+            converter.from(CoordinateConverter.CoordType.COMMON)
+            converter.coord(LatLng(it.x?.toDouble()!!, it.y?.toDouble()!!))
+            CtmpData(converter.convert(), it.userName!!)
+        }
         check_person_locate_mapview.map.clear()
-        locateList?.forEach {
-            when (getPersonInfoDrawPoint(it.userName!!).WorkType) {
-                "架空线" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_yellow)).position(LatLng(it.x!!.toDouble(), it.y!!.toDouble())))
-                "审批掘路" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_blue)).position(LatLng(it.x!!.toDouble(), it.y!!.toDouble())))
-                "道路巡查" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_red)).position(LatLng(it.x!!.toDouble(), it.y!!.toDouble())))
+        //开始插入图标
+        newLocateList?.forEach {
+            when (getPersonInfoDrawPoint(it.userName).WorkType) {
+                "架空线" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_yellow)).position(it.latLng))
+                "审批掘路" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_blue)).position(it.latLng))
+                "道路巡查" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_red)).position(it.latLng))
             }
         }
         //点击弹出气泡事件
         check_person_locate_mapview.map.setOnMarkerClickListener {
             val latitude = it.position.latitude
             val longitude = it.position.longitude
-            val itemInfo = locateList?.filter { it.x!!.toDouble() == latitude && it.y!!.toDouble() == longitude }
+            val itemInfo = newLocateList?.filter { it.latLng.latitude == latitude && it.latLng.longitude == longitude }
             //
-            itemInfo?.get(0)?.let {it1->
+            if (itemInfo == null || itemInfo.isEmpty()) false
+            itemInfo?.get(0)?.let { it1 ->
                 //x
                 val linearLayout = LinearLayout(activity)
                 linearLayout.orientation = LinearLayout.HORIZONTAL
