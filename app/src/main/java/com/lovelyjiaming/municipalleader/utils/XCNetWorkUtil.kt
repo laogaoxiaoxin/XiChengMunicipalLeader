@@ -5,10 +5,15 @@ import okhttp3.*
 import java.io.IOException
 import java.io.Serializable
 
-//巡查部分-locate
-data class InspectLocationItemClass(val username: String, val department: String?, val authority: String?, val phonenumber: String?, val WorkType: String, val longitude: String, val latitude: String, val headaculpture: String?) : Serializable
+//巡查部分-巡查员工个人信息
+data class InspectPersonInfoItemClass(val username: String, val department: String?, val authority: String?, val phonenumber: String?, val WorkType: String, val headaculpture: String?) : Serializable
 
-data class InspectLocationClass(val InspectLocation: List<InspectLocationItemClass>)
+data class InspectPersonInfoClass(val InspectPersonInfo: List<InspectPersonInfoItemClass>)
+
+//巡查部分-巡查员工位置信息
+data class InspectCurrentLocationItem(val userName: String?, val x: String?, val y: String?)
+
+data class InspectCurrentLocation(val InspectCurrentLocation: List<InspectCurrentLocationItem>)
 
 //巡查部分-calc
 data class InspectCaseCountItemClass(val taskName: String?, val taskDate: String?)

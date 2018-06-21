@@ -32,7 +32,7 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
         listResult?.let {
             val listTmp = it
             holder.apply {
-                check_noend_case_name.text = "任务名称：" + listTmp[position].taskName
+                check_noend_case_name.text = listTmp[position].taskName
                 check_noend_case_status.text = listTmp[position].taskState
                 if (!holderType.equals("saveonlinetask")) {
                     check_noend_case_status.visibility = View.INVISIBLE

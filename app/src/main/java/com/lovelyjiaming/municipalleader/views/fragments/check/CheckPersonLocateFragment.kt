@@ -21,31 +21,24 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
-import com.lovelyjiaming.municipalleader.utils.AutoUtils
-import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
-import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
-import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
+import com.lovelyjiaming.municipalleader.utils.*
+import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
 
 class CheckPersonLocateFragment : Fragment() {
 
-    lateinit var locateList: List<InspectLocationItemClass>
+    private var locateList: List<InspectCurrentLocationItem>? = null
+    //所有人员信息
+    private var personInfoList: MutableList<InspectPersonInfoItemClass>? = null
     //
     val handler: Handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        handler.postDelayed(object : Runnable {
-            override fun run() {
-                XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getLocation", {
-                    locateList = Gson().fromJson(it, InspectLocationClass::class.java).InspectLocation.filter {
-                        it.department?.equals("patrol") ?: false
-                    }
-                    setMapInfo()
-                })
-                handler.postDelayed(this, 10000L)
-            }
-        }, 10000L)
+        //先请求所有人信息
+        XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getAllPersonInfo", {
+            personInfoList = Gson().fromJson(it, InspectPersonInfoClass::class.java).InspectPersonInfo.toMutableList()
+        })
     }
 
     override fun onResume() {
@@ -70,53 +63,74 @@ class CheckPersonLocateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initMapView(savedInstanceState)
-        //网络请求
-        XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getLocation", {
-            locateList = Gson().fromJson(it, InspectLocationClass::class.java).InspectLocation.filter {
-                it.department?.equals("patrol") ?: false
+        //
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                requestPersonLocation()
+                handler.postDelayed(this, 15000L)
             }
+        }, 15000L)
+        requestPersonLocation()
+    }
+
+    fun requestPersonLocation() {
+        //网络请求
+        XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "currentLocation", {
+            locateList = Gson().fromJson(it, InspectCurrentLocation::class.java).InspectCurrentLocation
             setMapInfo()
         })
     }
 
+    //画点时得到人员信息，从另一个接口
+    private fun getPersonInfoDrawPoint(userName: String): InspectPersonInfoItemClass {
+        val info = personInfoList?.filter {
+            it.username == userName
+        }
+        return info!![0]
+    }
+
     @SuppressLint("SetTextI18n")
     private fun setMapInfo() {
+        if (personInfoList == null) return
+        //
         check_person_locate_mapview.map.clear()
-        locateList.forEach {
-            when (it.WorkType) {
-                "架空线" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_yellow)).position(LatLng(it.latitude.toDouble(), it.longitude.toDouble())))
-                "审批掘路" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_blue)).position(LatLng(it.latitude.toDouble(), it.longitude.toDouble())))
-                "道路巡查" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_red)).position(LatLng(it.latitude.toDouble(), it.longitude.toDouble())))
+        locateList?.forEach {
+            when (getPersonInfoDrawPoint(it.userName!!).WorkType) {
+                "架空线" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_yellow)).position(LatLng(it.x!!.toDouble(), it.y!!.toDouble())))
+                "审批掘路" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_blue)).position(LatLng(it.x!!.toDouble(), it.y!!.toDouble())))
+                "道路巡查" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_red)).position(LatLng(it.x!!.toDouble(), it.y!!.toDouble())))
             }
         }
         //点击弹出气泡事件
         check_person_locate_mapview.map.setOnMarkerClickListener {
             val latitude = it.position.latitude
             val longitude = it.position.longitude
-            val itemInfo = locateList.filter { it.latitude.toDouble() == latitude && it.longitude.toDouble() == longitude }
+            val itemInfo = locateList?.filter { it.x!!.toDouble() == latitude && it.y!!.toDouble() == longitude }
             //
-            val linearLayout = LinearLayout(activity)
-            linearLayout.orientation = LinearLayout.HORIZONTAL
-            linearLayout.setPadding(30, 10, 30, 50)
-            linearLayout.setBackgroundResource(R.drawable.popup)
-            linearLayout.gravity = Gravity.CENTER_VERTICAL
-            linearLayout.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200)
-            //
-            val headImg = ImageView(activity)
-            headImg.layoutParams = LinearLayout.LayoutParams(150, 150)
-            Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + itemInfo[0].headaculpture).apply(RequestOptions().placeholder(R.drawable.default_head)).into(headImg)
-            headImg.scaleType = ImageView.ScaleType.FIT_XY
-            linearLayout.addView(headImg)
-            //
-            val popupText = TextView(activity)
-            popupText.setTextColor(Color.BLACK)
-            popupText.setPadding(20, 20, 20, 20)
-            popupText.textSize = 12f
-            popupText.text = "姓名：${itemInfo[0].username}\r\n电话：${itemInfo[0].phonenumber}"
-            linearLayout.addView(popupText)
-            AutoUtils.auto(linearLayout)
-            //
-            check_person_locate_mapview.map.showInfoWindow(InfoWindow(linearLayout, it.position, -60))
+            itemInfo?.get(0)?.let {it1->
+                //x
+                val linearLayout = LinearLayout(activity)
+                linearLayout.orientation = LinearLayout.HORIZONTAL
+                linearLayout.setPadding(30, 10, 30, 50)
+                linearLayout.setBackgroundResource(R.drawable.popup)
+                linearLayout.gravity = Gravity.CENTER_VERTICAL
+                linearLayout.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200)
+                //
+                val headImg = ImageView(activity)
+                headImg.layoutParams = LinearLayout.LayoutParams(150, 150)
+                Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + getPersonInfoDrawPoint(it1.userName!!).headaculpture).apply(RequestOptions().placeholder(R.drawable.default_head)).into(headImg)
+                headImg.scaleType = ImageView.ScaleType.FIT_XY
+                linearLayout.addView(headImg)
+                //
+                val popupText = TextView(activity)
+                popupText.setTextColor(Color.BLACK)
+                popupText.setPadding(20, 20, 20, 20)
+                popupText.textSize = 12f
+                popupText.text = "姓名：${getPersonInfoDrawPoint(it1.userName).username}\r\n电话：${getPersonInfoDrawPoint(it1.userName).phonenumber}"
+                linearLayout.addView(popupText)
+                //
+                check_person_locate_mapview.map.showInfoWindow(InfoWindow(linearLayout, it.position, -60))
+            }
             true
         }
     }

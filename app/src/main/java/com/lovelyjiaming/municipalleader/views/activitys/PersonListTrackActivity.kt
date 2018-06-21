@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.*
-import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
+import com.lovelyjiaming.municipalleader.utils.InspectPersonInfoItemClass
+import kotlinx.android.synthetic.main.activity_person_list_track.*
 
 class PersonListTrackActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class PersonListTrackActivity : AppCompatActivity() {
 
         //
         person_list_track_title.text = intent.getStringExtra("groupname") + "组人员轨迹"
-        val arrayInspect = intent.getSerializableExtra("personlist") as Array<InspectLocationItemClass>
+        val arrayInspect = intent.getSerializableExtra("personlist") as Array<InspectPersonInfoItemClass>
         val arrayName = arrayInspect.map { it.username }
         listview_person_list_track.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayName.filter { !it.contains("领导") && !it.contains("员工") })
         //

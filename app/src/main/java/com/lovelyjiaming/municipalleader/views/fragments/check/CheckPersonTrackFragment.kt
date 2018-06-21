@@ -6,8 +6,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.TextView
 import android.widget.Toast
 import com.baidu.mapapi.map.MapStatusUpdateFactory
 import com.baidu.mapapi.model.LatLng
@@ -15,8 +13,9 @@ import com.baidu.mapapi.search.route.*
 import com.baidu.mapapi.utils.CoordinateConverter
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
-import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
+import com.lovelyjiaming.municipalleader.R.id.*
+import com.lovelyjiaming.municipalleader.utils.InspectPersonInfoClass
+import com.lovelyjiaming.municipalleader.utils.InspectPersonInfoItemClass
 import com.lovelyjiaming.municipalleader.utils.WalkingRouteOverlay
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.activitys.PersonListTrackActivity
@@ -28,7 +27,7 @@ data class InspectTrack(val InspectTrack: MutableList<InspectTrackItem>)
 
 class CheckPersonTrackFragment : Fragment() {
 
-    private lateinit var mWorkTypeMap: Map<String, List<InspectLocationItemClass>>
+    private lateinit var mWorkTypeMap: Map<String, List<InspectPersonInfoItemClass>>
     //
     private lateinit var mSearch: RoutePlanSearch
 
@@ -50,8 +49,8 @@ class CheckPersonTrackFragment : Fragment() {
         check_person_track_mapview.map.uiSettings.isCompassEnabled = false
         mSearch = RoutePlanSearch.newInstance()
         //先请求分组信息，再获取一次人员位置
-        XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getLocation", {
-            mWorkTypeMap = Gson().fromJson(it, InspectLocationClass::class.java).InspectLocation.groupBy { it.WorkType }
+        XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getAllPersonInfo", {
+            mWorkTypeMap = Gson().fromJson(it, InspectPersonInfoClass::class.java).InspectPersonInfo.groupBy { it.WorkType }
         }, null)
         //
         click_jiakongxian.setOnClickListener {
