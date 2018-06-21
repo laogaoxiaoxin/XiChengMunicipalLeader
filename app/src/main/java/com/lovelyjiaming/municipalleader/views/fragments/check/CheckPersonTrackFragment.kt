@@ -13,7 +13,6 @@ import com.baidu.mapapi.search.route.*
 import com.baidu.mapapi.utils.CoordinateConverter
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.InspectPersonInfoClass
 import com.lovelyjiaming.municipalleader.utils.InspectPersonInfoItemClass
 import com.lovelyjiaming.municipalleader.utils.WalkingRouteOverlay
