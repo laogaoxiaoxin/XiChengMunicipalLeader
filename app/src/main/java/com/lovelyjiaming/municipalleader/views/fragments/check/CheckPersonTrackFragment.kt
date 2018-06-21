@@ -106,26 +106,16 @@ class CheckPersonTrackFragment : Fragment() {
             }
 
             mSearch.setOnGetRoutePlanResultListener(object : OnGetRoutePlanResultListener {
-                override fun onGetIndoorRouteResult(p0: IndoorRouteResult?) {
-                }
-
-                override fun onGetTransitRouteResult(p0: TransitRouteResult?) {
-                }
-
-                override fun onGetDrivingRouteResult(p0: DrivingRouteResult?) {
-                }
-
+                override fun onGetIndoorRouteResult(p0: IndoorRouteResult?) {}
+                override fun onGetTransitRouteResult(p0: TransitRouteResult?) {}
+                override fun onGetDrivingRouteResult(p0: DrivingRouteResult?) {}
                 override fun onGetWalkingRouteResult(p0: WalkingRouteResult?) {
                     val overlay = WalkingRouteOverlay(check_person_track_mapview.map)
                     overlay.setData(p0?.routeLines?.get(0))
                     overlay.addToMap()
                 }
-
-                override fun onGetMassTransitRouteResult(p0: MassTransitRouteResult?) {
-                }
-
-                override fun onGetBikingRouteResult(p0: BikingRouteResult?) {
-                }
+                override fun onGetMassTransitRouteResult(p0: MassTransitRouteResult?) {}
+                override fun onGetBikingRouteResult(p0: BikingRouteResult?) {}
 
             })
             this.startPlanThread()

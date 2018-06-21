@@ -17,8 +17,10 @@ import com.baidu.mapapi.map.InfoWindow
 import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.model.LatLng
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
 import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
@@ -102,7 +104,7 @@ class CheckPersonLocateFragment : Fragment() {
             //
             val headImg = ImageView(activity)
             headImg.layoutParams = LinearLayout.LayoutParams(150, 150)
-            Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + itemInfo[0].headaculpture).into(headImg)
+            Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + itemInfo[0].headaculpture).apply(RequestOptions().placeholder(R.drawable.default_head)).into(headImg)
             headImg.scaleType = ImageView.ScaleType.FIT_XY
             linearLayout.addView(headImg)
             //
