@@ -121,27 +121,28 @@ class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
                 }
 
             })
-
-            val option = WalkingRoutePlanOption()
-            check_person_track_mapview.map.setMapStatus(MapStatusUpdateFactory
-                    .newLatLngZoom(listReadyDraw!![0], 16.5f))
-            //开始正式规划路线
-            Thread {
-                var stepSize = 0
-                if (listReadyDraw?.size!! >= 300) stepSize = 60 else stepSize = 10
-                //
-                for (i in 0 until listReadyDraw?.size!! step stepSize) {
-                    if (i >= listReadyDraw?.size!! - 1 || (i + stepSize) >= listReadyDraw?.size!! - 1) break
-                    val nodeStart = listReadyDraw?.get(i)
-                    val nodeEnd = listReadyDraw?.get(i + stepSize)
-                    option.from(PlanNode.withLocation(nodeStart))
-                    option.to(PlanNode.withLocation(nodeEnd))
-                    mSearch.walkingSearch(option)
-                    Thread.sleep(300)
-                }
-            }.start()
-
+            this.startPlanThread()
         }
+    }
+
+    private fun startPlanThread() {
+        val option = WalkingRoutePlanOption()
+        check_person_track_mapview.map.setMapStatus(MapStatusUpdateFactory
+                .newLatLngZoom(listReadyDraw!![0], 16.5f))
+        //开始正式规划路线
+        Thread {
+            val stepSize = if (listReadyDraw?.size!! >= 300) 48 else 10
+            //
+            for (i in 0 until listReadyDraw?.size!! step stepSize) {
+                if (i >= listReadyDraw?.size!! - 1 || (i + stepSize) >= listReadyDraw?.size!! - 1) break
+                val nodeStart = listReadyDraw?.get(i)
+                val nodeEnd = listReadyDraw?.get(i + stepSize)
+                option.from(PlanNode.withLocation(nodeStart))
+                option.to(PlanNode.withLocation(nodeEnd))
+                mSearch.walkingSearch(option)
+                Thread.sleep(300)
+            }
+        }.start()
     }
 
     override fun onResume() {

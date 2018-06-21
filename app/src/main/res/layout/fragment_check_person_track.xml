@@ -17,4 +17,49 @@
         android:layout_alignParentBottom="true"
         android:background="#fff"
         tools:ignore="PxUsage" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:background="#9f000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        tools:ignore="PxUsage">
+
+        <TextView
+            android:id="@+id/click_jiakongxian"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="架空线组 "
+            android:textColor="#fff"
+            android:textSize="35px"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/click_daoluxuncha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="道路巡查组 "
+            android:textColor="#fff"
+            android:textSize="35px"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/click_shenpijuelu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="审批掘路组 "
+            android:textColor="#fff"
+            android:textSize="35px"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
 </RelativeLayout>
