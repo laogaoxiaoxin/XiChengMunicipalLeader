@@ -270,24 +270,21 @@
                     android:layout_width="290px"
                     android:layout_height="240px"
                     android:layout_marginStart="10px"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/exam" />
+                    android:scaleType="fitXY" />
 
                 <ImageView
                     android:id="@+id/engineer_usual_detail_second"
                     android:layout_width="290px"
                     android:layout_height="240px"
                     android:layout_marginStart="10px"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/exam" />
+                    android:scaleType="fitXY" />
 
                 <ImageView
                     android:id="@+id/engineer_usual_detail_third"
                     android:layout_width="290px"
                     android:layout_height="240px"
                     android:layout_marginStart="10px"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/exam" />
+                    android:scaleType="fitXY" />
             </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

@@ -41,7 +41,7 @@ class DangerRushCaseFragment : Fragment() {
         }
     }
 
-    fun requestData() {
+    private fun requestData() {
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_DANGER_ADDRESS + "getOnLineTask", {
             val result = Gson().fromJson(it, EmergencyTask::class.java)
             adapter.listData = result.EmergencyTask
