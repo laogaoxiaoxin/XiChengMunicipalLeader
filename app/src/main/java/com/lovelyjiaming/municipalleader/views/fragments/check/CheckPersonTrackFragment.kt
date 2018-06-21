@@ -1,11 +1,14 @@
 package com.lovelyjiaming.municipalleader.views.fragments.check
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.TextView
+import android.widget.Toast
 import com.baidu.mapapi.map.MapStatusUpdateFactory
 import com.baidu.mapapi.model.LatLng
 import com.baidu.mapapi.search.route.*
@@ -16,13 +19,14 @@ import com.lovelyjiaming.municipalleader.utils.InspectLocationClass
 import com.lovelyjiaming.municipalleader.utils.InspectLocationItemClass
 import com.lovelyjiaming.municipalleader.utils.WalkingRouteOverlay
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
+import com.lovelyjiaming.municipalleader.views.activitys.PersonListTrackActivity
 import kotlinx.android.synthetic.main.fragment_check_person_track.*
 
 
 data class InspectTrackItem(val x: String?, val y: String?, val time: String?)
 data class InspectTrack(val InspectTrack: MutableList<InspectTrackItem>)
 
-class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
+class CheckPersonTrackFragment : Fragment() {
 
     private lateinit var mWorkTypeMap: Map<String, List<InspectLocationItemClass>>
     //
@@ -45,37 +49,38 @@ class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
         check_person_track_mapview.map.uiSettings.isOverlookingGesturesEnabled = false
         check_person_track_mapview.map.uiSettings.isCompassEnabled = false
         mSearch = RoutePlanSearch.newInstance()
-        //
-        listview_person_track_filter.adapter = ArrayAdapter(this.activity, android.R.layout.simple_list_item_1, arrayOf("架空线", "道路巡查", "审批掘路"))
-        listview_person_track_filter.onItemClickListener = this
         //先请求分组信息，再获取一次人员位置
         XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getLocation", {
             mWorkTypeMap = Gson().fromJson(it, InspectLocationClass::class.java).InspectLocation.groupBy { it.WorkType }
         }, null)
+        //
+        click_jiakongxian.setOnClickListener {
+            val intent = Intent(activity, PersonListTrackActivity::class.java)
+            intent.putExtra("groupname", "架空线")
+            intent.putExtra("personlist", mWorkTypeMap["架空线"]?.toTypedArray())
+            startActivityForResult(intent, 991)
+        }
+        click_daoluxuncha.setOnClickListener {
+            val intent = Intent(activity, PersonListTrackActivity::class.java)
+            intent.putExtra("groupname", "道路巡查")
+            intent.putExtra("personlist", mWorkTypeMap["道路巡查"]?.toTypedArray())
+            startActivityForResult(intent, 992)
+        }
+        click_shenpijuelu.setOnClickListener {
+            val intent = Intent(activity, PersonListTrackActivity::class.java)
+            intent.putExtra("groupname", "审批掘路")
+            intent.putExtra("personlist", mWorkTypeMap["审批掘路"]?.toTypedArray())
+            startActivityForResult(intent, 993)
+        }
     }
 
-    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        when ((p1 as? TextView)?.text.toString()) {
-            "架空线" -> {
-                listview_person_track_filter.adapter = ArrayAdapter(this.activity, android.R.layout.simple_list_item_1, mWorkTypeMap["架空线"]?.map { it.username })
-                listview_person_track_filter.layoutParams.height = 500
-            }
-            "道路巡查" -> {
-                listview_person_track_filter.adapter = ArrayAdapter(this.activity, android.R.layout.simple_list_item_1, mWorkTypeMap["道路巡查"]?.map { it.username })
-                listview_person_track_filter.layoutParams.height = 500
-            }
-            "审批掘路" -> {
-                listview_person_track_filter.adapter = ArrayAdapter(this.activity, android.R.layout.simple_list_item_1, mWorkTypeMap["审批掘路"]?.map { it.username })
-                listview_person_track_filter.layoutParams.height = 500
-            }
-            else -> {
-                check_person_track_mapview.map.clear()
-                listview_person_track_filter.layoutParams.height = RelativeLayout.LayoutParams.WRAP_CONTENT
-                listview_person_track_filter.adapter = ArrayAdapter(this.activity, android.R.layout.simple_list_item_1, arrayOf("架空线", "道路巡查", "审批掘路"))
-                XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getTrack", {
-                    convertLaLoAddress(Gson().fromJson(it, InspectTrack::class.java).InspectTrack)
-                }, hashMapOf("username" to (p1 as? TextView)?.text.toString()))
-            }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode != 0 && resultCode == 1077 && data != null) {
+            val name = data.getStringExtra("name")
+            XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getTrack", {
+                convertLaLoAddress(Gson().fromJson(it, InspectTrack::class.java).InspectTrack)
+            }, hashMapOf("username" to name))
         }
     }
 
@@ -86,6 +91,8 @@ class CheckPersonTrackFragment : Fragment(), AdapterView.OnItemClickListener {
             Toast.makeText(activity, "此员工暂无轨迹信息", Toast.LENGTH_SHORT).show()
             return
         }
+
+        check_person_track_mapview.map.clear()
 
         listAddress.let {
             listReadyDraw?.clear()

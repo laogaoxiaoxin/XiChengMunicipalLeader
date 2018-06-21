@@ -6,7 +6,7 @@ import java.io.IOException
 import java.io.Serializable
 
 //巡查部分-locate
-data class InspectLocationItemClass(val username: String, val department: String?, val authority: String?, val phonenumber: String?, val WorkType: String, val longitude: String, val latitude: String, val headaculpture: String?)
+data class InspectLocationItemClass(val username: String, val department: String?, val authority: String?, val phonenumber: String?, val WorkType: String, val longitude: String, val latitude: String, val headaculpture: String?) : Serializable
 
 data class InspectLocationClass(val InspectLocation: List<InspectLocationItemClass>)
 

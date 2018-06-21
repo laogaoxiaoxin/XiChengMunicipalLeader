@@ -42,7 +42,8 @@
             android:name=".views.activitys.SaveOnlineTaskActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".views.activitys.DangerRushCaseDetailActivity" />
-        <activity android:name=".views.activitys.LargePicActivity"></activity>
+        <activity android:name=".views.activitys.LargePicActivity" />
+        <activity android:name=".views.activitys.PersonListTrackActivity"></activity>
     </application>
 
 </manifest>
