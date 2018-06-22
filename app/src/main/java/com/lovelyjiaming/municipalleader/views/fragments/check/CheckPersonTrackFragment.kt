@@ -13,12 +13,14 @@ import com.baidu.mapapi.search.route.*
 import com.baidu.mapapi.utils.CoordinateConverter
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.InspectPersonInfoClass
 import com.lovelyjiaming.municipalleader.utils.InspectPersonInfoItemClass
 import com.lovelyjiaming.municipalleader.utils.WalkingRouteOverlay
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.activitys.PersonListTrackActivity
 import kotlinx.android.synthetic.main.fragment_check_person_track.*
+import java.util.*
 
 
 data class InspectTrackItem(val x: String?, val y: String?, val time: String?)
@@ -91,16 +93,25 @@ class CheckPersonTrackFragment : Fragment() {
         }
 
         check_person_track_mapview.map.clear()
+        //
+        var day = "${Calendar.getInstance().get(Calendar.DAY_OF_MONTH)}"
+        day = if (day.length == 1) "0$day" else day
 
         listAddress.let {
             listReadyDraw?.clear()
             listAddress.forEach {
-                if (it.x != "0.0" && it.y != "0.0") {
+                if (it.x != "0.0" && it.y != "0.0" && it.time?.contains("-$day" ?: "")!!) {
                     val converter = CoordinateConverter()
                     converter.from(CoordinateConverter.CoordType.COMMON)
                     converter.coord(LatLng(it.x?.toDouble()!!, it.y?.toDouble()!!))
                     listReadyDraw?.add(converter.convert())
                 }
+            }
+
+            //只是取当天数据点
+            if (listReadyDraw?.size ?: 0 == 0) {
+                Toast.makeText(activity, "此员工暂无轨迹信息", Toast.LENGTH_SHORT).show()
+                return@let
             }
 
             mSearch.setOnGetRoutePlanResultListener(object : OnGetRoutePlanResultListener {
@@ -138,7 +149,7 @@ class CheckPersonTrackFragment : Fragment() {
                 option.from(PlanNode.withLocation(nodeStart))
                 option.to(PlanNode.withLocation(nodeEnd))
                 mSearch.walkingSearch(option)
-                Thread.sleep(300)
+                Thread.sleep(180)
             }
         }.start()
     }

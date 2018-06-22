@@ -52,14 +52,20 @@ class CheckFragment : Fragment() {
     }
 
     private fun switchDisplayFragment(nDisplayIndex: Int) {
-        val transaction = childFragmentManager.beginTransaction()
+        val mgr = childFragmentManager.beginTransaction()
         //
         if (mCurrentFraIndex == nDisplayIndex) {
+            if (!mListCheckFragments[nDisplayIndex].isAdded)
+            //就是当前，但是还没添加进栈
+                mgr.add(R.id.check_fragment_container, mListCheckFragments[nDisplayIndex]).show(mListCheckFragments[nDisplayIndex])
         } else {
-            transaction.remove(mListCheckFragments[mCurrentFraIndex])
+            if (mListCheckFragments[nDisplayIndex].isAdded) {
+                mgr.hide(mListCheckFragments[mCurrentFraIndex]).show(mListCheckFragments[nDisplayIndex])
+            } else {
+                mgr.hide(mListCheckFragments[mCurrentFraIndex]).add(R.id.check_fragment_container, mListCheckFragments[nDisplayIndex]).show(mListCheckFragments[nDisplayIndex])
+            }
         }
-        transaction.add(R.id.check_fragment_container, mListCheckFragments[nDisplayIndex])
-        transaction.commit()
+        mgr.commit()
         mCurrentFraIndex = nDisplayIndex
     }
 

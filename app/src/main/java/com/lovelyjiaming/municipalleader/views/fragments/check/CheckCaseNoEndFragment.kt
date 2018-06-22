@@ -51,10 +51,12 @@ class CheckCaseNoEndFragment : Fragment() {
     private fun requestData() {
         //network
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getUndone", {
-            var result = Gson().fromJson(it, InspectUndoneClass::class.java)
+            val result = Gson().fromJson(it, InspectUndoneClass::class.java)
             val listResult = result.InspectUndone
             adapter.setData(listResult.toMutableList())
-            check_noend_swiperefresh.isRefreshing = false
+            check_noend_swiperefresh?.let {
+                it.isRefreshing = false
+            }
         })
     }
 

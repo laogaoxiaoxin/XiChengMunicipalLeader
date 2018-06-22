@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
 import com.lovelyjiaming.municipalleader.utils.*
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
@@ -81,11 +83,12 @@ class CheckPersonLocateFragment : Fragment() {
     }
 
     //画点时得到人员信息，从另一个接口
-    private fun getPersonInfoDrawPoint(userName: String): InspectPersonInfoItemClass {
+    private fun getPersonInfoDrawPoint(userName: String): InspectPersonInfoItemClass? {
+        Log.i("person name == ", userName)
         val info = personInfoList?.filter {
             it.username == userName
         }
-        return info!![0]
+        return if (info != null && info.size != 0) info[0] else null
     }
 
     data class CtmpData(val latLng: LatLng, val userName: String)
@@ -103,7 +106,7 @@ class CheckPersonLocateFragment : Fragment() {
         check_person_locate_mapview.map.clear()
         //开始插入图标
         newLocateList?.forEach {
-            when (getPersonInfoDrawPoint(it.userName).WorkType) {
+            when (getPersonInfoDrawPoint(it.userName)?.WorkType) {
                 "架空线" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_yellow)).position(it.latLng))
                 "审批掘路" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_blue)).position(it.latLng))
                 "道路巡查" -> check_person_locate_mapview.map.addOverlay(MarkerOptions().draggable(false).icon(BitmapDescriptorFactory.fromResource(R.drawable.person_location_red)).position(it.latLng))
@@ -125,7 +128,8 @@ class CheckPersonLocateFragment : Fragment() {
                 //
                 val headImg = ImageView(activity)
                 headImg.layoutParams = LinearLayout.LayoutParams(150, 150)
-                Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + getPersonInfoDrawPoint(itemInfo[0].userName).headaculpture).apply(RequestOptions().placeholder(R.drawable.default_head)).into(headImg)
+                Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + (getPersonInfoDrawPoint(itemInfo[0].userName)?.headaculpture
+                        ?: "")).apply(RequestOptions().placeholder(R.drawable.default_head)).into(headImg)
                 headImg.scaleType = ImageView.ScaleType.FIT_XY
                 linearLayout.addView(headImg)
                 //
@@ -133,7 +137,7 @@ class CheckPersonLocateFragment : Fragment() {
                 popupText.setTextColor(Color.BLACK)
                 popupText.setPadding(20, 20, 20, 20)
                 popupText.textSize = 12f
-                popupText.text = "姓名：${getPersonInfoDrawPoint(itemInfo[0].userName).username}\r\n电话：${getPersonInfoDrawPoint(itemInfo[0].userName).phonenumber}"
+                popupText.text = "姓名：${getPersonInfoDrawPoint(itemInfo[0].userName)?.username}\r\n电话：${getPersonInfoDrawPoint(itemInfo[0].userName)?.phonenumber}"
                 linearLayout.addView(popupText)
                 //
                 check_person_locate_mapview.map.showInfoWindow(InfoWindow(linearLayout, it.position, -61))

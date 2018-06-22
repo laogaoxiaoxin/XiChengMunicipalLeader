@@ -46,74 +46,78 @@ public class WalkingRouteOverlay extends OverlayManager {
         if (mRouteLine == null) {
             return null;
         }
-
         List<OverlayOptions> overlayList = new ArrayList<OverlayOptions>();
-        if (mRouteLine.getAllStep() != null
-                && mRouteLine.getAllStep().size() > 0) {
-            for (WalkingRouteLine.WalkingStep step : mRouteLine.getAllStep()) {
-                Bundle b = new Bundle();
-                b.putInt("index", mRouteLine.getAllStep().indexOf(step));
-                if (step.getEntrance() != null) {
-                    overlayList.add((new MarkerOptions())
-                            .position(step.getEntrance().getLocation())
-                                    .rotate((360 - step.getDirection()))
-                                            .zIndex(10)
-                                                    .anchor(0.5f, 0.5f)
-                                                            .extraInfo(b)
-                                                                    .icon(BitmapDescriptorFactory
-                                                                            .fromAssetWithDpi("Icon_line_node.png")));
-                }
+        try{
 
-                // 最后路段绘制出口点
-                if (mRouteLine.getAllStep().indexOf(step) == (mRouteLine
-                        .getAllStep().size() - 1) && step.getExit() != null) {
-                    overlayList.add((new MarkerOptions())
-                            .position(step.getExit().getLocation())
-                                    .anchor(0.5f, 0.5f)
-                                            .zIndex(10)
-                                                    .icon(BitmapDescriptorFactory
-                                                            .fromAssetWithDpi("Icon_line_node.png")));
-
-                }
-            }
-        }
-        // starting
-        if (mRouteLine.getStarting() != null) {
-            overlayList.add((new MarkerOptions())
-                    .position(mRouteLine.getStarting().getLocation())
-                            .icon(getStartMarker() != null ? getStartMarker() :
-                                    BitmapDescriptorFactory
-                                            .fromAssetWithDpi("Icon_start.png")).zIndex(10));
-        }
-        // terminal
-        if (mRouteLine.getTerminal() != null) {
-            overlayList
-                    .add((new MarkerOptions())
-                            .position(mRouteLine.getTerminal().getLocation())
-                                    .icon(getTerminalMarker() != null ? getTerminalMarker() :
-                                            BitmapDescriptorFactory
-                                                    .fromAssetWithDpi("Icon_end.png"))
-                                                            .zIndex(10));
-        }
-
-        // poly line list
-        if (mRouteLine.getAllStep() != null
-                && mRouteLine.getAllStep().size() > 0) {
-            LatLng lastStepLastPoint = null;
-            for (WalkingRouteLine.WalkingStep step : mRouteLine.getAllStep()) {
-                List<LatLng> watPoints = step.getWayPoints();
-                if (watPoints != null) {
-                    List<LatLng> points = new ArrayList<LatLng>();
-                    if (lastStepLastPoint != null) {
-                        points.add(lastStepLastPoint);
+            if (mRouteLine.getAllStep() != null
+                    && mRouteLine.getAllStep().size() > 0) {
+                for (WalkingRouteLine.WalkingStep step : mRouteLine.getAllStep()) {
+                    Bundle b = new Bundle();
+                    b.putInt("index", mRouteLine.getAllStep().indexOf(step));
+                    if (step.getEntrance() != null) {
+                        overlayList.add((new MarkerOptions())
+                                .position(step.getEntrance().getLocation())
+                                .rotate((360 - step.getDirection()))
+                                .zIndex(10)
+                                .anchor(0.5f, 0.5f)
+                                .extraInfo(b)
+                                .icon(BitmapDescriptorFactory
+                                        .fromAssetWithDpi("Icon_line_node.png")));
                     }
-                    points.addAll(watPoints);
-                    overlayList.add(new PolylineOptions().points(points).width(10)
-                            .color(getLineColor() != 0 ? getLineColor() : Color.argb(178, 0, 78, 255)).zIndex(0));
-                    lastStepLastPoint = watPoints.get(watPoints.size() - 1);
+
+                    // 最后路段绘制出口点
+                    if (mRouteLine.getAllStep().indexOf(step) == (mRouteLine
+                            .getAllStep().size() - 1) && step.getExit() != null) {
+                        overlayList.add((new MarkerOptions())
+                                .position(step.getExit().getLocation())
+                                .anchor(0.5f, 0.5f)
+                                .zIndex(10)
+                                .icon(BitmapDescriptorFactory
+                                        .fromAssetWithDpi("Icon_line_node.png")));
+
+                    }
                 }
             }
-            
+            // starting
+            if (mRouteLine.getStarting() != null) {
+                overlayList.add((new MarkerOptions())
+                        .position(mRouteLine.getStarting().getLocation())
+                        .icon(getStartMarker() != null ? getStartMarker() :
+                                BitmapDescriptorFactory
+                                        .fromAssetWithDpi("Icon_start.png")).zIndex(10));
+            }
+            // terminal
+            if (mRouteLine.getTerminal() != null) {
+                overlayList
+                        .add((new MarkerOptions())
+                                .position(mRouteLine.getTerminal().getLocation())
+                                .icon(getTerminalMarker() != null ? getTerminalMarker() :
+                                        BitmapDescriptorFactory
+                                                .fromAssetWithDpi("Icon_end.png"))
+                                .zIndex(10));
+            }
+
+            // poly line list
+            if (mRouteLine.getAllStep() != null
+                    && mRouteLine.getAllStep().size() > 0) {
+                LatLng lastStepLastPoint = null;
+                for (WalkingRouteLine.WalkingStep step : mRouteLine.getAllStep()) {
+                    List<LatLng> watPoints = step.getWayPoints();
+                    if (watPoints != null) {
+                        List<LatLng> points = new ArrayList<LatLng>();
+                        if (lastStepLastPoint != null) {
+                            points.add(lastStepLastPoint);
+                        }
+                        points.addAll(watPoints);
+                        overlayList.add(new PolylineOptions().points(points).width(10)
+                                .color(getLineColor() != 0 ? getLineColor() : Color.argb(178, 0, 78, 255)).zIndex(0));
+                        lastStepLastPoint = watPoints.get(watPoints.size() - 1);
+                    }
+                }
+
+            }
+        }catch (Exception e){
+
         }
 
         return overlayList;
