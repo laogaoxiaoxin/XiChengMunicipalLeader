@@ -96,6 +96,7 @@ class CheckPersonLocateFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun setMapInfo() {
         if (personInfoList == null) return
+        if (check_person_locate_mapview == null) return
         //坐标转换,构造新的结构
         val newLocateList = locateList?.map {
             val converter = CoordinateConverter()

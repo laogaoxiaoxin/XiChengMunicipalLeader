@@ -43,7 +43,10 @@ data class MaterailListClass(val MaterailTitleList: List<MaterailItemClass>?, va
 
 //应急部分 抢险案件
 data class EmergencyTaskItemClass(val IsFinish: String?, val taskName: String?, val taskNumber: String?, val taskDate: String?, val taskPlace: String?, val taskHome: String?, val taskOffice: String?, val taskState: String?,
-                                  val taskFirst: String?, val taskSecond: String?, val taskThird: String?, val taskType: String?, val SecondDate: String?) : Serializable
+                                  val taskFirst: String?, val taskSecond: String?, val taskThird: String?, val taskType: String?, val FirstDate: String?,
+                                  val taskAsphalt_9cm_10: String, val taskAsphalt_5cm_10: String, val asphalt_9cm_10_400: String, val asphalt_5cm_10_400: String, val taskAsphalt_9cm_400: String, val taskAsphalt_5cm_400: String, val taskSidewalk: String?,
+                                  val taskInorganic_material_15cm: String?, val taskInorganic_material_20cm: String?, val taskInorganic_material_25cm: String?, val luyuanshi: String?, val jianchajing: String?, val mohuimianji: String?, val mohuihoudu: String, val guanchang: String?, val guanjing: String?, val guancai: String?,
+                                  val prefirst: String?, val presecond: String?, val prethird: String?, val underfirst: String?, val undersecond: String?, val underthird: String?, val afterfirst: String?, val aftersecond: String?, val afterthird: String?) : Serializable
 
 data class EmergencyTask(val EmergencyTask: List<EmergencyTaskItemClass>)
 
