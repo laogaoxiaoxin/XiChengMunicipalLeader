@@ -958,6 +958,161 @@
                     android:textSize="35px" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:text="巡查历史照片："
+                android:textColor="#000"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_firstpic"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_secondpic"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_thirdpic"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/check_noend_casedetai_prepic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:text="养护前："
+                android:textColor="#000"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_prefirst"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_presecond"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_prethird"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/check_noend_casedetai_underpic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:text="养护中："
+                android:textColor="#000"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_underfirst"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_undersecond"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_underthird"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/check_noend_casedetai_afterpic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:text="养护后："
+                android:textColor="#000"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_afterfirst"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_aftersecond"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/check_noend_casedetai_afterthird"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

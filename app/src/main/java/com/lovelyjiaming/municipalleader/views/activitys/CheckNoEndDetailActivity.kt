@@ -1,13 +1,16 @@
 package com.lovelyjiaming.municipalleader.views.activitys
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
+import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import kotlinx.android.synthetic.main.activity_check_no_end_detail.*
 
 class CheckNoEndDetailActivity : AppCompatActivity() {
@@ -56,7 +59,48 @@ class CheckNoEndDetailActivity : AppCompatActivity() {
         displayItemsHasValue(taskInfo.taskCurb, check_noend_taskdetail_curb, ll_check_noend_taskdetail_curb)
         displayItemsHasValue(taskInfo.jiagujianchajing, check_noend_taskdetail_jiagujianchajing, ll_check_noend_taskdetail_jiagujianchajing)
         displayItemsHasValue(taskInfo.shengjiangjianchajing, check_noend_taskdetail_shengjiangjianchajing, ll_check_noend_taskdetail_shengjiangjianchajing)
+        //
+        val patrolPhotos = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird)
+        val patrolViews = arrayListOf(check_noend_casedetai_firstpic, check_noend_casedetai_secondpic, check_noend_casedetai_thirdpic)
+        patrolViews.forEachIndexed { index, imageView ->
+            imageView.setOnClickListener {
+                val intent = Intent(this, LargePicActivity::class.java)
+                intent.putExtra("picsurl", patrolPhotos)
+                intent.putExtra("index", index)
+                startActivity(intent)
+            }
+        }
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst).into(check_noend_casedetai_firstpic)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond).into(check_noend_casedetai_secondpic)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird).into(check_noend_casedetai_thirdpic)
 
+        //
+        val curePhotos = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prefirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.presecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prethird,
+                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underfirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.undersecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underthird, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterfirst,
+                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.aftersecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterthird)
+        val cureViews = arrayListOf(check_noend_casedetai_prefirst, check_noend_casedetai_presecond, check_noend_casedetai_prethird, check_noend_casedetai_underfirst, check_noend_casedetai_undersecond, check_noend_casedetai_underthird, check_noend_casedetai_afterfirst, check_noend_casedetai_aftersecond, check_noend_casedetai_afterthird)
+        cureViews.forEachIndexed { index, imageView ->
+            imageView.setOnClickListener {
+                val intent = Intent(this, LargePicActivity::class.java)
+                intent.putExtra("picsurl", curePhotos)
+                intent.putExtra("index", index)
+                startActivity(intent)
+            }
+        }
+        //
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prefirst).into(check_noend_casedetai_prefirst)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.presecond).into(check_noend_casedetai_presecond)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prethird).into(check_noend_casedetai_prethird)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underfirst).into(check_noend_casedetai_underfirst)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.undersecond).into(check_noend_casedetai_undersecond)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underthird).into(check_noend_casedetai_underthird)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterfirst).into(check_noend_casedetai_afterfirst)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.aftersecond).into(check_noend_casedetai_aftersecond)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterthird).into(check_noend_casedetai_afterthird)
+
+        if (taskInfo.prefirst?.isEmpty()!! && taskInfo.presecond?.isEmpty()!! && taskInfo.prethird?.isEmpty()!!) check_noend_casedetai_prepic.visibility = View.GONE
+        if (taskInfo.underfirst?.isEmpty()!! && taskInfo.undersecond?.isEmpty()!! && taskInfo.underthird?.isEmpty()!!) check_noend_casedetai_underpic.visibility = View.GONE
+        if (taskInfo.afterfirst?.isEmpty()!! && taskInfo.aftersecond?.isEmpty()!! && taskInfo.afterthird?.isEmpty()!!) check_noend_casedetai_afterpic.visibility = View.GONE
     }
 
     private fun displayItemsHasValue(value: String?, textView: TextView, layout: LinearLayout) {

@@ -80,6 +80,18 @@ class DangerRushCaseDetailActivity : AppCompatActivity() {
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.underfirst).into(danger_rush_casedetai_secondtimepic1)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.undersecond).into(danger_rush_casedetai_secondtimepic2)
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.underthird).into(danger_rush_casedetai_secondtimepic3)
+        //
+        val dangerPhotos = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.prefirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.presecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.prethird,
+                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.underfirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.undersecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + info?.underthird)
+        val dangerViews = arrayListOf(danger_rush_casedetai_firsttimepic1, danger_rush_casedetai_firsttimepic2, danger_rush_casedetai_firsttimepic3, danger_rush_casedetai_secondtimepic1, danger_rush_casedetai_secondtimepic2, danger_rush_casedetai_secondtimepic3)
+        dangerViews.forEachIndexed { index, imageView ->
+            imageView.setOnClickListener {
+                val intent = Intent(this, LargePicActivity::class.java)
+                intent.putExtra("picsurl", dangerPhotos)
+                intent.putExtra("index", index)
+                startActivity(intent)
+            }
+        }
     }
 
     private fun displayItemsHasValue(value: String?, textView: TextView, layout: LinearLayout) {
