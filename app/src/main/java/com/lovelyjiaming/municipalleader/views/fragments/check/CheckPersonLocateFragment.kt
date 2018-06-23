@@ -68,9 +68,9 @@ class CheckPersonLocateFragment : Fragment() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 requestPersonLocation()
-                handler.postDelayed(this, 15000L)
+                handler.postDelayed(this, 7500L)
             }
-        }, 15000L)
+        }, 7500L)
         requestPersonLocation()
     }
 
@@ -84,7 +84,6 @@ class CheckPersonLocateFragment : Fragment() {
 
     //画点时得到人员信息，从另一个接口
     private fun getPersonInfoDrawPoint(userName: String): InspectPersonInfoItemClass? {
-        Log.i("person name == ", userName)
         val info = personInfoList?.filter {
             it.username == userName
         }

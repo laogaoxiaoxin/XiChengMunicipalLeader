@@ -43,8 +43,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".views.activitys.DangerRushCaseDetailActivity" />
         <activity android:name=".views.activitys.LargePicActivity" />
-        <activity android:name=".views.activitys.PersonListTrackActivity"></activity>
-
+        <activity android:name=".views.activitys.PersonListTrackActivity" />
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
@@ -57,8 +56,10 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
+
+        <activity android:name=".views.activitys.CheckNoEndDetailActivity"></activity>
     </application>
 
 </manifest>

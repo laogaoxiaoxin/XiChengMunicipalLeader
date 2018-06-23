@@ -42,7 +42,7 @@ class SaveCurrentTaskFragment : Fragment() {
         }
     }
 
-    fun requestData() {
+    private fun requestData() {
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_SAVE_ADDRESS + "getOnLineTask", {
             val result = Gson().fromJson(it, CureOnLineTaskClass::class.java)
             adapter.holderType = "saveonlinetask"

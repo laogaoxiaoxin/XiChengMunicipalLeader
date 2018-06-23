@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".views.activitys.SaveOnlineTaskActivity"
+    tools:context=".views.activitys.CheckNoEndDetailActivity"
     tools:ignore="PxUsage">
 
     <RelativeLayout
-        android:id="@+id/rl_save_online_taskdetail_title"
+        android:id="@+id/rl_check_noend_detail_title"
         android:layout_width="match_parent"
         android:layout_height="150px"
         android:background="@color/colorPrimary">
 
         <ImageView
-            android:id="@+id/save_online_taskdetail_back"
+            android:id="@+id/check_noend_taskdetail_back"
             android:layout_width="50px"
             android:layout_height="50px"
             android:layout_centerVertical="true"
@@ -27,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="养护在施任务详情 "
+            android:text="巡查未结案件任务详情 "
             android:textColor="#fff"
             android:textSize="40px"
             android:textStyle="italic|bold" />
@@ -37,7 +36,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rl_save_online_taskdetail_title"
+        android:layout_below="@id/rl_check_noend_detail_title"
         android:layout_marginTop="50px">
 
         <LinearLayout
@@ -54,40 +53,40 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="任务编号："
-                    android:textColor="#000"
-                    android:textSize="40px"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/save_online_taskdetail_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20px"
-                    android:background="#fff"
-                    android:maxLines="2"
-                    android:textColor="#000"
-                    android:textSize="35px" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="任务名称："
                     android:textColor="#000"
                     android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_name"
+                    android:id="@+id/check_noend_taskdetail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:background="#fff"
+                    android:maxLines="2"
+                    android:textColor="#000"
+                    android:textSize="35px" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="40px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="任务编号："
+                    android:textColor="#000"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/check_noend_taskdetail_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -98,10 +97,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -113,7 +112,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_type"
+                    android:id="@+id/check_noend_taskdetail_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -124,22 +123,22 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="优先等级："
+                    android:text="任务等级："
                     android:textColor="#000"
                     android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_level"
+                    android:id="@+id/check_noend_taskdetail_rank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -150,10 +149,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -165,7 +164,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_office"
+                    android:id="@+id/check_noend_taskdetail_office"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -176,10 +175,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -191,7 +190,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_time"
+                    android:id="@+id/check_noend_taskdetail_patrol_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -202,10 +201,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -217,7 +216,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_saveassign"
+                    android:id="@+id/check_noend_taskdetail_cure_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -228,10 +227,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -243,7 +242,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_assigngroup"
+                    android:id="@+id/check_noend_taskdetail_cure_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -254,10 +253,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -269,7 +268,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_assignstate"
+                    android:id="@+id/check_noend_taskdetail_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -280,10 +279,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="40px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -295,7 +294,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_addr"
+                    android:id="@+id/check_noend_taskdetail_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -305,52 +304,14 @@
                     android:textSize="35px" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
-                android:text="巡查历史照片："
-                android:textColor="#000"
-                android:textSize="40px"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50px"
-                android:layout_marginTop="50px"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/save_online_taskdetail_firstpic"
-                    android:layout_width="300px"
-                    android:layout_height="230px"
-                    android:scaleType="centerCrop" />
-
-                <ImageView
-                    android:id="@+id/save_online_taskdetail_secondpic"
-                    android:layout_width="300px"
-                    android:layout_height="230px"
-                    android:layout_marginStart="20px"
-                    android:scaleType="centerCrop" />
-
-                <ImageView
-                    android:id="@+id/save_online_taskdetail_thirdpic"
-                    android:layout_width="300px"
-                    android:layout_height="230px"
-                    android:layout_marginStart="20px"
-                    android:scaleType="centerCrop" />
-            </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginTop="70px"
-                android:background="#a9a9a9" />
+                android:layout_marginTop="40px"
+                android:background="#dfdfdf" />
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_liqing9_010"
+                android:id="@+id/ll_check_noend_taskdetail_liqing9_010"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -366,7 +327,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_liqing9_010"
+                    android:id="@+id/check_noend_taskdetail_liqing9_010"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -377,7 +338,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_liqing5_010"
+                android:id="@+id/ll_check_noend_taskdetail_liqing5_010"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -393,7 +354,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_liqing5_010"
+                    android:id="@+id/check_noend_taskdetail_liqing5_010"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -404,7 +365,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_liqing9_10400"
+                android:id="@+id/ll_check_noend_taskdetail_liqing9_10400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -420,7 +381,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_liqing9_10400"
+                    android:id="@+id/check_noend_taskdetail_liqing9_10400"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -431,7 +392,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_liqing5_10400"
+                android:id="@+id/ll_check_noend_taskdetail_liqing5_10400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -447,7 +408,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_liqing5_10400"
+                    android:id="@+id/check_noend_taskdetail_liqing5_10400"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -458,7 +419,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_liqing9_above400"
+                android:id="@+id/ll_check_noend_taskdetail_liqing9_above400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -474,7 +435,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_liqing9_above400"
+                    android:id="@+id/check_noend_taskdetail_liqing9_above400"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -485,7 +446,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_liqing5_above400"
+                android:id="@+id/ll_check_noend_taskdetail_liqing5_above400"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -501,7 +462,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_liqing5_above400"
+                    android:id="@+id/check_noend_taskdetail_liqing5_above400"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -512,7 +473,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_sidewalk"
+                android:id="@+id/ll_check_noend_taskdetail_sidewalk"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -528,7 +489,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_sidewalk"
+                    android:id="@+id/check_noend_taskdetail_sidewalk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -539,7 +500,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_plaster"
+                android:id="@+id/ll_check_noend_taskdetail_plaster"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -555,7 +516,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_plaster"
+                    android:id="@+id/check_noend_taskdetail_plaster"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -566,7 +527,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_caiselumain"
+                android:id="@+id/ll_check_noend_taskdetail_caiselumain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -582,7 +543,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_caiselumain"
+                    android:id="@+id/check_noend_taskdetail_caiselumain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -593,7 +554,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_shengjiangjianchajing"
+                android:id="@+id/ll_check_noend_taskdetail_shengjiangjianchajing"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -609,7 +570,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_shengjiangjianchajing"
+                    android:id="@+id/check_noend_taskdetail_shengjiangjianchajing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -620,7 +581,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_jiagujianchajing"
+                android:id="@+id/ll_check_noend_taskdetail_jiagujianchajing"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -636,7 +597,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_jiagujianchajing"
+                    android:id="@+id/check_noend_taskdetail_jiagujianchajing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -647,7 +608,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_yushuikou"
+                android:id="@+id/ll_check_noend_taskdetail_yushuikou"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -663,7 +624,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_yushuikou"
+                    android:id="@+id/check_noend_taskdetail_yushuikou"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -674,7 +635,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_curb"
+                android:id="@+id/ll_check_noend_taskdetail_curb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -690,7 +651,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_curb"
+                    android:id="@+id/check_noend_taskdetail_curb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -701,7 +662,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_taskMachine_stone"
+                android:id="@+id/ll_check_noend_taskdetail_taskMachine_stone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -717,7 +678,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_taskMachine_stone"
+                    android:id="@+id/check_noend_taskdetail_taskMachine_stone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -728,7 +689,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_taskInorganic_material_15cm"
+                android:id="@+id/ll_check_noend_taskdetail_taskInorganic_material_15cm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -744,7 +705,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_taskInorganic_material_15cm"
+                    android:id="@+id/check_noend_taskdetail_taskInorganic_material_15cm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -755,7 +716,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_taskInorganic_material_20cm"
+                android:id="@+id/ll_check_noend_taskdetail_taskInorganic_material_20cm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -771,7 +732,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_taskInorganic_material_20cm"
+                    android:id="@+id/check_noend_taskdetail_taskInorganic_material_20cm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -782,7 +743,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_wujiliao25"
+                android:id="@+id/ll_check_noend_taskdetail_wujiliao25"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -798,7 +759,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_wujiliao25"
+                    android:id="@+id/check_noend_taskdetail_wujiliao25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -809,7 +770,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_taskTree_pool"
+                android:id="@+id/ll_check_noend_taskdetail_taskTree_pool"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -825,7 +786,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_taskTree_pool"
+                    android:id="@+id/check_noend_taskdetail_taskTree_pool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -836,7 +797,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_mangdao"
+                android:id="@+id/ll_check_noend_taskdetail_mangdao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -852,7 +813,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_mangdao"
+                    android:id="@+id/check_noend_taskdetail_mangdao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -863,7 +824,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_shicaibudao"
+                android:id="@+id/ll_check_noend_taskdetail_shicaibudao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -879,7 +840,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_shicaibudao"
+                    android:id="@+id/check_noend_taskdetail_shicaibudao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -890,7 +851,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_shicaimangdao"
+                android:id="@+id/ll_check_noend_taskdetail_shicaimangdao"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -906,7 +867,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_shicaimangdao"
+                    android:id="@+id/check_noend_taskdetail_shicaimangdao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -917,7 +878,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_shicailuyuanshi"
+                android:id="@+id/ll_check_noend_taskdetail_shicailuyuanshi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -933,7 +894,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_shicailuyuanshi"
+                    android:id="@+id/check_noend_taskdetail_shicailuyuanshi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -944,7 +905,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_shicaidangchezhuang"
+                android:id="@+id/ll_check_noend_taskdetail_shicaidangchezhuang"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -960,7 +921,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_shicaidangchezhuang"
+                    android:id="@+id/check_noend_taskdetail_shicaidangchezhuang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -971,7 +932,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_save_online_taskdetail_tiezhidangchezhuang"
+                android:id="@+id/ll_check_noend_taskdetail_tiezhidangchezhuang"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="50px"
@@ -987,7 +948,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/save_online_taskdetail_tiezhidangchezhuang"
+                    android:id="@+id/check_noend_taskdetail_tiezhidangchezhuang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20px"
@@ -999,4 +960,6 @@
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
+
 </RelativeLayout>

@@ -1,6 +1,5 @@
 package com.lovelyjiaming.municipalleader.views.fragments.check
 
-
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -54,6 +53,7 @@ class CheckCaseNoEndFragment : Fragment() {
             val result = Gson().fromJson(it, InspectUndoneClass::class.java)
             val listResult = result.InspectUndone
             adapter.setData(listResult.toMutableList())
+            adapter.holderType = "checknoend"//未结案件
             check_noend_swiperefresh?.let {
                 it.isRefreshing = false
             }

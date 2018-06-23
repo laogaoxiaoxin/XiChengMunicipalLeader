@@ -26,9 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="应急抢险案件详情"
+            android:text="应急抢险案件详情 "
             android:textColor="#fff"
-            android:textSize="42px" />
+            android:textSize="40px"
+            android:textStyle="italic|bold" />
 
     </RelativeLayout>
 
@@ -54,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:text="任务类型："
                     android:textColor="#000"
-                    android:textSize="30px"
+                    android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
@@ -65,7 +66,7 @@
                     android:background="#fff"
                     android:maxLines="2"
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="35px" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:text="任务地点："
                     android:textColor="#000"
-                    android:textSize="30px"
+                    android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
@@ -91,7 +92,7 @@
                     android:background="#fff"
                     android:maxLines="2"
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="35px" />
             </LinearLayout>
 
             <LinearLayout
@@ -106,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:text="办事处："
                     android:textColor="#000"
-                    android:textSize="30px"
+                    android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
@@ -117,7 +118,7 @@
                     android:background="#fff"
                     android:maxLines="2"
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="35px" />
             </LinearLayout>
 
             <LinearLayout
@@ -132,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:text="分配队伍："
                     android:textColor="#000"
-                    android:textSize="30px"
+                    android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
@@ -143,7 +144,7 @@
                     android:background="#fff"
                     android:maxLines="2"
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="35px" />
             </LinearLayout>
 
             <LinearLayout
@@ -158,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:text="巡查派发："
                     android:textColor="#000"
-                    android:textSize="30px"
+                    android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
@@ -169,7 +170,7 @@
                     android:background="#fff"
                     android:maxLines="2"
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="35px" />
             </LinearLayout>
 
             <LinearLayout
@@ -184,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:text="应急响应："
                     android:textColor="#000"
-                    android:textSize="30px"
+                    android:textSize="40px"
                     android:textStyle="bold" />
 
                 <TextView
@@ -195,7 +196,7 @@
                     android:background="#fff"
                     android:maxLines="2"
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="35px" />
             </LinearLayout>
 
             <View
@@ -218,7 +219,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="沥青9cm(㎡)(0,10)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_liqing9cm_010"
@@ -228,7 +229,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -246,7 +247,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="沥青5cm(㎡)(0,10)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_liqing5cm_010"
@@ -256,7 +257,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -274,7 +275,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="沥青9cm(㎡)(10,400)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_liqing9cm_10400"
@@ -284,7 +285,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -302,7 +303,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="沥青5cm(㎡)(10,400)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_liqing5cm_10400"
@@ -312,7 +313,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -330,7 +331,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="沥青9cm(㎡)(400,∞)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_liqing9cm_over400"
@@ -340,7 +341,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -358,7 +359,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="沥青5cm(㎡)(400,∞)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_liqing5cm_over400"
@@ -368,7 +369,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -386,7 +387,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="步道(㎡)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_budao"
@@ -396,7 +397,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -414,7 +415,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="管长(m)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_guanchang"
@@ -424,7 +425,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -442,7 +443,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="管径(mm)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_guanjing"
@@ -452,7 +453,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -470,7 +471,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="管材："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_guancai"
@@ -480,7 +481,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -498,7 +499,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="检查井(座)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_jianchajing"
@@ -508,7 +509,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -526,7 +527,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="路缘石(㎡)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_luyuanshi"
@@ -536,7 +537,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -554,7 +555,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="无机料15cm(㎡)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_wujiliao15"
@@ -564,7 +565,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -582,7 +583,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="无机料20cm(㎡)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_wujiliao20"
@@ -592,7 +593,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -610,7 +611,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="无机料25cm(㎡)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_wujiliao25"
@@ -620,7 +621,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -638,7 +639,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="抹灰面积(㎡)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_mohuimianji"
@@ -648,7 +649,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -666,7 +667,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="抹灰厚度(cm)："
                     android:textColor="#000"
-                    android:textSize="28px" />
+                    android:textSize="40px" />
 
                 <TextView
                     android:id="@+id/edt_emer_mohuihoudu"
@@ -676,7 +677,7 @@
                     android:layout_marginStart="30px"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:textSize="25px"
+                    android:textSize="35px"
                     android:textStyle="italic|bold" />
             </LinearLayout>
 
@@ -688,7 +689,7 @@
                 android:layout_marginTop="50px"
                 android:text="现场情况："
                 android:textColor="#000"
-                android:textSize="30px"
+                android:textSize="40px"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -727,7 +728,7 @@
                 android:layout_marginTop="50px"
                 android:text="第一阶段："
                 android:textColor="#000"
-                android:textSize="30px"
+                android:textSize="40px"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -766,7 +767,7 @@
                 android:layout_marginTop="50px"
                 android:text="第二阶段："
                 android:textColor="#000"
-                android:textSize="30px"
+                android:textSize="40px"
                 android:textStyle="bold" />
 
             <LinearLayout

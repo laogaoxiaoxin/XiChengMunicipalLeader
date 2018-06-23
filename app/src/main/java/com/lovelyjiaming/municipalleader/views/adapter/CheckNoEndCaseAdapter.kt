@@ -15,12 +15,13 @@ import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS
+import com.lovelyjiaming.municipalleader.views.activitys.CheckNoEndDetailActivity
 import com.lovelyjiaming.municipalleader.views.activitys.SaveOnlineTaskActivity
 
 //巡查-未结案件ViewHolder
 //养护-在施任务ViewHolder
 class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndCaseAdapter.ViewHolder>() {
-    var listResult: MutableList<InspectUndoneItemClass>? = null
+    private var listResult: MutableList<InspectUndoneItemClass>? = null
     var holderType: String = ""
 
     fun setData(listResult: MutableList<InspectUndoneItemClass>) {
@@ -30,21 +31,24 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         listResult?.let {
-            val listTmp = it
             holder.apply {
-                check_noend_case_name.text = listTmp[position].taskName
-                check_noend_case_status.text = listTmp[position].taskState
-                if (!holderType.equals("saveonlinetask")) {
-                    check_noend_case_status.visibility = View.INVISIBLE
-                }
-                check_noend_case_no.text = "编号：" + listTmp[position].taskNumber
-                check_noend_case_time.text = "时间：" + listTmp[position].taskDate
-                Glide.with(ctx).load(NETWORK_IMG_BASIC_ADDRESS + "${listTmp[position].taskFirst}").into(check_noend_case_img)
+                check_noend_case_name.text = it[position].taskName
+                check_noend_case_status.text = it[position].taskState
+//                if (holderType != "saveonlinetask") {
+//                    check_noend_case_status.visibility = View.INVISIBLE
+//                }
+                check_noend_case_no.text = "编号：" + it[position].taskNumber
+                check_noend_case_time.text = "时间：" + it[position].taskDate
+                Glide.with(ctx).load(NETWORK_IMG_BASIC_ADDRESS + "${it[position].taskFirst}").into(check_noend_case_img)
                 //
-                itemView.setOnClickListener {
+                itemView.setOnClickListener { _ ->
                     if (holderType == "saveonlinetask") {
                         val intent = Intent(ctx, SaveOnlineTaskActivity::class.java)
-                        intent.putExtra("taskinfo", listTmp[position])
+                        intent.putExtra("taskinfo", it[position])
+                        ctx.startActivity(intent)
+                    } else if (holderType == "checknoend") {
+                        val intent = Intent(ctx, CheckNoEndDetailActivity::class.java)
+                        intent.putExtra("taskinfo", it[position])
                         ctx.startActivity(intent)
                     }
                 }
