@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_check.*
 class CheckFragment : Fragment() {
 
     private val mListCheckFragments: List<Fragment> by lazy {
-        listOf(CheckPersonLocateFragment.newInstance(), CheckPersonTrackFragment.newInstance(), CheckCaseNoEndFragment.newInstance(), CheckCaseCalcuFragment.newInstance())
+        listOf(CheckPersonLocateFragment.newInstance(), /*CheckPersonTrackFragment.newInstance(), */CheckCaseNoEndFragment.newInstance(), CheckCaseCalcuFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
 
@@ -31,7 +31,7 @@ class CheckFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tbl_check_top.addTab(tbl_check_top.newTab().setText("人员位置 "))
-        tbl_check_top.addTab(tbl_check_top.newTab().setText("人员轨迹 "))
+//        tbl_check_top.addTab(tbl_check_top.newTab().setText("人员轨迹 "))
         tbl_check_top.addTab(tbl_check_top.newTab().setText("未结案件 "))
         tbl_check_top.addTab(tbl_check_top.newTab().setText("案件统计 "))
         switchDisplayFragment(0)
