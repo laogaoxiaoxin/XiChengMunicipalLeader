@@ -1005,7 +1005,8 @@
                 android:text="养护前："
                 android:textColor="#000"
                 android:textSize="40px"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1044,7 +1045,8 @@
                 android:text="养护中："
                 android:textColor="#000"
                 android:textSize="40px"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -1083,7 +1085,8 @@
                 android:text="养护后："
                 android:textColor="#000"
                 android:textSize="40px"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="match_parent"

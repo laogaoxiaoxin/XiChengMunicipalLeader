@@ -6,20 +6,22 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnticipateOvershootInterpolator
 
 class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSet) : View(ctx, attr) {
-    lateinit var mAllMapData: HashMap<String, Float>
-    var allLineWidthInc: ArrayList<Float> = arrayListOf()
-    var mAnimatorSet: AnimatorSet? = null
-    var mPaintLine: ArrayList<Paint> = arrayListOf()
-    var mPaintText: ArrayList<Paint> = arrayListOf()
-    var mPaintColors: ArrayList<String> = arrayListOf("#A1378B", "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121",
+    private lateinit var mAllMapData: HashMap<String, Float>
+    private var allLineWidthInc: ArrayList<Float> = arrayListOf()
+    private var mAnimatorSet: AnimatorSet? = null
+    private var mPaintLine: ArrayList<Paint> = arrayListOf()
+    private var mPaintText: ArrayList<Paint> = arrayListOf()
+    private var mPaintColors: ArrayList<String> = arrayListOf("#A1378B", "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121",
             "#A1378B", "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121")
-    var mAllLineHeightInterval: ArrayList<Float> = ArrayList(50)
+    private var mAllLineHeightInterval: ArrayList<Float> = ArrayList(50)
 
     fun setAllDatas(mapData: HashMap<String, Float>) {
         //
@@ -35,16 +37,15 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         //calc each width and height
         val eachLineInterval = measuredHeight.toFloat() / mAllMapData.size.toFloat()
         var eachIntervalTmp = 5f
-        mAllMapData.forEach { _, i ->
+        for ((key, value) in mAllMapData) {
             //w
-            val eachWidth = (i / maxBase) * (measuredWidth - 200)
+            val eachWidth = (value / maxBase) * (measuredWidth - 200)
             allLineWidthInc.add(eachWidth)
             //h
             mAllLineHeightInterval.add(eachIntervalTmp)
             eachIntervalTmp += eachLineInterval
         }
         createPaints()
-//        invalidate()
         createAnimators()
     }
 

@@ -26,10 +26,10 @@ import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
 
 class CheckPersonLocateFragment : Fragment() {
-
-    private var locateList: List<InspectCurrentLocationItem>? = null
+    //所有的定位人
+    private var mLocateList: List<InspectCurrentLocationItem>? = null
     //所有人员信息
-    private var personInfoList: MutableList<InspectPersonInfoItemClass>? = null
+    private var mPersonInfoList: MutableList<InspectPersonInfoItemClass>? = null
     //
     val handler: Handler = Handler()
 
@@ -37,7 +37,7 @@ class CheckPersonLocateFragment : Fragment() {
         super.onCreate(savedInstanceState)
         //先请求所有人信息
         XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getAllPersonInfo", {
-            personInfoList = Gson().fromJson(it, InspectPersonInfoClass::class.java).InspectPersonInfo.toMutableList()
+            mPersonInfoList = Gson().fromJson(it, InspectPersonInfoClass::class.java).InspectPersonInfo.toMutableList()
         })
     }
 
@@ -62,27 +62,51 @@ class CheckPersonLocateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initMapView(savedInstanceState)
-        //
+        //每十秒刷新一次人员位置
         handler.postDelayed(object : Runnable {
             override fun run() {
                 requestPersonLocation()
-                handler.postDelayed(this, 7500L)
+                handler.postDelayed(this, 10000L)
             }
-        }, 7500L)
+        }, 10000L)
         requestPersonLocation()
+        //显示道路巡查组员工
+        ll_group_patrol_road.setOnClickListener {
+            displayChooseGroup("道路巡查")
+        }
+        ll_group_exam_road.setOnClickListener {
+            displayChooseGroup("审批掘路")
+        }
+        ll_group_patrol_jiakongxian.setOnClickListener {
+            displayChooseGroup("架空线")
+        }
+    }
+
+    //选定显示某一组巡查员工
+    private fun displayChooseGroup(groupName: String) {
+        //所有人员信息
+        val list1 = mPersonInfoList?.filter { it.WorkType == groupName }
+        val list2 = mutableListOf<InspectCurrentLocationItem>()
+        mLocateList?.forEach { it1 ->
+            list1?.forEach {
+                if (it.username == it1.userName) {
+                    list2.add(it1)
+                }
+            }
+        }
+        setMapInfo(list2)
     }
 
     fun requestPersonLocation() {
-        //网络请求
         XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "currentLocation", {
-            locateList = Gson().fromJson(it, InspectCurrentLocation::class.java).InspectCurrentLocation
-            setMapInfo()
+            mLocateList = Gson().fromJson(it, InspectCurrentLocation::class.java).InspectCurrentLocation
+            setMapInfo(mLocateList)
         })
     }
 
     //画点时得到人员信息，从另一个接口
     private fun getPersonInfoDrawPoint(userName: String): InspectPersonInfoItemClass? {
-        val info = personInfoList?.filter {
+        val info = mPersonInfoList?.filter {
             it.username == userName
         }
         return if (info != null && info.size != 0) info[0] else null
@@ -91,17 +115,18 @@ class CheckPersonLocateFragment : Fragment() {
     data class CtmpData(val latLng: LatLng, val userName: String)
 
     @SuppressLint("SetTextI18n")
-    private fun setMapInfo() {
-        if (personInfoList == null) return
+    private fun setMapInfo(list: List<InspectCurrentLocationItem>?) {
+        if (mPersonInfoList == null) return
         if (check_person_locate_mapview == null) return
+        //
+        check_person_locate_mapview.map.clear()
         //坐标转换,构造新的结构
-        val newLocateList = locateList?.map {
+        val newLocateList = list?.map {
             val converter = CoordinateConverter()
             converter.from(CoordinateConverter.CoordType.COMMON)
             converter.coord(LatLng(it.x?.toDouble()!!, it.y?.toDouble()!!))
             CtmpData(converter.convert(), it.userName!!)
         }
-        check_person_locate_mapview.map.clear()
         //开始插入图标
         newLocateList?.forEach {
             when (getPersonInfoDrawPoint(it.userName)?.WorkType) {

@@ -11,19 +11,22 @@
         android:layout_height="match_parent" />
 
     <LinearLayout
-        android:layout_width="250px"
-        android:layout_height="400px"
+        android:layout_width="match_parent"
+        android:layout_height="115px"
         android:layout_alignParentEnd="true"
-        android:background="#9f000000"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="#8f000000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="3"
         tools:ignore="PxUsage">
 
         <LinearLayout
-            android:layout_width="230px"
-            android:layout_height="0dp"
+            android:id="@+id/ll_group_patrol_road"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <View
@@ -35,18 +38,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
-                android:gravity="left"
-                android:text="道路巡查"
+                android:gravity="center"
+                android:text="道路巡查 "
                 android:textColor="#fff"
-                android:textSize="30px" />
+                android:textSize="35px"
+                android:textStyle="italic|bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="230px"
-            android:layout_height="0dp"
+            android:id="@+id/ll_group_exam_road"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <View
@@ -58,18 +63,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
-                android:gravity="left"
-                android:text="审批掘路"
+                android:gravity="center"
+                android:text="审批掘路 "
                 android:textColor="#fff"
-                android:textSize="30px" />
+                android:textSize="35px"
+                android:textStyle="italic|bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="230px"
-            android:layout_height="0dp"
+            android:id="@+id/ll_group_patrol_jiakongxian"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <View
@@ -81,10 +88,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30px"
-                android:gravity="left"
-                android:text="架空线"
+                android:gravity="center"
+                android:text="架空线 "
                 android:textColor="#fff"
-                android:textSize="30px" />
+                android:textSize="35px"
+                android:textStyle="italic|bold" />
 
         </LinearLayout>
 
