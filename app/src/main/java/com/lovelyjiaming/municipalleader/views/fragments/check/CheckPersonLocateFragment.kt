@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +21,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
 import com.lovelyjiaming.municipalleader.utils.*
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
@@ -121,18 +119,18 @@ class CheckPersonLocateFragment : Fragment() {
             if (itemInfo != null && itemInfo.size != 0) {
                 val linearLayout = LinearLayout(activity)
                 linearLayout.orientation = LinearLayout.HORIZONTAL
-                linearLayout.setPadding(10, 20, 10, 50)
+                linearLayout.setPadding(20, 20, 10, 50)
                 linearLayout.setBackgroundResource(R.drawable.popup)
                 linearLayout.gravity = Gravity.CENTER_VERTICAL
                 linearLayout.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-                //
+                //头像
                 val headImg = ImageView(activity)
                 headImg.layoutParams = LinearLayout.LayoutParams(150, 150)
                 Glide.with(activity!!).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + (getPersonInfoDrawPoint(itemInfo[0].userName)?.headaculpture
                         ?: "")).apply(RequestOptions().placeholder(R.drawable.default_head)).into(headImg)
                 headImg.scaleType = ImageView.ScaleType.FIT_XY
                 linearLayout.addView(headImg)
-                //
+                //信息
                 val popupText = TextView(activity)
                 popupText.setTextColor(Color.BLACK)
                 popupText.setPadding(20, 20, 20, 20)

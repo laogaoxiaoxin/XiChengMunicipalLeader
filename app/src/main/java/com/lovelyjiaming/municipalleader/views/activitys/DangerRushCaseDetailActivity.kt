@@ -1,14 +1,13 @@
 package com.lovelyjiaming.municipalleader.views.activitys
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.EmergencyTaskItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
