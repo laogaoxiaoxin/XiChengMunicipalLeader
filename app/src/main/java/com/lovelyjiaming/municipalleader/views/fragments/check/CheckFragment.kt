@@ -32,7 +32,7 @@ class CheckFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         tbl_check_top.addTab(tbl_check_top.newTab().setText("人员位置 "))
 //        tbl_check_top.addTab(tbl_check_top.newTab().setText("人员轨迹 "))
-        tbl_check_top.addTab(tbl_check_top.newTab().setText("未结案件 "))
+        tbl_check_top.addTab(tbl_check_top.newTab().setText("案件查询 "))
         tbl_check_top.addTab(tbl_check_top.newTab().setText("案件统计 "))
         switchDisplayFragment(0)
         setClickListener()

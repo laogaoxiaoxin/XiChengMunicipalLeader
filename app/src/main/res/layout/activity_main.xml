@@ -19,7 +19,7 @@
             android:layout_centerInParent="true"
             android:text="西城道路综合管理系统 "
             android:textColor="#fff"
-            android:textSize="40px"
+            android:textSize="47px"
             android:textStyle="italic|bold" />
 
     </RelativeLayout>

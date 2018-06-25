@@ -17,7 +17,7 @@ class DangerFragment : Fragment() {
         listOf(DangerRushCaseFragment.newInstance(), DangerMaterialCalcuFragment.newInstance(), DangerReadyPersonFragment.newInstance())
     }
     val m_listDangerTitles: List<String> by lazy {
-        listOf("抢险案件 ", "物资统计 ", "备勤人员 ")
+        listOf("案件查询 ", "物资统计 ", "备勤人员 ")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
