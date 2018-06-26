@@ -53,6 +53,7 @@ class CheckCaseNoEndFragment : Fragment() {
             val result = Gson().fromJson(it, InspectUndoneClass::class.java)
             val listResult = result.InspectUndone
             adapter.setData(listResult.toMutableList())
+            mParentFragment.displayCaseCount(listResult.size)
             adapter.holderType = "checknoend"//未结案件
             check_noend_swiperefresh?.let {
                 it.isRefreshing = false
@@ -61,6 +62,10 @@ class CheckCaseNoEndFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = CheckCaseNoEndFragment()
+        private lateinit var mParentFragment: CheckFragment
+        fun newInstance(fragment: CheckFragment): CheckCaseNoEndFragment {
+            mParentFragment = fragment
+            return CheckCaseNoEndFragment()
+        }
     }
 }

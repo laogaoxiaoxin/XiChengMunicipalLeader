@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,6 @@ import android.widget.TextView
 import android.widget.Toast
 import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.map.InfoWindow
-import com.baidu.mapapi.map.MapStatusUpdateFactory
 import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.model.LatLng
 import com.baidu.mapapi.search.route.*
@@ -25,10 +23,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
 import com.lovelyjiaming.municipalleader.utils.*
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class CheckPersonLocateFragment : Fragment() {
     //所有的定位人
@@ -37,6 +36,8 @@ class CheckPersonLocateFragment : Fragment() {
     private var mPersonInfoList: MutableList<InspectPersonInfoItemClass>? = null
     //
     val handler: Handler = Handler()
+    //
+    val mExecutor: ExecutorService = Executors.newFixedThreadPool(4)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -202,7 +203,7 @@ class CheckPersonLocateFragment : Fragment() {
         }
         //因为服务器返回时升序，所以需要翻转，变成按照时间降序
         listAddress.reverse()
-        //就取得最后40个点
+        //就取得最后30个点
         val list = listAddress.subList(0, 40)
         //放入另一个准备绘制缓存中
         list.let {
@@ -239,16 +240,16 @@ class CheckPersonLocateFragment : Fragment() {
     private fun startPlanThread() {
         val option = WalkingRoutePlanOption()
         //开始正式规划路线
-        Thread {
-            for (i in 0 until listReadyDraw?.size!! - 1) {
+        mExecutor.submit({
+            for (i in 0 until listReadyDraw?.size!! - 2) {
                 val nodeStart = listReadyDraw?.get(i)
                 val nodeEnd = listReadyDraw?.get(i + 1)
                 option.from(PlanNode.withLocation(nodeStart))
                 option.to(PlanNode.withLocation(nodeEnd))
                 mSearch.walkingSearch(option)
-                Thread.sleep(50)
+                Thread.sleep(100)
             }
-        }.start()
+        })
     }
 
     private fun initMapView(savedInstanceState: Bundle?) {

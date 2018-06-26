@@ -9,6 +9,10 @@ import java.io.Serializable
 data class InspectPersonInfoItemClass(val username: String, val department: String?, val authority: String?, val phonenumber: String?, val WorkType: String, val headaculpture: String?) : Serializable
 
 data class InspectPersonInfoClass(val InspectPersonInfo: List<InspectPersonInfoItemClass>)
+//
+data class InspectTrackItem(val x: String?, val y: String?, val time: String?)
+
+data class InspectTrack(val InspectTrack: MutableList<InspectTrackItem>)
 
 //巡查部分-巡查员工位置信息
 data class InspectCurrentLocationItem(val userName: String?, val x: String?, val y: String?)

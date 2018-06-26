@@ -13,10 +13,10 @@ import kotlinx.android.synthetic.main.fragment_danger.*
 
 class DangerFragment : Fragment() {
 
-    val m_listDangerFragments: List<Fragment> by lazy {
+    private val mListDangerFragments: List<Fragment> by lazy {
         listOf(DangerRushCaseFragment.newInstance(), DangerMaterialCalcuFragment.newInstance(), DangerReadyPersonFragment.newInstance())
     }
-    val m_listDangerTitles: List<String> by lazy {
+    private val mListDangerTitles: List<String> by lazy {
         listOf("案件查询 ", "物资统计 ", "备勤人员 ")
     }
 
@@ -35,9 +35,9 @@ class DangerFragment : Fragment() {
 
         //
         viewpager_danger.adapter = object : FragmentStatePagerAdapter(childFragmentManager) {
-            override fun getItem(position: Int): Fragment = m_listDangerFragments[position]
+            override fun getItem(position: Int): Fragment = mListDangerFragments[position]
             override fun getCount(): Int = 3
-            override fun getPageTitle(position: Int): CharSequence? = m_listDangerTitles[position]
+            override fun getPageTitle(position: Int): CharSequence? = mListDangerTitles[position]
         }
 
         tbl_danger_top.setupWithViewPager(viewpager_danger)

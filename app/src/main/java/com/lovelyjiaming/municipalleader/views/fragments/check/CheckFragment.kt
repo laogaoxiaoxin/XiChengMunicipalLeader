@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_check.*
 class CheckFragment : Fragment() {
 
     private val mListCheckFragments: List<Fragment> by lazy {
-        listOf(CheckPersonLocateFragment.newInstance(), /*CheckPersonTrackFragment.newInstance(), */CheckCaseNoEndFragment.newInstance(), CheckCaseCalcuFragment.newInstance())
+        listOf(CheckPersonLocateFragment.newInstance(), /*CheckPersonTrackFragment.newInstance(), */CheckCaseNoEndFragment.newInstance(this), CheckCaseCalcuFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
 
@@ -31,7 +31,6 @@ class CheckFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tbl_check_top.addTab(tbl_check_top.newTab().setText("人员位置 "))
-//        tbl_check_top.addTab(tbl_check_top.newTab().setText("人员轨迹 "))
         tbl_check_top.addTab(tbl_check_top.newTab().setText("案件查询 "))
         tbl_check_top.addTab(tbl_check_top.newTab().setText("案件统计 "))
         switchDisplayFragment(0)
@@ -41,14 +40,16 @@ class CheckFragment : Fragment() {
     private fun setClickListener() {
         tbl_check_top.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {}
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 switchDisplayFragment(tab?.position!!)
             }
-
         })
+    }
+
+    fun displayCaseCount(caseCount: Int) {
+        tbl_check_top.getTabAt(1)?.text = "案件查询 ($caseCount) "
     }
 
     private fun switchDisplayFragment(nDisplayIndex: Int) {

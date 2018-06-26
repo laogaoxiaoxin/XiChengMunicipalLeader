@@ -13,7 +13,7 @@
         android:layout_height="120px"
         android:layout_centerHorizontal="true"
         app:tabBackground="@android:color/transparent"
-        app:tabGravity="center"
+        app:tabGravity="fill"
         app:tabIndicatorColor="@color/colorPrimary"
         app:tabIndicatorHeight="2dp"
         app:tabMode="fixed"
