@@ -12,6 +12,7 @@ import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
+import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
 import kotlinx.android.synthetic.main.fragment_check_case_no_end.*
 
@@ -59,6 +60,11 @@ class CheckCaseNoEndFragment : Fragment() {
                 it.isRefreshing = false
             }
         })
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (hidden) (activity as MainActivity).displayMoreTypeImg(View.GONE, "") else (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "patrol")
     }
 
     companion object {

@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".views.activitys.ChooseConditionActivity"
+    tools:ignore="PxUsage">
+
+    <RelativeLayout
+        android:id="@+id/rl_choose_condition_title"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/choose_condition_back"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30px"
+            android:scaleType="fitXY"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="查询管理 "
+            android:textColor="#fff"
+            android:textSize="40px"
+            android:textStyle="italic|bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_choose_way"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_choose_condition_title"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="50px"
+        android:text="查询方式 "
+        android:textColor="#000"
+        android:textSize="38px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_choose_way"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_choose_way"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="50px"
+        android:layout_marginEnd="40px"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_way_name"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="名称查询"
+                android:textColor="@color/colorPrimary"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_way_num"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="编号查询"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_way_office"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="办事处查询"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_way_date"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_marginEnd="5px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="日期查询"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_choose_patrol_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_choose_way"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="50px"
+        android:text="巡查类型 "
+        android:textColor="#000"
+        android:textSize="38px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_choose_patrol_type_line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_choose_patrol_type"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="50px"
+        android:layout_marginEnd="40px"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_patrol_type_spjl"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="审批掘路"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_patrol_type_sjsz"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="私掘私占"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_patrol_type_tccxc"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="停车场巡查"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_patrol_type_gzzxc"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_marginEnd="5px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="公租自行车"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_choose_patrol_type_line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_choose_patrol_type_line1"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="30px"
+        android:layout_marginEnd="40px"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_patrol_type_lctc"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="路侧停车"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_patrol_type_ggfwss"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="公共服务设施"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="0dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_choose_cure_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_choose_patrol_type_line2"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="50px"
+        android:text="养护类型 "
+        android:textColor="#000"
+        android:textSize="38px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_choose_cure_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_choose_cure_type"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="30px"
+        android:layout_marginEnd="40px"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_cure_type_dlps"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="道路破损"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_cure_type_bdps"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="步道破损"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_cure_type_fsssps"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="附属设施破损"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_choose_emergency_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_choose_cure_type"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="50px"
+        android:text="应急类型 "
+        android:textColor="#000"
+        android:textSize="38px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_choose_emergency_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_choose_emergency_type"
+        android:layout_marginStart="40px"
+        android:layout_marginTop="30px"
+        android:layout_marginEnd="40px"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_emergency_type_dltx"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="道路塌陷"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_emergency_type_gdtx"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="管道塌陷"
+                android:textColor="#333"
+                android:textSize="25px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="20px"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            app:cardCornerRadius="0dp" />
+    </LinearLayout>
+
+</RelativeLayout>

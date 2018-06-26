@@ -1,9 +1,11 @@
 package com.lovelyjiaming.municipalleader.views.activitys
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.View
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.views.fragments.check.CheckFragment
@@ -66,7 +68,8 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
         }
         //
-        ll_main_bottom_engineer.setOnClickListener { switchDisplayFragment(3)
+        ll_main_bottom_engineer.setOnClickListener {
+            switchDisplayFragment(3)
             iv_main_bottom_tools_check.setImageResource(R.drawable.main_bottom_tools_check)
             tv_main_bottom_tools_check.setTextColor(Color.BLACK)
             iv_main_bottom_tools_save.setImageResource(R.drawable.main_bottom_tools_save)
@@ -74,7 +77,16 @@ class MainActivity : AppCompatActivity() {
             iv_main_bottom_tools_danger.setImageResource(R.drawable.main_bottom_tools_danger)
             tv_main_bottom_tools_danger.setTextColor(Color.BLACK)
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer_selected)
-            tv_main_bottom_tools_engineer.setTextColor(Color.parseColor("#ffcc0000"))}
+            tv_main_bottom_tools_engineer.setTextColor(Color.parseColor("#ffcc0000"))
+        }
+    }
+
+    //是否显示更多图标
+    fun displayMoreTypeImg(visibility: Int, type: String) {
+        iv_more_type_choose.visibility = visibility
+        iv_more_type_choose.setOnClickListener {
+            startActivity(Intent(this, ChooseConditionActivity::class.java))
+        }
     }
 
     private fun switchDisplayFragment(nDisplayIndex: Int) {

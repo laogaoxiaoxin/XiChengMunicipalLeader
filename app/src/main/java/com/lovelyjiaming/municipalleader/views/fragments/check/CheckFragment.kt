@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
 import kotlinx.android.synthetic.main.fragment_check.*
 
 /**
@@ -53,8 +54,11 @@ class CheckFragment : Fragment() {
     }
 
     private fun switchDisplayFragment(nDisplayIndex: Int) {
-        val mgr = childFragmentManager.beginTransaction()
+        //显示更多选项
+        if (nDisplayIndex == 1)
+            (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "")
         //
+        val mgr = childFragmentManager.beginTransaction()
         if (mCurrentFraIndex == nDisplayIndex) {
             if (!mListCheckFragments[nDisplayIndex].isAdded)
             //就是当前，但是还没添加进栈

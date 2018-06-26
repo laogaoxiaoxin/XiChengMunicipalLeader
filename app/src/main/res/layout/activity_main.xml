@@ -19,9 +19,18 @@
             android:layout_centerInParent="true"
             android:text="西城道路综合管理系统 "
             android:textColor="#fff"
-            android:textSize="47px"
+            android:textSize="40px"
             android:textStyle="italic|bold" />
 
+        <ImageView
+            android:id="@+id/iv_more_type_choose"
+            android:layout_width="50px"
+            android:layout_height="53px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25px"
+            android:src="@drawable/more_choose_type"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <LinearLayout
