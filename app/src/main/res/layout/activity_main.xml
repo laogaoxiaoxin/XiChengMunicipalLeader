@@ -28,7 +28,7 @@
             android:layout_height="53px"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="25px"
+            android:layout_marginEnd="35px"
             android:src="@drawable/more_choose_type"
             android:visibility="gone" />
     </RelativeLayout>

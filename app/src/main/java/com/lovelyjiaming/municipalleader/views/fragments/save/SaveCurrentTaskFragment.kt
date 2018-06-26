@@ -12,6 +12,7 @@ import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.CureOnLineTaskClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
+import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
 import kotlinx.android.synthetic.main.fragment_save_current_task.*
 

@@ -3,10 +3,12 @@ package com.lovelyjiaming.municipalleader.views.fragments.save
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
 import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : Fragment() {
@@ -39,8 +41,22 @@ class SaveFragment : Fragment() {
             }
         }
         tbl_save_top.setupWithViewPager(viewpager_save)
+        (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "cure")//first time
         viewpager_save.currentItem = 0
         viewpager_save.offscreenPageLimit = 1
+        //
+        viewpager_save.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {}
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+            override fun onPageSelected(position: Int) {
+                if (position == 0)
+                    (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "cure")
+                else
+                    (activity as MainActivity).displayMoreTypeImg(View.GONE, "cure")
+            }
+        })
     }
 
     fun displayCountText(size: Int) {

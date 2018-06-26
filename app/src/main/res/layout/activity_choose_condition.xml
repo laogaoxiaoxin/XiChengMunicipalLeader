@@ -72,7 +72,7 @@
                 android:gravity="center"
                 android:text="名称查询"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -93,7 +93,7 @@
                 android:gravity="center"
                 android:text="编号查询"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -114,7 +114,7 @@
                 android:gravity="center"
                 android:text="办事处查询"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -136,7 +136,7 @@
                 android:gravity="center"
                 android:text="日期查询"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -182,7 +182,7 @@
                 android:gravity="center"
                 android:text="审批掘路"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -203,7 +203,7 @@
                 android:gravity="center"
                 android:text="私掘私占"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -224,7 +224,7 @@
                 android:gravity="center"
                 android:text="停车场巡查"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -246,7 +246,7 @@
                 android:gravity="center"
                 android:text="公租自行车"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -280,7 +280,7 @@
                 android:gravity="center"
                 android:text="路侧停车"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -301,7 +301,7 @@
                 android:gravity="center"
                 android:text="公共服务设施"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -362,7 +362,7 @@
                 android:gravity="center"
                 android:text="道路破损"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -383,7 +383,7 @@
                 android:gravity="center"
                 android:text="步道破损"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -404,7 +404,7 @@
                 android:gravity="center"
                 android:text="附属设施破损"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -456,7 +456,7 @@
                 android:gravity="center"
                 android:text="道路塌陷"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
@@ -477,7 +477,7 @@
                 android:gravity="center"
                 android:text="管道塌陷"
                 android:textColor="#333"
-                android:textSize="25px"
+                android:textSize="30px"
                 android:textStyle="normal" />
 
         </android.support.v7.widget.CardView>
