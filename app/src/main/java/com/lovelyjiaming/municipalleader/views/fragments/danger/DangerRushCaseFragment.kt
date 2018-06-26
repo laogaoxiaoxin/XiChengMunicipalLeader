@@ -44,6 +44,7 @@ class DangerRushCaseFragment : Fragment() {
     private fun requestData() {
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_DANGER_ADDRESS + "getOnLineTask", {
             val result = Gson().fromJson(it, EmergencyTask::class.java)
+            mParentFragment.displayCaseCount(result.EmergencyTask.size)
             adapter.listData = result.EmergencyTask
             adapter.notifyDataSetChanged()
             danger_rush_case_swiperefresh.isRefreshing = false
@@ -51,7 +52,11 @@ class DangerRushCaseFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = DangerRushCaseFragment()
+        private lateinit var mParentFragment: DangerFragment
+        fun newInstance(fragment: DangerFragment): DangerRushCaseFragment {
+            mParentFragment = fragment
+            return DangerRushCaseFragment()
+        }
     }
 }
 

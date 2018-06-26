@@ -1,6 +1,5 @@
 package com.lovelyjiaming.municipalleader.views.fragments.danger
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -14,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_danger.*
 class DangerFragment : Fragment() {
 
     private val mListDangerFragments: List<Fragment> by lazy {
-        listOf(DangerRushCaseFragment.newInstance(), DangerMaterialCalcuFragment.newInstance(), DangerReadyPersonFragment.newInstance())
+        listOf(DangerRushCaseFragment.newInstance(this), DangerMaterialCalcuFragment.newInstance(), DangerReadyPersonFragment.newInstance())
     }
     private val mListDangerTitles: List<String> by lazy {
         listOf("案件查询 ", "物资统计 ", "备勤人员 ")
@@ -44,6 +43,9 @@ class DangerFragment : Fragment() {
         viewpager_danger.currentItem = 0
     }
 
+    fun displayCaseCount(size: Int) {
+        tbl_danger_top.getTabAt(0)?.text = "案件查询 ($size) "
+    }
 
     companion object {
         fun newInstance() = DangerFragment()

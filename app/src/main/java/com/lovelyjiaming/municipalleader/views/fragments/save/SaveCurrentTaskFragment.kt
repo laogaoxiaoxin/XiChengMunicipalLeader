@@ -46,12 +46,17 @@ class SaveCurrentTaskFragment : Fragment() {
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_SAVE_ADDRESS + "getOnLineTask", {
             val result = Gson().fromJson(it, CureOnLineTaskClass::class.java)
             adapter.holderType = "saveonlinetask"
+            mParentFragment.displayCountText(result.CureOnLineTask.size)
             adapter.setData(result.CureOnLineTask.toMutableList())//复用
             save_current_swiperefresh.isRefreshing = false
         })
     }
 
     companion object {
-        fun newInstance() = SaveCurrentTaskFragment()
+        private lateinit var mParentFragment: SaveFragment
+        fun newInstance(fragment: SaveFragment): SaveCurrentTaskFragment {
+            mParentFragment = fragment
+            return SaveCurrentTaskFragment()
+        }
     }
 }

@@ -12,10 +12,10 @@ import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : Fragment() {
 
-    val m_listSaveFragments: List<Fragment> by lazy {
-        listOf(SaveCurrentTaskFragment.newInstance(), SaveWholeCalcuFragment.newInstance())
+    val mListSaveFragments: List<Fragment> by lazy {
+        listOf(SaveCurrentTaskFragment.newInstance(this), SaveWholeCalcuFragment.newInstance())
     }
-    val m_listSaveFragementsNames: List<String> by lazy {
+    val mListSaveFragmentNames: List<String> by lazy {
         listOf("案件查询 ", "综合统计 ")
     }
 
@@ -33,17 +33,19 @@ class SaveFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //
         viewpager_save.adapter = object : FragmentStatePagerAdapter(childFragmentManager) {
-            override fun getItem(position: Int): Fragment = m_listSaveFragments[position]
-
+            override fun getItem(position: Int): Fragment = mListSaveFragments[position]
             override fun getCount(): Int = 2
-
             override fun getPageTitle(position: Int): CharSequence? {
-                return m_listSaveFragementsNames[position]
+                return mListSaveFragmentNames[position]
             }
         }
         tbl_save_top.setupWithViewPager(viewpager_save)
         viewpager_save.currentItem = 0
         viewpager_save.offscreenPageLimit = 1
+    }
+
+    fun displayCountText(size: Int) {
+        tbl_save_top.getTabAt(0)?.text = "案件查询 ($size) "
     }
 
     companion object {
