@@ -24,7 +24,7 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
     private var listResult: MutableList<InspectUndoneItemClass>? = null
     var holderType: String = ""
 
-    fun setData(listResult: MutableList<InspectUndoneItemClass>) {
+    fun setData(listResult: MutableList<InspectUndoneItemClass>?) {
         this.listResult = listResult
         notifyDataSetChanged()
     }
@@ -34,9 +34,6 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
             holder.apply {
                 check_noend_case_name.text = it[position].taskName
                 check_noend_case_status.text = it[position].taskState
-//                if (holderType != "saveonlinetask") {
-//                    check_noend_case_status.visibility = View.INVISIBLE
-//                }
                 check_noend_case_no.text = "编号：" + it[position].taskNumber
                 check_noend_case_time.text = "时间：" + it[position].taskDate
                 Glide.with(ctx).load(NETWORK_IMG_BASIC_ADDRESS + "${it[position].taskFirst}").into(check_noend_case_img)

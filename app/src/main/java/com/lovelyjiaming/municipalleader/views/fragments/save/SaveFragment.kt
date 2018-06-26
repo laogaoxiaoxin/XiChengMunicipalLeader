@@ -59,6 +59,10 @@ class SaveFragment : Fragment() {
         })
     }
 
+    fun startSearchSaveText(sConditionText: String) {
+        (mListSaveFragments[0] as SaveCurrentTaskFragment).startSearchConditionText(sConditionText)
+    }
+
     fun displayCountText(size: Int) {
         tbl_save_top.getTabAt(0)?.text = "案件查询 ($size) "
     }

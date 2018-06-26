@@ -28,7 +28,8 @@
 
         <activity
             android:name=".views.activitys.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,9 +42,15 @@
         <activity
             android:name=".views.activitys.SaveOnlineTaskActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".views.activitys.DangerRushCaseDetailActivity" />
-        <activity android:name=".views.activitys.LargePicActivity" />
-        <activity android:name=".views.activitys.PersonListTrackActivity" />
+        <activity
+            android:name=".views.activitys.DangerRushCaseDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activitys.LargePicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activitys.PersonListTrackActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
@@ -59,8 +66,12 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".views.activitys.CheckNoEndDetailActivity" />
-        <activity android:name=".views.activitys.ChooseConditionActivity"></activity>
+        <activity
+            android:name=".views.activitys.CheckNoEndDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activitys.ChooseConditionActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

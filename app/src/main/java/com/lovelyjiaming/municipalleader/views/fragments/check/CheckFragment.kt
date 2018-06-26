@@ -56,7 +56,10 @@ class CheckFragment : Fragment() {
     private fun switchDisplayFragment(nDisplayIndex: Int) {
         //显示更多选项
         if (nDisplayIndex == 1)
-            (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "")
+            (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "patrol")
+        else
+            (activity as MainActivity).displayMoreTypeImg(View.GONE, "patrol")
+
         //
         val mgr = childFragmentManager.beginTransaction()
         if (mCurrentFraIndex == nDisplayIndex) {

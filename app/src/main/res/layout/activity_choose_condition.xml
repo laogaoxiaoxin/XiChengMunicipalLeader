@@ -67,6 +67,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_way_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -88,6 +89,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_way_num"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -109,6 +111,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_way_office"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -131,6 +134,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_way_date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -177,6 +181,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_patrol_type_spjl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -198,6 +203,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_patrol_type_sjsz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -219,6 +225,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_patrol_type_tccxc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -241,6 +248,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_patrol_type_gzzxc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -275,6 +283,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_patrol_type_lctc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -296,6 +305,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_patrol_type_ggfwss"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -357,6 +367,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_cure_type_dlps"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -378,6 +389,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_cure_type_bdps"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -399,6 +411,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_cure_type_fsssps"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -451,6 +464,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_emergency_type_dltx"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -472,6 +486,7 @@
             app:cardElevation="0dp">
 
             <TextView
+                android:id="@+id/tv_choose_emergency_type_gdtx"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"

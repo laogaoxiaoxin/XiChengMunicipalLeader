@@ -37,7 +37,7 @@ class CheckPersonLocateFragment : Fragment() {
     //
     val handler: Handler = Handler()
     //
-    val mExecutor: ExecutorService = Executors.newFixedThreadPool(4)
+    private val mExecutor: ExecutorService = Executors.newFixedThreadPool(4)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -203,8 +203,7 @@ class CheckPersonLocateFragment : Fragment() {
         }
         //因为服务器返回时升序，所以需要翻转，变成按照时间降序
         listAddress.reverse()
-        //就取得最后30个点
-        val list = listAddress.subList(0, 40)
+        val list = listAddress.subList(0, 20)
         //放入另一个准备绘制缓存中
         list.let {
             listReadyDraw?.clear()
@@ -247,7 +246,7 @@ class CheckPersonLocateFragment : Fragment() {
                 option.from(PlanNode.withLocation(nodeStart))
                 option.to(PlanNode.withLocation(nodeEnd))
                 mSearch.walkingSearch(option)
-                Thread.sleep(100)
+                Thread.sleep(50)
             }
         })
     }

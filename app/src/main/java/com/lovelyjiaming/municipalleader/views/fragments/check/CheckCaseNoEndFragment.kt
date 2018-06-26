@@ -62,11 +62,6 @@ class CheckCaseNoEndFragment : Fragment() {
         })
     }
 
-    override fun onHiddenChanged(hidden: Boolean) {
-        super.onHiddenChanged(hidden)
-        if (hidden) (activity as MainActivity).displayMoreTypeImg(View.GONE, "") else (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "patrol")
-    }
-
     companion object {
         private lateinit var mParentFragment: CheckFragment
         fun newInstance(fragment: CheckFragment): CheckCaseNoEndFragment {

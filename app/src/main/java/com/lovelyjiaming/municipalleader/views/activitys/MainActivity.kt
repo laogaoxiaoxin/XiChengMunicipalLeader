@@ -2,10 +2,9 @@ package com.lovelyjiaming.municipalleader.views.activitys
 
 import android.content.Intent
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.View
+import android.support.v7.app.AppCompatActivity
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.views.fragments.check.CheckFragment
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     //publish ,me,check,save,danger,engineer
-    private val m_listFragments: MutableList<Fragment> by lazy {
+    private val mListFragments: MutableList<Fragment> by lazy {
         mutableListOf(CheckFragment.newInstance(), SaveFragment.newInstance(), DangerFragment.newInstance(), EngineerFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
@@ -81,11 +80,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private var mPageType: String = ""
     //是否显示更多图标
     fun displayMoreTypeImg(visibility: Int, type: String) {
         iv_more_type_choose.visibility = visibility
+        this.mPageType = type
         iv_more_type_choose.setOnClickListener {
-            startActivity(Intent(this, ChooseConditionActivity::class.java))
+            startActivityForResult(Intent(this, ChooseConditionActivity::class.java), 1045)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1045 && resultCode == 1046 && data != null) {
+            when (mPageType) {
+                "cure" -> (mListFragments[1] as SaveFragment).startSearchSaveText(data.getStringExtra("condition"))
+
+            }
         }
     }
 
@@ -93,14 +104,14 @@ class MainActivity : AppCompatActivity() {
         val mgr = supportFragmentManager.beginTransaction()
         //
         if (mCurrentFraIndex == nDisplayIndex) {
-            if (!m_listFragments[nDisplayIndex].isAdded)
+            if (!mListFragments[nDisplayIndex].isAdded)
             //就是当前，但是还没添加进栈
-                mgr.add(R.id.main_fragment_container, m_listFragments[nDisplayIndex]).show(m_listFragments[nDisplayIndex])
+                mgr.add(R.id.main_fragment_container, mListFragments[nDisplayIndex]).show(mListFragments[nDisplayIndex])
         } else {
-            if (m_listFragments[nDisplayIndex].isAdded) {
-                mgr.hide(m_listFragments[mCurrentFraIndex]).show(m_listFragments[nDisplayIndex])
+            if (mListFragments[nDisplayIndex].isAdded) {
+                mgr.hide(mListFragments[mCurrentFraIndex]).show(mListFragments[nDisplayIndex])
             } else {
-                mgr.hide(m_listFragments[mCurrentFraIndex]).add(R.id.main_fragment_container, m_listFragments[nDisplayIndex]).show(m_listFragments[nDisplayIndex])
+                mgr.hide(mListFragments[mCurrentFraIndex]).add(R.id.main_fragment_container, mListFragments[nDisplayIndex]).show(mListFragments[nDisplayIndex])
             }
         }
         mgr.commit()
