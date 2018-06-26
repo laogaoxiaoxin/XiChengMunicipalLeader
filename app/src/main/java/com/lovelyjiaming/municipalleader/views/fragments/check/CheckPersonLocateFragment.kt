@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.check_person_locate_mapview
 import com.lovelyjiaming.municipalleader.utils.*
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS
 import kotlinx.android.synthetic.main.fragment_check_person_locate.*
@@ -198,8 +200,10 @@ class CheckPersonLocateFragment : Fragment() {
             Toast.makeText(activity, "此员工暂无轨迹信息", Toast.LENGTH_SHORT).show()
             return
         }
-        //就取得最后五十个点
-        val list = listAddress.dropLast(50)
+        //因为服务器返回时升序，所以需要翻转，变成按照时间降序
+        listAddress.reverse()
+        //就取得最后40个点
+        val list = listAddress.subList(0, 40)
         //放入另一个准备绘制缓存中
         list.let {
             listReadyDraw?.clear()
@@ -234,20 +238,15 @@ class CheckPersonLocateFragment : Fragment() {
 
     private fun startPlanThread() {
         val option = WalkingRoutePlanOption()
-        check_person_locate_mapview.map.setMapStatus(MapStatusUpdateFactory
-                .newLatLngZoom(listReadyDraw!![listReadyDraw!!.size - 1], 13f))
         //开始正式规划路线
         Thread {
-            val stepSize = if (listReadyDraw?.size!! >= 300) 30 else 10
-            //
-            for (i in 0 until listReadyDraw?.size!! step stepSize) {
-                if (i >= listReadyDraw?.size!! - 1 || (i + stepSize) >= listReadyDraw?.size!! - 1) break
+            for (i in 0 until listReadyDraw?.size!! - 1) {
                 val nodeStart = listReadyDraw?.get(i)
-                val nodeEnd = listReadyDraw?.get(i + stepSize)
+                val nodeEnd = listReadyDraw?.get(i + 1)
                 option.from(PlanNode.withLocation(nodeStart))
                 option.to(PlanNode.withLocation(nodeEnd))
                 mSearch.walkingSearch(option)
-                Thread.sleep(100)
+                Thread.sleep(50)
             }
         }.start()
     }

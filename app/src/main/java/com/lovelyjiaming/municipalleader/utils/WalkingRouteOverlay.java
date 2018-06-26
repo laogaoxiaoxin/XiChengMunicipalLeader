@@ -61,8 +61,7 @@ public class WalkingRouteOverlay extends OverlayManager {
                                 .zIndex(10)
                                 .anchor(0.5f, 0.5f)
                                 .extraInfo(b)
-                                .icon(BitmapDescriptorFactory
-                                        .fromAssetWithDpi("Icon_line_node.png")));
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.play_back)));
                     }
 
                     // 最后路段绘制出口点
@@ -72,8 +71,7 @@ public class WalkingRouteOverlay extends OverlayManager {
                                 .position(step.getExit().getLocation())
                                 .anchor(0.5f, 0.5f)
                                 .zIndex(10)
-                                .icon(BitmapDescriptorFactory
-                                        .fromAssetWithDpi("Icon_line_node.png")));
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.play_back)));
 
                     }
                 }
