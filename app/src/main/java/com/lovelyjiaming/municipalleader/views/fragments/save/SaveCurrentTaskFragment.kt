@@ -56,6 +56,7 @@ class SaveCurrentTaskFragment : Fragment() {
                 } else
                     mDetailInfoList.filter { it.taskName?.contains(p0.toString())!! }.toMutableList()
                 //
+                mParentFragment.displayCountText(list?.size ?: 0)
                 adapter.setData(list)
             }
 

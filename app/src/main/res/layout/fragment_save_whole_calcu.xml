@@ -20,10 +20,10 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:paddingBottom="15px"
-            android:paddingLeft="90px"
-            android:paddingRight="90px"
+            android:paddingLeft="40px"
             android:paddingTop="15px"
+            android:paddingRight="40px"
+            android:paddingBottom="15px"
             android:text="选择起始时间 "
             android:textColor="#fff"
             android:textSize="30px"
@@ -36,11 +36,27 @@
             android:layout_marginStart="20px"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:paddingBottom="15px"
-            android:paddingLeft="90px"
-            android:paddingRight="90px"
+            android:paddingLeft="40px"
             android:paddingTop="15px"
+            android:paddingRight="40px"
+            android:paddingBottom="15px"
             android:text="选择终止时间 "
+            android:textColor="#fff"
+            android:textSize="30px"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:id="@+id/save_whole_top_office"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20px"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingLeft="90px"
+            android:paddingTop="15px"
+            android:paddingRight="90px"
+            android:paddingBottom="15px"
+            android:text="全区 "
             android:textColor="#fff"
             android:textSize="30px"
             android:textStyle="italic|bold" />
@@ -52,8 +68,8 @@
         android:layout_height="550px"
         android:layout_below="@id/ll_save_whole_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginRight="20px"
-        android:layout_marginTop="30px" />
+        android:layout_marginTop="30px"
+        android:layout_marginRight="20px" />
 
     <RelativeLayout
         android:id="@+id/save_whole_listtitle"

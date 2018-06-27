@@ -26,7 +26,7 @@ class DangerRushCaseAdapter(private val ctx: Context) : RecyclerView.Adapter<Dan
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         listData?.let {
-            holder.check_noend_case_name.text = "任务名称：" + listData?.get(position)?.taskName
+            holder.check_noend_case_name.text = listData?.get(position)?.taskName
             holder.check_noend_case_no.text = "编号：" + listData?.get(position)?.taskNumber
             holder.check_noend_case_status.text = listData?.get(position)?.taskState
             holder.check_noend_case_time.text = "时间：" + listData?.get(position)?.taskDate

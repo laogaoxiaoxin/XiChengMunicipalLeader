@@ -58,6 +58,7 @@ class CheckCaseNoEndFragment : Fragment() {
                 } else
                     mListDetailInfo?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
                 //
+                mParentFragment.displayCaseCount(list?.size ?: 0)
                 adapter.setData(list)
             }
 
@@ -88,7 +89,9 @@ class CheckCaseNoEndFragment : Fragment() {
     fun startSearch(condition: String) {
         when (condition) {
             "一级养护", "二级养护", "三级养护" ->
-                mFilterDetailInfo = mListDetailInfo?.filter { it.taskRank?.contains(condition)!! }?.toMutableList()
+                mFilterDetailInfo = mListDetailInfo?.filter {
+                    it.taskRank?.contains(condition) ?: false
+                }?.toMutableList()
             "私掘私占", "停车场巡查", "公租自行车", "路侧停车", "公共服务设施" ->
                 mFilterDetailInfo = mListDetailInfo?.filter { it.taskType?.contains(condition)!! }?.toMutableList()
             "审批掘路" ->

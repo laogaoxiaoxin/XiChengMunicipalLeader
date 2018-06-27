@@ -16,11 +16,9 @@
 
         <ImageView
             android:id="@+id/save_online_taskdetail_back"
-            android:layout_width="50px"
-            android:layout_height="50px"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="30px"
-            android:scaleType="fitXY"
+            android:layout_width="100px"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
             android:src="@drawable/back" />
 
         <TextView

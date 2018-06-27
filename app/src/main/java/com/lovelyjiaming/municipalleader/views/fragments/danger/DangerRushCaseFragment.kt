@@ -17,6 +17,7 @@ import com.lovelyjiaming.municipalleader.utils.EmergencyTask
 import com.lovelyjiaming.municipalleader.utils.EmergencyTaskItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.DangerRushCaseAdapter
+import com.lovelyjiaming.municipalleader.views.fragments.save.SaveCurrentTaskFragment
 import kotlinx.android.synthetic.main.common_search_layout.*
 import kotlinx.android.synthetic.main.fragment_danger_case.*
 
@@ -48,12 +49,13 @@ class DangerRushCaseFragment : Fragment() {
         edt_search_condition.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 //如果已经筛选过一次了，比如按照tasktype筛过一次了
-                val list  = if (mFilterDetailInfoList != null && mFilterDetailInfoList!!.size > 0) {
+                val list = if (mFilterDetailInfoList != null && mFilterDetailInfoList!!.size > 0) {
                     mFilterDetailInfoList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
                 } else
                     mEmergencyDetailList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
                 //
                 adapter.listData = list
+                mParentFragment.displayCaseCount(list?.size ?: 0)
                 adapter.notifyDataSetChanged()
             }
 

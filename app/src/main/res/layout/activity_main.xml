@@ -24,13 +24,12 @@
 
         <ImageView
             android:id="@+id/iv_more_type_choose"
-            android:layout_width="50px"
-            android:layout_height="53px"
+            android:layout_width="100px"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="35px"
+            android:scaleType="centerInside"
             android:src="@drawable/more_choose_type"
-            android:visibility="gone" />
+            android:visibility="visible" />
     </RelativeLayout>
 
     <LinearLayout
