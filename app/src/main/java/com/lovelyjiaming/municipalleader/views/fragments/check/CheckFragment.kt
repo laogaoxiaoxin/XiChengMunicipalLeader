@@ -77,6 +77,10 @@ class CheckFragment : Fragment() {
         mCurrentFraIndex = nDisplayIndex
     }
 
+    fun startSearchPatrolText(condition: String) {
+        (mListCheckFragments[1] as CheckCaseNoEndFragment).startSearch(condition)
+    }
+
     companion object {
         fun newInstance() = CheckFragment()
     }

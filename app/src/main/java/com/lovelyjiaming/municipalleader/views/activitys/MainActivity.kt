@@ -102,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             when (mPageType) {
                 "cure" -> (mListFragments[1] as SaveFragment).startSearchSaveText(data.getStringExtra("condition"))
                 "emergency" -> (mListFragments[2] as DangerFragment).startSearchEmergencyText(data.getStringExtra("condition"))
+                "patrol" -> (mListFragments[0] as CheckFragment).startSearchPatrolText(data.getStringExtra("condition"))
             }
         }
     }
