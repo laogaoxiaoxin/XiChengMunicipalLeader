@@ -28,7 +28,7 @@ class DangerRushCaseAdapter(private val ctx: Context) : RecyclerView.Adapter<Dan
         listData?.let {
             holder.check_noend_case_name.text = "任务名称：" + listData?.get(position)?.taskName
             holder.check_noend_case_no.text = "编号：" + listData?.get(position)?.taskNumber
-            holder.check_noend_case_status.text = listData?.get(position)?.IsFinish
+            holder.check_noend_case_status.text = listData?.get(position)?.taskState
             holder.check_noend_case_time.text = "时间：" + listData?.get(position)?.taskDate
             Glide.with(ctx).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + listData?.get(position)?.taskFirst).into(holder.check_noend_case_img)
             //

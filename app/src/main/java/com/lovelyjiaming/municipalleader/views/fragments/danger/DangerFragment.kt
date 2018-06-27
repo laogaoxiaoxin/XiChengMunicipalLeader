@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.baidu.location.d.j.P
 
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
@@ -61,6 +62,10 @@ class DangerFragment : Fragment() {
 
     fun displayCaseCount(size: Int) {
         tbl_danger_top.getTabAt(0)?.text = "案件查询 ($size) "
+    }
+
+    fun startSearchEmergencyText(condition: String) {
+        (mListDangerFragments[0] as DangerRushCaseFragment).startSearch(condition)
     }
 
     companion object {

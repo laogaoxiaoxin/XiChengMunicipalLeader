@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         mutableListOf(CheckFragment.newInstance(), SaveFragment.newInstance(), DangerFragment.newInstance(), EngineerFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
+    //
+    private var mPageType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClickListener() {
         ll_main_bottom_check.setOnClickListener {
+            mPageType = "patrol"
             switchDisplayFragment(0)
             iv_main_bottom_tools_check.setImageResource(R.drawable.main_bottom_tools_check_selected)
             tv_main_bottom_tools_check.setTextColor(Color.parseColor("#ffcc0000"))
@@ -44,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
         //
         ll_main_bottom_save.setOnClickListener {
+            mPageType = "cure"
             switchDisplayFragment(1)
             iv_main_bottom_tools_check.setImageResource(R.drawable.main_bottom_tools_check)
             tv_main_bottom_tools_check.setTextColor(Color.BLACK)
@@ -56,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         }
         //
         ll_main_bottom_danger.setOnClickListener {
+            mPageType = "emergency"
             switchDisplayFragment(2)
             iv_main_bottom_tools_check.setImageResource(R.drawable.main_bottom_tools_check)
             tv_main_bottom_tools_check.setTextColor(Color.BLACK)
@@ -80,13 +85,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private var mPageType: String = ""
     //是否显示更多图标
     fun displayMoreTypeImg(visibility: Int, type: String) {
         iv_more_type_choose.visibility = visibility
         this.mPageType = type
         iv_more_type_choose.setOnClickListener {
-            startActivityForResult(Intent(this, ChooseConditionActivity::class.java), 1045)
+            val intent = Intent(this, ChooseConditionActivity::class.java)
+            intent.putExtra("type", type)
+            startActivityForResult(intent, 1045)
         }
     }
 
@@ -95,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1045 && resultCode == 1046 && data != null) {
             when (mPageType) {
                 "cure" -> (mListFragments[1] as SaveFragment).startSearchSaveText(data.getStringExtra("condition"))
-
+                "emergency" -> (mListFragments[2] as DangerFragment).startSearchEmergencyText(data.getStringExtra("condition"))
             }
         }
     }

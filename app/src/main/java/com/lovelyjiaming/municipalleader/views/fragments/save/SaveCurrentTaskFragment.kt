@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.CureOnLineTaskClass
@@ -24,6 +25,8 @@ class SaveCurrentTaskFragment : Fragment() {
         CheckNoEndCaseAdapter(activity as Context)//复用巡查未结案item
     }
     private lateinit var mDetailInfoList: MutableList<InspectUndoneItemClass>
+    //各种条件筛选后的结果集
+    private var mFilterDetailInfoList: MutableList<InspectUndoneItemClass>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +51,12 @@ class SaveCurrentTaskFragment : Fragment() {
         edt_search_condition.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 //如果已经筛选过一次了，比如按照tasktype筛过一次了
-                if (mFilterDetailInfoList != null && mFilterDetailInfoList!!.size > 0) {
-                    mFilterDetailInfoList = mFilterDetailInfoList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
+                val list = if (mFilterDetailInfoList != null && mFilterDetailInfoList!!.size > 0) {
+                    mFilterDetailInfoList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
                 } else
-                    mFilterDetailInfoList = mDetailInfoList.filter { it.taskName?.contains(p0.toString())!! }.toMutableList()
+                    mDetailInfoList.filter { it.taskName?.contains(p0.toString())!! }.toMutableList()
                 //
-                adapter.setData(mFilterDetailInfoList)
+                adapter.setData(list)
             }
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -72,61 +75,22 @@ class SaveCurrentTaskFragment : Fragment() {
         })
     }
 
-    //各种条件筛选后的结果集
-    private var mFilterDetailInfoList: MutableList<InspectUndoneItemClass>? = null
-
     fun startSearchConditionText(condition: String) {
         when (condition) {
-            "名称查询" -> {
-                edt_search_condition.hint = "请输入正确的标题"
-                edt_search_condition.addTextChangedListener(object : TextWatcher {
-                    override fun afterTextChanged(p0: Editable?) {
-                        if (mFilterDetailInfoList != null && mFilterDetailInfoList!!.size > 0) {
-                            mFilterDetailInfoList = mFilterDetailInfoList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
-                        } else
-                            mFilterDetailInfoList = mDetailInfoList.filter { it.taskName?.contains(p0.toString())!! }.toMutableList()
-                        //
-                        adapter.setData(mFilterDetailInfoList)
-                    }
-
-                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                })
-            }
-            "编号查询" -> {
-                edt_search_condition.hint = "请输入正确的编号"
-                edt_search_condition.addTextChangedListener(object : TextWatcher {
-                    override fun afterTextChanged(p0: Editable?) {
-                        if (mFilterDetailInfoList != null && mFilterDetailInfoList!!.size > 0) {
-                            mFilterDetailInfoList = mFilterDetailInfoList?.filter { it.taskNumber?.contains(p0.toString())!! }?.toMutableList()
-                        } else
-                            mFilterDetailInfoList = mDetailInfoList.filter { it.taskNumber?.contains(p0.toString())!! }.toMutableList()
-                        //
-                        adapter.setData(mFilterDetailInfoList)
-                    }
-
-                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-                })
-            }
-            "日期查询" -> {
-            }
-            "道路破损" -> {
-                mFilterDetailInfoList = mDetailInfoList.filter { it.taskType == "道路破损" }.toMutableList()
-                mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)
-                adapter.setData(mFilterDetailInfoList)
-            }
-            "步道破损" -> {
-                mFilterDetailInfoList = mDetailInfoList.filter { it.taskType == "步道破损" }.toMutableList()
-                mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)
-                adapter.setData(mFilterDetailInfoList)
-            }
-            "附属设施破损" -> {
-                mFilterDetailInfoList = mDetailInfoList.filter { it.taskType == "附属设施破损" }.toMutableList()
-                mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)
-                adapter.setData(mFilterDetailInfoList)
+            "一级养护", "二级养护", "三级养护" ->
+                mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition)!! }.toMutableList()
+            "道路破损", "步道破损", "附属设施破损" ->
+                mFilterDetailInfoList = mDetailInfoList.filter { it.taskType?.contains(condition)!! }.toMutableList()
+            else -> {
+                if (condition.contains("街道")) {
+                    mFilterDetailInfoList = mDetailInfoList.filter { it.taskOffice?.contains(condition)!! }.toMutableList()
+                }
             }
         }
+        mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)
+        adapter.setData(mFilterDetailInfoList)
+        Toast.makeText(activity, "共查找出${condition}案件${mFilterDetailInfoList?.size
+                ?: 0}件", Toast.LENGTH_LONG).show()
     }
 
     companion object {
