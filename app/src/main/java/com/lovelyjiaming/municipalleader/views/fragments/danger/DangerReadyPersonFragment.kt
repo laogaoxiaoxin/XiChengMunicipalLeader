@@ -17,6 +17,7 @@ import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.DangerReadyPersonAdapter
 import kotlinx.android.synthetic.main.fragment_danger_ready_person.*
 
+//http://39.104.80.111:8888/RoadLeader/EmergencyServlet?method=getEmergencyWorker
 class DangerReadyPersonFragment : Fragment() {
 
     val adapter: DangerReadyPersonAdapter by lazy {

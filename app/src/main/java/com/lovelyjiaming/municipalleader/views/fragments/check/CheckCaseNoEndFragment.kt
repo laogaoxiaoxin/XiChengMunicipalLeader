@@ -16,7 +16,6 @@ import com.lovelyjiaming.municipalleader.utils.InspectUndoneClass
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
-import com.lovelyjiaming.municipalleader.views.fragments.save.SaveCurrentTaskFragment
 import kotlinx.android.synthetic.main.common_search_layout.*
 import kotlinx.android.synthetic.main.fragment_check_case_no_end.*
 
