@@ -8,16 +8,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import com.lovelyjiaming.municipalleader.R
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.gson.Gson
-import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.danger_rush_case_swiperefresh
 import com.lovelyjiaming.municipalleader.utils.EmergencyTask
 import com.lovelyjiaming.municipalleader.utils.EmergencyTaskItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.DangerRushCaseAdapter
-import com.lovelyjiaming.municipalleader.views.fragments.save.SaveCurrentTaskFragment
 import kotlinx.android.synthetic.main.common_search_layout.*
 import kotlinx.android.synthetic.main.fragment_danger_case.*
 
@@ -79,21 +77,19 @@ class DangerRushCaseFragment : Fragment() {
         })
     }
 
-    fun startSearch(condition: String) {
-        when (condition) {
-            "道路塌陷", "管道塌陷" ->
-                mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskType?.contains(condition)!! }?.toMutableList()
-            else -> {
-                if (condition.contains("街道")) {
-                    mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskOffice?.contains(condition)!! }?.toMutableList()
-                }
-            }
+    fun startSearch(condition: HashMap<String, String>) {
+        if (condition.containsKey("type") && condition.containsKey("office")) {
+            mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
+        } else if (condition.containsKey("type")) {
+            mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
+        } else if (condition.containsKey("office")) {
+            mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
         }
         mParentFragment.displayCaseCount(mFilterDetailInfoList?.size ?: 0)
         adapter.listData = mFilterDetailInfoList
         adapter.notifyDataSetChanged()
         //
-        Toast.makeText(activity, "共查找出${condition}案件${mFilterDetailInfoList?.size
+        Toast.makeText(activity, "共查找出案件${mFilterDetailInfoList?.size
                 ?: 0}件", Toast.LENGTH_LONG).show()
     }
 

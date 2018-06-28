@@ -76,21 +76,26 @@ class SaveCurrentTaskFragment : Fragment() {
         })
     }
 
-    fun startSearchConditionText(condition: String) {
-        when (condition) {
-            "一级养护", "二级养护", "三级养护" ->
-                mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition)!! }.toMutableList()
-            "道路破损", "步道破损", "附属设施破损" ->
-                mFilterDetailInfoList = mDetailInfoList.filter { it.taskType?.contains(condition)!! }.toMutableList()
-            else -> {
-                if (condition.contains("街道")) {
-                    mFilterDetailInfoList = mDetailInfoList.filter { it.taskOffice?.contains(condition)!! }.toMutableList()
-                }
-            }
+    fun startSearchConditionText(condition: HashMap<String, String>) {
+        if (condition.containsKey("rank") && condition.containsKey("type") && condition.containsKey("office")) {
+            mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+        } else if (condition.containsKey("rank") && condition.containsKey("type")) {
+            mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! }.toMutableList()
+        } else if (condition.containsKey("type") && condition.containsKey("office")) {
+            mFilterDetailInfoList = mDetailInfoList.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+        } else if (condition.containsKey("office") && condition.containsKey("rank")) {
+            mFilterDetailInfoList = mDetailInfoList.filter { it.taskOffice?.contains(condition["office"].toString())!! && it.taskRank?.contains(condition["rank"].toString())!! }.toMutableList()
+        } else if (condition.containsKey("rank")) {
+            mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition["rank"].toString())!! }.toMutableList()
+        } else if (condition.containsKey("type")) {
+            mFilterDetailInfoList = mDetailInfoList.filter { it.taskType?.contains(condition["type"].toString())!! }.toMutableList()
+        } else if (condition.containsKey("office")) {
+            mFilterDetailInfoList = mDetailInfoList.filter { it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
         }
+        //
         mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)
         adapter.setData(mFilterDetailInfoList)
-        Toast.makeText(activity, "共查找出${condition}案件${mFilterDetailInfoList?.size
+        Toast.makeText(activity, "共查找出案件${mFilterDetailInfoList?.size
                 ?: 0}件", Toast.LENGTH_LONG).show()
     }
 

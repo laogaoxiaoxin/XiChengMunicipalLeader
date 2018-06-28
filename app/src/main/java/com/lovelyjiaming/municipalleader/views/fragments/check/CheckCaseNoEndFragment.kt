@@ -85,23 +85,32 @@ class CheckCaseNoEndFragment : Fragment() {
         })
     }
 
-    fun startSearch(condition: String) {
-        when (condition) {
-            "一级养护", "二级养护", "三级养护" ->
-                mFilterDetailInfo = mListDetailInfo?.filter {
-                    it.taskRank?.contains(condition) ?: false
-                }?.toMutableList()
-            "私掘私占", "停车场巡查", "公租自行车", "路侧停车", "公共服务设施" ->
-                mFilterDetailInfo = mListDetailInfo?.filter { it.taskType?.contains(condition)!! }?.toMutableList()
-            "审批掘路" ->
-                mFilterDetailInfo = mListDetailInfo?.filter { it.taskType == "电力" || it.taskType == "电信" || it.taskType == "降水井" || it.taskType == "雨污水" || it.taskType == "路灯" || it.taskType == "热力" }?.toMutableList()
-            else -> {
-                mFilterDetailInfo = mListDetailInfo?.filter { it.taskOffice == condition }?.toMutableList()
-            }
+    fun startSearch(condition: HashMap<String, String>) {
+        if (condition.containsKey("rank") && condition.containsKey("type") && condition.containsKey("office")) {
+            mFilterDetailInfo = mListDetailInfo?.filter { it.taskRank?.contains(condition["rank"].toString()) ?: false && it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString()) ?: false }?.toMutableList()
+        } else if (condition.containsKey("rank") && condition.containsKey("type")) {
+            mFilterDetailInfo = mListDetailInfo?.filter { it.taskRank?.contains(condition["rank"].toString()) ?: false && it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
+        } else if (condition.containsKey("type") && condition.containsKey("office")) {
+            mFilterDetailInfo = mListDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString()) ?: false }?.toMutableList()
+        } else if (condition.containsKey("office") && condition.containsKey("rank")) {
+            mFilterDetailInfo = mListDetailInfo?.filter { it.taskOffice?.contains(condition["office"].toString()) ?: false && it.taskRank?.contains(condition["rank"].toString()) ?: false }?.toMutableList()
+        } else if (condition.containsKey("rank")) {
+            mFilterDetailInfo = mListDetailInfo?.filter {
+                it.taskRank?.contains(condition["rank"].toString()) ?: false
+            }?.toMutableList()
+        } else if (condition.containsKey("type")) {
+            mFilterDetailInfo = if (condition["type"].toString() == "审批掘路")
+                mListDetailInfo?.filter { it.taskType == "电力" || it.taskType == "电信" || it.taskType == "降水井" || it.taskType == "雨污水" || it.taskType == "路灯" || it.taskType == "热力" }?.toMutableList()
+            else
+                mListDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
+        } else if (condition.containsKey("office")) {
+            mFilterDetailInfo = mListDetailInfo?.filter {
+                it.taskOffice?.contains(condition["office"].toString()) ?: false
+            }?.toMutableList()
         }
         mParentFragment.displayCaseCount(mFilterDetailInfo?.size ?: 0)
         adapter.setData(mFilterDetailInfo)
-        Toast.makeText(activity, "共查找出${condition}案件${mFilterDetailInfo?.size
+        Toast.makeText(activity, "共查找出案件${mFilterDetailInfo?.size
                 ?: 0}件", Toast.LENGTH_LONG).show()
     }
 

@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_check.*
 class CheckFragment : Fragment() {
 
     private val mListCheckFragments: List<Fragment> by lazy {
-        listOf(CheckPersonLocateFragment.newInstance(), /*CheckPersonTrackFragment.newInstance(), */CheckCaseNoEndFragment.newInstance(this), CheckCaseCalcuFragment.newInstance())
+        listOf(CheckPersonLocateFragment.newInstance(), CheckCaseNoEndFragment.newInstance(this), CheckCaseCalcuFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
 
@@ -77,15 +77,15 @@ class CheckFragment : Fragment() {
         mCurrentFraIndex = nDisplayIndex
     }
 
-    fun startSearchPatrolText(condition: String) {
-        (mListCheckFragments[1] as CheckCaseNoEndFragment).startSearch(condition)
+    fun startSearchPatrolText(condition: HashMap<String,String>) {
+        if (mListCheckFragments[mCurrentFraIndex] is CheckCaseNoEndFragment) {
+            (mListCheckFragments[mCurrentFraIndex] as CheckCaseNoEndFragment).startSearch(condition)
+        }
     }
 
-    fun showMainMoreType(): Int = if (mCurrentFraIndex == 1) View.VISIBLE else View.GONE
-
+    fun showMainMoreType(): Int = if (mCurrentFraIndex == 1 || mCurrentFraIndex == 2) View.VISIBLE else View.GONE
 
     companion object {
         fun newInstance() = CheckFragment()
     }
-
 }

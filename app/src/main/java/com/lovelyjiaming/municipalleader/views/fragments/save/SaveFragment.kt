@@ -59,7 +59,7 @@ class SaveFragment : Fragment() {
         })
     }
 
-    fun startSearchSaveText(sConditionText: String) {
+    fun startSearchSaveText(sConditionText: HashMap<String, String>) {
         (mListSaveFragments[0] as SaveCurrentTaskFragment).startSearchConditionText(sConditionText)
     }
 

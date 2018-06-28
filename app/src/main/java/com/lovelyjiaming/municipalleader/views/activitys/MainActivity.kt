@@ -104,9 +104,19 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1045 && resultCode == 1046 && data != null) {
             when (mPageType) {
-                "cure" -> (mListFragments[1] as SaveFragment).startSearchSaveText(data.getStringExtra("condition"))
-                "emergency" -> (mListFragments[2] as DangerFragment).startSearchEmergencyText(data.getStringExtra("condition"))
-                "patrol" -> (mListFragments[0] as CheckFragment).startSearchPatrolText(data.getStringExtra("condition"))
+                "cure" -> {
+                    val dataResult = data.getSerializableExtra("condition") as HashMap<String,String>
+                    (mListFragments[1] as SaveFragment).startSearchSaveText(dataResult)
+                }
+                "emergency" -> {
+                    val dataResult = data.getSerializableExtra("condition") as HashMap<String,String>
+                    (mListFragments[2] as DangerFragment).startSearchEmergencyText(dataResult)
+                }
+                "patrol" -> {
+                    val dataResult = data.getSerializableExtra("condition") as HashMap<String,String>
+                    (mListFragments[0] as CheckFragment).startSearchPatrolText(dataResult)
+
+                }
             }
         }
     }

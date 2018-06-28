@@ -6,13 +6,10 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.baidu.location.d.j.P
-
 import com.lovelyjiaming.municipalleader.R
+import android.view.ViewGroup
 import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
 import kotlinx.android.synthetic.main.fragment_danger.*
-import kotlinx.android.synthetic.main.fragment_save.*
 
 class DangerFragment : Fragment() {
 
@@ -64,7 +61,7 @@ class DangerFragment : Fragment() {
         tbl_danger_top.getTabAt(0)?.text = "案件查询 ($size) "
     }
 
-    fun startSearchEmergencyText(condition: String) {
+    fun startSearchEmergencyText(condition: HashMap<String, String>) {
         (mListDangerFragments[0] as DangerRushCaseFragment).startSearch(condition)
     }
 
