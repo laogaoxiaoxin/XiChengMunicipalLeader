@@ -95,7 +95,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         //
         mAllLineHeightInterval.forEachIndexed { index, interval ->
             canvas?.drawLine(200f, interval, 200 + allLineWidthInc[index], interval, mPaintLine[index])
-            canvas?.drawText(mAllMapData.keys.toMutableList()[index] + "(${mAllMapData[mAllMapData.keys.toMutableList()[index]]?.toInt()}台)", 0f, interval + 15, mPaintText[index])
+            canvas?.drawText(mAllMapData.keys.toMutableList()[index] + "(${mAllMapData[mAllMapData.keys.toMutableList()[index]]?.toInt()})", 0f, interval + 15, mPaintText[index])
         }
     }
 

@@ -1,17 +1,17 @@
 package com.lovelyjiaming.municipalleader.views.adapter
 
 import android.content.Context
-import android.view.View
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
-import com.lovelyjiaming.municipalleader.utils.EmergencyOndutyMemberItem
+import com.lovelyjiaming.municipalleader.views.fragments.danger.EmergencyWorkerItem
 
 class DangerReadyPersonAdapter constructor(private val ctx: Context) : RecyclerView.Adapter<DangerReadyPersonAdapter.ViewHolder>() {
-    var listData: List<EmergencyOndutyMemberItem>? = null
+    private var listData: List<EmergencyWorkerItem>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(ctx).inflate(R.layout.item_danger_ready_person, parent, false))
 
@@ -19,11 +19,16 @@ class DangerReadyPersonAdapter constructor(private val ctx: Context) : RecyclerV
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         listData?.let {
-            holder.item_danger_ready_personname.text = listData?.get(position)?.Name
-            holder.item_danger_ready_personjob.text = listData?.get(position)?.Job
-            holder.item_danger_ready_personphone.text = listData?.get(position)?.Telephone
-            holder.item_danger_ready_personsex.text = listData?.get(position)?.Male
+            holder.item_danger_ready_personname.text = it[position].name
+            holder.item_danger_ready_personjob.text = if (it[position].remarks == "null") "无" else it[position].remarks
+            holder.item_danger_ready_personphone.text = if (it[position].phone == "null") "无" else it[position].phone
+            holder.item_danger_ready_personsex.text = if (it[position].age == "null") "无" else it[position].age
         }
+    }
+
+    fun setData(listData: List<EmergencyWorkerItem>?) {
+        this.listData = listData
+        notifyDataSetChanged()
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

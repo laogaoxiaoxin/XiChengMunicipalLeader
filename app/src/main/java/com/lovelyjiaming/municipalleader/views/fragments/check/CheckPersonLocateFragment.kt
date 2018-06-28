@@ -203,7 +203,7 @@ class CheckPersonLocateFragment : Fragment() {
         }
         //因为服务器返回时升序，所以需要翻转，变成按照时间降序
         listAddress.reverse()
-        val list = listAddress.subList(0, 20)
+        val list = listAddress.subList(0, 30)
         //放入另一个准备绘制缓存中
         list.let {
             listReadyDraw?.clear()
@@ -241,12 +241,16 @@ class CheckPersonLocateFragment : Fragment() {
         //开始正式规划路线
         mExecutor.submit({
             for (i in 0 until listReadyDraw?.size!! - 2) {
-                val nodeStart = listReadyDraw?.get(i)
-                val nodeEnd = listReadyDraw?.get(i + 1)
-                option.from(PlanNode.withLocation(nodeStart))
-                option.to(PlanNode.withLocation(nodeEnd))
-                mSearch.walkingSearch(option)
-                Thread.sleep(50)
+                try {
+                    val nodeStart = listReadyDraw?.get(i)
+                    val nodeEnd = listReadyDraw?.get(i + 1)
+                    option.from(PlanNode.withLocation(nodeStart))
+                    option.to(PlanNode.withLocation(nodeEnd))
+                    mSearch.walkingSearch(option)
+                    Thread.sleep(85)
+                } catch (e: Exception) {
+                    print(e.message)
+                }
             }
         })
     }

@@ -12,6 +12,7 @@ import com.baidu.location.d.j.P
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
 import kotlinx.android.synthetic.main.fragment_danger.*
+import kotlinx.android.synthetic.main.fragment_save.*
 
 class DangerFragment : Fragment() {
 
@@ -44,7 +45,6 @@ class DangerFragment : Fragment() {
 
         tbl_danger_top.setupWithViewPager(viewpager_danger)
         viewpager_danger.currentItem = 0
-        (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "emergency")//first time
         //
         viewpager_danger.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}
@@ -67,6 +67,8 @@ class DangerFragment : Fragment() {
     fun startSearchEmergencyText(condition: String) {
         (mListDangerFragments[0] as DangerRushCaseFragment).startSearch(condition)
     }
+
+    fun showMainMoreType(): Int = if (viewpager_danger == null || viewpager_danger.currentItem == 0) View.VISIBLE else View.GONE
 
     companion object {
         fun newInstance() = DangerFragment()

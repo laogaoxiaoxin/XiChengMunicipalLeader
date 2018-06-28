@@ -81,6 +81,9 @@ class CheckFragment : Fragment() {
         (mListCheckFragments[1] as CheckCaseNoEndFragment).startSearch(condition)
     }
 
+    fun showMainMoreType(): Int = if (mCurrentFraIndex == 1) View.VISIBLE else View.GONE
+
+
     companion object {
         fun newInstance() = CheckFragment()
     }

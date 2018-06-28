@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.views.activitys.MainActivity
+import kotlinx.android.synthetic.main.activity_choose_condition.view.*
 import kotlinx.android.synthetic.main.fragment_save.*
 
 class SaveFragment : Fragment() {
@@ -41,7 +42,6 @@ class SaveFragment : Fragment() {
             }
         }
         tbl_save_top.setupWithViewPager(viewpager_save)
-        (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "cure")//first time
         viewpager_save.currentItem = 0
         viewpager_save.offscreenPageLimit = 1
         //
@@ -66,6 +66,8 @@ class SaveFragment : Fragment() {
     fun displayCountText(size: Int) {
         tbl_save_top.getTabAt(0)?.text = "案件查询 ($size) "
     }
+
+    fun showMainMoreType(): Int = if (viewpager_save == null || viewpager_save.currentItem == 0) View.VISIBLE else View.GONE
 
     companion object {
         fun newInstance() = SaveFragment()

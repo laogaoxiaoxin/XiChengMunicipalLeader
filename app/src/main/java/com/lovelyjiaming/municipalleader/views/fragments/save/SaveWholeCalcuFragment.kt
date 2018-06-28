@@ -1,6 +1,7 @@
 package com.lovelyjiaming.municipalleader.views.fragments.save
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -11,8 +12,9 @@ import com.google.gson.Gson
 
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
-import com.lovelyjiaming.municipalleader.utils.MaterailListClass
+import com.lovelyjiaming.municipalleader.utils.MaterialClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
+import com.lovelyjiaming.municipalleader.views.activitys.ChooseConditionActivity
 import com.lovelyjiaming.municipalleader.views.adapter.SaveWholeCalcuAdapter
 import kotlinx.android.synthetic.main.fragment_save_whole_calcu.*
 
@@ -36,6 +38,7 @@ class SaveWholeCalcuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         save_whole_recyclerview.layoutManager = LinearLayoutManager(activity!!, LinearLayoutManager.VERTICAL, false)
         save_whole_recyclerview.adapter = adapter
+        requestData()
         //
         save_whole_top_startdate.setOnClickListener {
             DatePickerUtils.displayDatePickerDialog(activity as Context, {
@@ -49,65 +52,79 @@ class SaveWholeCalcuFragment : Fragment() {
                 requestData()
             })
         }
+        //
+        save_whole_top_office.setOnClickListener {
+            val intent = Intent(activity, ChooseConditionActivity::class.java)
+            intent.putExtra("type", "savecalc")
+            startActivityForResult(intent, 3978)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (data != null) {
+            save_whole_top_office.text = data.getStringExtra("condition") + " "
+            requestData()
+        }
     }
 
     private fun requestData() {
         if (!save_whole_top_startdate.text.toString().contains("20") || !save_whole_top_enddate.text.toString().contains("20")) return
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_SAVE_ADDRESS + "getCaseCount", {
-            getMetrailCalc(it)
-        }, hashMapOf("startDate" to save_whole_top_startdate.text.toString(), "endDate" to save_whole_top_enddate.text.toString()))
+            getMaterielCalc(it)
+        }, hashMapOf("startDate" to save_whole_top_startdate.text.toString(), "endDate" to save_whole_top_enddate.text.toString(), "office" to save_whole_top_office.text.toString().trimEnd()))
     }
 
-    private fun getMetrailCalc(result: String) {
+    private fun getMaterielCalc(result: String) {
+        val resultClass = Gson().fromJson(result, MaterialClass::class.java)
         //
-        val result = Gson().fromJson(result, MaterailListClass::class.java)
-        if (result.MaterailCountList == null || result.MaterailTitleList == null) return
         //沥青加一起
-        val allAsphalt = result.MaterailCountList[0].taskAsphalt_9cm_10.toFloat().plus(result.MaterailCountList[0].taskAsphalt_5cm_10.toFloat()).plus(result.MaterailCountList[0].asphalt_9cm_10_400.toFloat())
-                .plus(result.MaterailCountList[0].asphalt_5cm_10_400.toFloat()).plus(result.MaterailCountList[0].taskAsphalt_9cm_400.toFloat()).plus(result.MaterailCountList[0].taskAsphalt_5cm_400.toFloat())
+        val allAsphalt = resultClass.CaseCount[1].taskAsphalt_9cm_10.toFloat().plus(resultClass.CaseCount[1].taskAsphalt_5cm_10.toFloat()).plus(resultClass.CaseCount[1].asphalt_9cm_10_400.toFloat())
+                .plus(resultClass.CaseCount[1].asphalt_5cm_10_400.toFloat()).plus(resultClass.CaseCount[1].taskAsphalt_9cm_400.toFloat()).plus(resultClass.CaseCount[1].taskAsphalt_5cm_400.toFloat())
 
         //无机料加在一起
-        val allInorganic = result.MaterailCountList[0].taskInorganic_material_15cm.toFloat().plus(result.MaterailCountList[0].taskInorganic_material_15cm.toFloat()).plus(result.MaterailCountList[0].wujiliao25.toFloat())
-
+        val allInorganic = resultClass.CaseCount[1].taskInorganic_material_15cm.toFloat().plus(resultClass.CaseCount[1].taskInorganic_material_15cm.toFloat()).plus(resultClass.CaseCount[1].wujiliao25.toFloat())
+//
         val mapParam = HashMap<String, Float>()
         mapParam["沥青"] = allAsphalt
         mapParam["无机料"] = allInorganic
-        mapParam[result.MaterailTitleList[0].taskSidewalk] = result.MaterailCountList[0].taskSidewalk.toFloat()
-        mapParam[result.MaterailTitleList[0].mangdao] = result.MaterailCountList[0].mangdao.toFloat()
-        mapParam[result.MaterailTitleList[0].taskPlaster] = result.MaterailCountList[0].taskPlaster.toFloat()
-        mapParam[result.MaterailTitleList[0].caiselumian] = result.MaterailCountList[0].caiselumian.toFloat()
-        mapParam[result.MaterailTitleList[0].shengjiangjianchajing] = result.MaterailCountList[0].shengjiangjianchajing.toFloat()
-        mapParam[result.MaterailTitleList[0].jiagujianchajing] = result.MaterailCountList[0].jiagujianchajing.toFloat()
-        mapParam[result.MaterailTitleList[0].taskRainwater_outlet] = result.MaterailCountList[0].taskRainwater_outlet.toFloat()
-        mapParam[result.MaterailTitleList[0].taskCurb] = result.MaterailCountList[0].taskCurb.toFloat()
-        mapParam[result.MaterailTitleList[0].taskMachine_stone] = result.MaterailCountList[0].taskMachine_stone.toFloat()
-        mapParam[result.MaterailTitleList[0].taskTree_pool] = result.MaterailCountList[0].taskTree_pool.toFloat()
-        mapParam[result.MaterailTitleList[0].shicaibudao] = result.MaterailCountList[0].shicaibudao.toFloat()
-        mapParam[result.MaterailTitleList[0].shicaimangdao] = result.MaterailCountList[0].shicaimangdao.toFloat()
-        mapParam[result.MaterailTitleList[0].shicailuyuanshi] = result.MaterailCountList[0].shicailuyuanshi.toFloat()
-        mapParam[result.MaterailTitleList[0].shicaidangchezhuang] = result.MaterailCountList[0].shicaidangchezhuang.toFloat()
-        mapParam[result.MaterailTitleList[0].tiezhidangchezhuang] = result.MaterailCountList[0].tiezhidangchezhuang.toFloat()
-        mapParam[result.MaterailTitleList[0].taskconcrete] = result.MaterailCountList[0].taskconcrete.toFloat()
+        mapParam[resultClass.CaseCount[0].taskSidewalk] = resultClass.CaseCount[1].taskSidewalk.toFloat()
+        mapParam[resultClass.CaseCount[0].mangdao] = resultClass.CaseCount[1].mangdao.toFloat()
+        mapParam[resultClass.CaseCount[0].taskPlaster] = resultClass.CaseCount[1].taskPlaster.toFloat()
+        mapParam[resultClass.CaseCount[0].caiselumian] = resultClass.CaseCount[1].caiselumian.toFloat()
+        mapParam[resultClass.CaseCount[0].shengjiangjianchajing] = resultClass.CaseCount[1].shengjiangjianchajing.toFloat()
+        mapParam[resultClass.CaseCount[0].jiagujianchajing] = resultClass.CaseCount[1].jiagujianchajing.toFloat()
+        mapParam[resultClass.CaseCount[0].taskRainwater_outlet] = resultClass.CaseCount[1].taskRainwater_outlet.toFloat()
+        mapParam[resultClass.CaseCount[0].taskCurb] = resultClass.CaseCount[1].taskCurb.toFloat()
+        mapParam[resultClass.CaseCount[0].taskMachine_stone] = resultClass.CaseCount[1].taskMachine_stone.toFloat()
+        mapParam[resultClass.CaseCount[0].taskTree_pool] = resultClass.CaseCount[1].taskTree_pool.toFloat()
+        mapParam[resultClass.CaseCount[0].shicaibudao] = resultClass.CaseCount[1].shicaibudao.toFloat()
+        mapParam[resultClass.CaseCount[0].shicaimangdao] = resultClass.CaseCount[1].shicaimangdao.toFloat()
+        mapParam[resultClass.CaseCount[0].shicailuyuanshi] = resultClass.CaseCount[1].shicailuyuanshi.toFloat()
+        mapParam[resultClass.CaseCount[0].shicaidangchezhuang] = resultClass.CaseCount[1].shicaidangchezhuang.toFloat()
+        mapParam[resultClass.CaseCount[0].tiezhidangchezhuang] = resultClass.CaseCount[1].tiezhidangchezhuang.toFloat()
+        mapParam[resultClass.CaseCount[0].taskconcrete] = resultClass.CaseCount[1].taskconcrete.toFloat()
         save_whole_vertical_chart.setAllDatas(mapParam)
         //
+        adapter.listData?.clear()
         adapter.listData?.add("沥青@${allAsphalt}")
         adapter.listData?.add("无机料@${allInorganic}")
-        adapter.listData?.add("${result.MaterailTitleList[0].taskSidewalk}@${result.MaterailCountList[0].taskSidewalk}")
-        adapter.listData?.add("${result.MaterailTitleList[0].mangdao}@${result.MaterailCountList[0].mangdao}")
-        adapter.listData?.add("${result.MaterailTitleList[0].taskPlaster}@${result.MaterailCountList[0].taskPlaster}")
-        adapter.listData?.add("${result.MaterailTitleList[0].caiselumian}@${result.MaterailCountList[0].caiselumian}")
-        adapter.listData?.add("${result.MaterailTitleList[0].shengjiangjianchajing}@${result.MaterailCountList[0].shengjiangjianchajing}")
-        adapter.listData?.add("${result.MaterailTitleList[0].jiagujianchajing}@${result.MaterailCountList[0].jiagujianchajing}")
-        adapter.listData?.add("${result.MaterailTitleList[0].taskRainwater_outlet}@${result.MaterailCountList[0].taskRainwater_outlet}")
-        adapter.listData?.add("${result.MaterailTitleList[0].taskCurb}@${result.MaterailCountList[0].taskCurb}")
-        adapter.listData?.add("${result.MaterailTitleList[0].taskMachine_stone}@${result.MaterailCountList[0].taskMachine_stone}")
-        adapter.listData?.add("${result.MaterailTitleList[0].taskTree_pool}@${result.MaterailCountList[0].taskTree_pool}")
-        adapter.listData?.add("${result.MaterailTitleList[0].shicaibudao}@${result.MaterailCountList[0].shicaibudao}")
-        adapter.listData?.add("${result.MaterailTitleList[0].shicaimangdao}@${result.MaterailCountList[0].shicaimangdao}")
-        adapter.listData?.add("${result.MaterailTitleList[0].shicailuyuanshi}@${result.MaterailCountList[0].shicailuyuanshi}")
-        adapter.listData?.add("${result.MaterailTitleList[0].shicaidangchezhuang}@${result.MaterailCountList[0].shicaidangchezhuang}")
-        adapter.listData?.add("${result.MaterailTitleList[0].tiezhidangchezhuang}@${result.MaterailCountList[0].tiezhidangchezhuang}")
-        adapter.listData?.add("${result.MaterailTitleList[0].taskconcrete}@${result.MaterailCountList[0].taskconcrete}")
+        adapter.listData?.add("${resultClass.CaseCount[0].taskSidewalk}@${resultClass.CaseCount[1].taskSidewalk}")
+        adapter.listData?.add("${resultClass.CaseCount[0].mangdao}@${resultClass.CaseCount[1].mangdao}")
+        adapter.listData?.add("${resultClass.CaseCount[0].taskPlaster}@${resultClass.CaseCount[1].taskPlaster}")
+        adapter.listData?.add("${resultClass.CaseCount[0].caiselumian}@${resultClass.CaseCount[1].caiselumian}")
+        adapter.listData?.add("${resultClass.CaseCount[0].shengjiangjianchajing}@${resultClass.CaseCount[1].shengjiangjianchajing}")
+        adapter.listData?.add("${resultClass.CaseCount[0].jiagujianchajing}@${resultClass.CaseCount[1].jiagujianchajing}")
+        adapter.listData?.add("${resultClass.CaseCount[0].taskRainwater_outlet}@${resultClass.CaseCount[1].taskRainwater_outlet}")
+        adapter.listData?.add("${resultClass.CaseCount[0].taskCurb}@${resultClass.CaseCount[1].taskCurb}")
+        adapter.listData?.add("${resultClass.CaseCount[0].taskMachine_stone}@${resultClass.CaseCount[1].taskMachine_stone}")
+        adapter.listData?.add("${resultClass.CaseCount[0].taskTree_pool}@${resultClass.CaseCount[1].taskTree_pool}")
+        adapter.listData?.add("${resultClass.CaseCount[0].shicaibudao}@${resultClass.CaseCount[1].shicaibudao}")
+        adapter.listData?.add("${resultClass.CaseCount[0].shicaimangdao}@${resultClass.CaseCount[1].shicaimangdao}")
+        adapter.listData?.add("${resultClass.CaseCount[0].shicailuyuanshi}@${resultClass.CaseCount[1].shicailuyuanshi}")
+        adapter.listData?.add("${resultClass.CaseCount[0].shicaidangchezhuang}@${resultClass.CaseCount[1].shicaidangchezhuang}")
+        adapter.listData?.add("${resultClass.CaseCount[0].tiezhidangchezhuang}@${resultClass.CaseCount[1].tiezhidangchezhuang}")
+        adapter.listData?.add("${resultClass.CaseCount[0].taskconcrete}@${resultClass.CaseCount[1].taskconcrete}")
         adapter.notifyDataSetChanged()
     }
 

@@ -13,7 +13,7 @@ class ChooseConditionActivity : AppCompatActivity() {
 
     private val listOfficeViews by lazy {
         arrayListOf<TextView>(tv_choose_office_line11, tv_choose_office_line12, tv_choose_office_line13, tv_choose_office_line14, tv_choose_office_line21, tv_choose_office_line22,
-                tv_choose_office_line23, tv_choose_office_line24, tv_choose_office_line31, tv_choose_office_line32, tv_choose_office_line33, tv_choose_office_line34, tv_choose_office_line41, tv_choose_office_line42, tv_choose_office_line43)
+                tv_choose_office_line23, tv_choose_office_line24, tv_choose_office_line31, tv_choose_office_line32, tv_choose_office_line33, tv_choose_office_line34, tv_choose_office_line41, tv_choose_office_line42, tv_choose_office_line43, tv_choose_office_line44)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +23,19 @@ class ChooseConditionActivity : AppCompatActivity() {
         setClickListener()
         //
         when (intent.getStringExtra("type")) {
+            "savecalc" -> {
+                tv_choose_emergency_type.visibility = View.GONE
+                ll_choose_emergency_type.visibility = View.GONE
+                tv_choose_patrol_type.visibility = View.GONE
+                ll_choose_patrol_type_line1.visibility = View.GONE
+                ll_choose_patrol_type_line2.visibility = View.GONE
+                ll_choose_cure_type.visibility = View.GONE
+                tv_choose_cure_type.visibility = View.GONE
+                ll_choose_rank_grade.visibility = View.GONE
+                tv_choose_rank_grade.visibility = View.GONE
+            }
             "cure" -> {
+                cv_choose_office_line44.visibility = View.GONE
                 tv_choose_patrol_type.visibility = View.GONE
                 tv_choose_emergency_type.visibility = View.GONE
                 ll_choose_emergency_type.visibility = View.GONE
@@ -31,12 +43,14 @@ class ChooseConditionActivity : AppCompatActivity() {
                 ll_choose_patrol_type_line2.visibility = View.GONE
             }
             "patrol" -> {
+                cv_choose_office_line44.visibility = View.GONE
                 ll_choose_emergency_type.visibility = View.GONE
                 tv_choose_emergency_type.visibility = View.GONE
                 ll_choose_cure_type.visibility = View.GONE
                 tv_choose_cure_type.visibility = View.GONE
             }
             "emergency" -> {
+                cv_choose_office_line44.visibility = View.GONE
                 tv_choose_patrol_type.visibility = View.GONE
                 ll_choose_patrol_type_line1.visibility = View.GONE
                 ll_choose_patrol_type_line2.visibility = View.GONE
