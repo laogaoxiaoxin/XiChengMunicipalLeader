@@ -1,5 +1,6 @@
 package com.lovelyjiaming.municipalleader.views.fragments.save
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -64,6 +65,15 @@ class SaveCurrentTaskFragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
+        //叉掉一个筛选项
+        val delViews = arrayListOf(first_del_condition, second_del_condition, third_del_condition, fourth_del_condition)
+        delViews.forEach { it1 ->
+            it1.setOnClickListener { it2 ->
+                it2.visibility = View.GONE
+                val map = mHashCondition.filterValues { it != it1.text.toString().replace("X", "").trim() }
+                startSearchConditionText(map)
+            }
+        }
     }
 
     private fun requestData() {
@@ -77,7 +87,13 @@ class SaveCurrentTaskFragment : Fragment() {
         })
     }
 
-    fun startSearchConditionText(condition: HashMap<String, String>) {
+    //
+    private lateinit var mHashCondition: Map<String, String>
+
+    @SuppressLint("SetTextI18n")
+    fun startSearchConditionText(condition: Map<String, String>) {
+        this.mHashCondition = condition
+        //
         save_current_del_condition.visibility = View.VISIBLE
         first_del_condition.visibility = View.GONE
         second_del_condition.visibility = View.GONE
@@ -129,6 +145,9 @@ class SaveCurrentTaskFragment : Fragment() {
             //
             first_del_condition.visibility = View.VISIBLE
             first_del_condition.text = condition["office"] + "   X"
+        } else {
+            mFilterDetailInfoList = mDetailInfoList
+            save_current_del_condition.visibility = View.GONE
         }
         //
         mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)
