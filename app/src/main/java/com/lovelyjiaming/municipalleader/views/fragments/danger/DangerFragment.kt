@@ -42,6 +42,7 @@ class DangerFragment : Fragment() {
 
         tbl_danger_top.setupWithViewPager(viewpager_danger)
         viewpager_danger.currentItem = 0
+        viewpager_danger.offscreenPageLimit = 3
         //
         viewpager_danger.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}

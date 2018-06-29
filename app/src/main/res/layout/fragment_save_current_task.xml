@@ -6,6 +6,11 @@
     android:orientation="vertical"
     tools:context=".views.fragments.save.SaveCurrentTaskFragment">
 
+    <include
+        android:id="@+id/save_current_del_condition"
+        layout="@layout/common_top_del_condition"
+        android:visibility="gone" />
+
     <include layout="@layout/common_search_layout" />
 
     <android.support.v4.widget.SwipeRefreshLayout

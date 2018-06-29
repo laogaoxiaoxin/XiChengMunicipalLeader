@@ -82,7 +82,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="年龄"
+            android:text="身份证号"
             android:textColor="#fff"
             android:textSize="32px"
             android:textStyle="bold" />

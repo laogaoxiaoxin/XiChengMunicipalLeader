@@ -22,7 +22,7 @@ class DangerReadyPersonAdapter constructor(private val ctx: Context) : RecyclerV
             holder.item_danger_ready_personname.text = it[position].name
             holder.item_danger_ready_personjob.text = if (it[position].remarks == "null") "无" else it[position].remarks
             holder.item_danger_ready_personphone.text = if (it[position].phone == "null") "无" else it[position].phone
-            holder.item_danger_ready_personsex.text = if (it[position].age == "null") "无" else it[position].age
+            holder.item_danger_ready_personsex.text = if (it[position].card == "null") "无" else it[position].card
         }
     }
 

@@ -17,6 +17,7 @@ import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
 import kotlinx.android.synthetic.main.common_search_layout.*
+import kotlinx.android.synthetic.main.common_top_del_condition.*
 import kotlinx.android.synthetic.main.fragment_save_current_task.*
 
 class SaveCurrentTaskFragment : Fragment() {
@@ -77,20 +78,57 @@ class SaveCurrentTaskFragment : Fragment() {
     }
 
     fun startSearchConditionText(condition: HashMap<String, String>) {
+        save_current_del_condition.visibility = View.VISIBLE
+        first_del_condition.visibility = View.GONE
+        second_del_condition.visibility = View.GONE
+        third_del_condition.visibility = View.GONE
+        fourth_del_condition.visibility = View.GONE
+        //
         if (condition.containsKey("rank") && condition.containsKey("type") && condition.containsKey("office")) {
             mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+            //
+            first_del_condition.text = condition["rank"] + "   X"
+            second_del_condition.text = condition["type"] + "   X"
+            third_del_condition.text = condition["office"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
+            third_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("rank") && condition.containsKey("type")) {
             mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! }.toMutableList()
+            //
+            first_del_condition.text = condition["rank"] + "   X"
+            second_del_condition.text = condition["type"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("type") && condition.containsKey("office")) {
             mFilterDetailInfoList = mDetailInfoList.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+            //
+            first_del_condition.text = condition["office"] + "   X"
+            second_del_condition.text = condition["type"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("office") && condition.containsKey("rank")) {
             mFilterDetailInfoList = mDetailInfoList.filter { it.taskOffice?.contains(condition["office"].toString())!! && it.taskRank?.contains(condition["rank"].toString())!! }.toMutableList()
+            //
+            first_del_condition.text = condition["office"] + "   X"
+            second_del_condition.text = condition["rank"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("rank")) {
             mFilterDetailInfoList = mDetailInfoList.filter { it.taskRank?.contains(condition["rank"].toString())!! }.toMutableList()
+            //
+            first_del_condition.visibility = View.VISIBLE
+            first_del_condition.text = condition["rank"] + "   X"
         } else if (condition.containsKey("type")) {
             mFilterDetailInfoList = mDetailInfoList.filter { it.taskType?.contains(condition["type"].toString())!! }.toMutableList()
+            //
+            first_del_condition.visibility = View.VISIBLE
+            first_del_condition.text = condition["type"] + "   X"
         } else if (condition.containsKey("office")) {
             mFilterDetailInfoList = mDetailInfoList.filter { it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+            //
+            first_del_condition.visibility = View.VISIBLE
+            first_del_condition.text = condition["office"] + "   X"
         }
         //
         mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)

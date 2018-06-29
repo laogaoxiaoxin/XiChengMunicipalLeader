@@ -24,7 +24,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textColor="#000"
-        android:textSize="30px"
+        android:textSize="24px"
         android:textStyle="bold" />
 
     <TextView

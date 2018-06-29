@@ -79,28 +79,28 @@ class ChooseConditionActivity : AppCompatActivity() {
                 hashMapValue["office"] = (it as TextView).text.toString()
                 //
                 listOfficeCvViews.forEachIndexed { index2, cv ->
-                    if (index1 == index2) cv.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+                    if (index1 == index2) cv.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                     else cv.setCardBackgroundColor(Color.parseColor("#efefef"))
                 }
             }
         }
         //
         tv_choose_rank1.setOnClickListener {
-            cv_choose_rank1.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_rank1.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             hashMapValue["rank"] = tv_choose_rank1.text.toString()
             //
             cv_choose_rank2.setCardBackgroundColor(Color.parseColor("#efefef"))
             cv_choose_rank3.setCardBackgroundColor(Color.parseColor("#efefef"))
         }
         tv_choose_rank2.setOnClickListener {
-            cv_choose_rank2.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_rank2.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             hashMapValue["rank"] = tv_choose_rank2.text.toString()
             //
             cv_choose_rank1.setCardBackgroundColor(Color.parseColor("#efefef"))
             cv_choose_rank3.setCardBackgroundColor(Color.parseColor("#efefef"))
         }
         tv_choose_rank3.setOnClickListener {
-            cv_choose_rank3.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_rank3.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             hashMapValue["rank"] = tv_choose_rank3.text.toString()
             //
             cv_choose_rank1.setCardBackgroundColor(Color.parseColor("#efefef"))
@@ -111,63 +111,63 @@ class ChooseConditionActivity : AppCompatActivity() {
         tv_choose_patrol_type_spjl.setOnClickListener {
             hashMapValue["type"] = tv_choose_patrol_type_spjl.text.toString()
             listPatrolType.forEachIndexed { index, cardView ->
-                if (index == 0) cardView.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+                if (index == 0) cardView.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                 else cardView.setCardBackgroundColor(Color.parseColor("#efefef"))
             }
         }
         tv_choose_patrol_type_sjsz.setOnClickListener {
             hashMapValue["type"] = tv_choose_patrol_type_sjsz.text.toString()
             listPatrolType.forEachIndexed { index, cardView ->
-                if (index == 1) cardView.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+                if (index == 1) cardView.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                 else cardView.setCardBackgroundColor(Color.parseColor("#efefef"))
             }
         }
         tv_choose_patrol_type_tccxc.setOnClickListener {
             hashMapValue["type"] = tv_choose_patrol_type_tccxc.text.toString()
             listPatrolType.forEachIndexed { index, cardView ->
-                if (index == 2) cardView.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+                if (index == 2) cardView.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                 else cardView.setCardBackgroundColor(Color.parseColor("#efefef"))
             }
         }
         tv_choose_patrol_type_gzzxc.setOnClickListener {
             hashMapValue["type"] = tv_choose_patrol_type_gzzxc.text.toString()
             listPatrolType.forEachIndexed { index, cardView ->
-                if (index == 3) cardView.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+                if (index == 3) cardView.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                 else cardView.setCardBackgroundColor(Color.parseColor("#efefef"))
             }
         }
         tv_choose_patrol_type_lctc.setOnClickListener {
             hashMapValue["type"] = tv_choose_patrol_type_lctc.text.toString()
             listPatrolType.forEachIndexed { index, cardView ->
-                if (index == 4) cardView.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+                if (index == 4) cardView.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                 else cardView.setCardBackgroundColor(Color.parseColor("#efefef"))
             }
         }
         tv_choose_patrol_type_ggfwss.setOnClickListener {
             hashMapValue["type"] = tv_choose_patrol_type_ggfwss.text.toString()
             listPatrolType.forEachIndexed { index, cardView ->
-                if (index == 5) cardView.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+                if (index == 5) cardView.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                 else cardView.setCardBackgroundColor(Color.parseColor("#efefef"))
             }
         }
         //
         tv_choose_cure_type_dlps.setOnClickListener {
             hashMapValue["type"] = tv_choose_cure_type_dlps.text.toString()
-            cv_choose_cure_type_dlps.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_cure_type_dlps.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             //
             cv_choose_cure_type_bdps.setCardBackgroundColor(Color.parseColor("#efefef"))
             cv_choose_cure_type_fsssps.setCardBackgroundColor(Color.parseColor("#efefef"))
         }
         tv_choose_cure_type_bdps.setOnClickListener {
             hashMapValue["type"] = tv_choose_cure_type_bdps.text.toString()
-            cv_choose_cure_type_bdps.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_cure_type_bdps.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             //
             cv_choose_cure_type_dlps.setCardBackgroundColor(Color.parseColor("#efefef"))
             cv_choose_cure_type_fsssps.setCardBackgroundColor(Color.parseColor("#efefef"))
         }
         tv_choose_cure_type_fsssps.setOnClickListener {
             hashMapValue["type"] = tv_choose_cure_type_fsssps.text.toString()
-            cv_choose_cure_type_fsssps.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_cure_type_fsssps.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             //
             cv_choose_cure_type_dlps.setCardBackgroundColor(Color.parseColor("#efefef"))
             cv_choose_cure_type_bdps.setCardBackgroundColor(Color.parseColor("#efefef"))
@@ -175,13 +175,13 @@ class ChooseConditionActivity : AppCompatActivity() {
         //
         tv_choose_emergency_type_dltx.setOnClickListener {
             hashMapValue["type"] = tv_choose_emergency_type_dltx.text.toString()
-            cv_choose_emergency_type_dltx.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_emergency_type_dltx.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             //
             cv_choose_emergency_type_gdtx.setCardBackgroundColor(Color.parseColor("#efefef"))
         }
         tv_choose_emergency_type_gdtx.setOnClickListener {
             hashMapValue["type"] = tv_choose_emergency_type_gdtx.text.toString()
-            cv_choose_emergency_type_gdtx.setCardBackgroundColor(Color.parseColor("#FFAEB9"))
+            cv_choose_emergency_type_gdtx.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             cv_choose_emergency_type_dltx.setCardBackgroundColor(Color.parseColor("#efefef"))
         }
         //

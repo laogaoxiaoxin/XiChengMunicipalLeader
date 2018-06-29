@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_danger_ready_person.*
 //http://39.104.80.111:8888/RoadLeader/EmergencyServlet?method=getEmergencyWorker
 data class EmergencyWorkerClass(val EmergencyWorker: MutableList<EmergencyWorkerItem>)
 
-data class EmergencyWorkerItem(val name: String, val age: String, val phone: String?, val team: String?, val remarks: String?)
+data class EmergencyWorkerItem(val name: String, val age: String, val phone: String?, val team: String?, val remarks: String?, val card: String?)
 
 class DangerReadyPersonFragment : Fragment() {
 
