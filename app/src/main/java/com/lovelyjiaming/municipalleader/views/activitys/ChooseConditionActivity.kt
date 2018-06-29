@@ -109,11 +109,17 @@ class ChooseConditionActivity : AppCompatActivity() {
         //
         val listPatrolType = mutableListOf(cv_choose_patrol_type_spjl, cv_choose_patrol_type_sjsz, cv_choose_patrol_type_tccxc, cv_choose_patrol_type_gzzxc, cv_choose_patrol_type_lctc, cv_choose_patrol_type_ggfwss)
         tv_choose_patrol_type_spjl.setOnClickListener {
+            hashMapValue.clear()
             hashMapValue["type"] = tv_choose_patrol_type_spjl.text.toString()
+            //如果是审批掘路，就没有其他选项
             listPatrolType.forEachIndexed { index, cardView ->
                 if (index == 0) cardView.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                 else cardView.setCardBackgroundColor(Color.parseColor("#efefef"))
             }
+            cv_choose_rank1.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_rank2.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_rank3.setCardBackgroundColor(Color.parseColor("#efefef"))
+            listOfficeCvViews.forEach { it.setCardBackgroundColor(Color.parseColor("#efefef")) }
         }
         tv_choose_patrol_type_sjsz.setOnClickListener {
             hashMapValue["type"] = tv_choose_patrol_type_sjsz.text.toString()

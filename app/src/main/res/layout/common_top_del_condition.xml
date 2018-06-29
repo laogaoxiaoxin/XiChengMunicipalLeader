@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="95px"
+    android:layout_height="98px"
     android:gravity="center"
     android:orientation="horizontal"
     tools:ignore="PxUsage">
@@ -18,7 +18,7 @@
         android:paddingBottom="15px"
         android:text="一级养护"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="25px"
+        android:textSize="30px"
         android:visibility="gone" />
 
     <TextView
@@ -33,7 +33,7 @@
         android:paddingBottom="15px"
         android:text="西长安街街道"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="25px"
+        android:textSize="30px"
         android:visibility="gone" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:paddingBottom="15px"
         android:text="附属设施破损"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="25px"
+        android:textSize="30px"
         android:visibility="gone" />
 
     <TextView
@@ -63,6 +63,6 @@
         android:paddingBottom="15px"
         android:text="一级养护"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="25px"
+        android:textSize="30px"
         android:visibility="gone" />
 </LinearLayout>

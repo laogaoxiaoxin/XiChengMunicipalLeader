@@ -203,7 +203,7 @@ class CheckPersonLocateFragment : Fragment() {
         }
         //因为服务器返回时升序，所以需要翻转，变成按照时间降序
         listAddress.reverse()
-        val list = listAddress.subList(0, 50)
+        val list = listAddress.subList(0, if (listAddress.size >= 50) 50 else listAddress.size)
         //放入另一个准备绘制缓存中
         list.let {
             listReadyDraw?.clear()

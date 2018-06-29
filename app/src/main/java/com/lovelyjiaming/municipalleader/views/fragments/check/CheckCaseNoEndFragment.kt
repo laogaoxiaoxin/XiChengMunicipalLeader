@@ -17,6 +17,7 @@ import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
 import kotlinx.android.synthetic.main.common_search_layout.*
+import kotlinx.android.synthetic.main.common_top_del_condition.*
 import kotlinx.android.synthetic.main.fragment_check_case_no_end.*
 
 class CheckCaseNoEndFragment : Fragment() {
@@ -64,6 +65,14 @@ class CheckCaseNoEndFragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
+        //叉掉筛选项
+        val arrayDelView = arrayListOf(first_del_condition, second_del_condition, third_del_condition, fourth_del_condition)
+        arrayDelView.forEach { it1 ->
+            it1.setOnClickListener {
+                it1.visibility = View.GONE
+                startSearch(mMapHashCondition.filterValues { it != it1.text.toString().replace("X", "").trim() })
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -85,28 +94,73 @@ class CheckCaseNoEndFragment : Fragment() {
         })
     }
 
-    fun startSearch(condition: HashMap<String, String>) {
+    //
+    private lateinit var mMapHashCondition: Map<String, String>
+
+    fun startSearch(condition: Map<String, String>) {
+        this.mMapHashCondition = condition
+        //
+        check_del_view_condition.visibility = View.VISIBLE
+        first_del_condition.visibility = View.GONE
+        second_del_condition.visibility = View.GONE
+        third_del_condition.visibility = View.GONE
+        fourth_del_condition.visibility = View.GONE
+
         if (condition.containsKey("rank") && condition.containsKey("type") && condition.containsKey("office")) {
             mFilterDetailInfo = mListDetailInfo?.filter { it.taskRank?.contains(condition["rank"].toString()) ?: false && it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString()) ?: false }?.toMutableList()
+            //
+            first_del_condition.text = condition["rank"] + "   X"
+            second_del_condition.text = condition["type"] + "   X"
+            third_del_condition.text = condition["office"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
+            third_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("rank") && condition.containsKey("type")) {
             mFilterDetailInfo = mListDetailInfo?.filter { it.taskRank?.contains(condition["rank"].toString()) ?: false && it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
+            //
+            first_del_condition.text = condition["rank"] + "   X"
+            second_del_condition.text = condition["type"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("type") && condition.containsKey("office")) {
             mFilterDetailInfo = mListDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString()) ?: false }?.toMutableList()
+            //
+            first_del_condition.text = condition["type"] + "   X"
+            second_del_condition.text = condition["office"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("office") && condition.containsKey("rank")) {
             mFilterDetailInfo = mListDetailInfo?.filter { it.taskOffice?.contains(condition["office"].toString()) ?: false && it.taskRank?.contains(condition["rank"].toString()) ?: false }?.toMutableList()
+            //
+            first_del_condition.text = condition["rank"] + "   X"
+            second_del_condition.text = condition["office"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("rank")) {
             mFilterDetailInfo = mListDetailInfo?.filter {
                 it.taskRank?.contains(condition["rank"].toString()) ?: false
             }?.toMutableList()
+            //
+            first_del_condition.text = condition["rank"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("type")) {
             mFilterDetailInfo = if (condition["type"].toString() == "审批掘路")
                 mListDetailInfo?.filter { it.taskType == "电力" || it.taskType == "电信" || it.taskType == "降水井" || it.taskType == "雨污水" || it.taskType == "路灯" || it.taskType == "热力" }?.toMutableList()
             else
                 mListDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
+            //
+            first_del_condition.text = condition["type"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("office")) {
             mFilterDetailInfo = mListDetailInfo?.filter {
                 it.taskOffice?.contains(condition["office"].toString()) ?: false
             }?.toMutableList()
+            //
+            first_del_condition.text = condition["office"] + "   X"
+            first_del_condition.visibility = View.VISIBLE
+        } else {
+            mFilterDetailInfo = mListDetailInfo
+            check_del_view_condition.visibility = View.GONE
         }
         mParentFragment.displayCaseCount(mFilterDetailInfo?.size ?: 0)
         adapter.setData(mFilterDetailInfo)
