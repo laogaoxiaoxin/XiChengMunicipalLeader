@@ -1,5 +1,6 @@
 package com.lovelyjiaming.municipalleader.views.fragments.danger
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,6 +18,7 @@ import com.lovelyjiaming.municipalleader.utils.EmergencyTaskItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.adapter.DangerRushCaseAdapter
 import kotlinx.android.synthetic.main.common_search_layout.*
+import kotlinx.android.synthetic.main.common_top_del_condition.*
 import kotlinx.android.synthetic.main.fragment_danger_case.*
 
 class DangerRushCaseFragment : Fragment() {
@@ -60,6 +62,14 @@ class DangerRushCaseFragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
+        //
+        val arrayDelView = arrayListOf(first_del_condition, second_del_condition, third_del_condition, fourth_del_condition)
+        arrayDelView.forEach { it1 ->
+            it1.setOnClickListener { _ ->
+                it1.visibility = View.GONE
+                startSearch(mMapCondition.filterValues { it != it1.text.toString().replace("X", "").trim() })
+            }
+        }
     }
 
     private var mEmergencyDetailList: MutableList<EmergencyTaskItemClass>? = null
@@ -77,13 +87,35 @@ class DangerRushCaseFragment : Fragment() {
         })
     }
 
-    fun startSearch(condition: HashMap<String, String>) {
+    private lateinit var mMapCondition: Map<String, String>
+    @SuppressLint("SetTextI18n")
+    fun startSearch(condition: Map<String, String>) {
+        //
+        mMapCondition = condition
+        first_del_condition.visibility = View.GONE
+        second_del_condition.visibility = View.GONE
+        third_del_condition.visibility = View.GONE
+        fourth_del_condition.visibility = View.GONE
+        danger_case_del_view.visibility = View.VISIBLE
+        //
         if (condition.containsKey("type") && condition.containsKey("office")) {
             mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
+            //
+            first_del_condition.visibility = View.VISIBLE
+            second_del_condition.visibility = View.VISIBLE
+            first_del_condition.text = condition["type"] + "   X"
+            second_del_condition.text = condition["office"] + "   X"
         } else if (condition.containsKey("type")) {
             mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
+            first_del_condition.visibility = View.VISIBLE
+            first_del_condition.text = condition["type"] + "   X"
         } else if (condition.containsKey("office")) {
             mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
+            first_del_condition.visibility = View.VISIBLE
+            first_del_condition.text = condition["office"] + "   X"
+        } else {
+            mFilterDetailInfoList = mEmergencyDetailList
+            danger_case_del_view.visibility = View.GONE
         }
         mParentFragment.displayCaseCount(mFilterDetailInfoList?.size ?: 0)
         adapter.listData = mFilterDetailInfoList
