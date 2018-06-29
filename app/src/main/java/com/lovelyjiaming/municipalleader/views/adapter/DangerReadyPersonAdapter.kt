@@ -1,6 +1,9 @@
 package com.lovelyjiaming.municipalleader.views.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +13,7 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.views.fragments.danger.EmergencyWorkerItem
 
+
 class DangerReadyPersonAdapter constructor(private val ctx: Context) : RecyclerView.Adapter<DangerReadyPersonAdapter.ViewHolder>() {
     private var listData: List<EmergencyWorkerItem>? = null
 
@@ -17,12 +21,20 @@ class DangerReadyPersonAdapter constructor(private val ctx: Context) : RecyclerV
 
     override fun getItemCount(): Int = listData?.size ?: 0
 
+    @SuppressLint("MissingPermission")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         listData?.let {
             holder.item_danger_ready_personname.text = it[position].name
             holder.item_danger_ready_personjob.text = if (it[position].remarks == "null") "无" else it[position].remarks
             holder.item_danger_ready_personphone.text = if (it[position].phone == "null") "无" else it[position].phone
             holder.item_danger_ready_personsex.text = if (it[position].card == "null") "无" else it[position].card
+            //打电话
+            holder.item_danger_ready_personphone.setOnClickListener {
+                if ((it as TextView).text.toString() == "无") return@setOnClickListener
+                val phoneNum = it.text.toString().substring(0, 11)
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNum))
+                ctx.startActivity(intent)
+            }
         }
     }
 

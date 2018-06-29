@@ -62,7 +62,7 @@ class DangerFragment : Fragment() {
         tbl_danger_top.getTabAt(0)?.text = "案件查询 ($size) "
     }
 
-    fun startSearchEmergencyText(condition: HashMap<String, String>) {
+    fun startSearchEmergencyText(condition: MutableMap<String, String>) {
         (mListDangerFragments[0] as DangerRushCaseFragment).startSearch(condition)
     }
 

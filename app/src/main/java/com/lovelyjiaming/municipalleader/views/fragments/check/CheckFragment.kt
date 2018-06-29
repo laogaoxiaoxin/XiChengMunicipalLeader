@@ -55,11 +55,11 @@ class CheckFragment : Fragment() {
 
     private fun switchDisplayFragment(nDisplayIndex: Int) {
         //显示更多选项
-        if (nDisplayIndex == 1)
-            (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "patrol")
-        else
-            (activity as MainActivity).displayMoreTypeImg(View.GONE, "patrol")
-
+        when (nDisplayIndex) {
+            1 -> (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "patrol1")
+            2 -> (activity as MainActivity).displayMoreTypeImg(View.VISIBLE, "patrol2")
+            else -> (activity as MainActivity).displayMoreTypeImg(View.GONE, "")
+        }
         //
         val mgr = childFragmentManager.beginTransaction()
         if (mCurrentFraIndex == nDisplayIndex) {
@@ -77,7 +77,7 @@ class CheckFragment : Fragment() {
         mCurrentFraIndex = nDisplayIndex
     }
 
-    fun startSearchPatrolText(condition: HashMap<String,String>) {
+    fun startSearchPatrolText(condition: MutableMap<String, String>) {
         if (mListCheckFragments[mCurrentFraIndex] is CheckCaseNoEndFragment) {
             (mListCheckFragments[mCurrentFraIndex] as CheckCaseNoEndFragment).startSearch(condition)
         }

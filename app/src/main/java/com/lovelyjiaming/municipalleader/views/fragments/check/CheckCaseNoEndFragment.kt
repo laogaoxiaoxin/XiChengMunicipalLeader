@@ -70,7 +70,7 @@ class CheckCaseNoEndFragment : Fragment() {
         arrayDelView.forEach { it1 ->
             it1.setOnClickListener {
                 it1.visibility = View.GONE
-                startSearch(mMapHashCondition.filterValues { it != it1.text.toString().replace("X", "").trim() })
+                startSearch(mMapHashCondition.filterValues { it != it1.text.toString().replace("X", "").trim() } as MutableMap<String, String>)
             }
         }
     }
@@ -95,9 +95,9 @@ class CheckCaseNoEndFragment : Fragment() {
     }
 
     //
-    private lateinit var mMapHashCondition: Map<String, String>
+    private lateinit var mMapHashCondition: MutableMap<String, String>
 
-    fun startSearch(condition: Map<String, String>) {
+    fun startSearch(condition: MutableMap<String, String>) {
         this.mMapHashCondition = condition
         //
         check_del_view_condition.visibility = View.VISIBLE

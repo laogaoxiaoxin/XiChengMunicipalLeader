@@ -105,17 +105,16 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1045 && resultCode == 1046 && data != null) {
             when (mPageType) {
                 "cure" -> {
-                    val dataResult = data.getSerializableExtra("condition") as HashMap<String,String>
+                    val dataResult = data.getSerializableExtra("condition") as MutableMap<String,String>
                     (mListFragments[1] as SaveFragment).startSearchSaveText(dataResult)
                 }
                 "emergency" -> {
-                    val dataResult = data.getSerializableExtra("condition") as HashMap<String,String>
+                    val dataResult = data.getSerializableExtra("condition") as MutableMap<String,String>
                     (mListFragments[2] as DangerFragment).startSearchEmergencyText(dataResult)
                 }
-                "patrol" -> {
-                    val dataResult = data.getSerializableExtra("condition") as HashMap<String,String>
+                "patrol1" -> {
+                    val dataResult = data.getSerializableExtra("condition") as MutableMap<String,String>
                     (mListFragments[0] as CheckFragment).startSearchPatrolText(dataResult)
-
                 }
             }
         }

@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
+import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
 import kotlinx.android.synthetic.main.activity_choose_condition.*
 
 class ChooseConditionActivity : AppCompatActivity() {
@@ -31,6 +32,7 @@ class ChooseConditionActivity : AppCompatActivity() {
         setClickListener()
         //
         when (intent.getStringExtra("type")) {
+        //养护的综合统计
             "savecalc" -> {
                 tv_choose_emergency_type.visibility = View.GONE
                 ll_choose_emergency_type.visibility = View.GONE
@@ -41,6 +43,7 @@ class ChooseConditionActivity : AppCompatActivity() {
                 tv_choose_cure_type.visibility = View.GONE
                 ll_choose_rank_grade.visibility = View.GONE
                 tv_choose_rank_grade.visibility = View.GONE
+                ll_choose_date.visibility = View.GONE
             }
             "cure" -> {
                 cv_choose_office_line44.visibility = View.GONE
@@ -50,12 +53,22 @@ class ChooseConditionActivity : AppCompatActivity() {
                 ll_choose_patrol_type_line1.visibility = View.GONE
                 ll_choose_patrol_type_line2.visibility = View.GONE
             }
-            "patrol" -> {
+        //巡查的案件查询
+            "patrol1" -> {
                 cv_choose_office_line44.visibility = View.GONE
                 ll_choose_emergency_type.visibility = View.GONE
                 tv_choose_emergency_type.visibility = View.GONE
                 ll_choose_cure_type.visibility = View.GONE
                 tv_choose_cure_type.visibility = View.GONE
+            }
+            "patrol2" -> {
+                ll_choose_emergency_type.visibility = View.GONE
+                tv_choose_emergency_type.visibility = View.GONE
+                ll_choose_cure_type.visibility = View.GONE
+                tv_choose_cure_type.visibility = View.GONE
+                cv_choose_office_line44.visibility = View.GONE
+                tv_choose_rank_grade.visibility = View.GONE
+                ll_choose_rank_grade.visibility = View.GONE
             }
             "emergency" -> {
                 cv_choose_office_line44.visibility = View.GONE
@@ -190,6 +203,20 @@ class ChooseConditionActivity : AppCompatActivity() {
             cv_choose_emergency_type_gdtx.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
             cv_choose_emergency_type_dltx.setCardBackgroundColor(Color.parseColor("#efefef"))
         }
+        //
+        tv_choose_startdate.setOnClickListener {
+            DatePickerUtils.displayDatePickerDialog(this) {
+                tv_choose_startdate.text = it
+                hashMapValue["startdate"] = it
+            }
+        }
+        tv_choose_enddate.setOnClickListener {
+            DatePickerUtils.displayDatePickerDialog(this) {
+                tv_choose_enddate.text = it
+                hashMapValue["enddate"] = it
+            }
+        }
+
         //
         //
         cv_choose_office_ok.setOnClickListener {

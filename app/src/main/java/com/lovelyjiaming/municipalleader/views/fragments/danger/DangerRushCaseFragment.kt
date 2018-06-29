@@ -20,6 +20,7 @@ import com.lovelyjiaming.municipalleader.views.adapter.DangerRushCaseAdapter
 import kotlinx.android.synthetic.main.common_search_layout.*
 import kotlinx.android.synthetic.main.common_top_del_condition.*
 import kotlinx.android.synthetic.main.fragment_danger_case.*
+import java.text.SimpleDateFormat
 
 class DangerRushCaseFragment : Fragment() {
 
@@ -67,7 +68,12 @@ class DangerRushCaseFragment : Fragment() {
         arrayDelView.forEach { it1 ->
             it1.setOnClickListener { _ ->
                 it1.visibility = View.GONE
-                startSearch(mMapCondition.filterValues { it != it1.text.toString().replace("X", "").trim() })
+                if (it1.text.toString().startsWith("20")) {
+                    mMapCondition.remove("startdate")
+                    mMapCondition.remove("enddate")
+                    startSearch(mMapCondition)
+                } else
+                    startSearch(mMapCondition.filterValues { it != it1.text.toString().replace("X", "").trim() } as MutableMap<String, String>)
             }
         }
     }
@@ -87,42 +93,57 @@ class DangerRushCaseFragment : Fragment() {
         })
     }
 
-    private lateinit var mMapCondition: Map<String, String>
+    private lateinit var mMapCondition: MutableMap<String, String>
     @SuppressLint("SetTextI18n")
-    fun startSearch(condition: Map<String, String>) {
+    fun startSearch(condition: MutableMap<String, String>) {
         //
         mMapCondition = condition
+        //缓存，保证成员变量mDetailInfoList总是完整的
+        var localTmpDetailInfo = mEmergencyDetailList
+        //
         first_del_condition.visibility = View.GONE
         second_del_condition.visibility = View.GONE
         third_del_condition.visibility = View.GONE
         fourth_del_condition.visibility = View.GONE
         danger_case_del_view.visibility = View.VISIBLE
         //
+        if (condition.containsKey("startdate") && condition.containsKey("enddate")) {
+            //比对时间
+            val spFormat = SimpleDateFormat("yyyy-MM-dd")
+            val start = spFormat.parse(condition["startdate"])
+            val end = spFormat.parse(condition["enddate"])
+            localTmpDetailInfo = localTmpDetailInfo?.filter { start.time <= spFormat.parse(it.taskDate).time && spFormat.parse(it.taskDate).time <= end.time }?.toMutableList()
+            //
+            fourth_del_condition.text = condition["startdate"] + "~" + condition["enddate"] + "   X"
+            fourth_del_condition.visibility = View.VISIBLE
+            danger_case_del_view.visibility = View.VISIBLE
+        }
+        //
         if (condition.containsKey("type") && condition.containsKey("office")) {
-            mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
             //
             first_del_condition.visibility = View.VISIBLE
             second_del_condition.visibility = View.VISIBLE
             first_del_condition.text = condition["type"] + "   X"
             second_del_condition.text = condition["office"] + "   X"
         } else if (condition.containsKey("type")) {
-            mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
             first_del_condition.visibility = View.VISIBLE
             first_del_condition.text = condition["type"] + "   X"
         } else if (condition.containsKey("office")) {
-            mFilterDetailInfoList = mEmergencyDetailList?.filter { it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
             first_del_condition.visibility = View.VISIBLE
             first_del_condition.text = condition["office"] + "   X"
         } else {
-            mFilterDetailInfoList = mEmergencyDetailList
-            danger_case_del_view.visibility = View.GONE
+            mFilterDetailInfoList = localTmpDetailInfo
+            if (mMapCondition.isEmpty()) danger_case_del_view.visibility = View.GONE
         }
         mParentFragment.displayCaseCount(mFilterDetailInfoList?.size ?: 0)
         adapter.listData = mFilterDetailInfoList
         adapter.notifyDataSetChanged()
         //
         Toast.makeText(activity, "共查找出案件${mFilterDetailInfoList?.size
-                ?: 0}件", Toast.LENGTH_LONG).show()
+                ?: 0}件", Toast.LENGTH_SHORT).show()
     }
 
     companion object {
