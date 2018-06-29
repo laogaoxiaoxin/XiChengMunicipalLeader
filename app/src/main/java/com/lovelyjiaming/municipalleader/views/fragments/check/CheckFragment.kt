@@ -77,10 +77,11 @@ class CheckFragment : Fragment() {
         mCurrentFraIndex = nDisplayIndex
     }
 
-    fun startSearchPatrolText(condition: MutableMap<String, String>) {
-        if (mListCheckFragments[mCurrentFraIndex] is CheckCaseNoEndFragment) {
+    fun startSearchPatrolText(type: String, condition: MutableMap<String, String>) {
+        if (type == "patrol1") {
             (mListCheckFragments[mCurrentFraIndex] as CheckCaseNoEndFragment).startSearch(condition)
-        }
+        } else
+            (mListCheckFragments[mCurrentFraIndex] as CheckCaseCalcuFragment).startSearch(condition)
     }
 
     fun showMainMoreType(): Int = if (mCurrentFraIndex == 1 || mCurrentFraIndex == 2) View.VISIBLE else View.GONE

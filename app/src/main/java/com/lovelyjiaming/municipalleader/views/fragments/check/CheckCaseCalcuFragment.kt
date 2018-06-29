@@ -7,15 +7,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.*
-import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
 import com.lovelyjiaming.municipalleader.utils.InspectCaseCountClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS
 import com.lovelyjiaming.municipalleader.views.adapter.CheckCalcuCaseAdapter
+import kotlinx.android.synthetic.main.common_top_del_condition.*
 import kotlinx.android.synthetic.main.fragment_check_case_calcu.*
 
 class CheckCaseCalcuFragment : Fragment() {
@@ -40,14 +38,46 @@ class CheckCaseCalcuFragment : Fragment() {
         check_case_calcu_recyclerview.adapter = this.adapter
     }
 
-    private fun requestData() {
-//        XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "getCaseCount", {
-//            val result = Gson().fromJson(it, InspectCaseCountClass::class.java)
-//            check_case_calcu_ring.setData(result.finished, result.unfinished)
-//            adapter.listResult = result.InspectCaseCount?.toMutableList()
-//            adapter.notifyDataSetChanged()
-//        }, hashMapOf("taskType" to check_case_calcu_type.text.toString(), "taskOffice" to check_case_calcu_address.text.toString(), "startDate" to check_case_calcu_startdate.text.toString(),
-//                "endDate" to check_case_calcu_enddate.text.toString()))
+    private fun requestData(office: String, type: String, startdate: String, enddate: String) {
+        XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "getCaseCount", {
+            val result = Gson().fromJson(it, InspectCaseCountClass::class.java)
+            check_case_calcu_ring.setData(result.finished, result.unfinished)
+            adapter.listResult = result.InspectCaseCount?.toMutableList()
+            adapter.notifyDataSetChanged()
+        }, hashMapOf("taskType" to type, "taskOffice" to office, "startDate" to startdate, "endDate" to enddate))
+    }
+
+    private lateinit var mMapCondition: MutableMap<String, String>
+    //
+    fun startSearch(mapCondition: MutableMap<String, String>) {
+        this.mMapCondition = mapCondition
+        ll_check_case_calcu_select.visibility = View.VISIBLE
+        var office = ""
+        var type = ""
+        var startdate = ""
+        var enddate = ""
+        //
+        if (mMapCondition.containsKey("office")) {
+            first_del_condition.text = mMapCondition["office"]
+            office = mMapCondition["office"] ?: ""
+            first_del_condition.visibility = View.VISIBLE
+        }
+        if (mMapCondition.containsKey("type")) {
+            second_del_condition.text = mMapCondition["type"]
+            type = mMapCondition["type"] ?: ""
+            second_del_condition.visibility = View.VISIBLE
+        }
+        if (mMapCondition.containsKey("startdate")) {
+            third_del_condition.text = mMapCondition["startdate"]
+            startdate = mMapCondition["startdate"] ?: ""
+            third_del_condition.visibility = View.VISIBLE
+        }
+        if (mMapCondition.containsKey("enddate")) {
+            fourth_del_condition.text = mMapCondition["enddate"]
+            enddate = mMapCondition["enddate"] ?: ""
+            fourth_del_condition.visibility = View.VISIBLE
+        }
+        requestData(office, type, startdate, enddate)
     }
 
     override fun onDestroyView() {
