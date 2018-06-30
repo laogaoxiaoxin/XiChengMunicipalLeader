@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.InspectCaseCountClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS
@@ -40,6 +41,7 @@ class CheckCaseCalcuFragment : Fragment() {
 
     private fun requestData(office: String, type: String, startdate: String, enddate: String) {
         XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "getCaseCount", {
+            if (it.contains("result: 0")) return@invokeGetRequest
             val result = Gson().fromJson(it, InspectCaseCountClass::class.java)
             check_case_calcu_ring.setData(result.finished, result.unfinished)
             adapter.listResult = result.InspectCaseCount?.toMutableList()

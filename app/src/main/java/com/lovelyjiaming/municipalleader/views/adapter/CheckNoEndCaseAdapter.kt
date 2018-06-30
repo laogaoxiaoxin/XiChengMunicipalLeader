@@ -38,6 +38,12 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
                 check_noend_case_time.text = "时间：" + it[position].taskDate
                 Glide.with(ctx).load(NETWORK_IMG_BASIC_ADDRESS + "${it[position].taskFirst}").into(check_noend_case_img)
                 //
+                if (it[position].taskType?.trim() ?: "" == "电力" || it[position].taskType?.trim() ?: "" == "电信" || it[position].taskType?.trim() ?: "" == "降水井"
+                        || it[position].taskType?.trim() ?: "" == "雨污水" || it[position].taskType?.trim() ?: "" == "路灯" || it[position].taskType?.trim() ?: "" == "热力") {
+                    check_noend_case_time.visibility = View.GONE
+                    check_noend_case_status.visibility = View.GONE
+                }
+                //
                 itemView.setOnClickListener { _ ->
                     if (holderType == "saveonlinetask") {
                         val intent = Intent(ctx, SaveOnlineTaskActivity::class.java)

@@ -239,7 +239,7 @@ class CheckPersonLocateFragment : Fragment() {
     private fun startPlanThread() {
         val option = WalkingRoutePlanOption()
         //开始正式规划路线
-        mExecutor.submit({
+        mExecutor.submit {
             for (i in 0 until listReadyDraw?.size!! - 2) {
                 try {
                     val nodeStart = listReadyDraw?.get(i)
@@ -252,7 +252,7 @@ class CheckPersonLocateFragment : Fragment() {
                     print(e.message)
                 }
             }
-        })
+        }
     }
 
     private fun initMapView(savedInstanceState: Bundle?) {

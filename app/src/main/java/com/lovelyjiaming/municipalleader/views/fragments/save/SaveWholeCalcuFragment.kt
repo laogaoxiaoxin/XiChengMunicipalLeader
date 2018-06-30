@@ -41,16 +41,16 @@ class SaveWholeCalcuFragment : Fragment() {
         requestData()
         //
         save_whole_top_startdate.setOnClickListener {
-            DatePickerUtils.displayDatePickerDialog(activity as Context, {
+            DatePickerUtils.displayDatePickerDialog(activity as Context) {
                 save_whole_top_startdate.text = it
                 requestData()
-            })
+            }
         }
         save_whole_top_enddate.setOnClickListener {
-            DatePickerUtils.displayDatePickerDialog(activity as Context, {
+            DatePickerUtils.displayDatePickerDialog(activity as Context) {
                 save_whole_top_enddate.text = it
                 requestData()
-            })
+            }
         }
         //
         save_whole_top_office.setOnClickListener {
@@ -63,7 +63,7 @@ class SaveWholeCalcuFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data != null) {
-            save_whole_top_office.text = data.getStringExtra("condition") + " "
+            save_whole_top_office.text = (data.getSerializableExtra("condition") as MutableMap<String, String>)["office"]
             requestData()
         }
     }
