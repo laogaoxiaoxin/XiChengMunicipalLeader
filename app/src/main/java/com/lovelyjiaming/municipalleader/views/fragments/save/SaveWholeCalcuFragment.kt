@@ -107,8 +107,8 @@ class SaveWholeCalcuFragment : Fragment() {
         save_whole_vertical_chart.setAllDatas(mapParam)
         //
         adapter.listData?.clear()
-        adapter.listData?.add("沥青@${allAsphalt}")
-        adapter.listData?.add("无机料@${allInorganic}")
+        adapter.listData?.add("沥青@$allAsphalt")
+        adapter.listData?.add("无机料@$allInorganic")
         adapter.listData?.add("${resultClass.CaseCount[0].taskSidewalk}@${resultClass.CaseCount[1].taskSidewalk}")
         adapter.listData?.add("${resultClass.CaseCount[0].mangdao}@${resultClass.CaseCount[1].mangdao}")
         adapter.listData?.add("${resultClass.CaseCount[0].taskPlaster}@${resultClass.CaseCount[1].taskPlaster}")

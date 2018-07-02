@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -237,6 +238,7 @@ class CheckPersonLocateFragment : Fragment() {
     }
 
     private fun startPlanThread() {
+        Log.i("listReadyDraw == ", listReadyDraw?.toString())
         val option = WalkingRoutePlanOption()
         //开始正式规划路线
         mExecutor.submit {
