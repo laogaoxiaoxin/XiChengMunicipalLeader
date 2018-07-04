@@ -86,6 +86,8 @@ class CheckFragment : Fragment() {
 
     fun showMainMoreType(): Int = if (mCurrentFraIndex == 1 || mCurrentFraIndex == 2) View.VISIBLE else View.GONE
 
+    fun getCurrentIndex() = mCurrentFraIndex
+
     companion object {
         fun newInstance() = CheckFragment()
     }

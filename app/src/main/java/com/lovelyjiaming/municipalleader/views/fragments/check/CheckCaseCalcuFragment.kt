@@ -41,9 +41,21 @@ class CheckCaseCalcuFragment : Fragment() {
 
     private fun requestData(office: String, type: String, startdate: String, enddate: String) {
         XCNetWorkUtil.invokeGetRequest(activity!!, NETWORK_BASIC_CHECK_ADDRESS + "getCaseCount", {
-            if (it.contains("result: 0")) return@invokeGetRequest
+            if (it.contains("{\"result\":0}")) {
+                check_case_calcu_ring.visibility = View.INVISIBLE
+                check_case_calcu_recyclerview.visibility = View.INVISIBLE
+                display_unfinished_color_title.text = "未完成 (0)"
+                display_finished_color_title.text = "已完成 (0)"
+                return@invokeGetRequest
+            }
+            //
+            check_case_calcu_ring.visibility = View.VISIBLE
+            check_case_calcu_recyclerview.visibility = View.VISIBLE
+            //
             val result = Gson().fromJson(it, InspectCaseCountClass::class.java)
             check_case_calcu_ring.setData(result.finished, result.unfinished)
+            display_unfinished_color_title.text = "未完成 (${result.unfinished})"
+            display_finished_color_title.text = "已完成 (${result.finished})"
             adapter.listResult = result.InspectCaseCount?.toMutableList()
             adapter.notifyDataSetChanged()
         }, hashMapOf("taskType" to type, "taskOffice" to office, "startDate" to startdate, "endDate" to enddate))

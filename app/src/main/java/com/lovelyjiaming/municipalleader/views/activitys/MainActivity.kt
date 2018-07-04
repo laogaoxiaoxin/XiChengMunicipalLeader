@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClickListener() {
         ll_main_bottom_check.setOnClickListener {
-            mPageType = "patrol"
             switchDisplayFragment(0)
             iv_main_bottom_tools_check.setImageResource(R.drawable.main_bottom_tools_check_selected)
             tv_main_bottom_tools_check.setTextColor(Color.parseColor("#ffcc0000"))
@@ -45,7 +44,8 @@ class MainActivity : AppCompatActivity() {
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
             //
-            displayMoreTypeImg((mListFragments[0] as CheckFragment).showMainMoreType(), "patrol")
+            mPageType = if ((mListFragments[0] as CheckFragment).getCurrentIndex() == 1) "patrol1" else "patrol2"
+            displayMoreTypeImg((mListFragments[0] as CheckFragment).showMainMoreType(), mPageType)
         }
         //
         ll_main_bottom_save.setOnClickListener {
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_danger.setTextColor(Color.BLACK)
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
-            displayMoreTypeImg((mListFragments[1] as SaveFragment).showMainMoreType(), "cure")
+            displayMoreTypeImg((mListFragments[1] as SaveFragment).showMainMoreType(), mPageType)
         }
         //
         ll_main_bottom_danger.setOnClickListener {
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_danger.setTextColor(Color.parseColor("#ffcc0000"))
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
-            displayMoreTypeImg((mListFragments[2] as DangerFragment).showMainMoreType(), "emergency")
+            displayMoreTypeImg((mListFragments[2] as DangerFragment).showMainMoreType(), mPageType)
         }
         //
         ll_main_bottom_engineer.setOnClickListener {

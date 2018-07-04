@@ -43,6 +43,7 @@
                 android:background="#87CEFA" />
 
             <TextView
+                android:id="@+id/display_unfinished_color_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20px"
@@ -65,6 +66,7 @@
                 android:background="#9F79EE" />
 
             <TextView
+                android:id="@+id/display_finished_color_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20px"
@@ -114,21 +116,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/rl_check_case_calcu_listtitle" />
-
-    <RelativeLayout
-        android:id="@+id/rl_check_case_calcu_choose"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#7f000000"
-        android:visibility="gone">
-
-        <ListView
-            android:id="@+id/listview_check_case_calcu_choose"
-            android:layout_width="700px"
-            android:layout_height="1100px"
-            android:layout_centerInParent="true"
-            android:background="#fff" />
-
-    </RelativeLayout>
 
 </RelativeLayout>

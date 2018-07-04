@@ -85,7 +85,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
             else
                 aBuilder?.with(animate)
         }
-        mAnimatorSet?.duration = 1000
+        mAnimatorSet?.duration = 295
         mAnimatorSet?.start()
         invalidate()
     }

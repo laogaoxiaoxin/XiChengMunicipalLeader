@@ -77,6 +77,7 @@ class SaveWholeCalcuFragment : Fragment() {
 
     private fun getMaterielCalc(result: String) {
         val resultClass = Gson().fromJson(result, MaterialClass::class.java)
+        if (resultClass.CaseCount.size == 1) return
         //
         //沥青加一起
         val allAsphalt = resultClass.CaseCount[1].taskAsphalt_9cm_10.toFloat().plus(resultClass.CaseCount[1].taskAsphalt_5cm_10.toFloat()).plus(resultClass.CaseCount[1].asphalt_9cm_10_400.toFloat())

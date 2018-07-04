@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.CardView
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
@@ -66,7 +67,6 @@ class ChooseConditionActivity : AppCompatActivity() {
                 tv_choose_emergency_type.visibility = View.GONE
                 ll_choose_cure_type.visibility = View.GONE
                 tv_choose_cure_type.visibility = View.GONE
-                cv_choose_office_line44.visibility = View.GONE
                 tv_choose_rank_grade.visibility = View.GONE
                 ll_choose_rank_grade.visibility = View.GONE
             }
@@ -89,8 +89,13 @@ class ChooseConditionActivity : AppCompatActivity() {
         //
         listOfficeViews.forEachIndexed { index1, tv ->
             tv.setOnClickListener {
+                //如果是审批掘路的话不能选
+                if (hashMapValue["type"] == "审批掘路") {
+                    Toast.makeText(this, "当前选择类型是审批掘路，不能选择街道！", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
                 hashMapValue["office"] = (it as TextView).text.toString()
-                //
+                //颜色状态
                 listOfficeCvViews.forEachIndexed { index2, cv ->
                     if (index1 == index2) cv.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
                     else cv.setCardBackgroundColor(Color.parseColor("#efefef"))
@@ -122,7 +127,7 @@ class ChooseConditionActivity : AppCompatActivity() {
         //
         val listPatrolType = mutableListOf(cv_choose_patrol_type_spjl, cv_choose_patrol_type_sjsz, cv_choose_patrol_type_tccxc, cv_choose_patrol_type_gzzxc, cv_choose_patrol_type_lctc, cv_choose_patrol_type_ggfwss)
         tv_choose_patrol_type_spjl.setOnClickListener {
-            hashMapValue.clear()
+            hashMapValue.remove("office")
             hashMapValue["type"] = tv_choose_patrol_type_spjl.text.toString()
             //如果是审批掘路，就没有其他选项
             listPatrolType.forEachIndexed { index, cardView ->
