@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".views.activitys.MoreExamRoadHistoryDailyActivity"
+    tools:ignore="PxUsage">
+
+    <RelativeLayout
+        android:id="@+id/rl_more_exam_road_history_daily"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv_more_exam_road_history_daily_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="审批掘路更多历史日志"
+            android:textColor="#fff"
+            android:textSize="40px"
+            android:textStyle="bold|italic" />
+
+        <ImageView
+            android:id="@+id/back_more_exam_road_history_daily"
+            android:layout_width="100px"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20px"
+            android:scaleType="centerInside"
+            android:src="@drawable/back" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_more_exam_road_history_daily"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_more_exam_road_history_daily" />
+
+</RelativeLayout>

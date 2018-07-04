@@ -24,7 +24,7 @@ class LargePicActivity : AppCompatActivity() {
         val listPics = intent.getSerializableExtra("picsurl") as ArrayList<*>
         listPics.forEachIndexed { index, _ ->
             val imgView = PhotoView(this)
-            imgView.scaleType = ImageView.ScaleType.CENTER_CROP
+            imgView.scaleType = ImageView.ScaleType.FIT_CENTER
             imgView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             Glide.with(this).load(listPics[index]).into(imgView)
             listImageView.add(imgView)

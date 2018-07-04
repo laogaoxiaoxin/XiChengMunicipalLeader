@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="350px"
+    android:background="#fff"
+    tools:ignore="PxUsage">
+
+    <TextView
+        android:id="@+id/item_examroad_historypic_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2px"
+        android:layout_marginTop="5px"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="28px"
+        android:textStyle="italic|bold" />
+
+    <ImageView
+        android:id="@+id/item_examroad_historypic_progress"
+        android:layout_width="30px"
+        android:layout_height="30px"
+        android:layout_marginStart="1px"
+        android:layout_toEndOf="@id/item_examroad_historypic_time"
+        android:src="@drawable/examroad_pic_progress" />
+
+    <View
+        android:layout_width="2px"
+        android:layout_height="match_parent"
+        android:layout_below="@id/item_examroad_historypic_progress"
+        android:layout_marginStart="16px"
+        android:layout_toEndOf="@id/item_examroad_historypic_time"
+        android:background="@color/colorPrimaryDark" />
+
+    <LinearLayout
+        android:id="@+id/ll_examroad_historypic_all_historyphotos"
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:layout_marginStart="2px"
+        android:layout_marginTop="8px"
+        android:layout_toEndOf="@id/item_examroad_historypic_progress"
+        android:gravity="center_vertical"
+        android:weightSum="4">
+
+        <ImageView
+            android:id="@+id/item_examroad_historypic_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/item_examroad_historypic_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/item_examroad_historypic_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/item_examroad_historypic_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5px"
+            android:layout_weight="1"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_examroad_historypic_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_examroad_historypic_all_historyphotos"
+        android:layout_alignStart="@id/ll_examroad_historypic_all_historyphotos"
+        android:layout_marginTop="10px"
+        android:textColor="#000"
+        android:textSize="25px"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

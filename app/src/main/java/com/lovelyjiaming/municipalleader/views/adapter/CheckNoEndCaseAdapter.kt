@@ -16,6 +16,7 @@ import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS
 import com.lovelyjiaming.municipalleader.views.activitys.CheckNoEndDetailActivity
+import com.lovelyjiaming.municipalleader.views.activitys.ExamRoadDetailActivity
 import com.lovelyjiaming.municipalleader.views.activitys.SaveOnlineTaskActivity
 
 //巡查-未结案件ViewHolder
@@ -45,6 +46,15 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
                 }
                 //
                 itemView.setOnClickListener { _ ->
+                    //审批掘路的特殊页面，跳转详情页直接返回
+                    if (it[position].taskType?.trim() ?: "" == "电力" || it[position].taskType?.trim() ?: "" == "电信" || it[position].taskType?.trim() ?: "" == "降水井"
+                            || it[position].taskType?.trim() ?: "" == "雨污水" || it[position].taskType?.trim() ?: "" == "路灯" || it[position].taskType?.trim() ?: "" == "热力" || it[position].taskType?.trim() ?: "" == "人防工事治理") {
+                        val intent = Intent(ctx, ExamRoadDetailActivity::class.java)
+                        intent.putExtra("number", it[position].taskNumber)
+                        ctx.startActivity(intent)
+                        return@setOnClickListener
+                    }
+
                     if (holderType == "saveonlinetask") {
                         val intent = Intent(ctx, SaveOnlineTaskActivity::class.java)
                         intent.putExtra("taskinfo", it[position])

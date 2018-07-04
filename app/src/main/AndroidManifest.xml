@@ -73,6 +73,12 @@
         <activity
             android:name=".views.activitys.ChooseConditionActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activitys.ExamRoadDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activitys.MoreExamRoadHistoryDailyActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

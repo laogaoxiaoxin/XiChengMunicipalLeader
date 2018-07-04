@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20px"
+    android:orientation="vertical"
+    tools:ignore="PxUsage">
+
+    <TextView
+        android:id="@+id/item_history_more_exam_road_daily_month"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical|left"
+        android:paddingStart="20px"
+        android:text="201809"
+        android:textColor="#fff"
+        android:textSize="35px"
+        android:textStyle="italic|bold" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/item_history_more_exam_road_daily_month_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:background="#fff"
+        android:visibility="gone" />
+
+</LinearLayout>
