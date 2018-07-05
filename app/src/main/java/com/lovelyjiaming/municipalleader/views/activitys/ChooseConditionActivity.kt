@@ -212,13 +212,13 @@ class ChooseConditionActivity : AppCompatActivity() {
         tv_choose_startdate.setOnClickListener {
             DatePickerUtils.displayDatePickerDialog(this) {
                 tv_choose_startdate.text = it
-                hashMapValue["startdate"] = it
+                hashMapValue["startdate"] = it + " 00:00:00"
             }
         }
         tv_choose_enddate.setOnClickListener {
             DatePickerUtils.displayDatePickerDialog(this) {
                 tv_choose_enddate.text = it
-                hashMapValue["enddate"] = it
+                hashMapValue["enddate"] = it + " 24:00:00"
             }
         }
 

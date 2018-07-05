@@ -113,7 +113,7 @@ class CheckCaseNoEndFragment : Fragment() {
         //
         if (condition.containsKey("startdate") && condition.containsKey("enddate")) {
             //比对时间
-            val spFormat = SimpleDateFormat("yyyy-MM-dd")
+            val spFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
             val start = spFormat.parse(condition["startdate"])
             val end = spFormat.parse(condition["enddate"])
             localTmpDetailInfo = localTmpDetailInfo?.filter { start.time <= spFormat.parse(it.taskDate).time && spFormat.parse(it.taskDate).time <= end.time }?.toMutableList()
