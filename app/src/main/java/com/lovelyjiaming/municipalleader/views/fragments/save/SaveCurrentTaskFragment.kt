@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.CureOnLineTaskClass
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
@@ -27,7 +28,7 @@ class SaveCurrentTaskFragment : Fragment() {
     val adapter: CheckNoEndCaseAdapter by lazy {
         CheckNoEndCaseAdapter(activity as Context)//复用巡查未结案item
     }
-    private lateinit var mDetailInfoList: MutableList<InspectUndoneItemClass>
+    private var mDetailInfoList: MutableList<InspectUndoneItemClass>? = null
     //各种条件筛选后的结果集
     private var mFilterDetailInfoList: MutableList<InspectUndoneItemClass>? = null
 
@@ -57,7 +58,7 @@ class SaveCurrentTaskFragment : Fragment() {
                 val list = if (mFilterDetailInfoList != null && mFilterDetailInfoList!!.size > 0) {
                     mFilterDetailInfoList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
                 } else
-                    mDetailInfoList.filter { it.taskName?.contains(p0.toString())!! }.toMutableList()
+                    mDetailInfoList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
                 //
                 mParentFragment.displayCountText(list?.size ?: 0)
                 adapter.setData(list)
@@ -89,7 +90,7 @@ class SaveCurrentTaskFragment : Fragment() {
             mDetailInfoList = result.CureOnLineTask.toMutableList()
             adapter.holderType = "saveonlinetask"
             adapter.setData(mDetailInfoList)//复用
-            mParentFragment.displayCountText(mDetailInfoList.size)
+            mParentFragment.displayCountText(mDetailInfoList?.size ?: 0)
             save_current_swiperefresh.isRefreshing = false
         })
     }
@@ -117,12 +118,12 @@ class SaveCurrentTaskFragment : Fragment() {
             val spFormat = SimpleDateFormat("yyyy-MM-dd")
             val start = spFormat.parse(condition["startdate"])
             val end = spFormat.parse(condition["enddate"])
-            localTmpDetailInfo = localTmpDetailInfo.filter { start.time <= spFormat.parse(it.taskDate).time && spFormat.parse(it.taskDate).time <= end.time }.toMutableList()
+            localTmpDetailInfo = localTmpDetailInfo?.filter { start.time <= spFormat.parse(it.taskDate).time && spFormat.parse(it.taskDate).time <= end.time }?.toMutableList()
         }
 
         //
         if (condition.containsKey("rank") && condition.containsKey("type") && condition.containsKey("office")) {
-            mFilterDetailInfoList = localTmpDetailInfo.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
             //
             first_del_condition.text = condition["rank"] + "   X"
             second_del_condition.text = condition["type"] + "   X"
@@ -131,38 +132,38 @@ class SaveCurrentTaskFragment : Fragment() {
             second_del_condition.visibility = View.VISIBLE
             third_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("rank") && condition.containsKey("type")) {
-            mFilterDetailInfoList = localTmpDetailInfo.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! }.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskRank?.contains(condition["rank"].toString())!! && it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
             //
             first_del_condition.text = condition["rank"] + "   X"
             second_del_condition.text = condition["type"] + "   X"
             first_del_condition.visibility = View.VISIBLE
             second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("type") && condition.containsKey("office")) {
-            mFilterDetailInfoList = localTmpDetailInfo.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! && it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
             //
             first_del_condition.text = condition["office"] + "   X"
             second_del_condition.text = condition["type"] + "   X"
             first_del_condition.visibility = View.VISIBLE
             second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("office") && condition.containsKey("rank")) {
-            mFilterDetailInfoList = localTmpDetailInfo.filter { it.taskOffice?.contains(condition["office"].toString())!! && it.taskRank?.contains(condition["rank"].toString())!! }.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskOffice?.contains(condition["office"].toString())!! && it.taskRank?.contains(condition["rank"].toString())!! }?.toMutableList()
             //
             first_del_condition.text = condition["office"] + "   X"
             second_del_condition.text = condition["rank"] + "   X"
             first_del_condition.visibility = View.VISIBLE
             second_del_condition.visibility = View.VISIBLE
         } else if (condition.containsKey("rank")) {
-            mFilterDetailInfoList = localTmpDetailInfo.filter { it.taskRank?.contains(condition["rank"].toString())!! }.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskRank?.contains(condition["rank"].toString())!! }?.toMutableList()
             //
             first_del_condition.visibility = View.VISIBLE
             first_del_condition.text = condition["rank"] + "   X"
         } else if (condition.containsKey("type")) {
-            mFilterDetailInfoList = localTmpDetailInfo.filter { it.taskType?.contains(condition["type"].toString())!! }.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskType?.contains(condition["type"].toString())!! }?.toMutableList()
             //
             first_del_condition.visibility = View.VISIBLE
             first_del_condition.text = condition["type"] + "   X"
         } else if (condition.containsKey("office")) {
-            mFilterDetailInfoList = localTmpDetailInfo.filter { it.taskOffice?.contains(condition["office"].toString())!! }.toMutableList()
+            mFilterDetailInfoList = localTmpDetailInfo?.filter { it.taskOffice?.contains(condition["office"].toString())!! }?.toMutableList()
             //
             first_del_condition.visibility = View.VISIBLE
             first_del_condition.text = condition["office"] + "   X"

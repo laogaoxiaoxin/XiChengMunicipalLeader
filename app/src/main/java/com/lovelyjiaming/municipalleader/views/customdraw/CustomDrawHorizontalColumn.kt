@@ -20,7 +20,11 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
     private var mPaintLine: ArrayList<Paint> = arrayListOf()
     private var mPaintText: ArrayList<Paint> = arrayListOf()
     private var mPaintColors: ArrayList<String> = arrayListOf("#A1378B", "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121",
-            "#A1378B", "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121")
+            "#A1378B", "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121", "#2567a1", "#212abc", "#ab2100", "#f12091", "#b12101"
+            , "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121", "#2567a1", "#212abc", "#ab2100", "#f12091", "#b12101"
+            , "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121", "#2567a1", "#212abc", "#ab2100", "#f12091", "#b12101"
+            , "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121", "#2567a1", "#212abc", "#ab2100", "#f12091", "#b12101"
+            , "#79CDCD", "#A2CD5A", "#A0522D", "#00CD66", "#CD6600", "#CD950C", "#B22222", "#8A2BE2", "#212121", "#2567a1", "#212abc", "#ab2100", "#f12091", "#b12101")
     private var mAllLineHeightInterval: ArrayList<Float> = ArrayList(50)
 
     fun setAllDatas(mapData: HashMap<String, Float>) {
@@ -39,7 +43,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         var eachIntervalTmp = 5f
         for ((key, value) in mAllMapData) {
             //w
-            val eachWidth = (value / maxBase) * (measuredWidth - 200)
+            val eachWidth = (value / maxBase) * (measuredWidth - 250)
             allLineWidthInc.add(eachWidth)
             //h
             mAllLineHeightInterval.add(eachIntervalTmp)
@@ -85,7 +89,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
             else
                 aBuilder?.with(animate)
         }
-        mAnimatorSet?.duration = 295
+        mAnimatorSet?.duration = 275
         mAnimatorSet?.start()
         invalidate()
     }
@@ -94,7 +98,7 @@ class CustomDrawHorizontalColumn(private val ctx: Context, val attr: AttributeSe
         super.onDraw(canvas)
         //
         mAllLineHeightInterval.forEachIndexed { index, interval ->
-            canvas?.drawLine(200f, interval, 200 + allLineWidthInc[index], interval, mPaintLine[index])
+            canvas?.drawLine(250f, interval, 250 + allLineWidthInc[index], interval, mPaintLine[index])
             canvas?.drawText(mAllMapData.keys.toMutableList()[index] + "(${mAllMapData[mAllMapData.keys.toMutableList()[index]]?.toInt()})", 0f, interval + 15, mPaintText[index])
         }
     }

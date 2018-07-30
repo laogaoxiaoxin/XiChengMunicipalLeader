@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Half.toFloat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +42,6 @@ class DangerMaterialCalcuFragment : Fragment() {
             danger_title_material_mach.setTextColor(Color.parseColor("#a4a4a4"))
             danger_title_material_smallmach.setTextColor(Color.parseColor("#a4a4a4"))
             danger_title_material_supply.setTextColor(Color.parseColor("#a4a4a4"))
-
         }
         danger_title_material_mach.setOnClickListener {
             requestData("Mech")
@@ -110,24 +110,12 @@ class DangerMaterialCalcuFragment : Fragment() {
             //-----
                 "Mech" -> {
                     val result = Gson().fromJson(it, EmergencyMechClass::class.java)
-                    val type1 = result.EmergencyMech.filter { it.carType == "DH130W-V" }
-                    mapDatas["DH130W-V"] = type1.size.toFloat()
                     val type2 = result.EmergencyMech.filter { it.carType == "CC142" }
                     mapDatas["CC142"] = type2.size.toFloat()
                     val type3 = result.EmergencyMech.filter { it.carType == "CC900" }
                     mapDatas["CC900"] = type3.size.toFloat()
                     val type4 = result.EmergencyMech.filter { it.carType == "W50" }
                     mapDatas.put("W50", type4.size.toFloat())
-                    val type5 = result.EmergencyMech.filter { it.carType == "S300-1" }
-                    mapDatas["S300-1"] = type5.size.toFloat()
-                    val type6 = result.EmergencyMech.filter { it.carType == "HML32" }
-                    mapDatas["HML32"] = type6.size.toFloat()
-                    val type7 = result.EmergencyMech.filter { it.carType == "8061" }
-                    mapDatas.put("8061", type7.size.toFloat())
-                    val type8 = result.EmergencyMech.filter { it.carType == "XG916" }
-                    mapDatas.put("XG916", type8.size.toFloat())
-                    val type9 = result.EmergencyMech.filter { it.carType == "CPC35" }
-                    mapDatas.put("CPC35", type9.size.toFloat())
                     val type10 = result.EmergencyMech.filter { it.carType == "DX150" }
                     mapDatas.put("DX150", type10.size.toFloat())
                     val type11 = result.EmergencyMech.filter { it.carType == "SR250" }
@@ -161,7 +149,7 @@ class DangerMaterialCalcuFragment : Fragment() {
                 "Suppilies" -> {
                     val result = Gson().fromJson(it, EmergencySuppiliesClass::class.java)
                     result.EmergencySuppilies.forEachIndexed { index, emergencySuppiliesItem ->
-                        mapDatas.put(emergencySuppiliesItem.SupplyName!!, emergencySuppiliesItem.Number?.replace("袋", "")?.replace("个", "")?.replace("块", "")?.replace("吨", "")?.replace("包", "")?.toFloat()!!)
+                        mapDatas.put(emergencySuppiliesItem.SupplyName!!, emergencySuppiliesItem.Number?.replace("袋", "")?.replace("台", "")?.replace("个", "")?.replace("块", "")?.replace("吨", "")?.replace("包", "")?.replace("双", "")?.replace("套", "")?.replace("捆", "")?.replace("把", "")?.replace("箱", "")?.replace("盒", "")?.toFloat()!!)
                         //
                         adapter.listData?.add("${emergencySuppiliesItem.SupplyName}@${emergencySuppiliesItem.Number}")
                     }

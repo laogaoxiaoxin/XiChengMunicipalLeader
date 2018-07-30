@@ -3,6 +3,7 @@ package com.lovelyjiaming.municipalleader.views.activitys
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
@@ -53,6 +54,17 @@ class ExamRoadDetailActivity : AppCompatActivity() {
             Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filefour).into(check_exam_road_detail_fourthpic)
             Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filefive).into(check_exam_road_detail_fifthpic)
             Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filesix).into(check_exam_road_detail_sixthpic)
+            //
+            val ivViews = mutableListOf<ImageView>(check_exam_road_detail_firstpic, check_exam_road_detail_secondpic, check_exam_road_detail_thirdpic, check_exam_road_detail_fourthpic, check_exam_road_detail_fifthpic, check_exam_road_detail_sixthpic)
+            ivViews.forEachIndexed { index, imageview ->
+                imageview.setOnClickListener {
+                    val intent = Intent(this, LargePicActivity::class.java)
+                    intent.putExtra("picsurl", arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.fileone, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filetwo, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filethree,
+                            XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filefour, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filefive, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + result.InspectExamRoad.filesix))
+                    intent.putExtra("index", index)
+                    startActivity(intent)
+                }
+            }
 
             //更多监管日志
             XCNetWorkUtil.invokeGetRequest(this, "http://39.104.80.111:8888/FloodServer_First/Examing_Road_Underway_Journal_Listview?" + "flagname=${result.InspectExamRoad.name}" + "&flagnumber=${result.InspectExamRoad.number}", {

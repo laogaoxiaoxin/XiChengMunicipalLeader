@@ -1,8 +1,8 @@
 package com.lovelyjiaming.municipalleader.views.activitys
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -28,7 +28,7 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
         save_online_taskdetail_level.text = taskInfo.taskRank
         save_online_taskdetail_office.text = taskInfo.taskOffice
         save_online_taskdetail_type.text = taskInfo.taskType
-        save_online_taskdetail_time.text = taskInfo.taskAssignDate
+        save_online_taskdetail_time.text = taskInfo.taskDate
         save_online_taskdetail_assigngroup.text = taskInfo.taskAssign
         save_online_taskdetail_assignstate.text = taskInfo.taskState
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst).into(save_online_taskdetail_firstpic)

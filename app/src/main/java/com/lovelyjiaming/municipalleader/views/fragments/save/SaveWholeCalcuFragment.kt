@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.google.gson.Gson
 
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
 import com.lovelyjiaming.municipalleader.utils.MaterialClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil

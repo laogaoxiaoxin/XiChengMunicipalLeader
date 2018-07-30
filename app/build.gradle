@@ -10,8 +10,8 @@ android {
         applicationId "com.lovelyjiaming.municipalleader"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 12
-        versionName "2.9"
+        versionCode 15
+        versionName "3.1"
     }
     signingConfigs {
         release {

@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +12,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.map.InfoWindow
 import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.model.LatLng
-import com.baidu.mapapi.search.route.*
+import com.baidu.mapapi.search.route.RoutePlanSearch
 import com.baidu.mapapi.utils.CoordinateConverter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -37,8 +35,6 @@ class CheckPersonLocateFragment : Fragment() {
     private var mPersonInfoList: MutableList<InspectPersonInfoItemClass>? = null
     //
     val handler: Handler = Handler()
-    //
-    private val mExecutor: ExecutorService = Executors.newFixedThreadPool(4)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +42,6 @@ class CheckPersonLocateFragment : Fragment() {
         XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getAllPersonInfo", {
             mPersonInfoList = Gson().fromJson(it, InspectPersonInfoClass::class.java).InspectPersonInfo.toMutableList()
         })
-        mSearch = RoutePlanSearch.newInstance()
     }
 
     override fun onResume() {
@@ -93,9 +88,9 @@ class CheckPersonLocateFragment : Fragment() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 requestPersonLocation()
-                handler.postDelayed(this, 15000L)
+                handler.postDelayed(this, 10000L)
             }
-        }, 15000L)
+        }, 10000L)
     }
 
     //选定显示某一组巡查员工
@@ -159,7 +154,6 @@ class CheckPersonLocateFragment : Fragment() {
             //
             if (itemInfo != null && itemInfo.size != 0) {
                 postDelayRefresh()//从新计时间，避免刚点击就被消失
-                displayPersonTrack(itemInfo[0].userName)
                 //
                 val linearLayout = LinearLayout(activity)
                 linearLayout.orientation = LinearLayout.HORIZONTAL
@@ -185,75 +179,6 @@ class CheckPersonLocateFragment : Fragment() {
                 check_person_locate_mapview.map.showInfoWindow(InfoWindow(linearLayout, it.position, -61))
             }
             true
-        }
-    }
-
-    private fun displayPersonTrack(userName: String) {
-        XCNetWorkUtil.invokeGetRequest(activity, XCNetWorkUtil.NETWORK_BASIC_CHECK_ADDRESS + "getTrack", {
-            convertLaLoAddress(Gson().fromJson(it, InspectTrack::class.java).InspectTrack)
-        }, hashMapOf("username" to userName))
-    }
-
-    private var listReadyDraw: MutableList<LatLng>? = mutableListOf()
-    private lateinit var mSearch: RoutePlanSearch
-
-    private fun convertLaLoAddress(listAddress: MutableList<InspectTrackItem>?) {
-        if (listAddress == null || listAddress.size == 0) {
-            Toast.makeText(activity, "此员工暂无轨迹信息", Toast.LENGTH_SHORT).show()
-            return
-        }
-        //因为服务器返回时升序，所以需要翻转，变成按照时间降序
-        listAddress.reverse()
-        val list = listAddress.subList(0, if (listAddress.size >= 50) 50 else listAddress.size)
-        //放入另一个准备绘制缓存中
-        list.let {
-            listReadyDraw?.clear()
-            list.forEach {
-                if (it.x != "0.0" && it.y != "0.0") {
-                    val converter = CoordinateConverter()
-                    converter.from(CoordinateConverter.CoordType.COMMON)
-                    converter.coord(LatLng(it.x?.toDouble()!!, it.y?.toDouble()!!))
-                    listReadyDraw?.add(converter.convert())
-                }
-            }
-            if (listReadyDraw?.size ?: 0 == 0) {
-                Toast.makeText(activity, "此员工暂无轨迹信息", Toast.LENGTH_SHORT).show()
-                return@let
-            }
-            mSearch.setOnGetRoutePlanResultListener(object : OnGetRoutePlanResultListener {
-                override fun onGetIndoorRouteResult(p0: IndoorRouteResult?) {}
-                override fun onGetTransitRouteResult(p0: TransitRouteResult?) {}
-                override fun onGetDrivingRouteResult(p0: DrivingRouteResult?) {}
-                override fun onGetWalkingRouteResult(p0: WalkingRouteResult?) {
-                    val overlay = WalkingRouteOverlay(check_person_locate_mapview.map)
-                    overlay.setData(p0?.routeLines?.get(0))
-                    overlay.addToMap()
-                }
-
-                override fun onGetMassTransitRouteResult(p0: MassTransitRouteResult?) {}
-                override fun onGetBikingRouteResult(p0: BikingRouteResult?) {}
-            })
-            this.startPlanThread()
-        }
-    }
-
-    private fun startPlanThread() {
-        Log.i("listReadyDraw == ", listReadyDraw?.toString())
-        val option = WalkingRoutePlanOption()
-        //开始正式规划路线
-        mExecutor.submit {
-            for (i in 0 until listReadyDraw?.size!! - 2) {
-                try {
-                    val nodeStart = listReadyDraw?.get(i)
-                    val nodeEnd = listReadyDraw?.get(i + 1)
-                    option.from(PlanNode.withLocation(nodeStart))
-                    option.to(PlanNode.withLocation(nodeEnd))
-                    mSearch.walkingSearch(option)
-                    Thread.sleep(80)
-                } catch (e: Exception) {
-                    print(e.message)
-                }
-            }
         }
     }
 
