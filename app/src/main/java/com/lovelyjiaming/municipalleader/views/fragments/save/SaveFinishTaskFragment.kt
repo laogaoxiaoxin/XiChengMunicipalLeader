@@ -14,6 +14,7 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.CureAppliedTaskClass
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
+import kotlinx.android.synthetic.main.common_top_del_condition.*
 import kotlinx.android.synthetic.main.fragment_save_finish_task.*
 
 class SaveFinishTaskFragment : Fragment() {
@@ -67,16 +68,30 @@ class SaveFinishTaskFragment : Fragment() {
 
     fun startSearchConditionText(searchParam: MutableMap<String, String>) {
         var listTmp: List<InspectUndoneItemClass>? = null
+        save_finish_del_condition.visibility = View.GONE
+        first_del_condition.visibility = View.GONE
+        third_del_condition.visibility = View.GONE
+        second_del_condition.visibility = View.GONE
+
         if (searchParam.containsKey("rank")) {
             listTmp = mListResult?.filter {
                 it.taskRank?.contains(searchParam["rank"].toString()) ?: false
             }
+            first_del_condition.text = searchParam["rank"]
+            first_del_condition.visibility = View.VISIBLE
+            save_finish_del_condition.visibility = View.VISIBLE
         }
         if (searchParam.containsKey("type")) {
             listTmp = listTmp?.filter { it.taskType == searchParam["type"] } ?: mListResult?.filter { it.taskType == searchParam["type"] }
+            third_del_condition.text = searchParam["type"]
+            third_del_condition.visibility = View.VISIBLE
+            save_finish_del_condition.visibility = View.VISIBLE
         }
         if (searchParam.containsKey("office")) {
             listTmp = listTmp?.filter { it.taskOffice == searchParam["office"] } ?: mListResult?.filter { it.taskOffice == searchParam["office"] }
+            second_del_condition.text = searchParam["office"]
+            second_del_condition.visibility = View.VISIBLE
+            save_finish_del_condition.visibility = View.VISIBLE
         }
         mAdapter.setData(listTmp?.toMutableList())
         mParentFragment.displayFinishedTaskCount(listTmp?.size ?: 0)
