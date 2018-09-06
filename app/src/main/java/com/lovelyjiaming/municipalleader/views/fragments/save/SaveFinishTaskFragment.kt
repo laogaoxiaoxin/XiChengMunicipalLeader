@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +16,7 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.CureAppliedTaskClass
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.views.adapter.CheckNoEndCaseAdapter
+import kotlinx.android.synthetic.main.common_search_layout.*
 import kotlinx.android.synthetic.main.common_top_del_condition.*
 import kotlinx.android.synthetic.main.fragment_save_finish_task.*
 
@@ -23,10 +26,8 @@ class SaveFinishTaskFragment : Fragment() {
     }
     private var mbFirstTime = true
     private val mPresenter: CureFinishTaskPresenter = CureFinishTaskPresenter(this)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    //返回列表
+    private var mListResult: List<InspectUndoneItemClass>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -43,7 +44,25 @@ class SaveFinishTaskFragment : Fragment() {
         //
         save_finish_swiperefresh.setOnRefreshListener {
             mPresenter.requestData()
+            save_finish_del_condition.visibility = View.GONE
         }
+        //
+        edt_search_condition.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                val list = mListResult?.filter {
+                    it.taskName?.contains(s.toString()) ?: false
+                }?.toMutableList()
+                mAdapter.setData(list)
+                mParentFragment.displayFinishedTaskCount(list?.size ?: 0)
+                save_finish_del_condition.visibility = View.GONE//与筛选项互斥
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -53,9 +72,6 @@ class SaveFinishTaskFragment : Fragment() {
             mbFirstTime = false
         }
     }
-
-    //返回列表
-    private var mListResult: List<InspectUndoneItemClass>? = null
 
     //第一次从网络来的数据
     fun setNetResultData(strResult: String) {
@@ -72,6 +88,7 @@ class SaveFinishTaskFragment : Fragment() {
         first_del_condition.visibility = View.GONE
         third_del_condition.visibility = View.GONE
         second_del_condition.visibility = View.GONE
+        edt_search_condition.setText("")
 
         if (searchParam.containsKey("rank")) {
             listTmp = mListResult?.filter {
