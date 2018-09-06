@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.*
 import com.lovelyjiaming.municipalleader.utils.CureOnLineTaskClass
 import com.lovelyjiaming.municipalleader.utils.InspectUndoneItemClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
@@ -60,7 +59,7 @@ class SaveCurrentTaskFragment : Fragment() {
                 } else
                     mDetailInfoList?.filter { it.taskName?.contains(p0.toString())!! }?.toMutableList()
                 //
-                mParentFragment.displayCountText(list?.size ?: 0)
+                mParentFragment.displayOnLineCountText(list?.size ?: 0)
                 adapter.setData(list)
             }
 
@@ -90,7 +89,7 @@ class SaveCurrentTaskFragment : Fragment() {
             mDetailInfoList = result.CureOnLineList.toMutableList()
             adapter.holderType = "saveonlinetask"
             adapter.setData(mDetailInfoList)//复用
-            mParentFragment.displayCountText(mDetailInfoList?.size ?: 0)
+            mParentFragment.displayOnLineCountText(mDetailInfoList?.size ?: 0)
             save_current_swiperefresh.isRefreshing = false
         })
     }
@@ -173,7 +172,7 @@ class SaveCurrentTaskFragment : Fragment() {
             if (condition.isEmpty()) save_current_del_condition.visibility = View.GONE
         }
         //
-        mParentFragment.displayCountText(mFilterDetailInfoList?.size ?: 0)
+        mParentFragment.displayOnLineCountText(mFilterDetailInfoList?.size ?: 0)
         adapter.setData(mFilterDetailInfoList)
         Toast.makeText(activity, "共查找出案件${mFilterDetailInfoList?.size
                 ?: 0}件", Toast.LENGTH_SHORT).show()

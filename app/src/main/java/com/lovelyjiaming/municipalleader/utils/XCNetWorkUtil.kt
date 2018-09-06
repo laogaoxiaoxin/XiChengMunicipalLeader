@@ -38,6 +38,9 @@ data class InspectUndoneClass(val InspectUndone: List<InspectUndoneItemClass>)
 //养护部分 onlinetask
 data class CureOnLineTaskClass(val CureOnLineList: List<InspectUndoneItemClass>)
 
+//养护部分 onlinetask
+data class CureAppliedTaskClass(val CureAppliedList: List<InspectUndoneItemClass>)
+
 //养护详情
 data class CureDetailInfo(val CureOnLineDetails: InspectUndoneItemClass)
 
