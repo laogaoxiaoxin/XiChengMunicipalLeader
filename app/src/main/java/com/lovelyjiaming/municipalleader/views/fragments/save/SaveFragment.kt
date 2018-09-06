@@ -18,7 +18,7 @@ class SaveFragment : Fragment() {
         listOf(SaveCurrentTaskFragment.newInstance(this), SaveWholeCalcuFragment.newInstance())
     }
     val mListSaveFragmentNames: List<String> by lazy {
-        listOf("案件查询 ", "综合统计 ")
+        listOf("在施案件 ", "综合统计 ")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

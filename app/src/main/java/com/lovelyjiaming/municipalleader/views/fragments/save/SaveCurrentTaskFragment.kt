@@ -85,9 +85,9 @@ class SaveCurrentTaskFragment : Fragment() {
     }
 
     private fun requestData() {
-        XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_SAVE_ADDRESS + "getOnLineTask", {
+        XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_SAVE_ADDRESS + "getOnLineList", {
             val result = Gson().fromJson(it, CureOnLineTaskClass::class.java)
-            mDetailInfoList = result.CureOnLineTask.toMutableList()
+            mDetailInfoList = result.CureOnLineList.toMutableList()
             adapter.holderType = "saveonlinetask"
             adapter.setData(mDetailInfoList)//复用
             mParentFragment.displayCountText(mDetailInfoList?.size ?: 0)

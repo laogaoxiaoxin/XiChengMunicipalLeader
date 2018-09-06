@@ -57,7 +57,7 @@ class CheckNoEndCaseAdapter(val ctx: Context) : RecyclerView.Adapter<CheckNoEndC
 
                     if (holderType == "saveonlinetask") {
                         val intent = Intent(ctx, SaveOnlineTaskActivity::class.java)
-                        intent.putExtra("taskinfo", it[position])
+                        intent.putExtra("taskNumber", it[position].taskNumber)
                         ctx.startActivity(intent)
                     } else if (holderType == "checknoend") {
                         val intent = Intent(ctx, CheckNoEndDetailActivity::class.java)

@@ -36,14 +36,18 @@ data class InspectUndoneItemClass(val taskName: String?, val taskNumber: String?
 data class InspectUndoneClass(val InspectUndone: List<InspectUndoneItemClass>)
 
 //养护部分 onlinetask
-data class CureOnLineTaskClass(val CureOnLineTask: List<InspectUndoneItemClass>)
+data class CureOnLineTaskClass(val CureOnLineList: List<InspectUndoneItemClass>)
+
+//养护详情
+data class CureDetailInfo(val CureOnLineDetails: InspectUndoneItemClass)
 
 //养护统计
 data class MaterailItemClass(val taskAsphalt_9cm_10: String, val taskAsphalt_5cm_10: String, val asphalt_9cm_10_400: String, val asphalt_5cm_10_400: String, val taskAsphalt_9cm_400: String, val taskAsphalt_5cm_400: String
                              , val taskSidewalk: String, val mangdao: String, val taskPlaster: String, val caiselumian: String, val shengjiangjianchajing: String, val jiagujianchajing: String, val taskRainwater_outlet: String, val taskCurb: String
                              , val taskMachine_stone: String, val taskInorganic_material_15cm: String, val taskInorganic_material_20cm: String, val wujiliao25: String, val taskTree_pool: String, val shicaibudao: String, val shicaimangdao: String, val shicailuyuanshi: String
                              , val shicaidangchezhuang: String, val tiezhidangchezhuang: String, val taskconcrete: String)
-data class MaterialClass(val result:Int, val CaseCount:MutableList<MaterailItemClass>)
+
+data class MaterialClass(val result: Int, val CaseCount: MutableList<MaterailItemClass>)
 
 //应急部分 抢险案件
 data class EmergencyTaskItemClass(val IsFinish: String?, val taskName: String?, val taskNumber: String?, val taskDate: String?, val taskPlace: String?, val taskHome: String?, val taskOffice: String?, val taskState: String?,
