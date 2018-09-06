@@ -85,6 +85,38 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
                 intent.putExtra("index", 2)
                 startActivity(intent)
             }
+            //
+            if (!taskInfo.prefirst.isNullOrEmpty()) {
+                tv_title_online_task_cure_photos.visibility = View.VISIBLE
+                ll_save_online_task_cure_pre_photos.visibility = View.VISIBLE
+                ll_save_online_task_cure_under_photos.visibility = View.VISIBLE
+                ll_save_online_task_cure_after_photos.visibility = View.VISIBLE
+
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prefirst).into(save_online_task_detail_cure_pre_first)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.presecond).into(save_online_task_detail_cure_pre_second)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prethird).into(save_online_task_detail_cure_pre_third)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underfirst).into(save_online_task_detail_under_first)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.undersecond).into(save_online_task_detail_under_second)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underthird).into(save_online_task_detail_under_third)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterfirst).into(save_online_task_detail_after_first)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.aftersecond).into(save_online_task_detail_after_second)
+                Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterthird).into(save_online_task_detail_after_third)
+                //
+                val listCurePhotoViews = listOf(save_online_task_detail_cure_pre_first, save_online_task_detail_cure_pre_second, save_online_task_detail_cure_pre_third, save_online_task_detail_under_first, save_online_task_detail_under_second, save_online_task_detail_under_third,
+                        save_online_task_detail_after_first, save_online_task_detail_after_second, save_online_task_detail_after_third)
+                val listCurePhotoUrls = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prefirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.presecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prethird,
+                        XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underfirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.undersecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underthird, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterfirst,
+                        XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.aftersecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterthird)
+                listCurePhotoViews.forEachIndexed { index, imageView ->
+                    imageView.setOnClickListener {
+                        val intent = Intent(this, LargePicActivity::class.java)
+                        intent.putExtra("picsurl", listCurePhotoUrls)
+                        intent.putExtra("index", index)
+                        startActivity(intent)
+                    }
+                }
+            }
+
         }, hashMapOf("taskNumber" to taskNumber))
     }
 

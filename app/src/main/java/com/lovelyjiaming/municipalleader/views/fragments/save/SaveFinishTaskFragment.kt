@@ -61,6 +61,7 @@ class SaveFinishTaskFragment : Fragment() {
         save_finish_swiperefresh.isRefreshing = false
         mListResult = Gson().fromJson(strResult, CureAppliedTaskClass::class.java).CureAppliedList
         mAdapter.setData(mListResult?.toMutableList())
+        mAdapter.holderType = "saveonlinetask"
         mParentFragment.displayFinishedTaskCount(mListResult?.size ?: 0)
     }
 
@@ -72,10 +73,10 @@ class SaveFinishTaskFragment : Fragment() {
             }
         }
         if (searchParam.containsKey("type")) {
-            listTmp = listTmp?.filter { it.taskType == searchParam["type"] }
+            listTmp = listTmp?.filter { it.taskType == searchParam["type"] } ?: mListResult?.filter { it.taskType == searchParam["type"] }
         }
         if (searchParam.containsKey("office")) {
-            listTmp = listTmp?.filter { it.taskOffice == searchParam["office"] }
+            listTmp = listTmp?.filter { it.taskOffice == searchParam["office"] } ?: mListResult?.filter { it.taskOffice == searchParam["office"] }
         }
         mAdapter.setData(listTmp?.toMutableList())
         mParentFragment.displayFinishedTaskCount(listTmp?.size ?: 0)

@@ -995,6 +995,108 @@
                     android:textSize="35px" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tv_title_online_task_cure_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:text="养护现场照片："
+                android:textColor="#000"
+                android:textSize="40px"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_save_online_task_cure_pre_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_cure_pre_first"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_cure_pre_second"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_cure_pre_third"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_save_online_task_cure_under_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_under_first"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_under_second"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_under_third"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_save_online_task_cure_after_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50px"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_after_first"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_after_second"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/save_online_task_detail_after_third"
+                    android:layout_width="300px"
+                    android:layout_height="230px"
+                    android:layout_marginStart="20px"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
