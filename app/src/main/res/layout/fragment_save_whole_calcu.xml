@@ -3,58 +3,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.fragments.save.SaveWholeCalcuFragment"
     tools:ignore="PxUsage">
 
     <LinearLayout
         android:id="@+id/ll_save_whole_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10px"
+        android:weightSum="5"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/save_whole_top_startdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:paddingLeft="40px"
-            android:paddingTop="15px"
-            android:paddingRight="40px"
-            android:paddingBottom="15px"
-            android:text="选择起始时间 "
-            android:textColor="#fff"
-            android:textSize="30px"
-            android:textStyle="italic|bold" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_fix_week"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
 
-        <TextView
-            android:id="@+id/save_whole_top_enddate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20px"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:paddingLeft="40px"
-            android:paddingTop="15px"
-            android:paddingRight="40px"
-            android:paddingBottom="15px"
-            android:text="选择终止时间 "
-            android:textColor="#fff"
-            android:textSize="30px"
-            android:textStyle="italic|bold" />
+            <TextView
+                android:id="@+id/tv_choose_fix_week"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="本周"
+                android:textColor="#333"
+                android:textSize="30px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_fix_month"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="10px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/tv_choose_fix_month"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="本月"
+                android:textColor="#333"
+                android:textSize="30px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_fix_3month"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="10px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/tv_choose_fix_3month"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="本季度"
+                android:textColor="#333"
+                android:textSize="30px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_choose_fix_year"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="10px"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#efefef"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/tv_choose_fix_year"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="本年度"
+                android:textColor="#333"
+                android:textSize="30px"
+                android:textStyle="normal" />
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/save_whole_top_office"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20px"
+            android:layout_width="0dp"
+            android:layout_height="80px"
+            android:layout_marginStart="10px"
+            android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:paddingLeft="90px"
             android:paddingTop="15px"
-            android:paddingRight="90px"
             android:paddingBottom="15px"
             android:text="全区 "
             android:textColor="#fff"

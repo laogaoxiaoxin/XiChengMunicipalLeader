@@ -42,7 +42,7 @@ class SaveFragment : Fragment() {
         }
         tbl_save_top.setupWithViewPager(viewpager_save)
         viewpager_save.currentItem = 0
-        viewpager_save.offscreenPageLimit = 1
+        viewpager_save.offscreenPageLimit = 3
         //
         viewpager_save.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}

@@ -2,6 +2,7 @@ package com.lovelyjiaming.municipalleader.views.fragments.save
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -9,21 +10,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
-
 import com.lovelyjiaming.municipalleader.R
-import com.lovelyjiaming.municipalleader.R.id.*
-import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
 import com.lovelyjiaming.municipalleader.utils.MaterialClass
 import com.lovelyjiaming.municipalleader.utils.XCNetWorkUtil
 import com.lovelyjiaming.municipalleader.views.activitys.ChooseConditionActivity
 import com.lovelyjiaming.municipalleader.views.adapter.SaveWholeCalcuAdapter
 import kotlinx.android.synthetic.main.fragment_save_whole_calcu.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SaveWholeCalcuFragment : Fragment() {
 
     val adapter: SaveWholeCalcuAdapter by lazy {
         SaveWholeCalcuAdapter(activity as Context)
     }
+    var startDate = ""
+    var endDate = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,23 +43,86 @@ class SaveWholeCalcuFragment : Fragment() {
         save_whole_recyclerview.adapter = adapter
         requestData()
         //
-        save_whole_top_startdate.setOnClickListener {
-            DatePickerUtils.displayDatePickerDialog(activity as Context) {
-                save_whole_top_startdate.text = it
-                requestData()
-            }
-        }
-        save_whole_top_enddate.setOnClickListener {
-            DatePickerUtils.displayDatePickerDialog(activity as Context) {
-                save_whole_top_enddate.text = it
-                requestData()
-            }
-        }
-        //
         save_whole_top_office.setOnClickListener {
             val intent = Intent(activity, ChooseConditionActivity::class.java)
             intent.putExtra("type", "savecalc")
             startActivityForResult(intent, 3978)
+        }
+        //
+        //
+        cv_choose_fix_month.setOnClickListener {
+            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
+            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_week.setCardBackgroundColor(Color.parseColor("#efefef"))
+            //组串
+            val year = Calendar.getInstance().get(Calendar.YEAR)
+            val month = if ("${Calendar.getInstance().get(Calendar.MONTH) + 1}".length == 2) Calendar.getInstance().get(Calendar.MONTH) + 1 else "0${Calendar.getInstance().get(Calendar.MONTH) + 1}"
+            val lastDay = Calendar.getInstance().getMaximum(Calendar.DAY_OF_MONTH)
+            startDate = "$year-$month-01"
+            endDate = "$year-$month-$lastDay"
+            requestData()
+
+        }
+        //
+        cv_choose_fix_3month.setOnClickListener {
+            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
+            cv_choose_fix_week.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#efefef"))
+            val year = Calendar.getInstance().get(Calendar.YEAR)
+            when (getSeason()) {
+                1 -> {
+                    startDate = "$year-01-01"
+                    endDate = "$year-03-31"
+                }
+                2 -> {
+                    startDate = "$year-04-01"
+                    endDate = "$year-06-30"
+                }
+                3 -> {
+                    startDate = "$year-07-01"
+                    endDate = "$year-09-30"
+                }
+                4 -> {
+                    startDate = "$year-10-01"
+                    endDate = "$year-12-31"
+                }
+            }
+            requestData()
+
+        }
+        //
+        cv_choose_fix_year.setOnClickListener {
+            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_week.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
+            startDate = "${Calendar.getInstance().get(Calendar.YEAR)}-01-01"
+            endDate = "${Calendar.getInstance().get(Calendar.YEAR)}-12-31"
+            requestData()
+
+        }
+        //
+        cv_choose_fix_week.setOnClickListener {
+            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_week.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
+            //
+            val sdf = SimpleDateFormat("yyyy-MM-dd"); //设置时间格式
+            val nowCal = Calendar.getInstance()
+            val dayWeek = nowCal.get(Calendar.DAY_OF_WEEK)
+            if (1 == dayWeek) {
+                nowCal.add(Calendar.DAY_OF_MONTH, -1);
+            }
+            nowCal.firstDayOfWeek = Calendar.MONDAY;//设置一个星期的第一天，按中国的习惯一个星期的第一天是星期一
+            val day = nowCal.get(Calendar.DAY_OF_WEEK);//获得当前日期是一个星期的第几天
+            nowCal.add(Calendar.DATE, nowCal.firstDayOfWeek - day);//根据日历的规则，给当前日期减去星期几与一个星期第一天的差值
+            startDate = sdf.format(nowCal.time)
+            nowCal.add(Calendar.DATE, 6);
+            endDate = sdf.format(nowCal.time)
+            requestData()
         }
     }
 
@@ -69,11 +134,20 @@ class SaveWholeCalcuFragment : Fragment() {
         }
     }
 
+    private fun getSeason(): Int =
+            when (Calendar.getInstance().get(Calendar.MONTH)) {
+                Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH -> 1
+                Calendar.APRIL, Calendar.MAY, Calendar.JUNE -> 2
+                Calendar.JULY, Calendar.AUGUST, Calendar.SEPTEMBER -> 3
+                Calendar.OCTOBER, Calendar.NOVEMBER, Calendar.DECEMBER -> 4
+                else -> -1
+            }
+
     private fun requestData() {
-        if (!save_whole_top_startdate.text.toString().contains("20") || !save_whole_top_enddate.text.toString().contains("20")) return
+        if (!startDate.contains("20") || !endDate.contains("20")) return
         XCNetWorkUtil.invokeGetRequest(activity!!, XCNetWorkUtil.NETWORK_BASIC_SAVE_ADDRESS + "getCaseCount", {
             getMaterielCalc(it)
-        }, hashMapOf("startDate" to save_whole_top_startdate.text.toString(), "endDate" to save_whole_top_enddate.text.toString(), "office" to save_whole_top_office.text.toString().trimEnd()))
+        }, hashMapOf("startDate" to startDate, "endDate" to endDate, "office" to save_whole_top_office.text.toString().trimEnd()))
     }
 
     private fun getMaterielCalc(result: String) {
