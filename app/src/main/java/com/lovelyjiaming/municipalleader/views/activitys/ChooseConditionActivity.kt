@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.CardView
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.utils.DatePickerUtils
 import kotlinx.android.synthetic.main.activity_choose_condition.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class ChooseConditionActivity : AppCompatActivity() {
@@ -222,50 +224,6 @@ class ChooseConditionActivity : AppCompatActivity() {
                 hashMapValue["enddate"] = it + " 24:00:00"
             }
         }
-
-        //
-        tv_choose_fix_month.setOnClickListener {
-            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
-            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#efefef"))
-            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#efefef"))
-            //组串
-            val year = Calendar.getInstance().get(Calendar.YEAR)
-            val month = if ("${Calendar.getInstance().get(Calendar.MONTH) + 1}".length == 2) Calendar.getInstance().get(Calendar.MONTH) + 1 else "0${Calendar.getInstance().get(Calendar.MONTH) + 1}"
-            val lastDay = Calendar.getInstance().getMaximum(Calendar.DAY_OF_MONTH)
-            hashMapValue["startdate"] = "$year-$month-01 00:00:00"
-            hashMapValue["enddate"] = "$year-$month-$lastDay 23:59:59"
-        }
-        cv_choose_fix_3month.setOnClickListener {
-            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#efefef"))
-            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
-            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#efefef"))
-            val year = Calendar.getInstance().get(Calendar.YEAR)
-            when (getSeason()) {
-                1 -> {
-                    hashMapValue["startdate"] = "$year-01-01 00:00:00"
-                    hashMapValue["enddate"] = "$year-03-31 23:59:59"
-                }
-                2 -> {
-                    hashMapValue["startdate"] = "$year-04-01 00:00:00"
-                    hashMapValue["enddate"] = "$year-06-30 23:59:59"
-                }
-                3 -> {
-                    hashMapValue["startdate"] = "$year-07-01 00:00:00"
-                    hashMapValue["enddate"] = "$year-09-30 23:59:59"
-                }
-                4 -> {
-                    hashMapValue["startdate"] = "$year-10-01 00:00:00"
-                    hashMapValue["enddate"] = "$year-12-31 23:59:59"
-                }
-            }
-        }
-        cv_choose_fix_year.setOnClickListener {
-            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#efefef"))
-            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#efefef"))
-            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
-            hashMapValue["startdate"] = "${Calendar.getInstance().get(Calendar.YEAR)}-$01-01 00:00:00"
-            hashMapValue["enddate"] = "${Calendar.getInstance().get(Calendar.YEAR)}-$12-31 23:59:59"
-        }
         //
         cv_choose_office_ok.setOnClickListener {
             val intent = Intent()
@@ -274,15 +232,6 @@ class ChooseConditionActivity : AppCompatActivity() {
             finish()
         }
     }
-
-    private fun getSeason(): Int =
-            when (Calendar.getInstance().get(Calendar.MONTH)) {
-                Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH -> 1
-                Calendar.APRIL, Calendar.MAY, Calendar.JUNE -> 2
-                Calendar.JULY, Calendar.AUGUST, Calendar.SEPTEMBER -> 3
-                Calendar.OCTOBER, Calendar.NOVEMBER, Calendar.DECEMBER -> 4
-                else -> -1
-            }
 
 
 }
