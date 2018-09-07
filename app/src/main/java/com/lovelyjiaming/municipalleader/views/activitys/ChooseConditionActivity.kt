@@ -33,7 +33,7 @@ class ChooseConditionActivity : AppCompatActivity() {
         setClickListener()
         //
         when (intent.getStringExtra("type")) {
-        //养护的综合统计
+            //养护的综合统计
             "savecalc" -> {
                 tv_choose_emergency_type.visibility = View.GONE
                 ll_choose_emergency_type.visibility = View.GONE
@@ -54,7 +54,7 @@ class ChooseConditionActivity : AppCompatActivity() {
                 ll_choose_patrol_type_line1.visibility = View.GONE
                 ll_choose_patrol_type_line2.visibility = View.GONE
             }
-        //巡查的案件查询
+            //巡查的案件查询
             "patrol1" -> {
                 cv_choose_office_line44.visibility = View.GONE
                 ll_choose_emergency_type.visibility = View.GONE
@@ -222,6 +222,22 @@ class ChooseConditionActivity : AppCompatActivity() {
             }
         }
 
+        //
+        tv_choose_fix_month.setOnClickListener {
+            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
+            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#efefef"))
+        }
+        cv_choose_fix_3month.setOnClickListener {
+            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
+            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#efefef"))
+        }
+        cv_choose_fix_year.setOnClickListener {
+            cv_choose_fix_month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_3month.setCardBackgroundColor(Color.parseColor("#efefef"))
+            cv_choose_fix_year.setCardBackgroundColor(Color.parseColor("#ffd2d2"))
+        }
         //
         //
         cv_choose_office_ok.setOnClickListener {
