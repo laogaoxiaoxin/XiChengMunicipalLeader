@@ -75,10 +75,8 @@ class CheckNoEndDetailActivity : AppCompatActivity() {
         Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskThird).into(check_noend_casedetai_thirdpic)
 
         //
-        val curePhotos = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prefirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.presecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prethird,
-                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underfirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.undersecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underthird, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterfirst,
-                XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.aftersecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterthird)
-        val cureViews = arrayListOf(check_noend_casedetai_prefirst, check_noend_casedetai_presecond, check_noend_casedetai_prethird, check_noend_casedetai_underfirst, check_noend_casedetai_undersecond, check_noend_casedetai_underthird, check_noend_casedetai_afterfirst, check_noend_casedetai_aftersecond, check_noend_casedetai_afterthird)
+        val curePhotos = arrayListOf(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.finishFirst, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.finishSecond, XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.finishThird)
+        val cureViews = arrayListOf(check_noend_casedetai_prefirst, check_noend_casedetai_presecond, check_noend_casedetai_prethird)
         cureViews.forEachIndexed { index, imageView ->
             imageView.setOnClickListener {
                 val intent = Intent(this, LargePicActivity::class.java)
@@ -87,20 +85,9 @@ class CheckNoEndDetailActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-        //
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prefirst).into(check_noend_casedetai_prefirst)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.presecond).into(check_noend_casedetai_presecond)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.prethird).into(check_noend_casedetai_prethird)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underfirst).into(check_noend_casedetai_underfirst)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.undersecond).into(check_noend_casedetai_undersecond)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.underthird).into(check_noend_casedetai_underthird)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterfirst).into(check_noend_casedetai_afterfirst)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.aftersecond).into(check_noend_casedetai_aftersecond)
-//        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.afterthird).into(check_noend_casedetai_afterthird)
-//
-//        if (taskInfo.prefirst?.isEmpty()!! && taskInfo.presecond?.isEmpty()!! && taskInfo.prethird?.isEmpty()!!) check_noend_casedetai_prepic.visibility = View.GONE
-//        if (taskInfo.underfirst?.isEmpty()!! && taskInfo.undersecond?.isEmpty()!! && taskInfo.underthird?.isEmpty()!!) check_noend_casedetai_underpic.visibility = View.GONE
-//        if (taskInfo.afterfirst?.isEmpty()!! && taskInfo.aftersecond?.isEmpty()!! && taskInfo.afterthird?.isEmpty()!!) check_noend_casedetai_afterpic.visibility = View.GONE
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.finishFirst).into(check_noend_casedetai_prefirst)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.finishSecond).into(check_noend_casedetai_presecond)
+        Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.finishThird).into(check_noend_casedetai_prethird)
     }
 
     private fun displayItemsHasValue(value: String?, textView: TextView, layout: LinearLayout) {

@@ -31,7 +31,8 @@ data class InspectUndoneItemClass(val taskName: String?, val taskNumber: String?
                                   val asphalt_5cm_10_400: String?, val taskSidewalk: String?, val taskPlaster: String?, val taskRainwater_outlet: String?, val caiselumian: String?, val taskCurb: String?,
                                   val taskMachine_stone: String?, val taskInorganic_material_15cm: String?, val taskInorganic_material_20cm: String?, val taskTree_pool: String?, val mangdao: String?,
                                   val shengjiangjianchajing: String?, val jiagujianchajing: String?, val wujiliao25: String?, val shicaibudao: String?, val shicaimangdao: String?, val shicailuyuanshi: String?, val shicaidangchezhuang: String?, val tiezhidangchezhuang: String?,
-                                  val prefirst: String?, val presecond: String?, val prethird: String?, val underthird: String?, val undersecond: String?, val underfirst: String?, val afterfirst: String?, val aftersecond: String?, val afterthird: String?) : Serializable
+                                  val prefirst: String?, val presecond: String?, val prethird: String?, val underthird: String?, val undersecond: String?, val underfirst: String?, val afterfirst: String?, val aftersecond: String?, val afterthird: String?,
+                                  val finishFirst: String?, val finishSecond: String?, val finishThird: String?) : Serializable
 
 data class InspectUndoneClass(val InspectUndone: List<InspectUndoneItemClass>)
 
@@ -45,10 +46,10 @@ data class CureAppliedTaskClass(val CureAppliedList: List<InspectUndoneItemClass
 data class CureDetailInfo(val CureOnLineDetails: InspectUndoneItemClass)
 
 //养护统计
-data class MaterailItemClass(val taskAsphalt_9cm_10: String, val taskAsphalt_5cm_10: String, val asphalt_9cm_10_400: String, val asphalt_5cm_10_400: String, val taskAsphalt_9cm_400: String, val taskAsphalt_5cm_400: String
-                             , val taskSidewalk: String, val mangdao: String, val taskPlaster: String, val caiselumian: String, val shengjiangjianchajing: String, val jiagujianchajing: String, val taskRainwater_outlet: String, val taskCurb: String
-                             , val taskMachine_stone: String, val taskInorganic_material_15cm: String, val taskInorganic_material_20cm: String, val wujiliao25: String, val taskTree_pool: String, val shicaibudao: String, val shicaimangdao: String, val shicailuyuanshi: String
-                             , val shicaidangchezhuang: String, val tiezhidangchezhuang: String, val taskconcrete: String)
+data class MaterailItemClass(val taskAsphalt_9cm_10: String?, val taskAsphalt_5cm_10: String?, val asphalt_9cm_10_400: String?, val asphalt_5cm_10_400: String?, val taskAsphalt_9cm_400: String?, val taskAsphalt_5cm_400: String?
+                             , val taskSidewalk: String?, val mangdao: String?, val taskPlaster: String?, val caiselumian: String?, val shengjiangjianchajing: String?, val jiagujianchajing: String?, val taskRainwater_outlet: String?, val taskCurb: String?
+                             , val taskMachine_stone: String?, val taskInorganic_material_15cm: String?, val taskInorganic_material_20cm: String?, val wujiliao25: String?, val taskTree_pool: String?, val shicaibudao: String?, val shicaimangdao: String?, val shicailuyuanshi: String?
+                             , val shicaidangchezhuang: String?, val tiezhidangchezhuang: String?, val taskconcrete: String?)
 
 data class MaterialClass(val result: Int, val CaseCount: MutableList<MaterailItemClass>)
 
