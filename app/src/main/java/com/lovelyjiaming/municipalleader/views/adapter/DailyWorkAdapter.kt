@@ -2,6 +2,7 @@ package com.lovelyjiaming.municipalleader.views.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,53 @@ import com.lovelyjiaming.municipalleader.utils.AutoUtils
 data class SummaryItem(val userName: String, val savetime: String, val littleGroup: String, val content: String)
 data class SummaryResult(val summaryTask: MutableList<SummaryItem>)
 
+class DailyWorkDateItemAdapter(private val context: Context) : RecyclerView.Adapter<DailyWorkDateItemAdapter.DailyWorkDateItemViewHolder>() {
+
+    private var mapData: MutableMap<String, List<SummaryItem>>? = null
+
+    fun setData(listData: MutableList<SummaryItem>) {
+        this.mapData = listData.groupBy { it.savetime.substring(0, 7) }.toMutableMap()
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyWorkDateItemViewHolder {
+        return DailyWorkDateItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item_history_more_examroad_daily, parent, false))
+    }
+
+    override fun getItemCount(): Int = mapData?.keys?.size ?: 0
+
+    override fun onBindViewHolder(holder: DailyWorkDateItemViewHolder, position: Int) {
+        holder.apply {
+            item_history_more_exam_road_daily_month.text = mapData?.keys?.toMutableList()?.get(position)
+            item_history_more_exam_road_daily_month_recyclerview.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            val adapter = DailyWorkAdapter(context)
+            item_history_more_exam_road_daily_month_recyclerview.adapter = adapter
+            adapter.setData(mapData?.get(item_history_more_exam_road_daily_month.text)?.toMutableList()!!)
+            //
+            item_history_more_exam_road_daily_month.setOnClickListener {
+                if (!mDisplay) {
+                    item_history_more_exam_road_daily_month_recyclerview.visibility = View.VISIBLE
+                    mDisplay = true
+                } else {
+                    item_history_more_exam_road_daily_month_recyclerview.visibility = View.GONE
+                    mDisplay = false
+                }
+            }
+        }
+    }
+
+    class DailyWorkDateItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        init {
+            AutoUtils.auto(itemView)
+        }
+
+        var mDisplay = false
+        val item_history_more_exam_road_daily_month = itemView.findViewById(R.id.item_history_more_exam_road_daily_month) as TextView
+        val item_history_more_exam_road_daily_month_recyclerview = itemView.findViewById(R.id.item_history_more_exam_road_daily_month_recyclerview) as RecyclerView
+    }
+}
+
+/////////////////
 class DailyWorkAdapter(private val context: Context) : RecyclerView.Adapter<DailyWorkAdapter.DailyWorkViewHolder>() {
 
     private var mListData: MutableList<SummaryItem>? = null
