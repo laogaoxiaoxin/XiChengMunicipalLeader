@@ -87,6 +87,11 @@ class MainActivity : AppCompatActivity() {
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer_selected)
             tv_main_bottom_tools_engineer.setTextColor(Color.parseColor("#ffcc0000"))
         }
+        //
+        iv_daily_work.setOnClickListener {
+            val intent = Intent(this, DailyWorkListActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     //是否显示更多图标

@@ -30,6 +30,14 @@
             android:scaleType="centerInside"
             android:src="@drawable/more_choose_type"
             android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_daily_work"
+            android:layout_width="100px"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/daily_work"
+            android:visibility="visible" />
     </RelativeLayout>
 
     <LinearLayout

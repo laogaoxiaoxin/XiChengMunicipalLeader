@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:ignore="PxUsage">
+
+    <TextView
+        android:id="@+id/tv_daily_work_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20px"
+        android:textColor="#000"
+        android:textSize="35px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_daily_work_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="25px"
+        android:textColor="#000"
+        android:textSize="35px"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_daily_work_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="25px"
+        android:textColor="#000"
+        android:textSize="35px"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_daily_work_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="25px"
+        android:lineSpacingMultiplier="1.5"
+        android:textColor="#000"
+        android:textSize="35px"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_daily_work_displaymore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40px"
+        android:lineSpacingMultiplier="1.5"
+        android:text="展开"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="35px"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="25px"
+        android:background="#ddd" />
+</LinearLayout>

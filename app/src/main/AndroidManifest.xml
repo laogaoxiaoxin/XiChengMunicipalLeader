@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="YBYzCnT2QTPX5nqaLvCWQ1BG4MgTHIAD" />
@@ -78,6 +79,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".views.activitys.MoreExamRoadHistoryDailyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activitys.DailyWorkListActivity"
             android:screenOrientation="portrait" />
     </application>
 
