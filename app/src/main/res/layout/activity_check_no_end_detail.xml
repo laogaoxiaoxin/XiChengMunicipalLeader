@@ -208,7 +208,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="养护分配："
+                    android:text="任务备注："
                     android:textColor="#000"
                     android:textSize="40px"
                     android:textStyle="bold" />
@@ -234,7 +234,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="养护小组："
+                    android:text="处理详情："
                     android:textColor="#000"
                     android:textSize="40px"
                     android:textStyle="bold" />

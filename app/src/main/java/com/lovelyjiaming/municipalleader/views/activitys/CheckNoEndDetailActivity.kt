@@ -30,7 +30,8 @@ class CheckNoEndDetailActivity : AppCompatActivity() {
         check_noend_taskdetail_rank.text = taskInfo.taskRank
         check_noend_taskdetail_office.text = taskInfo.taskOffice
         check_noend_taskdetail_patrol_date.text = taskInfo.taskDate
-        check_noend_taskdetail_cure_date.text = taskInfo.taskAssignDate
+        check_noend_taskdetail_cure_date.text = taskInfo.taskNote
+        check_noend_taskdetail_cure_group.text = taskInfo.taskRemarks
         check_noend_taskdetail_cure_group.text = taskInfo.taskAssign
         check_noend_taskdetail_status.text = taskInfo.taskState
         check_noend_taskdetail_address.text = taskInfo.taskPlace

@@ -61,6 +61,8 @@ class SaveOnlineTaskActivity : AppCompatActivity() {
             save_online_taskdetail_type.text = taskInfo.taskType
             save_online_taskdetail_time.text = taskInfo.taskDate
             save_online_taskdetail_assigngroup.text = taskInfo.taskAssign
+            if (!taskInfo.taskAssignDate?.contains("1900")!!)
+                save_online_taskdetail_saveassign.text = taskInfo.taskAssignDate
             save_online_taskdetail_assignstate.text = taskInfo.taskState
             Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskFirst).into(save_online_taskdetail_firstpic)
             Glide.with(this).load(XCNetWorkUtil.NETWORK_IMG_BASIC_ADDRESS + taskInfo.taskSecond).into(save_online_taskdetail_secondpic)

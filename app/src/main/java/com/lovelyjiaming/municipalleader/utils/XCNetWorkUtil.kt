@@ -32,7 +32,7 @@ data class InspectUndoneItemClass(val taskName: String?, val taskNumber: String?
                                   val taskMachine_stone: String?, val taskInorganic_material_15cm: String?, val taskInorganic_material_20cm: String?, val taskTree_pool: String?, val mangdao: String?,
                                   val shengjiangjianchajing: String?, val jiagujianchajing: String?, val wujiliao25: String?, val shicaibudao: String?, val shicaimangdao: String?, val shicailuyuanshi: String?, val shicaidangchezhuang: String?, val tiezhidangchezhuang: String?,
                                   val prefirst: String?, val presecond: String?, val prethird: String?, val underthird: String?, val undersecond: String?, val underfirst: String?, val afterfirst: String?, val aftersecond: String?, val afterthird: String?,
-                                  val finishFirst: String?, val finishSecond: String?, val finishThird: String?) : Serializable
+                                  val finishFirst: String?, val finishSecond: String?, val finishThird: String?, val taskNote: String?, val taskRemarks: String?) : Serializable
 
 data class InspectUndoneClass(val InspectUndone: List<InspectUndoneItemClass>)
 
