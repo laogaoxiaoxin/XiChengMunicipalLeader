@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 import com.google.gson.Gson
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
@@ -27,8 +28,12 @@ class DailyWorkListActivity : AppCompatActivity() {
         daily_work_recyclerview.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         daily_work_recyclerview.adapter = mAdapter
         XCNetWorkUtil.invokeGetRequest(this, NETWORK_BASIC_SAVE_ADDRESS + "getSummary", {
-            val result = Gson().fromJson(it, SummaryResult::class.java)
-            mAdapter.setData(result.summaryTask)
+            val resultReturn = Gson().fromJson(it, SummaryResult::class.java)
+            if (resultReturn.result == 0) {
+                Toast.makeText(this, "暂无工作日志", Toast.LENGTH_LONG).show()
+                return@invokeGetRequest
+            }
+            mAdapter.setData(resultReturn.summaryTask)
         }, hashMapOf())
     }
 }

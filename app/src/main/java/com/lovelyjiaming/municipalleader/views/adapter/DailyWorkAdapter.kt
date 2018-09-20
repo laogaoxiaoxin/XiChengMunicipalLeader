@@ -11,8 +11,8 @@ import android.widget.TextView
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 
-data class SummaryItem(val userName: String, val savetime: String, val littleGroup: String, val content: String)
-data class SummaryResult(val summaryTask: MutableList<SummaryItem>)
+data class SummaryItem(val userName: String, val savetime: String, val content: String)
+data class SummaryResult(val result: Int, val summaryTask: MutableList<SummaryItem>)
 
 class DailyWorkDateItemAdapter(private val context: Context) : RecyclerView.Adapter<DailyWorkDateItemAdapter.DailyWorkDateItemViewHolder>() {
 
@@ -79,19 +79,16 @@ class DailyWorkAdapter(private val context: Context) : RecyclerView.Adapter<Dail
         holder.apply {
             tv_daily_work_date.text = "日期：" + mListData?.get(position)?.savetime
             tv_daily_work_username.text = "账号：" + mListData?.get(position)?.userName
-            tv_daily_work_group.text = "组别：" + mListData?.get(position)?.littleGroup
             tv_daily_work_content.text = "内容：" + mListData?.get(position)?.content
             //
             tv_daily_work_displaymore.setOnClickListener {
                 if (!mDisplay) {
                     tv_daily_work_username.visibility = View.VISIBLE
-                    tv_daily_work_group.visibility = View.VISIBLE
                     tv_daily_work_content.visibility = View.VISIBLE
                     tv_daily_work_displaymore.text = "收起"
                     mDisplay = true
                 } else {
                     tv_daily_work_username.visibility = View.GONE
-                    tv_daily_work_group.visibility = View.GONE
                     tv_daily_work_content.visibility = View.GONE
                     tv_daily_work_displaymore.text = "展开"
                     mDisplay = false

@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.lovelyjiaming.municipalleader.R
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.views.fragments.check.CheckFragment
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             //
             mPageType = if ((mListFragments[0] as CheckFragment).getCurrentIndex() == 1) "patrol1" else "patrol2"
             displayMoreTypeImg((mListFragments[0] as CheckFragment).showMainMoreType(), mPageType)
+            iv_daily_work.visibility = View.VISIBLE
         }
         //
         ll_main_bottom_save.setOnClickListener {
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
             displayMoreTypeImg((mListFragments[1] as SaveFragment).showMainMoreType(), mPageType)
+            iv_daily_work.visibility = View.GONE
         }
         //
         ll_main_bottom_danger.setOnClickListener {
@@ -74,6 +77,7 @@ class MainActivity : AppCompatActivity() {
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
             displayMoreTypeImg((mListFragments[2] as DangerFragment).showMainMoreType(), mPageType)
+            iv_daily_work.visibility = View.GONE
         }
         //
         ll_main_bottom_engineer.setOnClickListener {
@@ -86,6 +90,7 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_danger.setTextColor(Color.BLACK)
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer_selected)
             tv_main_bottom_tools_engineer.setTextColor(Color.parseColor("#ffcc0000"))
+            iv_daily_work.visibility = View.GONE
         }
         //
         iv_daily_work.setOnClickListener {
