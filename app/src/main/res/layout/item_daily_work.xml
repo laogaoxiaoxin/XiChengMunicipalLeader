@@ -62,12 +62,48 @@
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/tv_daily_work_content"
+        android:id="@+id/tv_daily_work_patrol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20px"
         android:layout_marginTop="25px"
-        android:lineSpacingMultiplier="1.5"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="#000"
+        android:textSize="35px"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_daily_work_curing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="35px"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="#000"
+        android:textSize="35px"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_daily_work_emergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="35px"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="#000"
+        android:textSize="35px"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_daily_work_project"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="35px"
+        android:lineSpacingMultiplier="1.2"
         android:textColor="#000"
         android:textSize="35px"
         android:textStyle="bold"
