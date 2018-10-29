@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.activitys.RoadFacilityDetailActivity"
+    tools:ignore="PxUsage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/road_info_detail_back"
+            android:layout_width="100px"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="公共服务设施详情 "
+            android:textColor="#fff"
+            android:textSize="40px"
+            android:textStyle="italic|bold" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:padding="30px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/road_facility_detail_taskName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_startName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_endName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_postalEmpties"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_callBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_bin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_busShelters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_seat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_mobileToilets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_postalNewsstand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_substationBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_meterBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_tramSupplyBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_signalBrakeBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_streetLightBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_communicationBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_busStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_signpost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_touristGuideSign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_subwaySign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_undergroundAccessSign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_publicToiletSign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_pedestrianGuideBoard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_bufferRod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_treePool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_busBay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_facility_detail_temporaryParking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

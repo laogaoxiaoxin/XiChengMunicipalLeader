@@ -23,7 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".views.activitys.RoadInfoDetailActivity"></activity>
+        <activity android:name=".views.activitys.RoadFacilityDetailActivity"></activity>
+        <activity android:name=".views.activitys.RoadInfoDetailActivity" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"

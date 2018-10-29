@@ -1,6 +1,7 @@
 package com.lovelyjiaming.municipalleader.views.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.R
+import com.lovelyjiaming.municipalleader.views.activitys.RoadFacilityDetailActivity
 
-data class RoadFacilityItem(val taskName: String?, val startName: String?, val endName: String?)
+data class RoadFacilityItem(val id: String, val taskName: String?, val startName: String?, val endName: String?)
 data class RoadFacilityJson(val facilitiesListTask: MutableList<RoadFacilityItem>)
 
 class RoadFacilityAdapter(private val context: Context) : RecyclerView.Adapter<RoadFacilityAdapter.ViewHolder>() {
@@ -26,6 +28,11 @@ class RoadFacilityAdapter(private val context: Context) : RecyclerView.Adapter<R
             item_road_facilities_name.text = "道路名称：" + result.taskName
             item_road_facilities_start.text = "起点名称：" + result.startName
             item_road_facilities_end.text = "终点名称：" + result.endName
+            itemView.setOnClickListener {
+                val intent = Intent(context, RoadFacilityDetailActivity::class.java)
+                intent.putExtra("id", result.id)
+                context.startActivity(intent)
+            }
         }
     }
 
