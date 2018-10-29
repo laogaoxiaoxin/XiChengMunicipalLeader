@@ -29,7 +29,7 @@ class RoadFacilityAdapter(private val context: Context) : RecyclerView.Adapter<R
         }
     }
 
-    fun setData(data: MutableList<RoadFacilityItem>) {
+    fun setData(data: MutableList<RoadFacilityItem>?) {
         this.mListData = data
         notifyDataSetChanged()
     }

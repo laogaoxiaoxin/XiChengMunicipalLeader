@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.activitys.RoadInfoDetailActivity"
+    tools:ignore="PxUsage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/road_info_detail_back"
+            android:layout_width="100px"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="道路信息详情 "
+            android:textColor="#fff"
+            android:textSize="40px"
+            android:textStyle="italic|bold" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:padding="30px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/road_info_detail_taskName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_taskStreet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_startName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_endName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_roadLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_roadWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_roadArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_trailsLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_trailsWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_trailsArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_stoneLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_stoneWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_stoneArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_motorwayNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_motorwayLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_motorwayWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_motorwayArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_nonMotorwayLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_nonMotorwayWidth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_nonMotorwayArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_coloredAsphaltArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_roadRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_pavementMaterials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_accessibleRamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_overpasses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_subwayExits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/road_info_detail_undergroundPassage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:textColor="#000"
+                android:textSize="31px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

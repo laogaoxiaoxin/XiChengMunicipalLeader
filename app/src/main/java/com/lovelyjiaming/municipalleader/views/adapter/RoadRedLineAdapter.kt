@@ -20,7 +20,7 @@ class RoadRedLineAdapter(private val context: Context) : RecyclerView.Adapter<Ro
     //
     private var mListData: MutableList<RoadRedLineItem>? = null
 
-    fun setData(data: MutableList<RoadRedLineItem>) {
+    fun setData(data: MutableList<RoadRedLineItem>?) {
         mListData = data
         notifyDataSetChanged()
     }
