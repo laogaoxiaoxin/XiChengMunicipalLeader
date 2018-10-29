@@ -20,6 +20,11 @@ class RoadRedLineAdapter(private val context: Context) : RecyclerView.Adapter<Ro
     //
     private var mListData: MutableList<RoadRedLineItem>? = null
 
+    fun setData(data: MutableList<RoadRedLineItem>) {
+        mListData = data
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder = ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_road_red_line, p0, false))
 
     override fun getItemCount(): Int = mListData?.size ?: 0
@@ -27,17 +32,17 @@ class RoadRedLineAdapter(private val context: Context) : RecyclerView.Adapter<Ro
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         p0.apply {
             val result = mListData?.get(p1)!!
-            item_road_red_line_name.text = "道路名称" + result.taskName
-            item_road_red_line_street.text = "所属街道" + result.taskStreet
-            item_road_red_line_infraredRoadLength.text = "红线外路面长度" + result.infraredRoadLength
-            item_road_red_line_infraredRoadWidth.text = "红线外路面宽度" + result.infraredRoadWidth
-            item_road_red_line_infraredRoadArea.text = "红线外路面面积" + result.infraredRoadArea
-            item_road_red_line_infraredSidewalkLength.text = "红线外便道长度" + result.infraredSidewalkLength
-            item_road_red_line_infraredSidewalkWidth.text = "红线外便道宽度" + result.infraredSidewalkWidth
-            item_road_red_line_infraredSidewalkArea.text = "红线外便道面积" + result.infraredSidewalkArea
-            item_road_red_line_infraredStoneLength.text = "红线外石材长度" + result.infraredStoneLength
-            item_road_red_line_infraredStoneWidth.text = "红线外石材宽度" + result.infraredStoneWidth
-            item_road_red_line_infraredStoneArea.text = "红线外石材面积" + result.infraredStoneArea
+            item_road_red_line_name.text = "道路名称：" + result.taskName
+            item_road_red_line_street.text = "所属街道：" + result.taskStreet
+            item_road_red_line_infraredRoadLength.text = "红线外路面长度：" + result.infraredRoadLength
+            item_road_red_line_infraredRoadWidth.text = "红线外路面宽度：" + result.infraredRoadWidth
+            item_road_red_line_infraredRoadArea.text = "红线外路面面积：" + result.infraredRoadArea
+            item_road_red_line_infraredSidewalkLength.text = "红线外便道长度：" + result.infraredSidewalkLength
+            item_road_red_line_infraredSidewalkWidth.text = "红线外便道宽度：" + result.infraredSidewalkWidth
+            item_road_red_line_infraredSidewalkArea.text = "红线外便道面积：" + result.infraredSidewalkArea
+            item_road_red_line_infraredStoneLength.text = "红线外石材长度：" + result.infraredStoneLength
+            item_road_red_line_infraredStoneWidth.text = "红线外石材宽度：" + result.infraredStoneWidth
+            item_road_red_line_infraredStoneArea.text = "红线外石材面积：" + result.infraredStoneArea
         }
     }
 

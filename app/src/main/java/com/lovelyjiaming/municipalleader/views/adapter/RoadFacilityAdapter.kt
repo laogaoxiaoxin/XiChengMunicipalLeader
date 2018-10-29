@@ -23,9 +23,9 @@ class RoadFacilityAdapter(private val context: Context) : RecyclerView.Adapter<R
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
         p0.apply {
             val result = mListData?.get(p1)!!
-            item_road_facilities_name.text = "道路名称" + result.taskName
-            item_road_facilities_start.text = "起点名称" + result.startName
-            item_road_facilities_end.text = "终点名称" + result.endName
+            item_road_facilities_name.text = "道路名称：" + result.taskName
+            item_road_facilities_start.text = "起点名称：" + result.startName
+            item_road_facilities_end.text = "终点名称：" + result.endName
         }
     }
 

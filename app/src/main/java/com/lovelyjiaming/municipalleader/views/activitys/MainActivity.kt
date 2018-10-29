@@ -11,6 +11,7 @@ import com.lovelyjiaming.municipalleader.utils.AutoUtils
 import com.lovelyjiaming.municipalleader.views.fragments.check.CheckFragment
 import com.lovelyjiaming.municipalleader.views.fragments.danger.DangerFragment
 import com.lovelyjiaming.municipalleader.views.fragments.engineer.EngineerFragment
+import com.lovelyjiaming.municipalleader.views.fragments.roadinf.RoadInfoFragment
 import com.lovelyjiaming.municipalleader.views.fragments.save.SaveFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     //publish ,me,check,save,danger,engineer
     private val mListFragments: MutableList<Fragment> by lazy {
-        mutableListOf(CheckFragment.newInstance(), SaveFragment.newInstance(), DangerFragment.newInstance(), EngineerFragment.newInstance())
+        mutableListOf(CheckFragment.newInstance(), SaveFragment.newInstance(), DangerFragment.newInstance(), EngineerFragment.newInstance(), RoadInfoFragment.newInstance())
     }
     private var mCurrentFraIndex = 0
     //
@@ -44,6 +45,8 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_danger.setTextColor(Color.BLACK)
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
+            iv_main_bottom_tools_road.setImageResource(R.drawable.main_bottom_tools_road)
+            tv_main_bottom_tools_road.setTextColor(Color.BLACK)
             //
             mPageType = if ((mListFragments[0] as CheckFragment).getCurrentIndex() == 1) "patrol1" else "patrol2"
             displayMoreTypeImg((mListFragments[0] as CheckFragment).showMainMoreType(), mPageType)
@@ -61,6 +64,8 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_danger.setTextColor(Color.BLACK)
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
+            iv_main_bottom_tools_road.setImageResource(R.drawable.main_bottom_tools_road)
+            tv_main_bottom_tools_road.setTextColor(Color.BLACK)
             displayMoreTypeImg((mListFragments[1] as SaveFragment).showMainMoreType(), mPageType)
             iv_daily_work.visibility = View.GONE
         }
@@ -76,6 +81,8 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_danger.setTextColor(Color.parseColor("#ffcc0000"))
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
             tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
+            iv_main_bottom_tools_road.setImageResource(R.drawable.main_bottom_tools_road)
+            tv_main_bottom_tools_road.setTextColor(Color.BLACK)
             displayMoreTypeImg((mListFragments[2] as DangerFragment).showMainMoreType(), mPageType)
             iv_daily_work.visibility = View.GONE
         }
@@ -90,7 +97,26 @@ class MainActivity : AppCompatActivity() {
             tv_main_bottom_tools_danger.setTextColor(Color.BLACK)
             iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer_selected)
             tv_main_bottom_tools_engineer.setTextColor(Color.parseColor("#ffcc0000"))
+            iv_main_bottom_tools_road.setImageResource(R.drawable.main_bottom_tools_road)
+            tv_main_bottom_tools_road.setTextColor(Color.BLACK)
             iv_daily_work.visibility = View.GONE
+        }
+        //
+        ll_main_bottom_road.setOnClickListener {
+            mPageType = "road"
+            switchDisplayFragment(4)
+            iv_main_bottom_tools_check.setImageResource(R.drawable.main_bottom_tools_check)
+            tv_main_bottom_tools_check.setTextColor(Color.BLACK)
+            iv_main_bottom_tools_save.setImageResource(R.drawable.main_bottom_tools_save)
+            tv_main_bottom_tools_save.setTextColor(Color.BLACK)
+            iv_main_bottom_tools_danger.setImageResource(R.drawable.main_bottom_tools_danger)
+            tv_main_bottom_tools_danger.setTextColor(Color.BLACK)
+            iv_main_bottom_tools_engineer.setImageResource(R.drawable.main_bottom_tools_engineer)
+            tv_main_bottom_tools_engineer.setTextColor(Color.BLACK)
+            iv_main_bottom_tools_road.setImageResource(R.drawable.main_bottom_tools_road_selected)
+            tv_main_bottom_tools_road.setTextColor(Color.parseColor("#ffcc0000"))
+            iv_daily_work.visibility = View.GONE
+            displayMoreTypeImg(View.GONE, mPageType)
         }
         //
         iv_daily_work.setOnClickListener {
