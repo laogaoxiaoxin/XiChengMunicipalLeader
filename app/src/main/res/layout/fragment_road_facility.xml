@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.fragments.roadinf.RoadFacilityFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/edt_road_info_facility"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:gravity="left|center_vertical"
+        android:hint="可支持道路名称，起终点名称的关键字搜索"
+        android:paddingStart="20px"
+        android:textColor="#000"
+        android:textSize="32px" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_road_facility"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff" />
 
-</FrameLayout>
+</LinearLayout>
