@@ -32,20 +32,20 @@
             android:layout_height="wrap_content"
             android:text="账号："
             android:textColor="@color/colorPrimary"
-            android:textSize="35px"
+            android:textSize="40px"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/login_edt_username"
-            android:layout_width="500px"
-            android:layout_height="90px"
+            android:layout_width="550px"
+            android:layout_height="100px"
             android:layout_marginStart="20px"
             android:background="#77ffffff"
             android:hint="请输入手机号"
             android:inputType="number"
             android:paddingStart="10px"
             android:textColor="#000"
-            android:textSize="36px"
+            android:textSize="39px"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -64,20 +64,20 @@
             android:layout_height="wrap_content"
             android:text="密码："
             android:textColor="@color/colorPrimary"
-            android:textSize="35px"
+            android:textSize="40px"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/login_edt_password"
-            android:layout_width="500px"
-            android:layout_height="90px"
+            android:layout_width="550px"
+            android:layout_height="100px"
             android:layout_marginStart="20px"
             android:background="#77ffffff"
             android:hint="请输入密码"
             android:inputType="numberPassword"
             android:paddingStart="10px"
             android:textColor="#000"
-            android:textSize="36px"
+            android:textSize="39px"
             android:textStyle="bold" />
 
     </LinearLayout>
