@@ -23,7 +23,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".views.activitys.RoadFacilityDetailActivity"></activity>
+        <activity
+            android:name=".views.activitys.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".views.activitys.RoadFacilityDetailActivity" />
         <activity android:name=".views.activitys.RoadInfoDetailActivity" />
 
         <meta-data
@@ -34,11 +45,7 @@
             android:name=".views.activitys.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".views.activitys.EngineerDetailActivity"

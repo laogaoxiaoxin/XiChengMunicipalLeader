@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AutoUtils.setSize(this, false, 1080, 1920)
         setContentView(R.layout.activity_main)
         AutoUtils.auto(this)
         switchDisplayFragment(0)

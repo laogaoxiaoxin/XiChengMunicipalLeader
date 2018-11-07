@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bkg"
+    android:orientation="vertical"
+    tools:context=".views.activitys.LoginActivity"
+    tools:ignore="PxUsage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="300px"
+        android:text="西城区市政道路信息客户端"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="600px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账号："
+            android:textColor="@color/colorPrimary"
+            android:textSize="35px"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/login_edt_username"
+            android:layout_width="500px"
+            android:layout_height="90px"
+            android:layout_marginStart="20px"
+            android:background="#77ffffff"
+            android:hint="请输入手机号"
+            android:inputType="number"
+            android:paddingStart="10px"
+            android:textColor="#000"
+            android:textSize="36px"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_user_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密码："
+            android:textColor="@color/colorPrimary"
+            android:textSize="35px"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/login_edt_password"
+            android:layout_width="500px"
+            android:layout_height="90px"
+            android:layout_marginStart="20px"
+            android:background="#77ffffff"
+            android:hint="请输入密码"
+            android:inputType="numberPassword"
+            android:paddingStart="10px"
+            android:textColor="#000"
+            android:textSize="36px"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/cv_login_invoke"
+        android:layout_width="600px"
+        android:layout_height="100px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="350px"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="登录客户端"
+            android:textColor="#fff"
+            android:textSize="38px"
+            android:textStyle="bold" />
+
+    </android.support.design.card.MaterialCardView>
+
+</LinearLayout>
